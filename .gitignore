@@ -1,6 +1,50 @@
-/subprojects/*/
+# Meson & Ninja build directories
 _build/
-.flatpak-builder
+build/
+
+# Subprojects
+/subprojects/*/
+
+# Flatpak
+.flatpak-builde
+
+# PO translations
 po/papers.pot
+
+# Clang Format configurations
 *.clang-format
+
+# Rust target directories
 target/
+cargo-home/
+
+# Python Virtual Environments
+.venv/
+__pycache__/
+*.pyc
+
+# Local cache
+.cache/
+
+# Compiled GSettings schemas
+gschemas.compiled
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+Thumbs.db
+Desktop.ini
+
+# Package bundling and installer directories
+dist/
+build-installer/
+setup.iss
+install.bat
+untracked/
+logs/
+papers-*.exe

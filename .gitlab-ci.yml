@@ -232,3 +232,79 @@ pages:
         paths:
             - public/
         expire_in: 2 days
+
+build-windows:
+    stage: build
+    tags:
+        - win32-ps
+    variables:
+        MSYSTEM: "UCRT64"
+        PKG_PREFIX: "mingw-w64-ucrt-x86_64"
+        PYTHONUTF8: "1"
+    before_script:
+        - '$env:PYTHONUTF8 = "1"'
+        - '$env:Path = "C:\msys64\${env:MSYSTEM}\bin;C:\msys64\usr\bin;${env:Path}"'
+        - 'C:\msys64\usr\bin\pacman --noconfirm -S --refresh --needed ${env:PKG_PREFIX}-gcc ${env:PKG_PREFIX}-meson ${env:PKG_PREFIX}-ninja ${env:PKG_PREFIX}-rust ${env:PKG_PREFIX}-gtk4 ${env:PKG_PREFIX}-libadwaita ${env:PKG_PREFIX}-poppler ${env:PKG_PREFIX}-libspelling ${env:PKG_PREFIX}-blueprint-compiler ${env:PKG_PREFIX}-gettext ${env:PKG_PREFIX}-appstream ${env:PKG_PREFIX}-djvulibre ${env:PKG_PREFIX}-libarchive ${env:PKG_PREFIX}-libtiff ${env:PKG_PREFIX}-pkgconf ${env:PKG_PREFIX}-osslsigncode diffutils'
+    script:
+        - 'meson setup build --buildtype=release --strip -Ddocumentation=false -Duser_doc=false -Dnautilus=false -Dkeyring=disabled -Dpreviewer=false -Dthumbnailer=false --reconfigure'
+        - 'meson compile -C build'
+        - 'powershell -ExecutionPolicy Bypass -File "${env:CI_PROJECT_DIR}\build-aux\windows\bundle.ps1"'
+        - |
+          if ($env:WIN_SIGNING_CERT_BASE64 -and $env:WIN_SIGNING_CERT_PASS) {
+              Write-Host "Signing certificate found. Proceeding to sign binaries..."
+              [IO.File]::WriteAllBytes("cert.p12", [System.Convert]::FromBase64String($env:WIN_SIGNING_CERT_BASE64))
+              Get-ChildItem "dist\*.dll", "dist\*.exe", "dist\lib\papers\6\backends\*.dll" | ForEach-Object {
+                  & osslsigncode sign -pkcs12 cert.p12 -pass $env:WIN_SIGNING_CERT_PASS -t http://timestamp.digicert.com -in $_.FullName -out $_.FullName
+              }
+              Remove-Item cert.p12 -Force
+          } else {
+              Write-Host "WIN_SIGNING_CERT_BASE64 and/or WIN_SIGNING_CERT_PASS variables not set. Skipping binary signing."
+          }
+    artifacts:
+        paths:
+            - dist/
+        expire_in: 1 day
+
+package-windows-portable:
+    stage: build
+    tags:
+        - win32-ps
+    needs:
+        - build-windows
+    script:
+        - 'Compress-Archive -Path dist\* -DestinationPath papers-${CI_COMMIT_REF_SLUG}-windows-x86_64-portable.zip'
+    artifacts:
+        name: "papers-${CI_COMMIT_REF_SLUG}-windows-x86_64-portable"
+        paths:
+            - papers-*-portable.zip
+        expire_in: 1 week
+
+package-windows-setup:
+    stage: build
+    tags:
+        - win32-ps
+    needs:
+        - build-windows
+    variables:
+        MSYSTEM: "UCRT64"
+        PKG_PREFIX: "mingw-w64-ucrt-x86_64"
+    before_script:
+        - '$env:Path = "C:\msys64\${env:MSYSTEM}\bin;C:\msys64\usr\bin;${env:Path}"'
+        - 'C:\msys64\usr\bin\pacman --noconfirm -S --refresh --needed ${env:PKG_PREFIX}-nsis ${env:PKG_PREFIX}-osslsigncode'
+    script:
+        - 'makensis build-aux/windows/papers.nsi'
+        - |
+          if ($env:WIN_SIGNING_CERT_BASE64 -and $env:WIN_SIGNING_CERT_PASS) {
+              Write-Host "Signing final setup installer..."
+              [IO.File]::WriteAllBytes("cert.p12", [System.Convert]::FromBase64String($env:WIN_SIGNING_CERT_BASE64))
+              Get-ChildItem "papers-*-installer-x64.exe" | ForEach-Object {
+                  & osslsigncode sign -pkcs12 cert.p12 -pass $env:WIN_SIGNING_CERT_PASS -t http://timestamp.digicert.com -in $_.FullName -out $_.FullName
+              }
+              Remove-Item cert.p12 -Force
+          }
+    artifacts:
+        name: "papers-${CI_COMMIT_REF_SLUG}-windows-x86_64-setup"
+        paths:
+            - papers-*-installer-x64.exe
+        expire_in: 1 week
+

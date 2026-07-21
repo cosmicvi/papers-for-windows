@@ -134,18 +134,16 @@ libdocument_deps = [
   glib_dep,
   gtk_dep,
   gmodule_dep,
+  exempi_dep,
   m_dep,
   zlib_dep,
   libsysprof_capture_dep,
 ]
 
-if exempi_dep.found()
-  libdocument_deps += exempi_dep
-endif
-
 cflags = [
   '-DG_LOG_DOMAIN="PapersDocument"',
   '-DPPS_BACKENDSDIR="@0@"'.format(pps_backendsdir),
+  '-DPPS_BACKENDS_SUBDIR="@0@"'.format(pps_backends_subdir),
   '-DPPS_BACKENDSBINARYVERSION="@0@"'.format(pps_backends_binary_version),
   '-DPAPERS_COMPILATION',
 ]

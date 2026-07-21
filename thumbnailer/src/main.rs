@@ -4,10 +4,10 @@ use std::process::ExitCode;
 
 use gio::prelude::FileExt;
 use image::{ImageBuffer, ImageFormat, Rgb, Rgba};
-use papers_document::RenderAnnotsFlags;
 use papers_document::prelude::DocumentExt;
+use papers_document::RenderAnnotsFlags;
 
-use gettextrs::{LocaleCategory, setlocale};
+use gettextrs::{setlocale, LocaleCategory};
 
 const USAGE: &str = "Usage:
   papers-thumbnailer [OPTION…] <input> <output> - GNOME Document Thumbnailer

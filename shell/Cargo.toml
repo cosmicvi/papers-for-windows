@@ -2,8 +2,6 @@
 name = "papers"
 version = "0.1.0"
 license = "GPL-2.0-or-later"
-build = "build.rs"
-
 
 authors.workspace = true
 edition.workspace = true
@@ -45,6 +43,4 @@ package = "libadwaita"
 version = "0.9"
 features = ["v1_7"]
 
-[build-dependencies]
-winres = "0.1"
 

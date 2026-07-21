@@ -141,6 +141,7 @@ blueprints = custom_target(
   'blueprints',
   input: blueprint_sources,
   output: blueprint_output,
+  env: blueprint_env,
   command: [
     blueprint_compiler,
     'batch-compile',
@@ -157,7 +158,6 @@ sources += gnome.compile_resources(
   c_name: 'pps_view',
   dependencies: blueprints,
 )
-
 
 libppsview = shared_library(
   'ppsview-' + pps_api_version,

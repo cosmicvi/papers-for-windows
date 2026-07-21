@@ -234,7 +234,7 @@ _pps_document_factory_init (void)
 	if (!pps_backends_dir) {
 		g_autofree gchar *inst_dir = g_win32_get_package_installation_directory_of_module (NULL);
 		if (inst_dir) {
-			pps_backends_dir = g_build_filename (inst_dir, "lib", "papers", "6", "backends", NULL);
+			pps_backends_dir = g_build_filename (inst_dir, "lib", PPS_BACKENDS_SUBDIR, NULL);
 		}
 	}
 #endif

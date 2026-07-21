@@ -46,19 +46,26 @@ mod window;
 
 use deps::*;
 
-fn main() -> glib::ExitCode {
-    #[cfg(target_os = "windows")]
-    {
-        if std::env::var_os("DBUS_SESSION_BUS_ADDRESS").is_none() {
-            unsafe {
-                std::env::set_var("DBUS_SESSION_BUS_ADDRESS", "none");
-            }
-        }
+#[cfg(target_os = "windows")]
+fn setup_environment() {
+    // Disable DBus session bus lookup on Windows if not configured to prevent GLib connection timeouts
+    if std::env::var_os("DBUS_SESSION_BUS_ADDRESS").is_none() {
         unsafe {
-            std::env::set_var("GTK_USE_PORTAL", "0");
-            std::env::set_var("GSETTINGS_BACKEND", "memory");
+            std::env::set_var("DBUS_SESSION_BUS_ADDRESS", "none");
         }
     }
+    // Force GTK file chooser fallback and in-memory settings storage on Windows environments without portals/dconf
+    unsafe {
+        std::env::set_var("GTK_USE_PORTAL", "0");
+        std::env::set_var("GSETTINGS_BACKEND", "memory");
+    }
+}
+
+#[cfg(not(target_os = "windows"))]
+fn setup_environment() {}
+
+fn main() -> glib::ExitCode {
+    setup_environment();
 
     let mut log_builder = env_logger::builder();
     log_builder.format_timestamp_millis();
@@ -69,7 +76,22 @@ fn main() -> glib::ExitCode {
 
     log_builder.init();
 
-    gettextrs::bindtextdomain(GETTEXT_PACKAGE, PPS_LOCALEDIR)
+    gettextrs::setlocale(gettextrs::LocaleCategory::LcAll, "");
+
+    let locale_dir = if cfg!(target_os = "windows") {
+        if let Ok(mut path) = std::env::current_exe() {
+            path.pop();
+            path.push("share");
+            path.push("locale");
+            path
+        } else {
+            std::path::PathBuf::from(PPS_LOCALEDIR)
+        }
+    } else {
+        std::path::PathBuf::from(PPS_LOCALEDIR)
+    };
+
+    gettextrs::bindtextdomain(GETTEXT_PACKAGE, &locale_dir)
         .expect("Unable to bind the text domain");
     gettextrs::bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8")
         .expect("Unable to bind the text domain codeset");
