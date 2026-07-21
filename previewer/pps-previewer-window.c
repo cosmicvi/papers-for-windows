@@ -591,6 +591,11 @@ pps_previewer_window_set_source_fd (PpsPreviewerWindow *window,
                                     int fd,
                                     GError **error)
 {
+#ifdef G_OS_WIN32
+	g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+	                     "File descriptor support is not available on Windows");
+	return FALSE;
+#else
 	PpsPreviewerWindowPrivate *priv = GET_PRIVATE (window);
 
 	int nfd;
@@ -613,4 +618,5 @@ pps_previewer_window_set_source_fd (PpsPreviewerWindow *window,
 	priv->source_fd = fd;
 
 	return TRUE;
+#endif
 }

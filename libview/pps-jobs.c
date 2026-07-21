@@ -798,6 +798,11 @@ static int
 pps_dupfd (int fd,
            GError **error)
 {
+#ifdef G_OS_WIN32
+	g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+	                     "File descriptor support is not available on Windows");
+	return -1;
+#else
 	int new_fd;
 
 	new_fd = fcntl (fd, F_DUPFD_CLOEXEC, 3);
@@ -808,6 +813,7 @@ pps_dupfd (int fd,
 	}
 
 	return new_fd;
+#endif
 }
 
 static void

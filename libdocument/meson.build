@@ -134,11 +134,14 @@ libdocument_deps = [
   glib_dep,
   gtk_dep,
   gmodule_dep,
-  exempi_dep,
   m_dep,
   zlib_dep,
   libsysprof_capture_dep,
 ]
+
+if exempi_dep.found()
+  libdocument_deps += exempi_dep
+endif
 
 cflags = [
   '-DG_LOG_DOMAIN="PapersDocument"',

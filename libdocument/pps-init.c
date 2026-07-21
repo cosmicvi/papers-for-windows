@@ -9,7 +9,9 @@
 #include <glib.h>
 #include <glib/gi18n-lib.h>
 
+#ifdef HAVE_EXEMPI
 #include <exempi/xmp.h>
+#endif
 
 #include "pps-document-factory.h"
 #include "pps-file-helpers.h"
@@ -40,7 +42,9 @@ pps_init (void)
 	bindtextdomain (GETTEXT_PACKAGE, PPS_LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
+#ifdef HAVE_EXEMPI
 	xmp_init ();
+#endif
 	gdk_pixbuf_init_modules (EXTRA_GDK_PIXBUF_LOADERS_DIR, NULL);
 	_pps_file_helpers_init ();
 	have_backends = _pps_document_factory_init ();
@@ -61,7 +65,9 @@ pps_shutdown (void)
 	if (--pps_init_count > 0)
 		return;
 
+#ifdef HAVE_EXEMPI
 	xmp_terminate ();
+#endif
 	_pps_document_factory_shutdown ();
 	_pps_file_helpers_shutdown ();
 }

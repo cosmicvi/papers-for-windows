@@ -133,6 +133,13 @@ check_arguments (int argc,
                  char **argv,
                  GError **error)
 {
+#ifdef G_OS_WIN32
+	if (input_fd != -1) {
+		g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+		                     "File descriptor support is not available on Windows");
+		return FALSE;
+	}
+#else
 	if (input_fd != -1) {
 		struct stat statbuf;
 		int flags;
@@ -180,7 +187,9 @@ check_arguments (int argc,
 			                     "Must not specify --unlink-tempfile");
 			return FALSE;
 		}
-	} else {
+	} else
+#endif
+	{
 		char *path;
 
 		if (argc != 2) {
