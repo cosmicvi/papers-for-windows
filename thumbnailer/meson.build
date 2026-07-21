@@ -20,12 +20,25 @@ endif
 
 cargo_env = cargo_common_env
 
+cargo_deps = []
+
+if host_machine.system() == 'windows'
+  win = import('windows')
+  thumb_win_res = win.compile_resources(
+    'papers-thumbnailer.rc',
+    depend_files: files('../shell/resources/papers.ico'),
+  )
+  cargo_deps += thumb_win_res
+  cargo_env.set('RUSTFLAGS', '-C link-arg=' + thumb_win_res[0].full_path())
+endif
+
 cargo_build = custom_target(
   'cargo-build',
   build_by_default: true,
   build_always_stale: true,
   output: 'src',
   console: true,
+  depends: cargo_deps,
   env: cargo_env,
   command: [
     cargo,
@@ -34,6 +47,13 @@ cargo_build = custom_target(
   ],
 )
 
+
+if host_machine.system() == 'windows'
+  thumb_bin_name = meson.project_name() + '-thumbnailer.exe'
+else
+  thumb_bin_name = meson.project_name() + '-thumbnailer'
+endif
+
 copy = custom_target(
   'cp-binary',
   depends: cargo_build,
@@ -41,11 +61,11 @@ copy = custom_target(
   build_always_stale: true,
   install: true,
   install_dir: get_option('bindir'),
-  output: meson.project_name() + '-thumbnailer',
+  output: thumb_bin_name,
   command: [
-    'cp',
-    meson.current_build_dir() / rust_target / meson.project_name()
-    + '-thumbnailer',
+    find_program('python3', 'python'),
+    '-c', 'import sys, shutil; shutil.copy2(sys.argv[1], sys.argv[2])',
+    meson.current_build_dir() / rust_target / thumb_bin_name,
     '@OUTPUT@',
   ],
 )

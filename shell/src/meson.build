@@ -24,19 +24,38 @@ papers_resources_env.set('PAPERS_RESOURCES_FILE', papers_resources.full_path())
 meson.add_devenv(papers_resources_env)
 
 
+cargo_deps = [papers_resources]
+
+if host_machine.system() == 'windows'
+  win = import('windows')
+  shell_win_res = win.compile_resources(
+    '../papers.rc',
+    depend_files: files('../resources/papers.ico'),
+  )
+  cargo_deps += shell_win_res
+  cargo_env.set('RUSTFLAGS', '-C link-arg=' + shell_win_res[0].full_path())
+endif
+
 cargo_build = custom_target(
   'cargo-build',
   build_by_default: true,
   build_always_stale: true,
   output: 'src',
   console: true,
-  depends: [papers_resources],
+  depends: cargo_deps,
   env: cargo_env,
   command: [
     cargo, 'build',
     cargo_options,
   ]
 )
+
+
+if host_machine.system() == 'windows'
+  bin_name = meson.project_name() + '.exe'
+else
+  bin_name = meson.project_name()
+endif
 
 custom_target(
   'cp-binary',
@@ -45,10 +64,11 @@ custom_target(
   build_always_stale: true,
   install: true,
   install_dir: get_option('bindir'),
-  output: meson.project_name(),
+  output: bin_name,
   command: [
-    'cp',
-    meson.current_build_dir() / rust_target / meson.project_name(),
+    find_program('python3', 'python'),
+    '-c', 'import sys, shutil; shutil.copy2(sys.argv[1], sys.argv[2])',
+    meson.current_build_dir() / rust_target / bin_name,
     '@OUTPUT@',
   ],
 )

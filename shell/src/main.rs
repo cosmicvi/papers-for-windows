@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 mod config {
     #![allow(dead_code)]
 
@@ -45,6 +47,19 @@ mod window;
 use deps::*;
 
 fn main() -> glib::ExitCode {
+    #[cfg(target_os = "windows")]
+    {
+        if std::env::var_os("DBUS_SESSION_BUS_ADDRESS").is_none() {
+            unsafe {
+                std::env::set_var("DBUS_SESSION_BUS_ADDRESS", "none");
+            }
+        }
+        unsafe {
+            std::env::set_var("GTK_USE_PORTAL", "0");
+            std::env::set_var("GSETTINGS_BACKEND", "memory");
+        }
+    }
+
     let mut log_builder = env_logger::builder();
     log_builder.format_timestamp_millis();
 

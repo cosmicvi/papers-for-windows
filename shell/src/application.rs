@@ -472,34 +472,35 @@ impl PpsApplication {
             | gio::ApplicationFlags::NON_UNIQUE
             | gio::ApplicationFlags::HANDLES_OPEN;
 
-        glib::Object::builder()
+        let mut builder = glib::Object::builder()
             .property("application-id", APP_ID)
             .property("flags", flags)
-            .property("resource-base-path", "/org/gnome/papers")
-            .property("register-session", true)
-            .build()
+            .property("resource-base-path", "/org/gnome/papers");
+
+        #[cfg(not(target_os = "windows"))]
+        {
+            builder = builder.property("register-session", true);
+        }
+        #[cfg(target_os = "windows")]
+        {
+            builder = builder.property("register-session", false);
+        }
+
+        builder.build()
     }
 }
 
 pub fn spawn(file: Option<&gio::File>, dest: Option<&LinkDest>, mode: Option<WindowRunMode>) {
-    let mut cmd = String::new();
-    let uri = file.map(|f| f.uri().to_string());
-
     match env::current_exe() {
         Ok(path) => {
             cmd.push_str(&format!(" {}", path.to_string_lossy()));
 
-            // Page label
             if let Some(dest) = dest {
                 match dest.dest_type() {
                     LinkDestType::PageLabel => {
-                        cmd.push_str(" --page-label=");
-                        cmd.push_str(
-                            glib::shell_quote(dest.page_label().unwrap_or_default())
-                                .as_os_str()
-                                .to_str()
-                                .unwrap_or_default(),
-                        );
+                        if let Some(label) = dest.page_label() {
+                            cmd.arg(format!("--page-label={}", label));
+                        }
                     }
                     LinkDestType::Page
                     | LinkDestType::Xyz
@@ -507,66 +508,35 @@ pub fn spawn(file: Option<&gio::File>, dest: Option<&LinkDest>, mode: Option<Win
                     | LinkDestType::Fith
                     | LinkDestType::Fitv
                     | LinkDestType::Fitr => {
-                        cmd.push_str(&format!(" --page-index={}", dest.page() + 1))
+                        cmd.arg(format!("--page-index={}", dest.page() + 1));
                     }
                     LinkDestType::Named => {
-                        cmd.push_str(" --named-dest=");
-                        cmd.push_str(
-                            glib::shell_quote(dest.named_dest().unwrap_or_default())
-                                .as_os_str()
-                                .to_str()
-                                .unwrap_or_default(),
-                        );
+                        if let Some(named) = dest.named_dest() {
+                            cmd.arg(format!("--named-dest={}", named));
+                        }
                     }
                     _ => (),
                 }
             }
+
+            match mode {
+                Some(WindowRunMode::Fullscreen) => {
+                    cmd.arg("-f");
+                }
+                Some(WindowRunMode::Presentation) => {
+                    cmd.arg("-s");
+                }
+                _ => (),
+            }
+
+            if let Some(file) = file {
+                cmd.arg(file.uri());
+            }
+
+            if let Err(e) = cmd.spawn() {
+                glib::g_critical!("", "Failed to spawn new papers process: {}", e);
+            }
         }
         Err(e) => glib::g_critical!("", "Failed to find current executable: {}", e),
-    }
-
-    // Mode
-    match mode {
-        Some(WindowRunMode::Fullscreen) => cmd.push_str(" -f"),
-        Some(WindowRunMode::Presentation) => cmd.push_str(" -s"),
-        _ => (),
-    }
-
-    let app =
-        gio::AppInfo::create_from_commandline(&cmd, None, gio::AppInfoCreateFlags::SUPPORTS_URIS);
-
-    let result = app.and_then(|app| {
-        let ctx = gdk::Display::default().map(|display| display.app_launch_context());
-        // Some URIs can be changed when passed through a GFile
-        // (for instance unsupported uris with strange formats like mailto:),
-        // so if you have a textual uri you want to pass in as argument,
-        // consider using g_app_info_launch_uris() instead.
-        // See https://bugzilla.gnome.org/show_bug.cgi?id=644604
-        let mut uris = vec![];
-
-        if let Some(ref uri) = uri {
-            uris.push(uri.as_str());
-        }
-
-        app.launch_uris(&uris, ctx.as_ref())
-    });
-
-    if let Err(e) = result {
-        debug!("fallback to plain spawn: {}", e.message());
-
-        if let Some(ref uri) = uri {
-            cmd.push(' ');
-            cmd.push_str(uri.as_str());
-        }
-
-        // MacOS take this path since GAppInfo doesn't support created by
-        // command line on MacOS.
-        if let Err(e) = glib::spawn_command_line_async(cmd) {
-            glib::g_printerr!(
-                "Error launching papers {}: {}\n",
-                uri.unwrap_or_default(),
-                e.message()
-            );
-        }
     }
 }
