@@ -50,6 +50,7 @@ cargo_build = custom_target(
   ]
 )
 
+
 if host_machine.system() == 'windows'
   bin_name = meson.project_name() + '.exe'
 else

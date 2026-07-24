@@ -15,29 +15,30 @@
 # Adam Matoušek <adydas95@gmail.com>, 2012
 # Marek Černocký <marek@manet.cz>, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Daniel Rusek <mail@asciiwolf.com>, 2024.
+# Patrik Sivek <sivekpatrik@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: evince\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-02-01 21:56+0000\n"
-"PO-Revision-Date: 2026-02-08 00:54+0100\n"
-"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
-"Language-Team: čeština <gnome-cs-list@gnome.org>\n"
+"POT-Creation-Date: 2026-07-28 08:00+0000\n"
+"PO-Revision-Date: 2026-07-28 19:39+0200\n"
+"Last-Translator: Patrik Sivek <sivekpatrik@gmail.com>\n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Gtranslator 50.0\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. Manually set name and icon
 #: data/org.gnome.Papers.desktop.in.in:2
 #: data/org.gnome.Papers.metainfo.xml.in.in:9
-#: shell/resources/pps-document-view.blp:87
+#: shell/resources/pps-document-view.blp:88
 #: shell/resources/pps-loader-view.blp:10 shell/src/application.rs:47
-#: shell/src/application.rs:396
+#: shell/src/application.rs:389
 msgid "Document Viewer"
 msgstr "Prohlížeč dokumentů"
 
@@ -88,40 +89,60 @@ msgstr ""
 msgid "Allow links to change the zoom level."
 msgstr "Umožnit odkazům měnit úroveň přiblížení."
 
-#: data/org.gnome.Papers.gschema.xml:43
+#: data/org.gnome.Papers.gschema.xml:44
 msgid "Check spelling when writing annotation notes or filling text forms."
 msgstr ""
 "Kontrolovat pravopis při psaní poznámek anotací nebo vyplňování textových "
 "formulářů."
 
-#: data/org.gnome.Papers.gschema.xml:47
+#: data/org.gnome.Papers.gschema.xml:48
 msgid "Show a side bar next to the document to help navigate the document."
 msgstr ""
 "Zobrazit postranní panel vedle dokumentu, který vám usnadní orientaci v "
 "dokumentu."
 
-#: data/org.gnome.Papers.gschema.xml:60
+#: data/org.gnome.Papers.gschema.xml:61
 msgid "Set the default zoom level to display a document."
 msgstr "Nastavit výchozí úroveň přiblížení pro zobrazení dokumentu."
 
-#: data/org.gnome.Papers.gschema.xml:64
+#: data/org.gnome.Papers.gschema.xml:65
 msgid ""
 "Display the document as a continuous stream of pages instead of page at a "
 "time."
 msgstr ""
 "Zobrazit dokument jako souvislý proud stránek namísto jednotlivých stránek."
 
-#: data/org.gnome.Papers.gschema.xml:68
+#: data/org.gnome.Papers.gschema.xml:69
 msgid "Show two pages side by side."
 msgstr "Zobrazit dvě stránky vedle sebe."
 
-#: data/org.gnome.Papers.gschema.xml:72
+#: data/org.gnome.Papers.gschema.xml:73
 msgid ""
 "Show the first page (odd page) on the left (when displaying two pages side "
 "by side)"
 msgstr ""
 "Zobrazit první stránku (lichá stránka) vlevo (při zobrazení dvou stránek "
 "vedle sebe)"
+
+#: data/org.gnome.Papers.gschema.xml:110
+msgid "Last used signature ID"
+msgstr "ID posledního použitého podpisu"
+
+#: data/org.gnome.Papers.gschema.xml:111
+msgid "ID of the signature most recently used for manual signing"
+msgstr "ID podpisu, který byl naposledy použit pro ruční podpis"
+
+#: data/org.gnome.Papers.gschema.xml:118
+msgid "Previewer window height"
+msgstr "Výška okna náhledu"
+
+#: data/org.gnome.Papers.gschema.xml:122
+msgid "Previewer window width"
+msgstr "Šířka okna náhledu"
+
+#: data/org.gnome.Papers.gschema.xml:126
+msgid "Previewer window maximized state"
+msgstr "Maximalizované okno náhledu"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:10
 msgid "Read documents"
@@ -143,25 +164,153 @@ msgstr ""
 "Podporuje následující formáty dokumentů: PDF, DjVu, TIFF a archivy s komiksy "
 "(CBR, CBT, CBZ, CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "komiks"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "čtečka"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "editor"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "úpravy"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "formuláře"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "poznámky"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "anotace"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "vysvětlivky"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "digitální podepisování"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "digitální podpisy"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "psaní rukou"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "napsáno ručně"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "inkoust"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "volná ruka"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "kreslení"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "kaligrafie"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "poznámky"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "zvýraznění"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "podtržení"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "podtrhávání"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "přeškrtnutí"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "tisk"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "noční režim"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "tmavý režim"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "režim prezentace"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "režim prezentujícího"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "prezentace"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "záložky"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "Čisté, jednoduché a moderní uživatelské rozhraní"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:33
+#: data/org.gnome.Papers.metainfo.xml.in.in:69
 msgid "A mobile-friendly UI"
 msgstr "Mobilní uživatelské rozhraní"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:37
+#: data/org.gnome.Papers.metainfo.xml.in.in:73
 msgid "A modern and colorful annotation list"
 msgstr "Moderní a barevný seznam poznámek"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:41
+#: data/org.gnome.Papers.metainfo.xml.in.in:77
 msgid "Big thumbnails in the sidebar"
 msgstr "Velké miniatury v postranním panelu"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:45
+#: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "Všechny akce hledání jsou obsaženy v postranním panelu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -245,52 +394,52 @@ msgid "Adds support for reading PDF Documents"
 msgstr "Přidává podporu pro čtení dokumentů PDF"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737
-#: libdocument/backend/pdf/pps-poppler.c:743
+#: libdocument/backend/pdf/pps-poppler.c:734
+#: libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "Ano"
 
 #. translators: this is the document security state
+#: libdocument/backend/pdf/pps-poppler.c:737
 #: libdocument/backend/pdf/pps-poppler.c:740
-#: libdocument/backend/pdf/pps-poppler.c:743
 #: nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
 msgid "No"
 msgstr "Ne"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "Typ 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "Typ 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "Typ 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "Typ 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "Typ 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "Neznámý řez písma"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard "
 "14 fonts. If the substitute fonts selected by fontconfig are not the same as "
@@ -301,11 +450,11 @@ msgstr ""
 "nebudou stejná jako ta, která byla použita při vytváření PDF, nemusí být "
 "dokument správně vykreslen."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "Všechna písma jsou buď standardní nebo přibalena."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "Žádný název"
 
@@ -313,21 +462,21 @@ msgstr "Žádný název"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878
 #: shell/src/properties_general.rs:85 shell/src/properties_general.rs:235
 #: shell/src/properties_general.rs:370
 msgid "None"
 msgstr "Žádné"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "Vložená podmnožina"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "Vložené"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "Nevložené"
 
@@ -336,7 +485,7 @@ msgstr "Nevložené"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (jedno ze 14 standardních písem)"
 
@@ -345,7 +494,7 @@ msgstr " (jedno ze 14 standardních písem)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (nepatřící mezi 14 standardních písem)"
 
@@ -359,7 +508,7 @@ msgstr " (nepatřící mezi 14 standardních písem)"
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -383,7 +532,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -441,33 +590,68 @@ msgstr "Všechny soubory"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i–%i"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr ", "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f mm"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f palců"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, na výšku (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, na šířku (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Stránka"
+msgstr[1] "Stránky"
+msgstr[2] "Stránky"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -496,7 +680,7 @@ msgstr[2] "Uložit přílohy"
 msgid "Page %s"
 msgstr "Stránka %s"
 
-#: libview/pps-annotation-window.c:237
+#: libview/pps-annotation-window.c:242
 #: shell/resources/pps-sidebar-annotations.blp:60
 msgid "Edit Note"
 msgstr "Upravit poznámku"
@@ -554,9 +738,9 @@ msgid "Your print range selection does not include any pages"
 msgstr "Snažíte se vytisknout výběr, který nezahrnuje žádné stránky"
 
 #. show close if the certificate is null, or if no cert is found
-#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:81
-#: shell/resources/pps-document-view.blp:788 shell/resources/pps-window.blp:138
-#: shell/src/document_view/io.rs:617
+#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83
+#: shell/resources/pps-document-view.blp:791 shell/resources/pps-window.blp:138
+#: shell/src/document_view/io.rs:566
 msgid "_Close"
 msgstr "_Zavřít"
 
@@ -634,55 +818,55 @@ msgstr "Vykreslovat ohraničení stránek"
 msgid "When enabled, a border will be drawn around each page."
 msgstr "Když je zapnuto, bude okolo každé stránky vykreslené ohraničení."
 
-#: libview/pps-print-operation.c:2006
+#: libview/pps-print-operation.c:2010
 msgid "Page Handling"
 msgstr "Nastavení stránky"
 
-#: libview/pps-view.c:2111
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "Přejít na první stránku"
 
-#: libview/pps-view.c:2113
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "Přejít na předchozí stránku"
 
-#: libview/pps-view.c:2115
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "Přejít na následující stránku"
 
-#: libview/pps-view.c:2117
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "Přejít na poslední stránku"
 
-#: libview/pps-view.c:2119
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "Přejít na stránku"
 
-#: libview/pps-view.c:2121
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "Najít"
 
-#: libview/pps-view.c:2150
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "Přejít na stránku %s"
 
-#: libview/pps-view.c:2156
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "Přejít na %s v souboru „%s“"
 
-#: libview/pps-view.c:2159
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "Přejít na soubor “%s”"
 
-#: libview/pps-view.c:2167
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "Spustit %s"
 
-#: libview/pps-view.c:2174
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "Čistý formulář"
@@ -749,56 +933,56 @@ msgstr "Popisovač souboru souboru s nastavením tisku"
 msgid "GNOME Document Previewer"
 msgstr "Náhled dokumentů GNOME"
 
-#: previewer/pps-previewer-window.c:171 previewer/pps-previewer-window.c:494
+#: previewer/pps-previewer-window.c:172 previewer/pps-previewer-window.c:512
 msgid "Papers Document Viewer"
 msgstr "Prohlížeč dokumentů Papers"
 
-#: previewer/pps-previewer-window.c:209
+#: previewer/pps-previewer-window.c:210
 #, c-format
 msgid "The selected printer “%s” could not be found"
 msgstr "Vybraná tiskárna „%s“ nebyla nalezena"
 
-#: previewer/pps-previewer-window.c:472 shell/src/document_view/io.rs:205
-#: shell/src/document_view/io.rs:206
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:204
+#: shell/src/document_view/io.rs:205
 msgid "Papers"
 msgstr "Papers"
 
-#: previewer/pps-previewer-window.blp:19
+#: previewer/pps-previewer-window.blp:21
 msgid "Previous Page"
 msgstr "Předchozí stránka"
 
-#: previewer/pps-previewer-window.blp:25
+#: previewer/pps-previewer-window.blp:27
 msgid "Next Page"
 msgstr "Následující stránka"
 
-#: previewer/pps-previewer-window.blp:31
-#: shell/resources/pps-document-view.blp:212
+#: previewer/pps-previewer-window.blp:33
+#: shell/resources/pps-document-view.blp:213
 msgid "Page Count"
 msgstr "Počet stránek"
 
-#: previewer/pps-previewer-window.blp:36
+#: previewer/pps-previewer-window.blp:38
 msgid "_Print"
 msgstr "_Tisk"
 
-#: previewer/pps-previewer-window.blp:37
+#: previewer/pps-previewer-window.blp:39
 msgid "Print This Document"
 msgstr "Vytisknout tento dokument"
 
-#: previewer/pps-previewer-window.blp:48
-#: shell/resources/pps-document-view.blp:292
+#: previewer/pps-previewer-window.blp:50
+#: shell/resources/pps-document-view.blp:293
 msgid "Zoom Out"
 msgstr "Oddálit"
 
-#: previewer/pps-previewer-window.blp:55
+#: previewer/pps-previewer-window.blp:57
 msgid "Normal Size"
 msgstr "Normální velikost"
 
-#: previewer/pps-previewer-window.blp:62
-#: shell/resources/pps-document-view.blp:279
+#: previewer/pps-previewer-window.blp:64
+#: shell/resources/pps-document-view.blp:280
 msgid "Zoom In"
 msgstr "Přiblížit"
 
-#: previewer/pps-previewer-window.blp:78 shell/src/document_view/print.rs:114
+#: previewer/pps-previewer-window.blp:80 shell/src/document_view/print.rs:114
 msgid "Failed to Print Document"
 msgstr "Nepodařilo se vytisknout dokument"
 
@@ -833,12 +1017,12 @@ msgid "Keywords"
 msgstr "Klíčová slova"
 
 #: nautilus/pps-nautilus-extension.h:50 shell/src/properties_general.rs:304
-msgid "Producer"
-msgstr "Producent"
+msgid "Document produced with"
+msgstr "Dokument byl vytvořen pomocí"
 
 #: nautilus/pps-nautilus-extension.h:51 shell/src/properties_general.rs:305
-msgid "Creator"
-msgstr "Tvůrce"
+msgid "Source file created with"
+msgstr "Zdrojový soubor byl vytvořen pomocí"
 
 #: nautilus/pps-nautilus-extension.h:52 shell/src/properties_general.rs:316
 msgid "Created"
@@ -935,7 +1119,7 @@ msgid "_Markup Type"
 msgstr "Typ _označení"
 
 #: shell/resources/pps-annotation-properties-dialog.blp:75
-#: shell/resources/pps-document-view.blp:487
+#: shell/resources/pps-document-view.blp:490
 msgid "Highlight"
 msgstr "zvýraznění"
 
@@ -964,95 +1148,103 @@ msgid "Pop up note while scrolling the document"
 msgstr "Vyskakovací poznámka při posouvání dokumentu"
 
 #. Translators: Translators: This is an action (a verb in English) that opens the sidebar to start a search
-#: shell/resources/pps-document-view.blp:78
+#: shell/resources/pps-document-view.blp:79
 msgid "Search"
 msgstr "Hledat"
 
-#: shell/resources/pps-document-view.blp:93 shell/resources/pps-window.blp:35
+#: shell/resources/pps-document-view.blp:94 shell/resources/pps-window.blp:35
 msgid "Main Menu"
 msgstr "Hlavní nabídka"
 
-#: shell/resources/pps-document-view.blp:112
+#: shell/resources/pps-document-view.blp:113
 msgid "Thumbnails"
 msgstr "Náhledy"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=732547
-#: shell/resources/pps-document-view.blp:123
+#: shell/resources/pps-document-view.blp:124
 msgid "Outline"
 msgstr "Obsah"
 
-#: shell/resources/pps-document-view.blp:135
+#: shell/resources/pps-document-view.blp:136
 msgid "Annotations"
 msgstr "Poznámky"
 
-#: shell/resources/pps-document-view.blp:153
+#: shell/resources/pps-document-view.blp:154
 msgid "Attachments"
 msgstr "Přílohy"
 
-#: shell/resources/pps-document-view.blp:169
+#: shell/resources/pps-document-view.blp:170
 msgid "Layers"
 msgstr "Vrstvy"
 
-#: shell/resources/pps-document-view.blp:199
+#: shell/resources/pps-document-view.blp:200
 msgid "Toggle Sidebar"
 msgstr "Zobrazit/skrýt postranní panel"
 
-#: shell/resources/pps-document-view.blp:205
+#: shell/resources/pps-document-view.blp:206
 msgid "Document Menu"
 msgstr "Nabídka dokumentu"
 
-#: shell/resources/pps-document-view.blp:225
+#: shell/resources/pps-document-view.blp:226
 msgid "Document has been digitally signed."
 msgstr "Dokument byl digitálně podepsán."
 
-#: shell/resources/pps-document-view.blp:226
+#: shell/resources/pps-document-view.blp:227
 msgid "View Signature…"
 msgstr "Zobrazit podpis…"
 
-#: shell/resources/pps-document-view.blp:259
+#: shell/resources/pps-document-view.blp:260
 msgid "Fit Automatically"
 msgstr "Přizpůsobit automaticky"
 
-#: shell/resources/pps-document-view.blp:342
-#: shell/resources/pps-document-view.blp:384
-#: shell/resources/pps-document-view.blp:415
+#: shell/resources/pps-document-view.blp:343
+#: shell/resources/pps-document-view.blp:385
+#: shell/resources/pps-document-view.blp:417
 msgid "Choose Color"
 msgstr "Vybrat barvu"
 
-#: shell/resources/pps-document-view.blp:362
+#: shell/resources/pps-document-view.blp:363
 msgid "Font Settings"
 msgstr "Nastavení písma"
 
-#: shell/resources/pps-document-view.blp:430
+#: shell/resources/pps-document-view.blp:399
+msgid "Highlight Stroke Size"
+msgstr "Velikost tahu zvýraznění"
+
+#: shell/resources/pps-document-view.blp:432
 msgid "Pencil Size"
 msgstr "Velikost tužky"
 
-#: shell/resources/pps-document-view.blp:457
+#: shell/resources/pps-document-view.blp:444
+msgid "Eraser Settings"
+msgstr "Nastavení gumy"
+
+#: shell/resources/pps-document-view.blp:460
 msgid "Change Eraser Radius"
 msgstr "Změnit dosah gumy"
 
-#: shell/resources/pps-document-view.blp:475
+#: shell/resources/pps-document-view.blp:478
 msgid "Insert Text"
 msgstr "Vložit text"
 
-#: shell/resources/pps-document-view.blp:481
+#: shell/resources/pps-document-view.blp:484
 msgid "Draw"
 msgstr "Kreslit"
 
-#: shell/resources/pps-document-view.blp:493
+#: shell/resources/pps-document-view.blp:496
 msgid "Erase Annotations"
 msgstr "Vymazat poznámky"
 
-#: shell/resources/pps-document-view.blp:510
-#: shell/src/document_view/actions.rs:1211
+#: shell/resources/pps-document-view.blp:513
+#: shell/src/document_view/actions.rs:1198
 msgid "Edit Document"
 msgstr "Upravit dokument"
 
-#: shell/resources/pps-document-view.blp:757
+#: shell/resources/pps-document-view.blp:760
 msgid "Selection too Small"
 msgstr "Výběr je příliš malý"
 
-#: shell/resources/pps-document-view.blp:758
+#: shell/resources/pps-document-view.blp:761
 msgid ""
 "A signature of this size may be too small to read. If you would like to "
 "create a potentially more readable signature, press `Start over` and draw a "
@@ -1062,19 +1254,19 @@ msgstr ""
 "vytvořit potenciálně čitelnější podpis, stiskněte `Začít znovu` a nakreslete "
 "větší obdélník."
 
-#: shell/resources/pps-document-view.blp:765
+#: shell/resources/pps-document-view.blp:768
 msgid "Start _Over"
 msgstr "Začít zn_ovu"
 
-#: shell/resources/pps-document-view.blp:766
+#: shell/resources/pps-document-view.blp:769
 msgid "_Sign"
 msgstr "Podep_sat"
 
-#: shell/resources/pps-document-view.blp:773
+#: shell/resources/pps-document-view.blp:776
 msgid "Abort Printing?"
 msgstr "Přerušit tisk?"
 
-#: shell/resources/pps-document-view.blp:774
+#: shell/resources/pps-document-view.blp:777
 msgid ""
 "There is one or more active print jobs. If the window is closed, pending "
 "print jobs will not be printed."
@@ -1082,245 +1274,244 @@ msgstr ""
 "Existuje jedna nebo více aktivních tiskových úloh. Pokud je okno zavřené, "
 "čekající tiskové úlohy nebudou vytištěny."
 
-#: shell/resources/pps-document-view.blp:778
+#: shell/resources/pps-document-view.blp:781
 msgid "Abort _Print and Close"
 msgstr "Přerušit _tisk a zavřít"
 
-#: shell/resources/pps-document-view.blp:779 shell/src/document_view.rs:794
-#: shell/src/document_view/io.rs:490 shell/src/document_view/io.rs:538
-#: shell/src/document_view/io.rs:730
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:815
+#: shell/src/document_view/io.rs:439 shell/src/document_view/io.rs:487
+#: shell/src/document_view/io.rs:679
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: shell/resources/pps-document-view.blp:780
+#: shell/resources/pps-document-view.blp:783
 msgid "Close _After Printing"
 msgstr "Zavřít _po vytištění"
 
-#: shell/resources/pps-document-view.blp:795
+#: shell/resources/pps-document-view.blp:798
 msgid "Open…"
 msgstr "Otevřít…"
 
-#: shell/resources/pps-document-view.blp:802
+#: shell/resources/pps-document-view.blp:805
 msgid "Ni_ght Mode"
 msgstr "_Noční režim"
 
-#: shell/resources/pps-document-view.blp:809 shell/resources/pps-window.blp:145
+#: shell/resources/pps-document-view.blp:812 shell/resources/pps-window.blp:145
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: shell/resources/pps-document-view.blp:814 shell/resources/pps-window.blp:150
+#: shell/resources/pps-document-view.blp:817 shell/resources/pps-window.blp:150
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: shell/resources/pps-document-view.blp:819 shell/resources/pps-window.blp:155
+#: shell/resources/pps-document-view.blp:822 shell/resources/pps-window.blp:155
 msgid "_About Document Viewer"
 msgstr "O _aplikaci Prohlížeč dokumentů"
 
-#: shell/resources/pps-document-view.blp:828
+#: shell/resources/pps-document-view.blp:831
 msgid "_Print…"
 msgstr "_Tisk…"
 
-#: shell/resources/pps-document-view.blp:833
+#: shell/resources/pps-document-view.blp:836
 msgid "Fullscreen"
 msgstr "Celá obrazovka"
 
-#: shell/resources/pps-document-view.blp:838
+#: shell/resources/pps-document-view.blp:841
 msgid "Present as Slideshow"
 msgstr "Promítnout jako prezentaci"
 
-#: shell/resources/pps-document-view.blp:845
+#: shell/resources/pps-document-view.blp:848
 msgid "Sign D_igitally…"
 msgstr "D_igitálně podepsat…"
 
-#: shell/resources/pps-document-view.blp:852
+#: shell/resources/pps-document-view.blp:855
 msgid "Open a C_opy"
 msgstr "Otevřít k_opii"
 
-#: shell/resources/pps-document-view.blp:857
+#: shell/resources/pps-document-view.blp:860
 #: shell/src/properties_general.rs:137
 msgid "Open With…"
 msgstr "Otevřít pomocí…"
 
-#: shell/resources/pps-document-view.blp:862
+#: shell/resources/pps-document-view.blp:865
 msgid "_Save As…"
 msgstr "_Uložit jako…"
 
-#: shell/resources/pps-document-view.blp:869
+#: shell/resources/pps-document-view.blp:872
 msgid "_Continuous"
 msgstr "_Souvislý"
 
-#: shell/resources/pps-document-view.blp:874
+#: shell/resources/pps-document-view.blp:877
 msgid "_Dual"
 msgstr "_Dvojstrana"
 
-#: shell/resources/pps-document-view.blp:879
+#: shell/resources/pps-document-view.blp:882
 msgid "_Odd Pages Left"
 msgstr "_Liché stránky vlevo"
 
-#: shell/resources/pps-document-view.blp:884
+#: shell/resources/pps-document-view.blp:887
 msgid "Right to Left Document"
 msgstr "Dokument zprava doleva"
 
-#: shell/resources/pps-document-view.blp:891
+#: shell/resources/pps-document-view.blp:894
 msgid "Ro_tate ⤵"
 msgstr "O_točit ⤵"
 
-#: shell/resources/pps-document-view.blp:898
+#: shell/resources/pps-document-view.blp:901
 msgid "Document Prop_erties"
 msgstr "Vlastnosti dokum_entu"
 
-#: shell/resources/pps-document-view.blp:951
-#: shell/resources/pps-document-view.blp:1259
+#: shell/resources/pps-document-view.blp:954
+#: shell/resources/pps-document-view.blp:1262
 msgid "Black"
 msgstr "černá"
 
-#: shell/resources/pps-document-view.blp:963
-#: shell/resources/pps-document-view.blp:1050
-#: shell/resources/pps-document-view.blp:1199
+#: shell/resources/pps-document-view.blp:966
+#: shell/resources/pps-document-view.blp:1053
+#: shell/resources/pps-document-view.blp:1202
 msgid "Orange"
 msgstr "oranžová"
 
-#: shell/resources/pps-document-view.blp:975
-#: shell/resources/pps-document-view.blp:1063
-#: shell/resources/pps-document-view.blp:1211
-#| msgid "Revoked"
+#: shell/resources/pps-document-view.blp:978
+#: shell/resources/pps-document-view.blp:1066
+#: shell/resources/pps-document-view.blp:1214
 msgid "Red"
 msgstr "červená"
 
-#: shell/resources/pps-document-view.blp:987
-#: shell/resources/pps-document-view.blp:1076
-#: shell/resources/pps-document-view.blp:1223
+#: shell/resources/pps-document-view.blp:990
+#: shell/resources/pps-document-view.blp:1079
+#: shell/resources/pps-document-view.blp:1226
 msgid "Purple"
 msgstr "fialová"
 
-#: shell/resources/pps-document-view.blp:999
-#: shell/resources/pps-document-view.blp:1089
-#: shell/resources/pps-document-view.blp:1235
+#: shell/resources/pps-document-view.blp:1002
+#: shell/resources/pps-document-view.blp:1092
+#: shell/resources/pps-document-view.blp:1238
 msgid "Blue"
 msgstr "modrá"
 
-#: shell/resources/pps-document-view.blp:1011
-#: shell/resources/pps-document-view.blp:1102
-#: shell/resources/pps-document-view.blp:1247
+#: shell/resources/pps-document-view.blp:1014
+#: shell/resources/pps-document-view.blp:1105
+#: shell/resources/pps-document-view.blp:1250
 msgid "Green"
 msgstr "zelená"
 
-#: shell/resources/pps-document-view.blp:1037
-#: shell/resources/pps-document-view.blp:1187
+#: shell/resources/pps-document-view.blp:1040
+#: shell/resources/pps-document-view.blp:1190
 msgid "Yellow"
 msgstr "žlutá"
 
-#: shell/resources/pps-document-view.blp:1124
-#: shell/resources/pps-document-view.blp:1281
-#: shell/resources/pps-document-view.blp:1340
+#: shell/resources/pps-document-view.blp:1127
+#: shell/resources/pps-document-view.blp:1284
+#: shell/resources/pps-document-view.blp:1343
 msgid "Thin"
 msgstr "tenká"
 
-#: shell/resources/pps-document-view.blp:1136
-#: shell/resources/pps-document-view.blp:1294
-#: shell/resources/pps-document-view.blp:1352
+#: shell/resources/pps-document-view.blp:1139
+#: shell/resources/pps-document-view.blp:1297
+#: shell/resources/pps-document-view.blp:1355
 msgid "Medium"
 msgstr "střední"
 
-#: shell/resources/pps-document-view.blp:1148
-#: shell/resources/pps-document-view.blp:1306
-#: shell/resources/pps-document-view.blp:1364
+#: shell/resources/pps-document-view.blp:1151
+#: shell/resources/pps-document-view.blp:1309
+#: shell/resources/pps-document-view.blp:1367
 msgid "Thick"
 msgstr "tlustá"
 
-#: shell/resources/pps-document-view.blp:1160
-#: shell/resources/pps-document-view.blp:1318
-#: shell/resources/pps-document-view.blp:1376
+#: shell/resources/pps-document-view.blp:1163
+#: shell/resources/pps-document-view.blp:1321
+#: shell/resources/pps-document-view.blp:1379
 msgid "Very Thick"
 msgstr "velmi tlustá"
 
-#: shell/resources/pps-document-view.blp:1389
+#: shell/resources/pps-document-view.blp:1392
 msgid "Erase Ink"
 msgstr "Vymazat inkoust"
 
-#: shell/resources/pps-document-view.blp:1395
+#: shell/resources/pps-document-view.blp:1398
 msgid "Erase Whole Strokes"
 msgstr "Vymazat celé tahy"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are squiggly, strikethrough, and underline. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1434
+#: shell/resources/pps-document-view.blp:1437
 msgid "Highlight (h)"
 msgstr "zvýraznění (h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text marking annotation, as are highlight, squiggly, and underline. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1450
+#: shell/resources/pps-document-view.blp:1453
 msgid "Strikethrough (k)"
 msgstr "přeškrtnutí (k)"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are highlight, squiggly, and strikethrough. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1466
+#: shell/resources/pps-document-view.blp:1469
 msgid "Underline (u)"
 msgstr "podtržení (u)"
 
 #. Translators: As an adjective, this is describing the type of text marking annotation, as are highlight, strikethrough, and underline. A noun could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1482
+#: shell/resources/pps-document-view.blp:1485
 msgid "Squiggly (q)"
 msgstr "vlnovka (q)"
 
-#: shell/resources/pps-document-view.blp:1573
+#: shell/resources/pps-document-view.blp:1576
 msgid "_Open Link"
 msgstr "_Otevřít odkaz"
 
-#: shell/resources/pps-document-view.blp:1579
+#: shell/resources/pps-document-view.blp:1582
 msgid "Send an Email"
 msgstr "Odeslat e-mail"
 
-#: shell/resources/pps-document-view.blp:1585
+#: shell/resources/pps-document-view.blp:1588
 msgid "_Copy Link Address"
 msgstr "_Kopírovat adresu odkazu"
 
-#: shell/resources/pps-document-view.blp:1591
+#: shell/resources/pps-document-view.blp:1594
 msgid "Copy Email Address"
 msgstr "Kopírovat e-mailovou adresu"
 
-#: shell/resources/pps-document-view.blp:1597
+#: shell/resources/pps-document-view.blp:1600
 msgid "_Go To"
 msgstr "_Přejít na"
 
-#: shell/resources/pps-document-view.blp:1603
+#: shell/resources/pps-document-view.blp:1606
 msgid "Open in New _Window"
 msgstr "Otevřít v novém _okně"
 
-#: shell/resources/pps-document-view.blp:1611
+#: shell/resources/pps-document-view.blp:1614
 msgid "_Copy"
 msgstr "_Kopírovat"
 
-#: shell/resources/pps-document-view.blp:1616
+#: shell/resources/pps-document-view.blp:1619
 msgid "Select _All"
 msgstr "Vy_brat vše"
 
-#: shell/resources/pps-document-view.blp:1623
+#: shell/resources/pps-document-view.blp:1626
 msgid "_Save Image As…"
 msgstr "_Uložit obrázek jako…"
 
-#: shell/resources/pps-document-view.blp:1629
+#: shell/resources/pps-document-view.blp:1632
 msgid "Copy _Image"
 msgstr "Kopí_rovat obrázek"
 
-#: shell/resources/pps-document-view.blp:1637
+#: shell/resources/pps-document-view.blp:1640
 #: shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "_Otevřít přílohu"
 
-#: shell/resources/pps-document-view.blp:1643
+#: shell/resources/pps-document-view.blp:1646
 #: shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "_Uložit přílohu jako…"
 
-#: shell/resources/pps-document-view.blp:1653
+#: shell/resources/pps-document-view.blp:1656
 msgid "Annotation _Properties…"
 msgstr "Vlastnosti _poznámky…"
 
-#: shell/resources/pps-document-view.blp:1659
+#: shell/resources/pps-document-view.blp:1662
 msgid "R_emove Annotation"
 msgstr "O_dstranit poznámku"
 
-#: shell/resources/pps-document-view.blp:1667
+#: shell/resources/pps-document-view.blp:1670
 msgid "_Add Text Annotation"
 msgstr "Op_atřit textovou poznámkou"
 
@@ -1350,7 +1541,7 @@ msgstr "_Zrušit"
 
 #: shell/resources/pps-password-dialog.blp:5
 #: shell/resources/pps-password-view.blp:11
-#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:723
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:672
 msgid "Password Required"
 msgstr "Je vyžadováno heslo"
 
@@ -1398,15 +1589,6 @@ msgstr "Licence textu"
 #: shell/resources/pps-properties-license.blp:79
 msgid "Further Information"
 msgstr "Další informace"
-
-#: shell/resources/pps-properties-signatures.blp:32
-msgid "Signature Information"
-msgstr "Informace o podpisu"
-
-#: shell/resources/pps-properties-signatures.blp:48
-#: shell/src/properties_signatures.rs:405
-msgid "View Details…"
-msgstr "Zobrazit podrobnosti…"
 
 #: shell/resources/pps-properties-window.blp:5
 msgid "Properties"
@@ -1801,7 +1983,7 @@ msgstr "Vytisknout tento oddíl…"
 msgid "Previews"
 msgstr "Náhledy"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "Otevřít dokument"
 
@@ -1812,6 +1994,11 @@ msgstr "Sem přetáhněte a pusťte dokumenty"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_Otevřít…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "Otevřít dokument"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -1838,45 +2025,46 @@ msgstr ""
 "Marek Černocký <marek@manet.cz>\n"
 "Lucas Lommer <llommer@svn.gnome.org>\n"
 "Adam Matoušek <adydas95@gmail.com>\n"
-"Daniel Rusek <mail@asciiwolf.com>"
+"Daniel Rusek <mail@asciiwolf.com>\n"
+"Patrik Sivek <sivekpatrik@gmail.com>"
 
-#: shell/src/application.rs:403
+#: shell/src/application.rs:396
 msgid "The page label of the document to display."
 msgstr "Popisek stránky dokumentu, která se má zobrazit."
 
-#: shell/src/application.rs:404
+#: shell/src/application.rs:397
 msgid "PAGE"
 msgstr "STRÁNKA"
 
-#: shell/src/application.rs:412
+#: shell/src/application.rs:405
 msgid "The page number of the document to display."
 msgstr "Číslo stránky dokumentu, která se má zobrazit."
 
-#: shell/src/application.rs:413
+#: shell/src/application.rs:406
 msgid "NUMBER"
 msgstr "ČÍSLO"
 
-#: shell/src/application.rs:421
+#: shell/src/application.rs:414
 msgid "Named destination to display."
 msgstr "Pojmenované umístění k zobrazení."
 
-#: shell/src/application.rs:422
+#: shell/src/application.rs:415
 msgid "DEST"
 msgstr "MÍSTO"
 
-#: shell/src/application.rs:430
+#: shell/src/application.rs:423
 msgid "Run papers in fullscreen mode."
 msgstr "Spustit Papers v celoobrazovkovém režimu."
 
-#: shell/src/application.rs:439
+#: shell/src/application.rs:432
 msgid "Run papers in presentation mode."
 msgstr "Spustit Papers v prezentačním režimu."
 
-#: shell/src/application.rs:448
+#: shell/src/application.rs:441
 msgid "Show the version of the program."
 msgstr "Zobrazit verzi programu."
 
-#: shell/src/application.rs:458
+#: shell/src/application.rs:451
 msgid "[FILE…]"
 msgstr "[SOUBOR…]"
 
@@ -1884,7 +2072,7 @@ msgstr "[SOUBOR…]"
 msgid "View Details"
 msgstr "Zobrazit podrobnosti"
 
-#: shell/src/document_view.rs:773
+#: shell/src/document_view.rs:791
 msgid ""
 "Document contains new or modified annotations and form fields that have been "
 "filled out."
@@ -1892,76 +2080,76 @@ msgstr ""
 "Dokument obsahuje nové nebo upravené poznámky a pole formuláře, která byla "
 "vyplněna."
 
-#: shell/src/document_view.rs:774
+#: shell/src/document_view.rs:794
 msgid "Document contains form fields that have been filled out."
 msgstr "Dokument obsahuje pole, která byla vyplněna."
 
-#: shell/src/document_view.rs:775
+#: shell/src/document_view.rs:796
 msgid "Document contains new or modified annotations."
 msgstr "Dokument obsahuje nové nebo změněné poznámky."
 
-#: shell/src/document_view.rs:783
+#: shell/src/document_view.rs:804
 msgid "If you don’t save a copy, changes will be permanently lost."
 msgstr "Pokud neuložíte kopii, budou změny nenávratně ztraceny."
 
-#: shell/src/document_view.rs:784
+#: shell/src/document_view.rs:805
 msgid "Save Changes to a Copy?"
 msgstr "Uložit změny do kopie?"
 
-#: shell/src/document_view.rs:793
+#: shell/src/document_view.rs:814
 msgid "Close _Without Saving"
 msgstr "Zavřít _bez uložení"
 
-#: shell/src/document_view.rs:795
+#: shell/src/document_view.rs:816
 msgid "_Save a Copy"
 msgstr "Uložit _kopii"
 
-#: shell/src/document_view/actions.rs:1008
+#: shell/src/document_view/actions.rs:995
 msgid "Save Image"
 msgstr "Uložit obrázek"
 
-#: shell/src/document_view/actions.rs:1133
+#: shell/src/document_view/actions.rs:1127
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr ""
 "Režim kurzorové navigace je nyní povolen, stisknutím klávesy F7 jej "
 "deaktivujete."
 
-#: shell/src/document_view/actions.rs:1135
+#: shell/src/document_view/actions.rs:1129
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr ""
 "Režim kurzorové navigace je nyní deaktivován, stisknutím klávesy F7 jej "
 "povolíte."
 
-#: shell/src/document_view/actions.rs:1193
+#: shell/src/document_view/actions.rs:1187
 msgid "Close Menu"
 msgstr "Zavřít nabídku"
 
-#: shell/src/document_view/actions.rs:1270
+#: shell/src/document_view/actions.rs:1283
 msgid "Unable to Open Attachment"
 msgstr "Nepodařilo se otevřít přílohu"
 
-#: shell/src/document_view/actions.rs:1286
+#: shell/src/document_view/actions.rs:1298
 msgctxt "This is an action"
 msgid "Save Attachment"
 msgstr "Uložit přílohu"
 
-#: shell/src/document_view/io.rs:284
+#: shell/src/document_view/io.rs:283
 msgid "The Document Contains No Pages"
 msgstr "Dokument neobsahuje žádné stránky"
 
-#: shell/src/document_view/io.rs:286
+#: shell/src/document_view/io.rs:285
 msgid "The Document Contains Only Empty Pages"
 msgstr "Dokument obsahuje pouze prázdné stránky"
 
-#: shell/src/document_view/io.rs:412
+#: shell/src/document_view/io.rs:361
 msgid "Save As…"
 msgstr "Uložení jako…"
 
-#: shell/src/document_view/io.rs:489
+#: shell/src/document_view/io.rs:438
 msgid "Draw a rectangle to insert a signature field"
 msgstr "Nakreslete obdélník pro vložení pole podpisu"
 
-#: shell/src/document_view/io.rs:512
+#: shell/src/document_view/io.rs:461
 #, rust-format
 msgid ""
 "Digitally signed by {}\n"
@@ -1970,32 +2158,32 @@ msgstr ""
 "Digitální podpis od {}\n"
 "Datum: {}"
 
-#: shell/src/document_view/io.rs:531
+#: shell/src/document_view/io.rs:480
 msgid "Certificate Required"
 msgstr "Je vyžadován certifikát"
 
-#: shell/src/document_view/io.rs:534
+#: shell/src/document_view/io.rs:483
 msgid "Select signing certificate"
 msgstr "Vyberte podpisový certifikát"
 
-#: shell/src/document_view/io.rs:535
+#: shell/src/document_view/io.rs:484
 msgid "Select"
 msgstr "Vybrat"
 
-#: shell/src/document_view/io.rs:615
+#: shell/src/document_view/io.rs:564
 msgid "A certificate is required to sign this document"
 msgstr "K podepsání tohoto dokumentu je vyžadován certifikát"
 
-#: shell/src/document_view/io.rs:684
+#: shell/src/document_view/io.rs:633
 msgid "Save Signed File"
 msgstr "Uložit podepsaný soubor"
 
-#: shell/src/document_view/io.rs:714
+#: shell/src/document_view/io.rs:663
 #, rust-format
 msgid "Please enter password for {}"
 msgstr "Zadejte prosím heslo pro {}"
 
-#: shell/src/document_view/io.rs:731
+#: shell/src/document_view/io.rs:680
 msgid "_Login"
 msgstr "Přih_lásit"
 
@@ -2017,7 +2205,7 @@ msgstr[0] "{} nevyřízená úloha ve frontě"
 msgstr[1] "{} nevyřízené úlohy ve frontě"
 msgstr[2] "{} nevyřízených úloh ve frontě"
 
-#: shell/src/document_view/signals.rs:257
+#: shell/src/document_view/signals.rs:266
 #, rust-format
 msgid ""
 "Security alert: this document has been prevented from opening the file “{}”"
@@ -2025,8 +2213,8 @@ msgstr ""
 "Bezpečnostní upozornění: tomuto dokumentu bylo zabráněno v otevření souboru "
 "„{}“"
 
-#: shell/src/document_view/signals.rs:439 shell/src/page_selector.rs:89
-#: shell/src/sidebar_annotations_row.rs:82
+#: shell/src/document_view/signals.rs:452 shell/src/page_selector.rs:91
+#: shell/src/sidebar_annotations_row.rs:83
 #, rust-format
 msgid "Page {}"
 msgstr "Stránka {}"
@@ -2034,13 +2222,13 @@ msgstr "Stránka {}"
 #. Translators: Do NOT translate the content between
 #. '{' and '}' they are variable names. Changing their
 #. order is possible
-#: shell/src/page_selector.rs:242 shell/src/page_selector.rs:269
+#: shell/src/page_selector.rs:244 shell/src/page_selector.rs:271
 #, rust-format
 msgid "({pagenum} of {totalpages})"
 msgstr "({pagenum} z {totalpages})"
 
 #. Translators: the placeholder is the total amount of pages
-#: shell/src/page_selector.rs:249 shell/src/page_selector.rs:278
+#: shell/src/page_selector.rs:251 shell/src/page_selector.rs:280
 #, rust-format
 msgid "of {}"
 msgstr "z {}"
@@ -2083,9 +2271,20 @@ msgstr "Obsah"
 msgid "Date &amp; Time"
 msgstr "Datum a čas"
 
-#: shell/src/properties_signatures.rs:403
-msgid "Hide Details…"
-msgstr "Skrýt podrobnosti…"
+#~ msgid "Producer"
+#~ msgstr "Producent"
+
+#~ msgid "Creator"
+#~ msgstr "Tvůrce"
+
+#~ msgid "Signature Information"
+#~ msgstr "Informace o podpisu"
+
+#~ msgid "View Details…"
+#~ msgstr "Zobrazit podrobnosti…"
+
+#~ msgid "Hide Details…"
+#~ msgstr "Skrýt podrobnosti…"
 
 #~ msgid "Couldn’t find appropriate format to save image"
 #~ msgstr "Nepodařilo se najít vhodný formát pro uložení obrázku"
@@ -2095,9 +2294,6 @@ msgstr "Skrýt podrobnosti…"
 
 #~ msgid "The attachment could not be saved."
 #~ msgstr "Nepodařilo se uložit přílohu."
-
-#~ msgid "Digital signature is invalid"
-#~ msgstr "Digitální podpis je neplatný"
 
 #~ msgid "The file could not be saved as “{}”."
 #~ msgstr "Soubor nelze uložit jako „{}“."
@@ -2255,9 +2451,6 @@ msgstr "Skrýt podrobnosti…"
 
 #~ msgid "Decoding error"
 #~ msgstr "Chyba dekódování"
-
-#~ msgid "Bookmarks"
-#~ msgstr "Záložky"
 
 #~ msgid "Document Status"
 #~ msgstr "Stav dokumentu"
@@ -2733,10 +2926,6 @@ msgstr "Skrýt podrobnosti…"
 #~ msgctxt "shortcut window"
 #~ msgid "Add a post-it like note"
 #~ msgstr "Přidat poznámku ve stylu post-it"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Highlight text"
-#~ msgstr "Zvýraznit text"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Show the search bar"

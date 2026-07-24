@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: evince master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-06-20 17:20+0000\n"
-"PO-Revision-Date: 2026-06-21 09:27+0200\n"
+"POT-Creation-Date: 2026-07-28 08:00+0000\n"
+"PO-Revision-Date: 2026-07-29 00:13+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -130,6 +130,130 @@ msgstr ""
 msgid "Papers supports documents in: PDF, DjVu, TIFF, and Comic Books archives (CBR, CBT, CBZ, CB7)."
 msgstr "Program podpira dokumente v zapisu: PDF, DjVu in TIFF ter arhive stripov (CBR, CBT, CBZ, CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "stripi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "bralnik"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "urejevalnik"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "urejanje"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "obrazci"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "pripomni"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "pripombe"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "pripominjanje"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "digitalno podpisovanje"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "digitalni podpisi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "pisanje z roko"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "ročna pisava"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "črnilo"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "prostoročno"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "risba"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "kaligrafija"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "opombe"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "poudarjanje"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "podčrtano"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "podčrtavanje"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "prečrtano"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "tiskanje"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "nočni način"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "temni način"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "predstavitveni način"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "način govorca"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "predstavitve"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "zaznamki"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "Jasen, preprost in sodoben uporabniški vmesnik"
@@ -149,6 +273,10 @@ msgstr "Velike sličice v stranski vrstici"
 #: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "Vsa dejanja iskanja so vsebovana v stranski vrstici"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -224,50 +352,50 @@ msgid "Adds support for reading PDF Documents"
 msgstr "Doda podporo za branje datotek PDF"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737 libdocument/backend/pdf/pps-poppler.c:743
+#: libdocument/backend/pdf/pps-poppler.c:734 libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "Da"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:740 libdocument/backend/pdf/pps-poppler.c:743
+#: libdocument/backend/pdf/pps-poppler.c:737 libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
 msgid "No"
 msgstr "Ne"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "Vrsta 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "Vrsta 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "Vrsta 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "Vrsta 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "Vrsta 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "Neznana vrsta pisave"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard 14 fonts. If the substitute fonts "
 "selected by fontconfig are not the same as the fonts used to create the PDF, the rendering may not be correct."
@@ -275,11 +403,11 @@ msgstr ""
 "Dokument vsebuje sklice na pisave, ki niso izbrane med 14 standardnimi pisavami in tudi niso vstavljene. Ko so "
 "izbrane nadomestne pisave, ki niso enake pisavam v dokumentu PDF, izris običajno ni pravilen."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "Vse pisave so ali standardne ali pa vstavljene."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "Brez imena"
 
@@ -287,20 +415,20 @@ msgstr "Brez imena"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878 shell/src/properties_general.rs:85
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878 shell/src/properties_general.rs:85
 #: shell/src/properties_general.rs:235 shell/src/properties_general.rs:370
 msgid "None"
 msgstr "Ni določeno"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "Vgrajena podmnožica"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "Vgrajeno"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "Ni vgrajeno"
 
@@ -309,7 +437,7 @@ msgstr "Ni vgrajeno"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (Določena med standardnimi 14 pisavami)"
 
@@ -318,7 +446,7 @@ msgstr " (Določena med standardnimi 14 pisavami)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (Ni določena med standardnimi 14 pisavami.)"
 
@@ -332,7 +460,7 @@ msgstr " (Ni določena med standardnimi 14 pisavami.)"
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -356,7 +484,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -414,33 +542,69 @@ msgstr "Vse datoteke"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i-%i"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr ", "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f mm"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f pal."
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, pokončno (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, ležeče (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Strani"
+msgstr[1] "Stran"
+msgstr[2] "Strani"
+msgstr[3] "Strani"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -601,51 +765,51 @@ msgstr "Izbrana možnost določa, da bo okoli vsake strani izrisana obroba."
 msgid "Page Handling"
 msgstr "Upravljanje strani"
 
-#: libview/pps-view.c:2135
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "Pojdi na prvo stran"
 
-#: libview/pps-view.c:2137
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "Pojdi na prejšnjo stran"
 
-#: libview/pps-view.c:2139
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "Pojdi na naslednjo stran"
 
-#: libview/pps-view.c:2141
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "Pojdi na zadnjo stran"
 
-#: libview/pps-view.c:2143
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "Pojdi na stran"
 
-#: libview/pps-view.c:2145
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "Poišči"
 
-#: libview/pps-view.c:2174
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "Pojdi na stran %s"
 
-#: libview/pps-view.c:2180
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "Pojdi na %s v datoteki »%s«"
 
-#: libview/pps-view.c:2183
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "Skoči na datoteko »%s«"
 
-#: libview/pps-view.c:2191
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "Zaženi %s"
 
-#: libview/pps-view.c:2198
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "Ponastavi obrazec"
@@ -1731,7 +1895,7 @@ msgstr "Natisni odsek …"
 msgid "Previews"
 msgstr "Predogledi"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "Odpre dokument"
 
@@ -1742,6 +1906,11 @@ msgstr "Povlecite in spustite dokumente sem"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_Odpri …"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "Odpre dokument"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"

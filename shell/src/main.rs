@@ -43,19 +43,26 @@ mod window;
 
 use deps::*;
 
-fn main() -> glib::ExitCode {
-    #[cfg(target_os = "windows")]
-    {
-        if std::env::var_os("DBUS_SESSION_BUS_ADDRESS").is_none() {
-            unsafe {
-                std::env::set_var("DBUS_SESSION_BUS_ADDRESS", "none");
-            }
-        }
+#[cfg(target_os = "windows")]
+fn setup_environment() {
+    // Disable DBus session bus lookup on Windows if not configured to prevent GLib connection timeouts
+    if std::env::var_os("DBUS_SESSION_BUS_ADDRESS").is_none() {
         unsafe {
-            std::env::set_var("GTK_USE_PORTAL", "0");
-            std::env::set_var("GSETTINGS_BACKEND", "memory");
+            std::env::set_var("DBUS_SESSION_BUS_ADDRESS", "none");
         }
     }
+    // Force GTK file chooser fallback and in-memory settings storage on Windows environments without portals/dconf
+    unsafe {
+        std::env::set_var("GTK_USE_PORTAL", "0");
+        std::env::set_var("GSETTINGS_BACKEND", "memory");
+    }
+}
+
+#[cfg(not(target_os = "windows"))]
+fn setup_environment() {}
+
+fn main() -> glib::ExitCode {
+    setup_environment();
 
     let mut log_builder = env_logger::builder();
     log_builder.format_timestamp_millis();

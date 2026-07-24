@@ -17,7 +17,6 @@
 #include "pps-annotation-window.h"
 #include "pps-css-utils.h"
 #include "pps-document-misc.h"
-#include "pps-platform.h"
 
 #if HAVE_LIBSPELLING
 #include <libspelling.h>
@@ -93,7 +92,7 @@ pps_annotation_window_set_color (PpsAnnotationWindow *window,
 	                            annotation_id_class,
 	                            rgba_str);
 
-	pps_platform_add_css_class (window, annotation_id_class);
+	gtk_widget_add_css_class (GTK_WIDGET (window), annotation_id_class);
 
 	gtk_css_provider_load_from_string (css_provider, css_data);
 	gtk_style_context_add_provider_for_display (display,
@@ -163,7 +162,7 @@ pps_annotation_window_init (PpsAnnotationWindow *window)
 	GtkWidget *vbox;
 	GtkWidget *swindow;
 
-	pps_platform_add_css_class (window, "pps-annotation-window");
+	gtk_widget_add_css_class (GTK_WIDGET (window), "pps-annotation-window");
 
 	gtk_widget_set_can_focus (GTK_WIDGET (window), TRUE);
 
@@ -212,7 +211,7 @@ pps_annotation_window_init (PpsAnnotationWindow *window)
 	gtk_window_set_decorated (GTK_WINDOW (window), TRUE);
 	gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
 	gtk_window_set_hide_on_close (GTK_WINDOW (window), TRUE);
-	pps_platform_add_css_class (window, "pps-annotation-window");
+	gtk_widget_add_css_class (GTK_WIDGET (window), "pps-annotation-window");
 }
 
 static GObject *

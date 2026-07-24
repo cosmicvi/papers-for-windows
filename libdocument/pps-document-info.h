@@ -16,7 +16,7 @@
 #include "pps-macros.h"
 
 G_BEGIN_DECLS
-
+typedef struct _PpsDocumentPageSize PpsDocumentPageSize;
 typedef struct _PpsDocumentInfo PpsDocumentInfo;
 typedef struct _PpsDocumentLicense PpsDocumentLicense;
 
@@ -89,6 +89,11 @@ typedef enum {
 	PPS_DOCUMENT_INFO_CONTAINS_JS = 1 << 18
 } PpsDocumentInfoFields;
 
+struct _PpsDocumentPageSize {
+	double width;
+	double height;
+};
+
 struct _PpsDocumentInfo {
 	char *title;
 	char *format; /* eg, "pdf-1.5" */
@@ -106,8 +111,7 @@ struct _PpsDocumentInfo {
 	guint ui_hints;
 	guint permissions;
 	int n_pages;
-	double paper_height;
-	double paper_width;
+	PpsDocumentPageSize *page_sizes;
 	PpsDocumentLicense *license;
 	PpsDocumentContainsJS contains_js; /* wheter it contains any javascript */
 

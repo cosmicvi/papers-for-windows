@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Evince HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-06-25 07:49+0000\n"
-"PO-Revision-Date: 2026-06-26 11:19+0200\n"
+"POT-Creation-Date: 2026-07-28 08:00+0000\n"
+"PO-Revision-Date: 2026-07-29 13:34+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -127,6 +127,130 @@ msgstr "Un visionador de documents pel burèu GNOME. Podètz veire, recercar e a
 msgid "Papers supports documents in: PDF, DjVu, TIFF, and Comic Books archives (CBR, CBT, CBZ, CB7)."
 msgstr "Papers pren en carga los documents : PDF, DjVu, TIFF, e los archius de BD (CBR, CBT, CBZ, CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "bendas dessenhadas"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "lector"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "editor"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "modificacion"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "formularis"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "Anotar"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "anotacions"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "anotacion"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "signatura electronica"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "signatura electronicas"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "escritura manuala"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "escrich a la man"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "tenta"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "a la man levada"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "dessenh"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "calligrafia"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "nòtas"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "suslinhar"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "soslinhar"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "soslinhar"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "raiar"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "impression"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "mòde nuèch"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "mòde escur"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "mòde presentacion"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "mòde presentator"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "diaporamas"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "signets"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "Una interfàcia clara, simpla e modèrna"
@@ -146,6 +270,10 @@ msgstr "Gròssas vinhetas a la barra laterala"
 #: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "Totas las accions de recèrca son contengudas a la barra laterala"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "Lo projècte GNOME"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -224,50 +352,50 @@ msgid "Adds support for reading PDF Documents"
 msgstr "Apond la presa en carga de la lectura dels documents PDF"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737 libdocument/backend/pdf/pps-poppler.c:743
+#: libdocument/backend/pdf/pps-poppler.c:734 libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "Òc"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:740 libdocument/backend/pdf/pps-poppler.c:743
+#: libdocument/backend/pdf/pps-poppler.c:737 libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
 msgid "No"
 msgstr "Non"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "Tipe 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "Tipe 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "Tipe 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "Tipe 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "Tipe 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueTipe (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "Tipe de polissa desconegut"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard 14 fonts. If the substitute fonts "
 "selected by fontconfig are not the same as the fonts used to create the PDF, the rendering may not be correct."
@@ -276,11 +404,11 @@ msgstr ""
 "polissas de substitucion seleccionadas per « fontconfig » son pas las meteissas que las polissas utilizadas per "
 "crear lo PDF, lo rendut risca d'èsser incorrècte."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "Totas las polissas son siá estandards o integradas."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "Sens nom"
 
@@ -288,20 +416,20 @@ msgstr "Sens nom"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878 shell/src/properties_general.rs:85
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878 shell/src/properties_general.rs:85
 #: shell/src/properties_general.rs:235 shell/src/properties_general.rs:370
 msgid "None"
 msgstr "Pas cap"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "Sosensemble integrat"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "Integrat"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "Pas integrat"
 
@@ -310,7 +438,7 @@ msgstr "Pas integrat"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (una de las 14 polissas estandardas)"
 
@@ -319,7 +447,7 @@ msgstr " (una de las 14 polissas estandardas)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (pas una de las 14 polissas estandardas)"
 
@@ -333,7 +461,7 @@ msgstr " (pas una de las 14 polissas estandardas)"
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -357,7 +485,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -415,33 +543,67 @@ msgstr "Totes los fichièrs"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i–%i"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr ", "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f mm"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f poces"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, retrait (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, païsatge (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s : %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Pagina"
+msgstr[1] "Paginas"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -602,51 +764,51 @@ msgstr "S'es activat, un contorn serà present al torn de cada pagina."
 msgid "Page Handling"
 msgstr "Gestion de las paginas"
 
-#: libview/pps-view.c:2135
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "Anar a la primièra pagina"
 
-#: libview/pps-view.c:2137
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "Anar a la pagina precedenta"
 
-#: libview/pps-view.c:2139
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "Anar a la pagina seguenta"
 
-#: libview/pps-view.c:2141
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "Anar a la darrièra pagina"
 
-#: libview/pps-view.c:2143
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "Anar a la pagina"
 
-#: libview/pps-view.c:2145
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "Recercar"
 
-#: libview/pps-view.c:2174
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "Anar a la pagina %s"
 
-#: libview/pps-view.c:2180
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "Anar a %s sul fichièr « %s »"
 
-#: libview/pps-view.c:2183
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "Anar a la pagina « %s »"
 
-#: libview/pps-view.c:2191
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "Aviar %s"
 
-#: libview/pps-view.c:2198
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "Reïnicializar lo formulari"
@@ -1732,7 +1894,7 @@ msgstr "Imprimir aquesta seccion…"
 msgid "Previews"
 msgstr "Apercebuts"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "Dobrir un document"
 
@@ -1743,6 +1905,11 @@ msgstr "Depausatz de documents aquí"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_Dobrir…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "Dobrir un document"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -2019,9 +2186,6 @@ msgstr "Data e ora"
 #~ msgid "The attachment could not be saved."
 #~ msgstr "La pèça junta pòt pas èsser enregistrada."
 
-#~ msgid "Digital signature is invalid"
-#~ msgstr "La signatura electronica es invalida"
-
 #~ msgid "The file could not be saved as “{}”."
 #~ msgstr "Lo fichièr pòt pas èsser enregistrat sous « {} »."
 
@@ -2178,9 +2342,6 @@ msgstr "Data e ora"
 
 #~ msgid "Decoding error"
 #~ msgstr "Error de descodatge"
-
-#~ msgid "Bookmarks"
-#~ msgstr "Signets"
 
 #~ msgid "Document Status"
 #~ msgstr "Estatut del document"
@@ -2395,9 +2556,6 @@ msgstr "Data e ora"
 
 #~ msgid "Loading document from “%s”"
 #~ msgstr "Cargament del document a partir de « %s »"
-
-#~ msgid "Annotate"
-#~ msgstr "Anotacion"
 
 #~ msgid "Annotate document"
 #~ msgstr "Anotar lo document"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-01-26 15:31+0000\n"
-"PO-Revision-Date: 2026-01-29 22:11+0500\n"
+"POT-Creation-Date: 2026-07-28 08:00+0000\n"
+"PO-Revision-Date: 2026-07-30 11:20+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Manually set name and icon
 #: data/org.gnome.Papers.desktop.in.in:2
 #: data/org.gnome.Papers.metainfo.xml.in.in:9
-#: shell/resources/pps-document-view.blp:87
+#: shell/resources/pps-document-view.blp:88
 #: shell/resources/pps-loader-view.blp:10 shell/src/application.rs:47
-#: shell/src/application.rs:359
+#: shell/src/application.rs:389
 msgid "Document Viewer"
 msgstr "Құжаттарды көрсету қолданбасы"
 
@@ -74,33 +74,53 @@ msgstr ""
 msgid "Allow links to change the zoom level."
 msgstr "Сілтемелерге масштаб деңгейін өзгертуді рұқсат ету."
 
-#: data/org.gnome.Papers.gschema.xml:43
+#: data/org.gnome.Papers.gschema.xml:44
 msgid "Check spelling when writing annotation notes or filling text forms."
 msgstr "Аңдатпаны жазу немесе мәтін формаларын толтыру кезінде емлені тексеру."
 
-#: data/org.gnome.Papers.gschema.xml:47
+#: data/org.gnome.Papers.gschema.xml:48
 msgid "Show a side bar next to the document to help navigate the document."
 msgstr "Құжатты шолуды жеңілдету үшін құжаттың қасында бүйір панельді көрсету."
 
-#: data/org.gnome.Papers.gschema.xml:60
+#: data/org.gnome.Papers.gschema.xml:61
 msgid "Set the default zoom level to display a document."
 msgstr "Құжатты көрсету үшін бастапқы масштабты таңдаңыз."
 
-#: data/org.gnome.Papers.gschema.xml:64
+#: data/org.gnome.Papers.gschema.xml:65
 msgid ""
 "Display the document as a continuous stream of pages instead of page at a time."
 msgstr "Құжатты бір уақытта Бір бет емес, үздіксіз бет ағыны ретінде көрсету."
 
-#: data/org.gnome.Papers.gschema.xml:68
+#: data/org.gnome.Papers.gschema.xml:69
 msgid "Show two pages side by side."
 msgstr "Екі парақты қатарынан көрсету."
 
-#: data/org.gnome.Papers.gschema.xml:72
+#: data/org.gnome.Papers.gschema.xml:73
 msgid ""
 "Show the first page (odd page) on the left (when displaying two pages side by "
 "side)"
 msgstr ""
 "Бірінші бетті сол жақта (тақ бетті) көрсету (екі бетті қатар көрсету кезінде)"
+
+#: data/org.gnome.Papers.gschema.xml:110
+msgid "Last used signature ID"
+msgstr "Соңғы пайдаланылған қолтаңба идентификаторы"
+
+#: data/org.gnome.Papers.gschema.xml:111
+msgid "ID of the signature most recently used for manual signing"
+msgstr "Жуырда қолмен қол қою үшін пайдаланылған қолтаңба идентификаторы"
+
+#: data/org.gnome.Papers.gschema.xml:118
+msgid "Previewer window height"
+msgstr "Алдын ала көрініс терезесінің биіктігі"
+
+#: data/org.gnome.Papers.gschema.xml:122
+msgid "Previewer window width"
+msgstr "Алдын ала көрініс терезесінің ені"
+
+#: data/org.gnome.Papers.gschema.xml:126
+msgid "Previewer window maximized state"
+msgstr "Алдын ала көрініс терезесінің максималды қалып-күйі"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:10
 msgid "Read documents"
@@ -122,25 +142,153 @@ msgstr ""
 "Papers келесі пішімдегі құжаттарды қолдайды: PDF, DjVu, TIFF және комикстер "
 "архивтері (CBR, CBT, CBZ, CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "комикстер"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "оқығыш"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "өңдегіш"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "өңдеу"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "формалар"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "аңдатпалау"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "аңдатпалар"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "аңдатпалау"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "цифрлық қол қою"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "цифрлық қолтаңбалар"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "қолжазба"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "қолмен жазылған"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "сия"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "еркін сызу"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "сызба"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "каллиграфия"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "естеліктер"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "ерекшелеу"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "астын сызу"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "астын сызу"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "сызып тастау"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "басып шығару"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "түнгі режим"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "қараңғы режим"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "презентация режимі"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "презентатор режимі"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "слайдшоулар"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "бетбелгілер"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "Анық, қарапайым және заманауи UI"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:33
+#: data/org.gnome.Papers.metainfo.xml.in.in:69
 msgid "A mobile-friendly UI"
 msgstr "Мобильді құрылғыларға ыңғайлы UI"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:37
+#: data/org.gnome.Papers.metainfo.xml.in.in:73
 msgid "A modern and colorful annotation list"
 msgstr "Заманауи және түрлі-түсті аңдатпалар тізімі"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:41
+#: data/org.gnome.Papers.metainfo.xml.in.in:77
 msgid "Big thumbnails in the sidebar"
 msgstr "Бүйірлік панельдегі үлкен көріністер"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:45
+#: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "Барлық іздеу әрекеттері бүйірлік панельде орналасқан"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "GNOME жобасы"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -223,52 +371,52 @@ msgid "Adds support for reading PDF Documents"
 msgstr "PDF құжаттарын оқу мүмкіндігін қосады"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737
-#: libdocument/backend/pdf/pps-poppler.c:743 nautilus/pps-nautilus-extension.c:93
+#: libdocument/backend/pdf/pps-poppler.c:734
+#: libdocument/backend/pdf/pps-poppler.c:740 nautilus/pps-nautilus-extension.c:93
 #: shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "Иә"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:740
-#: libdocument/backend/pdf/pps-poppler.c:743 nautilus/pps-nautilus-extension.c:95
+#: libdocument/backend/pdf/pps-poppler.c:737
+#: libdocument/backend/pdf/pps-poppler.c:740 nautilus/pps-nautilus-extension.c:95
 #: shell/src/properties_general.rs:337
 msgid "No"
 msgstr "Жоқ"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "Type 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "Type 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "Type 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "Type 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "Type 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "Белгісіз қаріп түрі"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard "
 "14 fonts. If the substitute fonts selected by fontconfig are not the same as "
@@ -279,32 +427,32 @@ msgstr ""
 "қаріптері PDF жасалғанда қолданылған қаріптердің өздері болмаса, құжатты "
 "көрсету үшін өңдеу дұрыс емес болуы мүмкін."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "Барлық қаріптер не стандартты, не ендірілген."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "Аты жоқ"
 
 #. translators: When a font type does not have
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878
 #: shell/src/properties_general.rs:85 shell/src/properties_general.rs:235
 #: shell/src/properties_general.rs:370
 msgid "None"
 msgstr "Ешнәрсе"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "Енгізілген құрама"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "Енгізілген"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "Енгізілген емес"
 
@@ -312,7 +460,7 @@ msgstr "Енгізілген емес"
 #. * because it is directly appended to the font
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (Стандартты 14 қаріптің біреуі)"
 
@@ -320,7 +468,7 @@ msgstr " (Стандартты 14 қаріптің біреуі)"
 #. * because it is directly appended to the font
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (Стандартты 14 қаріптің біреуі емес)"
 
@@ -333,7 +481,7 @@ msgstr " (Стандартты 14 қаріптің біреуі емес)"
 #. * Not embedded
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -356,7 +504,7 @@ msgstr ""
 #. * TrueType (CID)
 #. * Encoding: Custom
 #. * Embedded subset
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -413,33 +561,71 @@ msgstr "Барлық файлдар"
 #. * want inches, otherwise translate to default:mm.
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain
+#. size,
+#. * the first and the second placeholders %i are the start and the end of
+#. this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i-%i"
+
+#. Note to translators: this is a separator that separates two or more page
+#. ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr ", "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f мм"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f дюйм"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, тік (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, жатық (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural
+#. form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50
+#. × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Бет"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -466,7 +652,7 @@ msgstr[0] "Салынымды сақтау"
 msgid "Page %s"
 msgstr "Парақ %s"
 
-#: libview/pps-annotation-window.c:237
+#: libview/pps-annotation-window.c:242
 #: shell/resources/pps-sidebar-annotations.blp:60
 msgid "Edit Note"
 msgstr "Жазбаны түзету"
@@ -524,9 +710,9 @@ msgid "Your print range selection does not include any pages"
 msgstr "Сіздің баспаға шығару парақтар аралығында бірде-бір парақ жоқ"
 
 #. show close if the certificate is null, or if no cert is found
-#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:81
-#: shell/resources/pps-document-view.blp:788 shell/resources/pps-window.blp:138
-#: shell/src/document_view/io.rs:617
+#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83
+#: shell/resources/pps-document-view.blp:791 shell/resources/pps-window.blp:138
+#: shell/src/document_view/io.rs:566
 msgid "_Close"
 msgstr "_Жабу"
 
@@ -602,55 +788,55 @@ msgstr "Беттердің айналасына шекара салу"
 msgid "When enabled, a border will be drawn around each page."
 msgstr "Іске қосылған кезде әр беттің айналасына шекара салынады."
 
-#: libview/pps-print-operation.c:2006
+#: libview/pps-print-operation.c:2010
 msgid "Page Handling"
 msgstr "Парақтарды өндеу"
 
-#: libview/pps-view.c:2111
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "Бірінші параққа өту"
 
-#: libview/pps-view.c:2113
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "Алдыңғы параққа өту"
 
-#: libview/pps-view.c:2115
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "Келесі параққа өту"
 
-#: libview/pps-view.c:2117
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "Соңғы параққа өту"
 
-#: libview/pps-view.c:2119
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "Параққа өту"
 
-#: libview/pps-view.c:2121
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "Табу"
 
-#: libview/pps-view.c:2150
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "%s парағына өту"
 
-#: libview/pps-view.c:2156
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "%s жеріне өту, \"%s\" файлында"
 
-#: libview/pps-view.c:2159
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "\"%s\" файлына өту"
 
-#: libview/pps-view.c:2167
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "%s жөнелту"
 
-#: libview/pps-view.c:2174
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "Форманы тастау"
@@ -717,56 +903,56 @@ msgstr "Баспаға шығару баптауларының файл деск
 msgid "GNOME Document Previewer"
 msgstr "GNOME құжаттарды алдын-ала көрсету қолданбасы"
 
-#: previewer/pps-previewer-window.c:171 previewer/pps-previewer-window.c:494
+#: previewer/pps-previewer-window.c:172 previewer/pps-previewer-window.c:512
 msgid "Papers Document Viewer"
 msgstr "Papers құжаттарды қарау құралы"
 
-#: previewer/pps-previewer-window.c:209
+#: previewer/pps-previewer-window.c:210
 #, c-format
 msgid "The selected printer “%s” could not be found"
 msgstr "Ерекшеленген \"%s\" принтері табылмады"
 
-#: previewer/pps-previewer-window.c:472 shell/src/document_view/io.rs:205
-#: shell/src/document_view/io.rs:206
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:204
+#: shell/src/document_view/io.rs:205
 msgid "Papers"
 msgstr "Papers"
 
-#: previewer/pps-previewer-window.blp:19
+#: previewer/pps-previewer-window.blp:21
 msgid "Previous Page"
 msgstr "Алдыңғы парақ"
 
-#: previewer/pps-previewer-window.blp:25
+#: previewer/pps-previewer-window.blp:27
 msgid "Next Page"
 msgstr "Келесі парақ"
 
-#: previewer/pps-previewer-window.blp:31
-#: shell/resources/pps-document-view.blp:212
+#: previewer/pps-previewer-window.blp:33
+#: shell/resources/pps-document-view.blp:213
 msgid "Page Count"
 msgstr "Беттер саны"
 
-#: previewer/pps-previewer-window.blp:36
+#: previewer/pps-previewer-window.blp:38
 msgid "_Print"
 msgstr "Бас_паға шығару"
 
-#: previewer/pps-previewer-window.blp:37
+#: previewer/pps-previewer-window.blp:39
 msgid "Print This Document"
 msgstr "Бұл құжатты басып шығару"
 
-#: previewer/pps-previewer-window.blp:48
-#: shell/resources/pps-document-view.blp:292
+#: previewer/pps-previewer-window.blp:50
+#: shell/resources/pps-document-view.blp:293
 msgid "Zoom Out"
 msgstr "Кішірейту"
 
-#: previewer/pps-previewer-window.blp:55
+#: previewer/pps-previewer-window.blp:57
 msgid "Normal Size"
 msgstr "Қалыпты өлшемі"
 
-#: previewer/pps-previewer-window.blp:62
-#: shell/resources/pps-document-view.blp:279
+#: previewer/pps-previewer-window.blp:64
+#: shell/resources/pps-document-view.blp:280
 msgid "Zoom In"
 msgstr "Үлкейту"
 
-#: previewer/pps-previewer-window.blp:78 shell/src/document_view/print.rs:114
+#: previewer/pps-previewer-window.blp:80 shell/src/document_view/print.rs:114
 msgid "Failed to Print Document"
 msgstr "Құжатты басып шығару сәтсіз аяқталды"
 
@@ -801,12 +987,12 @@ msgid "Keywords"
 msgstr "Кілт сөздер"
 
 #: nautilus/pps-nautilus-extension.h:50 shell/src/properties_general.rs:304
-msgid "Producer"
-msgstr "Өндіруші"
+msgid "Document produced with"
+msgstr "Құжат келесімен жасалған"
 
 #: nautilus/pps-nautilus-extension.h:51 shell/src/properties_general.rs:305
-msgid "Creator"
-msgstr "Жасаушы"
+msgid "Source file created with"
+msgstr "Бастапқы файл келесімен жасалған"
 
 #: nautilus/pps-nautilus-extension.h:52 shell/src/properties_general.rs:316
 msgid "Created"
@@ -903,7 +1089,7 @@ msgid "_Markup Type"
 msgstr "_Белгілеу түрі"
 
 #: shell/resources/pps-annotation-properties-dialog.blp:75
-#: shell/resources/pps-document-view.blp:487
+#: shell/resources/pps-document-view.blp:490
 msgid "Highlight"
 msgstr "Түспен ерекшелеу"
 
@@ -933,94 +1119,102 @@ msgstr "Құжатты айналдыру кезінде қалқымалы ес
 
 #. Translators: Translators: This is an action (a verb in English) that opens
 #. the sidebar to start a search
-#: shell/resources/pps-document-view.blp:78
+#: shell/resources/pps-document-view.blp:79
 msgid "Search"
 msgstr "Іздеу"
 
-#: shell/resources/pps-document-view.blp:93 shell/resources/pps-window.blp:35
+#: shell/resources/pps-document-view.blp:94 shell/resources/pps-window.blp:35
 msgid "Main Menu"
 msgstr "Негізгі мәзір"
 
-#: shell/resources/pps-document-view.blp:112
+#: shell/resources/pps-document-view.blp:113
 msgid "Thumbnails"
 msgstr "Үлгілер"
 
-#: shell/resources/pps-document-view.blp:123
+#: shell/resources/pps-document-view.blp:124
 msgid "Outline"
 msgstr "Құрылымы"
 
-#: shell/resources/pps-document-view.blp:135
+#: shell/resources/pps-document-view.blp:136
 msgid "Annotations"
 msgstr "Аңдатпалар"
 
-#: shell/resources/pps-document-view.blp:153
+#: shell/resources/pps-document-view.blp:154
 msgid "Attachments"
 msgstr "Салынымдар"
 
-#: shell/resources/pps-document-view.blp:169
+#: shell/resources/pps-document-view.blp:170
 msgid "Layers"
 msgstr "Қабаттар"
 
-#: shell/resources/pps-document-view.blp:199
+#: shell/resources/pps-document-view.blp:200
 msgid "Toggle Sidebar"
 msgstr "Бүйірлік панельді көрсету/жасыру"
 
-#: shell/resources/pps-document-view.blp:205
+#: shell/resources/pps-document-view.blp:206
 msgid "Document Menu"
 msgstr "Құжат мәзірі"
 
-#: shell/resources/pps-document-view.blp:225
+#: shell/resources/pps-document-view.blp:226
 msgid "Document has been digitally signed."
 msgstr "Құжатқа цифрлық қолтаңба қойылды."
 
-#: shell/resources/pps-document-view.blp:226
+#: shell/resources/pps-document-view.blp:227
 msgid "View Signature…"
 msgstr "Қолтаңбаны қарап шығу…"
 
-#: shell/resources/pps-document-view.blp:259
+#: shell/resources/pps-document-view.blp:260
 msgid "Fit Automatically"
 msgstr "Автоматты түрде сыйдыру"
 
-#: shell/resources/pps-document-view.blp:342
-#: shell/resources/pps-document-view.blp:384
-#: shell/resources/pps-document-view.blp:415
+#: shell/resources/pps-document-view.blp:343
+#: shell/resources/pps-document-view.blp:385
+#: shell/resources/pps-document-view.blp:417
 msgid "Choose Color"
 msgstr "Түсті таңдау"
 
-#: shell/resources/pps-document-view.blp:362
+#: shell/resources/pps-document-view.blp:363
 msgid "Font Settings"
 msgstr "Қаріп баптаулары"
 
-#: shell/resources/pps-document-view.blp:430
+#: shell/resources/pps-document-view.blp:399
+msgid "Highlight Stroke Size"
+msgstr "Ерекшелеу контурының өлшемі"
+
+#: shell/resources/pps-document-view.blp:432
 msgid "Pencil Size"
 msgstr "Қарындаш өлшемі"
 
-#: shell/resources/pps-document-view.blp:457
+#: shell/resources/pps-document-view.blp:444
+msgid "Eraser Settings"
+msgstr "Өшіргіш баптаулары"
+
+#: shell/resources/pps-document-view.blp:460
 msgid "Change Eraser Radius"
 msgstr "Өшіргіш радиусын өзгерту"
 
-#: shell/resources/pps-document-view.blp:475
+#: shell/resources/pps-document-view.blp:478
 msgid "Insert Text"
 msgstr "Мәтінді кірістіру"
 
-#: shell/resources/pps-document-view.blp:481
+#: shell/resources/pps-document-view.blp:484
 msgid "Draw"
 msgstr "Салу"
 
-#: shell/resources/pps-document-view.blp:493
+#: shell/resources/pps-document-view.blp:496
 msgid "Erase Annotations"
 msgstr "Аннотацияларды өшіру"
 
-#: shell/resources/pps-document-view.blp:510
-#: shell/src/document_view/actions.rs:1211
+#: shell/resources/pps-document-view.blp:513
+#: shell/src/document_view/actions.rs:1198
 msgid "Edit Document"
 msgstr "Құжатты түзету"
 
-#: shell/resources/pps-document-view.blp:757
+#: shell/resources/pps-document-view.blp:760
 msgid "Selection too Small"
 msgstr "Таңдалған аймақ тым кішкентай"
 
-#: shell/resources/pps-document-view.blp:758
+#: shell/resources/pps-document-view.blp:761
 msgid ""
 "A signature of this size may be too small to read. If you would like to create "
 "a potentially more readable signature, press `Start over` and draw a bigger "
@@ -1030,19 +1224,19 @@ msgstr ""
 "жасағыңыз келсе, `Қайтадан бастау` батырмасын басып, үлкенірек тіктөртбұрыш "
 "салыңыз."
 
-#: shell/resources/pps-document-view.blp:765
+#: shell/resources/pps-document-view.blp:768
 msgid "Start _Over"
 msgstr "Қайтадан _бастау"
 
-#: shell/resources/pps-document-view.blp:766
+#: shell/resources/pps-document-view.blp:769
 msgid "_Sign"
 msgstr "Қол қ_ою"
 
-#: shell/resources/pps-document-view.blp:773
+#: shell/resources/pps-document-view.blp:776
 msgid "Abort Printing?"
 msgstr "Басып шығаруды тоқтату керек пе?"
 
-#: shell/resources/pps-document-view.blp:774
+#: shell/resources/pps-document-view.blp:777
 msgid ""
 "There is one or more active print jobs. If the window is closed, pending print "
 "jobs will not be printed."
@@ -1050,161 +1244,161 @@ msgstr ""
 "Бір немесе бірнеше белсенді басып шығару тапсырмасы бар. Егер терезе жабылса, "
 "кезектегі басып шығару тапсырмалары орындалмайды."
 
-#: shell/resources/pps-document-view.blp:778
+#: shell/resources/pps-document-view.blp:781
 msgid "Abort _Print and Close"
 msgstr "Басы_п шығаруды тоқтату және жабу"
 
-#: shell/resources/pps-document-view.blp:779 shell/src/document_view.rs:794
-#: shell/src/document_view/io.rs:490 shell/src/document_view/io.rs:538
-#: shell/src/document_view/io.rs:730
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:815
+#: shell/src/document_view/io.rs:439 shell/src/document_view/io.rs:487
+#: shell/src/document_view/io.rs:679
 msgid "_Cancel"
 msgstr "_Бас тарту"
 
-#: shell/resources/pps-document-view.blp:780
+#: shell/resources/pps-document-view.blp:783
 msgid "Close _After Printing"
 msgstr "Басып шығарғаннан кейін ж_абу"
 
-#: shell/resources/pps-document-view.blp:795
+#: shell/resources/pps-document-view.blp:798
 msgid "Open…"
 msgstr "Ашу…"
 
-#: shell/resources/pps-document-view.blp:802
+#: shell/resources/pps-document-view.blp:805
 msgid "Ni_ght Mode"
 msgstr "Тү_нгі режим"
 
-#: shell/resources/pps-document-view.blp:809 shell/resources/pps-window.blp:145
+#: shell/resources/pps-document-view.blp:812 shell/resources/pps-window.blp:145
 msgid "_Keyboard Shortcuts"
 msgstr "П_ернетақта жарлықтары"
 
-#: shell/resources/pps-document-view.blp:814 shell/resources/pps-window.blp:150
+#: shell/resources/pps-document-view.blp:817 shell/resources/pps-window.blp:150
 msgid "_Help"
 msgstr "_Көмек"
 
-#: shell/resources/pps-document-view.blp:819 shell/resources/pps-window.blp:155
+#: shell/resources/pps-document-view.blp:822 shell/resources/pps-window.blp:155
 msgid "_About Document Viewer"
 msgstr "Құжаттарды көрсету қолданбасы тур_алы"
 
-#: shell/resources/pps-document-view.blp:828
+#: shell/resources/pps-document-view.blp:831
 msgid "_Print…"
 msgstr "Ба_спаға шығару…"
 
-#: shell/resources/pps-document-view.blp:833
+#: shell/resources/pps-document-view.blp:836
 msgid "Fullscreen"
 msgstr "Толық экранға"
 
-#: shell/resources/pps-document-view.blp:838
+#: shell/resources/pps-document-view.blp:841
 msgid "Present as Slideshow"
 msgstr "Слайдшоу ретінде көрсету"
 
-#: shell/resources/pps-document-view.blp:845
+#: shell/resources/pps-document-view.blp:848
 msgid "Sign D_igitally…"
 msgstr "Цифрлық қол қо_ю…"
 
-#: shell/resources/pps-document-view.blp:852
+#: shell/resources/pps-document-view.blp:855
 msgid "Open a C_opy"
 msgstr "Кө_шірмесін ашу"
 
-#: shell/resources/pps-document-view.blp:857 shell/src/properties_general.rs:137
+#: shell/resources/pps-document-view.blp:860 shell/src/properties_general.rs:137
 msgid "Open With…"
 msgstr "Көмегімен ашу…"
 
-#: shell/resources/pps-document-view.blp:862
+#: shell/resources/pps-document-view.blp:865
 msgid "_Save As…"
 msgstr "Қ_алайша сақтау…"
 
-#: shell/resources/pps-document-view.blp:869
+#: shell/resources/pps-document-view.blp:872
 msgid "_Continuous"
 msgstr "Ү_зіліссіз"
 
-#: shell/resources/pps-document-view.blp:874
+#: shell/resources/pps-document-view.blp:877
 msgid "_Dual"
 msgstr "Қ_ос"
 
-#: shell/resources/pps-document-view.blp:879
+#: shell/resources/pps-document-view.blp:882
 msgid "_Odd Pages Left"
 msgstr "_Тақ парақтар сол жақта"
 
-#: shell/resources/pps-document-view.blp:884
+#: shell/resources/pps-document-view.blp:887
 msgid "Right to Left Document"
 msgstr "Оңнан солға құжат"
 
-#: shell/resources/pps-document-view.blp:891
+#: shell/resources/pps-document-view.blp:894
 msgid "Ro_tate ⤵"
 msgstr "Бұ_ру ⤵"
 
-#: shell/resources/pps-document-view.blp:898
+#: shell/resources/pps-document-view.blp:901
 msgid "Document Prop_erties"
 msgstr "Құжат қас_иеттері"
 
-#: shell/resources/pps-document-view.blp:951
-#: shell/resources/pps-document-view.blp:1259
+#: shell/resources/pps-document-view.blp:954
+#: shell/resources/pps-document-view.blp:1262
 msgid "Black"
 msgstr "Қара"
 
-#: shell/resources/pps-document-view.blp:963
-#: shell/resources/pps-document-view.blp:1050
-#: shell/resources/pps-document-view.blp:1199
+#: shell/resources/pps-document-view.blp:966
+#: shell/resources/pps-document-view.blp:1053
+#: shell/resources/pps-document-view.blp:1202
 msgid "Orange"
 msgstr "Қызғылт сары"
 
-#: shell/resources/pps-document-view.blp:975
-#: shell/resources/pps-document-view.blp:1063
-#: shell/resources/pps-document-view.blp:1211
+#: shell/resources/pps-document-view.blp:978
+#: shell/resources/pps-document-view.blp:1066
+#: shell/resources/pps-document-view.blp:1214
 msgid "Red"
 msgstr "Қызыл"
 
-#: shell/resources/pps-document-view.blp:987
-#: shell/resources/pps-document-view.blp:1076
-#: shell/resources/pps-document-view.blp:1223
+#: shell/resources/pps-document-view.blp:990
+#: shell/resources/pps-document-view.blp:1079
+#: shell/resources/pps-document-view.blp:1226
 msgid "Purple"
 msgstr "Күлгін"
 
-#: shell/resources/pps-document-view.blp:999
-#: shell/resources/pps-document-view.blp:1089
-#: shell/resources/pps-document-view.blp:1235
+#: shell/resources/pps-document-view.blp:1002
+#: shell/resources/pps-document-view.blp:1092
+#: shell/resources/pps-document-view.blp:1238
 msgid "Blue"
 msgstr "Көк"
 
-#: shell/resources/pps-document-view.blp:1011
-#: shell/resources/pps-document-view.blp:1102
-#: shell/resources/pps-document-view.blp:1247
+#: shell/resources/pps-document-view.blp:1014
+#: shell/resources/pps-document-view.blp:1105
+#: shell/resources/pps-document-view.blp:1250
 msgid "Green"
 msgstr "Жасыл"
 
-#: shell/resources/pps-document-view.blp:1037
-#: shell/resources/pps-document-view.blp:1187
+#: shell/resources/pps-document-view.blp:1040
+#: shell/resources/pps-document-view.blp:1190
 msgid "Yellow"
 msgstr "Сары"
 
-#: shell/resources/pps-document-view.blp:1124
-#: shell/resources/pps-document-view.blp:1281
-#: shell/resources/pps-document-view.blp:1340
+#: shell/resources/pps-document-view.blp:1127
+#: shell/resources/pps-document-view.blp:1284
+#: shell/resources/pps-document-view.blp:1343
 msgid "Thin"
 msgstr "Жіңішке"
 
-#: shell/resources/pps-document-view.blp:1136
-#: shell/resources/pps-document-view.blp:1294
-#: shell/resources/pps-document-view.blp:1352
+#: shell/resources/pps-document-view.blp:1139
+#: shell/resources/pps-document-view.blp:1297
+#: shell/resources/pps-document-view.blp:1355
 msgid "Medium"
 msgstr "Орташа"
 
-#: shell/resources/pps-document-view.blp:1148
-#: shell/resources/pps-document-view.blp:1306
-#: shell/resources/pps-document-view.blp:1364
+#: shell/resources/pps-document-view.blp:1151
+#: shell/resources/pps-document-view.blp:1309
+#: shell/resources/pps-document-view.blp:1367
 msgid "Thick"
 msgstr "Жуан"
 
-#: shell/resources/pps-document-view.blp:1160
-#: shell/resources/pps-document-view.blp:1318
-#: shell/resources/pps-document-view.blp:1376
+#: shell/resources/pps-document-view.blp:1163
+#: shell/resources/pps-document-view.blp:1321
+#: shell/resources/pps-document-view.blp:1379
 msgid "Very Thick"
 msgstr "Өте жуан"
 
-#: shell/resources/pps-document-view.blp:1389
+#: shell/resources/pps-document-view.blp:1392
 msgid "Erase Ink"
 msgstr "Сияны өшіру"
 
-#: shell/resources/pps-document-view.blp:1395
+#: shell/resources/pps-document-view.blp:1398
 msgid "Erase Whole Strokes"
 msgstr "Тұтас штрихтарды өшіру"
 
@@ -1212,14 +1406,14 @@ msgstr "Тұтас штрихтарды өшіру"
 #. annotation, as are squiggly, strikethrough, and underline. An adjective
 #. could also make sense as a translation. The letter in parenthesis marks the
 #. keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1434
+#: shell/resources/pps-document-view.blp:1437
 msgid "Highlight (h)"
 msgstr "Ерекшелеу (h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text
 #. marking annotation, as are highlight, squiggly, and underline. The letter
 #. in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1450
+#: shell/resources/pps-document-view.blp:1453
 msgid "Strikethrough (k)"
 msgstr "Сызып тастау (k)"
 
@@ -1227,7 +1421,7 @@ msgstr "Сызып тастау (k)"
 #. annotation, as are highlight, squiggly, and strikethrough. An adjective
 #. could also make sense as a translation. The letter in parenthesis marks the
 #. keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1466
+#: shell/resources/pps-document-view.blp:1469
 msgid "Underline (u)"
 msgstr "Астын сызу (u)"
 
@@ -1235,69 +1429,69 @@ msgstr "Астын сызу (u)"
 #. annotation, as are highlight, strikethrough, and underline. A noun could
 #. also make sense as a translation. The letter in parenthesis marks the
 #. keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1482
+#: shell/resources/pps-document-view.blp:1485
 msgid "Squiggly (q)"
 msgstr "Ирек сызық (q)"
 
-#: shell/resources/pps-document-view.blp:1573
+#: shell/resources/pps-document-view.blp:1576
 msgid "_Open Link"
 msgstr "Сі_лтемені ашу"
 
-#: shell/resources/pps-document-view.blp:1579
+#: shell/resources/pps-document-view.blp:1582
 msgid "Send an Email"
 msgstr "Электрондық поштаны жіберу"
 
-#: shell/resources/pps-document-view.blp:1585
+#: shell/resources/pps-document-view.blp:1588
 msgid "_Copy Link Address"
 msgstr "Сілтеме адр_есін көшіру"
 
-#: shell/resources/pps-document-view.blp:1591
+#: shell/resources/pps-document-view.blp:1594
 msgid "Copy Email Address"
 msgstr "Электрондық пошта адресін көшіру"
 
-#: shell/resources/pps-document-view.blp:1597
+#: shell/resources/pps-document-view.blp:1600
 msgid "_Go To"
 msgstr "Ө_ту"
 
-#: shell/resources/pps-document-view.blp:1603
+#: shell/resources/pps-document-view.blp:1606
 msgid "Open in New _Window"
 msgstr "Жаңа тере_зеде ашу"
 
-#: shell/resources/pps-document-view.blp:1611
+#: shell/resources/pps-document-view.blp:1614
 msgid "_Copy"
 msgstr "_Көшіру"
 
-#: shell/resources/pps-document-view.blp:1616
+#: shell/resources/pps-document-view.blp:1619
 msgid "Select _All"
 msgstr "Б_арлығын таңдау"
 
-#: shell/resources/pps-document-view.blp:1623
+#: shell/resources/pps-document-view.blp:1626
 msgid "_Save Image As…"
 msgstr "_Суретті қалайша сақтау…"
 
-#: shell/resources/pps-document-view.blp:1629
+#: shell/resources/pps-document-view.blp:1632
 msgid "Copy _Image"
 msgstr "Сурет_ті көшіру"
 
-#: shell/resources/pps-document-view.blp:1637
+#: shell/resources/pps-document-view.blp:1640
 #: shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "Сал_ынымды ашу"
 
-#: shell/resources/pps-document-view.blp:1643
+#: shell/resources/pps-document-view.blp:1646
 #: shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "С_алынымды қалайша сақтау…"
 
-#: shell/resources/pps-document-view.blp:1653
+#: shell/resources/pps-document-view.blp:1656
 msgid "Annotation _Properties…"
 msgstr "Аңдатпа қас_иеттері…"
 
-#: shell/resources/pps-document-view.blp:1659
+#: shell/resources/pps-document-view.blp:1662
 msgid "R_emove Annotation"
 msgstr "Аңдатпаны ө_шіру"
 
-#: shell/resources/pps-document-view.blp:1667
+#: shell/resources/pps-document-view.blp:1670
 msgid "_Add Text Annotation"
 msgstr "_Мәтіндік аңдатпа қосу"
 
@@ -1327,7 +1521,7 @@ msgstr "Б_ас тарту"
 
 #: shell/resources/pps-password-dialog.blp:5
 #: shell/resources/pps-password-view.blp:11
-#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:723
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:672
 msgid "Password Required"
 msgstr "Пароль керек"
 
@@ -1376,15 +1570,6 @@ msgstr "Мәтіндік лицензия"
 #: shell/resources/pps-properties-license.blp:79
 msgid "Further Information"
 msgstr "Кейінгі ақпарат"
-
-#: shell/resources/pps-properties-signatures.blp:32
-msgid "Signature Information"
-msgstr "Қолтаңба туралы ақпарат"
-
-#: shell/resources/pps-properties-signatures.blp:48
-#: shell/src/properties_signatures.rs:405
-msgid "View Details…"
-msgstr "Ақпаратын қарау…"
 
 #: shell/resources/pps-properties-window.blp:5
 msgid "Properties"
@@ -1779,7 +1964,7 @@ msgstr "Бұл санатты баспаға шығару…"
 msgid "Previews"
 msgstr "Алдын ала қарау"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "Құжатты ашу"
 
@@ -1790,6 +1975,11 @@ msgstr "Құжаттарды осында сүйреп әкеліңіз"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_Ашу…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "Құжатты ашу"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -1807,43 +1997,43 @@ msgstr "© 1996–2025 The Papers авторлары"
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
-#: shell/src/application.rs:366
+#: shell/src/application.rs:396
 msgid "The page label of the document to display."
 msgstr "Көрсету үшін құжат парағының белгісі."
 
-#: shell/src/application.rs:367
+#: shell/src/application.rs:397
 msgid "PAGE"
 msgstr "БЕТ"
 
-#: shell/src/application.rs:375
+#: shell/src/application.rs:405
 msgid "The page number of the document to display."
 msgstr "Көрсету үшін құжат парағының нөмірі."
 
-#: shell/src/application.rs:376
+#: shell/src/application.rs:406
 msgid "NUMBER"
 msgstr "САН"
 
-#: shell/src/application.rs:384
+#: shell/src/application.rs:414
 msgid "Named destination to display."
 msgstr "Көрсетілетін мақсат атауы."
 
-#: shell/src/application.rs:385
+#: shell/src/application.rs:415
 msgid "DEST"
 msgstr "МАҚСАТЫ"
 
-#: shell/src/application.rs:393
+#: shell/src/application.rs:423
 msgid "Run papers in fullscreen mode."
 msgstr "Papers-ты толық экран режимінде жіберу."
 
-#: shell/src/application.rs:402
+#: shell/src/application.rs:432
 msgid "Run papers in presentation mode."
 msgstr "Papers-ты презентация режимінде жіберу."
 
-#: shell/src/application.rs:411
+#: shell/src/application.rs:441
 msgid "Show the version of the program."
 msgstr "Бағдарлама нұсқасын көрсету."
 
-#: shell/src/application.rs:421
+#: shell/src/application.rs:451
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
@@ -1851,81 +2041,81 @@ msgstr "[ФАЙЛ…]"
 msgid "View Details"
 msgstr "Мәліметтерді көру"
 
-#: shell/src/document_view.rs:773
+#: shell/src/document_view.rs:791
 msgid ""
 "Document contains new or modified annotations and form fields that have been "
 "filled out."
 msgstr ""
 "Құжатта жаңа немесе өзгертілген аңдатпалар мен толтырылған форма өрістері бар."
 
-#: shell/src/document_view.rs:774
+#: shell/src/document_view.rs:794
 msgid "Document contains form fields that have been filled out."
 msgstr "Құжатта толтырылған форма өрістері бар."
 
-#: shell/src/document_view.rs:775
+#: shell/src/document_view.rs:796
 msgid "Document contains new or modified annotations."
 msgstr "Құжатта жаңа немесе өзгертілген аңдатпалар бар."
 
-#: shell/src/document_view.rs:783
+#: shell/src/document_view.rs:804
 msgid "If you don’t save a copy, changes will be permanently lost."
 msgstr "Көшірмесін сақтамасаңыз, өзгерістер жоғалады."
 
-#: shell/src/document_view.rs:784
+#: shell/src/document_view.rs:805
 msgid "Save Changes to a Copy?"
 msgstr "Өзгерістерді көшірмеге сақтау керек пе?"
 
-#: shell/src/document_view.rs:793
+#: shell/src/document_view.rs:814
 msgid "Close _Without Saving"
 msgstr "Сақтаус_ыз жабу"
 
-#: shell/src/document_view.rs:795
+#: shell/src/document_view.rs:816
 msgid "_Save a Copy"
 msgstr "Көшірмесін _сақтау"
 
-#: shell/src/document_view/actions.rs:1008
+#: shell/src/document_view/actions.rs:995
 msgid "Save Image"
 msgstr "Суретті сақтау"
 
-#: shell/src/document_view/actions.rs:1133
+#: shell/src/document_view/actions.rs:1127
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr ""
 "Меңзермен навигация режимі іске қосылды, сөндіру үшін F7 пернесін басыңыз."
 
-#: shell/src/document_view/actions.rs:1135
+#: shell/src/document_view/actions.rs:1129
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr ""
 "Меңзермен навигация режимі сөндірілді, іске қосу үшін F7 пернесін басыңыз."
 
-#: shell/src/document_view/actions.rs:1193
+#: shell/src/document_view/actions.rs:1187
 msgid "Close Menu"
 msgstr "Мәзірді жабу"
 
-#: shell/src/document_view/actions.rs:1270
+#: shell/src/document_view/actions.rs:1283
 msgid "Unable to Open Attachment"
 msgstr "Салынымды ашу мүмкін емес"
 
-#: shell/src/document_view/actions.rs:1286
+#: shell/src/document_view/actions.rs:1298
 msgctxt "This is an action"
 msgid "Save Attachment"
 msgstr "Тіркемені сақтау"
 
-#: shell/src/document_view/io.rs:284
+#: shell/src/document_view/io.rs:283
 msgid "The Document Contains No Pages"
 msgstr "Құжатта беттер жоқ"
 
-#: shell/src/document_view/io.rs:286
+#: shell/src/document_view/io.rs:285
 msgid "The Document Contains Only Empty Pages"
 msgstr "Құжатта тек бос беттер бар"
 
-#: shell/src/document_view/io.rs:412
+#: shell/src/document_view/io.rs:361
 msgid "Save As…"
 msgstr "Қалайша сақтау…"
 
-#: shell/src/document_view/io.rs:489
+#: shell/src/document_view/io.rs:438
 msgid "Draw a rectangle to insert a signature field"
 msgstr "Қолтаңба өрісін кірістіру үшін тіктөртбұрыш салыңыз"
 
-#: shell/src/document_view/io.rs:512
+#: shell/src/document_view/io.rs:461
 #, rust-format
 msgid ""
 "Digitally signed by {}\n"
@@ -1934,32 +2124,32 @@ msgstr ""
 "Цифрлық қол қойған: {}\n"
 "Күні: {}"
 
-#: shell/src/document_view/io.rs:531
+#: shell/src/document_view/io.rs:480
 msgid "Certificate Required"
 msgstr "Сертификат қажет"
 
-#: shell/src/document_view/io.rs:534
+#: shell/src/document_view/io.rs:483
 msgid "Select signing certificate"
 msgstr "Қол қою сертификатын таңдаңыз"
 
-#: shell/src/document_view/io.rs:535
+#: shell/src/document_view/io.rs:484
 msgid "Select"
 msgstr "Таңдау"
 
-#: shell/src/document_view/io.rs:615
+#: shell/src/document_view/io.rs:564
 msgid "A certificate is required to sign this document"
 msgstr "Бұл құжатқа қол қою үшін сертификат қажет"
 
-#: shell/src/document_view/io.rs:684
+#: shell/src/document_view/io.rs:633
 msgid "Save Signed File"
 msgstr "Қол қойылған файлды сақтау"
 
-#: shell/src/document_view/io.rs:714
+#: shell/src/document_view/io.rs:663
 #, rust-format
 msgid "Please enter password for {}"
 msgstr "{} үшін парольді енгізіңіз"
 
-#: shell/src/document_view/io.rs:731
+#: shell/src/document_view/io.rs:680
 msgid "_Login"
 msgstr "_Кіру"
 
@@ -1979,14 +2169,14 @@ msgid "{} pending job in queue"
 msgid_plural "{} pending jobs in queue"
 msgstr[0] "Кезекте күтіп тұрған {} тапсырма"
 
-#: shell/src/document_view/signals.rs:257
+#: shell/src/document_view/signals.rs:266
 #, rust-format
 msgid ""
 "Security alert: this document has been prevented from opening the file “{}”"
 msgstr "Қауіпсіздік ескертуі: бұл құжатқа “{}” файлын ашуға тыйым салынды"
 
-#: shell/src/document_view/signals.rs:439 shell/src/page_selector.rs:89
-#: shell/src/sidebar_annotations_row.rs:82
+#: shell/src/document_view/signals.rs:452 shell/src/page_selector.rs:91
+#: shell/src/sidebar_annotations_row.rs:83
 #, rust-format
 msgid "Page {}"
 msgstr "Бет {}"
@@ -1994,13 +2184,13 @@ msgstr "Бет {}"
 #. Translators: Do NOT translate the content between
 #. '{' and '}' they are variable names. Changing their
 #. order is possible
-#: shell/src/page_selector.rs:242 shell/src/page_selector.rs:269
+#: shell/src/page_selector.rs:244 shell/src/page_selector.rs:271
 #, rust-format
 msgid "({pagenum} of {totalpages})"
 msgstr "({pagenum}, барлығы {totalpages})"
 
 #. Translators: the placeholder is the total amount of pages
-#: shell/src/page_selector.rs:249 shell/src/page_selector.rs:278
+#: shell/src/page_selector.rs:251 shell/src/page_selector.rs:280
 #, rust-format
 msgid "of {}"
 msgstr "барлығы {}"
@@ -2043,9 +2233,20 @@ msgstr "Мазмұны"
 msgid "Date &amp; Time"
 msgstr "Күн мен уақыт"
 
-#: shell/src/properties_signatures.rs:403
-msgid "Hide Details…"
-msgstr "Ақпаратты жасыру…"
+#~ msgid "Producer"
+#~ msgstr "Өндіруші"
+
+#~ msgid "Creator"
+#~ msgstr "Жасаушы"
+
+#~ msgid "Signature Information"
+#~ msgstr "Қолтаңба туралы ақпарат"
+
+#~ msgid "View Details…"
+#~ msgstr "Ақпаратын қарау…"
+
+#~ msgid "Hide Details…"
+#~ msgstr "Ақпаратты жасыру…"
 
 #~ msgid "DVI document has incorrect format"
 #~ msgstr "DVI құжатының пішімі қате"
@@ -2283,9 +2484,6 @@ msgstr "Ақпаратты жасыру…"
 
 #~ msgid "_Replace"
 #~ msgstr "А_лмастыру"
-
-#~ msgid "Bookmarks"
-#~ msgstr "Бетбелгілер"
 
 #~ msgid "Find a word or phrase in the document"
 #~ msgstr "Құжаттан сөзді не мәтінді табу"
@@ -2573,10 +2771,6 @@ msgstr "Ақпаратты жасыру…"
 #~ msgctxt "shortcut window"
 #~ msgid "Add a post-it like note"
 #~ msgstr "Жазба сияқты естелікті қосу"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Highlight text"
-#~ msgstr "Мәтінді түспен ерекшелеу"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Show the search bar"

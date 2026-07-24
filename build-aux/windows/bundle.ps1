@@ -3,32 +3,52 @@
 
 $ErrorActionPreference = "Stop"
 
-# 1. Setup paths relative to repository root
-$repoRoot = (Get-Item $PSScriptRoot).Parent.Parent.FullName
-Set-Location $repoRoot
+# 1. Setup paths
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+if (Test-Path (Join-Path $scriptDir "..\..\meson.build")) {
+    $projectRoot = (Get-Item (Join-Path $scriptDir "..\..")).FullName
+} else {
+    $projectRoot = (Get-Item .).FullName
+}
+Set-Location $projectRoot
 
-$distDir = Join-Path $repoRoot "dist"
+$distDir = Join-Path $projectRoot "dist"
 $binDir = Join-Path $distDir "bin"
 $backendsDir = Join-Path $distDir "lib\papers\6\backends"
 $schemasDir = Join-Path $distDir "share\glib-2.0\schemas"
 $iconsDir = Join-Path $distDir "share\icons"
 $pixbufDir = Join-Path $distDir "lib\gdk-pixbuf-2.0"
 
-# Find MSYS2
-$msysPath = "C:\msys64"
-if (!(Test-Path "$msysPath\usr\bin\bash.exe")) {
-    if (Test-Path "C:\nbin\msys64\usr\bin\bash.exe") {
-        $msysPath = "C:\nbin\msys64"
+# Find MSYS2 dynamically
+$bashCmd = Get-Command "bash.exe" -ErrorAction SilentlyContinue
+if ($bashCmd) {
+    $bashExe = $bashCmd.Source
+    $binDirObj = (Get-Item $bashExe).Directory
+    if ($binDirObj.Name -eq "bin" -and $binDirObj.Parent.Name -eq "usr") {
+        $msysPath = $binDirObj.Parent.Parent.FullName
+    } elseif ($binDirObj.Name -eq "bin") {
+        $msysPath = $binDirObj.Parent.FullName
     } else {
-        $msysPath = Read-Host "MSYS2 was not found at C:\msys64. Please enter your MSYS2 install path"
+        $msysPath = "C:\msys64"
     }
+} elseif ($env:MSYSTEM_PREFIX -and (Test-Path "$env:MSYSTEM_PREFIX\..\usr\bin\bash.exe")) {
+    $msysPath = (Get-Item "$env:MSYSTEM_PREFIX\..").FullName
+    $bashExe = "$msysPath\usr\bin\bash.exe"
+} elseif (Test-Path "C:\msys64\usr\bin\bash.exe") {
+    $msysPath = "C:\msys64"
+    $bashExe = "$msysPath\usr\bin\bash.exe"
+} elseif (Test-Path "C:\nbin\msys64\usr\bin\bash.exe") {
+    $msysPath = "C:\nbin\msys64"
+    $bashExe = "$msysPath\usr\bin\bash.exe"
+} else {
+    throw "MSYS2 bash.exe was not found."
 }
 
-$bashExe = "$msysPath\usr\bin\bash.exe"
-$ucrtBin = "$msysPath\ucrt64\bin"
-$ucrtShare = "$msysPath\ucrt64\share"
-$ucrtLib = "$msysPath\ucrt64\lib"
+$ucrtBin = Join-Path $msysPath "ucrt64\bin"
+$ucrtShare = Join-Path $msysPath "ucrt64\share"
+$ucrtLib = Join-Path $msysPath "ucrt64\lib"
 
+Write-Host "Using MSYS2 installation at: $msysPath" -ForegroundColor Cyan
 Write-Host "Creating staging directories in $distDir..." -ForegroundColor Cyan
 New-Item -ItemType Directory -Force -Path $binDir | Out-Null
 New-Item -ItemType Directory -Force -Path $backendsDir | Out-Null
@@ -38,44 +58,88 @@ New-Item -ItemType Directory -Force -Path $pixbufDir | Out-Null
 
 Write-Host "Copying compiled binaries and backends..." -ForegroundColor Cyan
 Copy-Item "build\shell\src\papers.exe" $binDir -Force
-Copy-Item "build\thumbnailer\release\papers-thumbnailer.exe" $binDir -Force
+if (Test-Path "build\thumbnailer\papers-thumbnailer.exe") {
+    Copy-Item "build\thumbnailer\papers-thumbnailer.exe" $binDir -Force
+} elseif (Test-Path "build\thumbnailer\release\papers-thumbnailer.exe") {
+    Copy-Item "build\thumbnailer\release\papers-thumbnailer.exe" $binDir -Force
+}
 Copy-Item "build\previewer\papers-previewer.exe" $binDir -Force
 Copy-Item "build\libdocument\libppsdocument-4.0-6.dll" $binDir -Force
 Copy-Item "build\libview\libppsview-4.0-5.dll" $binDir -Force
 Copy-Item "build\libdocument\backend\*.dll" $backendsDir -Force
 Copy-Item "build\libdocument\backend\*.papers-backend" $backendsDir -Force
+Copy-Item "$ucrtBin\libstdc++-6.dll" $binDir -Force -ErrorAction SilentlyContinue
+Copy-Item "$ucrtBin\libgcc_s_seh-1.dll" $binDir -Force -ErrorAction SilentlyContinue
+Copy-Item "$ucrtBin\libwinpthread-1.dll" $binDir -Force -ErrorAction SilentlyContinue
+Copy-Item "$ucrtBin\libstdc++-6.dll" $backendsDir -Force -ErrorAction SilentlyContinue
+Copy-Item "$ucrtBin\libgcc_s_seh-1.dll" $backendsDir -Force -ErrorAction SilentlyContinue
+Copy-Item "$ucrtBin\libwinpthread-1.dll" $backendsDir -Force -ErrorAction SilentlyContinue
 Copy-Item "build\data\gschemas.compiled" $schemasDir -Force
 
 Write-Host "Resolving and copying DLL dependencies via ldd..." -ForegroundColor Cyan
-$posixRepo = "/" + $repoRoot.Substring(0,1).ToLower() + ($repoRoot.Substring(2) -replace '\\', '/')
-$lddOutput = & $bashExe -lc "export PATH=/ucrt64/bin:$posixRepo/build/libdocument:$posixRepo/build/libview:`$PATH && ldd $posixRepo/build/shell/src/papers.exe $posixRepo/build/thumbnailer/release/papers-thumbnailer.exe $posixRepo/build/previewer/papers-previewer.exe $posixRepo/build/libdocument/backend/*.dll"
+if ($projectRoot -match '^([A-Za-z]):(.*)') {
+    $drive = $Matches[1].ToLower()
+    $rest = $Matches[2] -replace '\\', '/'
+    $buildPathPosix = "/$drive$rest"
+} else {
+    $buildPathPosix = $projectRoot -replace '\\', '/'
+}
 
+$lddCmd = "export PATH=/ucrt64/bin:/usr/bin:$buildPathPosix/build/libdocument:$buildPathPosix/build/libview:`$PATH && loaders=`$(ls /ucrt64/lib/gdk-pixbuf-2.0/*/loaders/*.dll 2>/dev/null) && ldd $buildPathPosix/build/shell/src/papers.exe $buildPathPosix/build/previewer/papers-previewer.exe $buildPathPosix/build/libdocument/backend/*.dll `$loaders"
+$lddOutput = & $bashExe -lc $lddCmd
+
+
+
+$copiedCount = 0
 foreach ($line in $lddOutput) {
-    if ($line -match '/ucrt64/bin/([^ ]+)') {
+    if ($line -match '(?i)/ucrt64/bin/([a-z0-9_\-\.]+\.dll)') {
         $dllName = $Matches[1]
         $srcPath = Join-Path $ucrtBin $dllName
-        if (Test-Path $srcPath) {
+        $dstPath = Join-Path $binDir $dllName
+        if ((Test-Path $srcPath) -and !(Test-Path $dstPath)) {
             Copy-Item $srcPath $binDir -Force
+            $copiedCount++
         }
     }
 }
 
+# Copy delay-loaded GTK4 runtime DLLs missed by static ldd
+$extraDlls = @("vulkan-1.dll", "libvulkan-1.dll")
+foreach ($dll in $extraDlls) {
+    $srcPath = Join-Path $ucrtBin $dll
+    $dstPath = Join-Path $binDir $dll
+    if ((Test-Path $srcPath) -and !(Test-Path $dstPath)) {
+        Copy-Item $srcPath $binDir -Force
+        Write-Host "  + Copied extra runtime DLL: $dll" -ForegroundColor Green
+    }
+}
+
+
+$totalDlls = (Get-ChildItem $binDir -Filter "*.dll").Count
+if ($totalDlls -lt 10) {
+    throw "Fatal error during bundling: No DLL dependencies were resolved by ldd! (Only $totalDlls DLLs in bin)"
+} else {
+    Write-Host "Successfully resolved and bundled $totalDlls total DLL dependencies in bin." -ForegroundColor Green
+}
+
 Write-Host "Copying UI assets, MIME database, and GdkPixbuf loaders..." -ForegroundColor Cyan
-$adwaitaPath = Join-Path $ucrtShare "icons\Adwaita"
-if (Test-Path $adwaitaPath) {
-    Copy-Item -Path $adwaitaPath -Destination $iconsDir -Recurse -Container -Force
+if (Test-Path (Join-Path $ucrtShare "icons\Adwaita")) {
+    Copy-Item -Path (Join-Path $ucrtShare "icons\Adwaita") -Destination $iconsDir -Recurse -Container -Force
 }
-$hicolorPath = Join-Path $ucrtShare "icons\hicolor"
-if (Test-Path $hicolorPath) {
-    Copy-Item -Path $hicolorPath -Destination $iconsDir -Recurse -Container -Force
+if (Test-Path (Join-Path $ucrtShare "icons\hicolor")) {
+    Copy-Item -Path (Join-Path $ucrtShare "icons\hicolor") -Destination $iconsDir -Recurse -Container -Force
 }
-$mimePath = Join-Path $ucrtShare "mime"
-if (Test-Path $mimePath) {
-    Copy-Item -Path $mimePath -Destination (Join-Path $distDir "share") -Recurse -Container -Force
+if (Test-Path (Join-Path $ucrtShare "mime")) {
+    Copy-Item -Path (Join-Path $ucrtShare "mime") -Destination (Join-Path $distDir "share") -Recurse -Container -Force
 }
-$pixbufPath = Join-Path $ucrtLib "gdk-pixbuf-2.0"
-if (Test-Path $pixbufPath) {
-    Copy-Item -Path "$pixbufPath\*" -Destination $pixbufDir -Recurse -Container -Force
+if (Test-Path (Join-Path $ucrtShare "fontconfig")) {
+    Copy-Item -Path (Join-Path $ucrtShare "fontconfig") -Destination (Join-Path $distDir "share") -Recurse -Container -Force
+}
+if (Test-Path (Join-Path $ucrtShare "poppler")) {
+    Copy-Item -Path (Join-Path $ucrtShare "poppler") -Destination (Join-Path $distDir "share") -Recurse -Container -Force
+}
+if (Test-Path (Join-Path $ucrtLib "gdk-pixbuf-2.0")) {
+    Copy-Item -Path (Join-Path $ucrtLib "gdk-pixbuf-2.0\*") -Destination $pixbufDir -Recurse -Container -Force
 }
 
 Write-Host ""

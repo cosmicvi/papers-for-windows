@@ -43,8 +43,10 @@ Section "Papers Core Application" SEC01
   nsExec::ExecToLog '"$INSTDIR\bin\fc-cache.exe" -f -v'
 
   CreateDirectory "$SMPROGRAMS\Papers"
-  CreateShortcut "$SMPROGRAMS\Papers\Papers.lnk" "$INSTDIR\bin\papers.exe"
-  CreateShortcut "$DESKTOP\Papers.lnk" "$INSTDIR\bin\papers.exe"
+  SetOutPath "$INSTDIR\bin"
+  CreateShortcut "$SMPROGRAMS\Papers\Papers.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "GNOME Papers Document Viewer" "$INSTDIR\bin"
+  CreateShortcut "$DESKTOP\Papers.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "GNOME Papers Document Viewer" "$INSTDIR\bin"
+  SetOutPath "$INSTDIR"
 
   WriteUninstaller "$INSTDIR\uninstall.exe"
   WriteRegStr HKCU "Software\Papers" "InstallDir" $INSTDIR

@@ -11,7 +11,6 @@
 #include "pps-overlay.h"
 #include "pps-view-private.h"
 #include "pps-view.h"
-#include "pps-platform.h"
 
 #include <config.h>
 
@@ -83,7 +82,7 @@ pps_overlay_annotation_drag_end (GtkGestureDrag *annotation_drag_gesture,
 		PpsAnnotationEditingState state = pps_document_model_get_annotation_editing_state (priv->model);
 		pps_document_model_set_annotation_editing_state (priv->model, state & ~PPS_ANNOTATION_EDITING_STATE_STAMP);
 	}
-	pps_platform_gesture_set_state (annotation_drag_gesture, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture), GTK_EVENT_SEQUENCE_CLAIMED);
 }
 
 static void
@@ -96,7 +95,7 @@ pps_overlay_annotation_drag_update (GtkGestureDrag *annotation_drag_gesture,
 	gdouble page_width, page_height, scale, real_offset_x, real_offset_y;
 	PpsRectangle rect;
 
-	pps_platform_gesture_set_state (annotation_drag_gesture, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture), GTK_EVENT_SEQUENCE_CLAIMED);
 
 	pps_annotation_get_area (priv->annotation, &rect);
 
@@ -145,7 +144,7 @@ pps_overlay_annotation_resize_begin (GtkGestureDrag *annotation_drag_gesture,
 	pps_annotation_get_area (priv->annotation, &rect);
 	priv->initial_proportion = (rect.x2 - rect.x1) / (rect.y2 - rect.y1);
 
-	pps_platform_gesture_set_state (annotation_drag_gesture,
+	gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture),
 	                       GTK_EVENT_SEQUENCE_CLAIMED);
 
 	pps_overlay_annotation_grab_focus (overlay, -1, -1);
@@ -188,7 +187,7 @@ pps_overlay_annotation_resize_update (GtkGestureDrag *annotation_drag_gesture,
 		pps_annotation_model_set_font_size (pps_document_model_get_annotation_model (priv->model), ((double) pango_font_description_get_size (desc)) / PANGO_SCALE);
 	}
 
-	pps_platform_gesture_set_state (annotation_drag_gesture, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture), GTK_EVENT_SEQUENCE_CLAIMED);
 	gtk_widget_queue_resize (GTK_WIDGET (overlay));
 }
 
@@ -392,12 +391,12 @@ pps_overlay_annotation_init (PpsOverlayAnnotation *overlay)
 
 	gtk_widget_add_controller (GTK_WIDGET (overlay), GTK_EVENT_CONTROLLER (gesture));
 
-	pps_platform_add_css_class (box, "overlay-annot-box");
+	gtk_widget_add_css_class (box, "overlay-annot-box");
 
-	pps_platform_add_css_class (overlay, "overlay-annot-wrapper");
+	gtk_widget_add_css_class (GTK_WIDGET (overlay), "overlay-annot-wrapper");
 	g_autofree gchar *annotid = g_strdup_printf ("annot%d", priv->id);
 
-	pps_platform_add_css_class (overlay, annotid);
+	gtk_widget_add_css_class (GTK_WIDGET (overlay), annotid);
 }
 
 static void
@@ -411,7 +410,7 @@ pps_overlay_annotation_constructed (GObject *obj)
 
 	G_OBJECT_CLASS (pps_overlay_annotation_parent_class)->constructed (obj);
 
-	pps_platform_add_css_class (remove_button, "annot-remove-button");
+	gtk_widget_add_css_class (remove_button, "annot-remove-button");
 	gtk_widget_set_valign (remove_button, GTK_ALIGN_START);
 	gtk_widget_set_halign (remove_button, GTK_ALIGN_END);
 	gtk_widget_set_cursor_from_name (remove_button, "default");
@@ -652,7 +651,7 @@ pps_overlay_annotation_image_init (PpsOverlayAnnotationImage *ov_image)
 	gtk_widget_set_vexpand (GTK_WIDGET (priv->image), TRUE);
 	gtk_widget_set_hexpand (GTK_WIDGET (priv->image), TRUE);
 
-	pps_platform_add_css_class (priv->image, "overlay-annot-content");
+	gtk_widget_add_css_class (GTK_WIDGET (priv->image), "overlay-annot-content");
 
 	gtk_box_append (priv_overlay->box, GTK_WIDGET (priv->image));
 }
@@ -660,7 +659,7 @@ pps_overlay_annotation_image_init (PpsOverlayAnnotationImage *ov_image)
 static void
 pps_overlay_annotation_image_grab_focus (PpsOverlayAnnotation *overlay, int x, int y)
 {
-	pps_platform_grab_focus (overlay);
+	gtk_widget_grab_focus (GTK_WIDGET (overlay));
 }
 
 static void

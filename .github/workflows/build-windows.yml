@@ -1,0 +1,185 @@
+name: Build Windows Release
+
+on:
+  push:
+    branches:
+      - main
+      - feature/windows-support
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    name: Build Binaries & Stage Dist
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup MSYS2 UCRT64 Environment
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-meson
+            mingw-w64-ucrt-x86_64-ninja
+            mingw-w64-ucrt-x86_64-rust
+            mingw-w64-ucrt-x86_64-gtk4
+            mingw-w64-ucrt-x86_64-libadwaita
+            mingw-w64-ucrt-x86_64-poppler
+            mingw-w64-ucrt-x86_64-libspelling
+            mingw-w64-ucrt-x86_64-blueprint-compiler
+            mingw-w64-ucrt-x86_64-gettext
+            mingw-w64-ucrt-x86_64-appstream
+            mingw-w64-ucrt-x86_64-djvulibre
+            mingw-w64-ucrt-x86_64-libarchive
+            mingw-w64-ucrt-x86_64-libtiff
+            mingw-w64-ucrt-x86_64-pkgconf
+            mingw-w64-ucrt-x86_64-osslsigncode
+            diffutils
+
+      - name: Setup & Compile via Meson
+        shell: msys2 {0}
+        run: |
+          meson setup build --buildtype=release --strip -Ddocumentation=false -Duser_doc=false -Dnautilus=false -Dkeyring=disabled --reconfigure
+          meson compile -C build
+
+      - name: Bundle Executables & Dependencies
+        shell: msys2 {0}
+        run: |
+          powershell -ExecutionPolicy Bypass -File build-aux/windows/bundle.ps1
+
+      - name: Sign Binaries (Optional)
+        shell: pwsh
+        env:
+          WIN_SIGNING_CERT_BASE64: ${{ secrets.WIN_SIGNING_CERT_BASE64 }}
+          WIN_SIGNING_CERT_PASS: ${{ secrets.WIN_SIGNING_CERT_PASS }}
+        run: |
+          if ($env:WIN_SIGNING_CERT_BASE64 -and $env:WIN_SIGNING_CERT_PASS) {
+              Write-Host "Signing certificate found. Proceeding to sign binaries..."
+              [IO.File]::WriteAllBytes("cert.p12", [System.Convert]::FromBase64String($env:WIN_SIGNING_CERT_BASE64))
+              Get-ChildItem "dist\bin\*.dll", "dist\bin\*.exe", "dist\lib\papers\6\backends\*.dll" | ForEach-Object {
+                  & osslsigncode sign -pkcs12 cert.p12 -pass $env:WIN_SIGNING_CERT_PASS -t http://timestamp.digicert.com -in $_.FullName -out $_.FullName
+              }
+              Remove-Item cert.p12 -Force
+          } else {
+              Write-Host "WIN_SIGNING_CERT_BASE64 and/or WIN_SIGNING_CERT_PASS secrets not set. Skipping binary signing."
+          }
+
+      - name: Upload Dist Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-staged
+          path: dist/
+          retention-days: 1
+
+  package-windows-portable:
+    name: Package Portable Zip
+    needs: build-windows
+    runs-on: windows-latest
+    steps:
+      - name: Download Dist Staged Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-staged
+          path: dist/
+
+      - name: Create Portable Zip Package
+        shell: pwsh
+        run: |
+          $slug = if ($env:GITHUB_REF_TYPE -eq 'tag') { $env:GITHUB_REF_NAME } else { $env:GITHUB_SHA.Substring(0, 8) }
+          Compress-Archive -Path dist\* -DestinationPath "papers-$slug-windows-x86_64-portable.zip"
+
+      - name: Upload Portable Zip Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: papers-windows-x86_64-portable
+          path: papers-*-portable.zip
+          retention-days: 7
+
+  package-windows-setup:
+    name: Package NSIS Setup Installer
+    needs: build-windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Dist Staged Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-staged
+          path: dist/
+
+      - name: Setup MSYS2 for NSIS & Signing
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-nsis
+            mingw-w64-ucrt-x86_64-osslsigncode
+
+      - name: Compile NSIS Installer
+        shell: msys2 {0}
+        run: |
+          makensis build-aux/windows/papers.nsi
+
+      - name: Sign Setup Installer (Optional)
+        shell: pwsh
+        env:
+          WIN_SIGNING_CERT_BASE64: ${{ secrets.WIN_SIGNING_CERT_BASE64 }}
+          WIN_SIGNING_CERT_PASS: ${{ secrets.WIN_SIGNING_CERT_PASS }}
+        run: |
+          if ($env:WIN_SIGNING_CERT_BASE64 -and $env:WIN_SIGNING_CERT_PASS) {
+              Write-Host "Signing final setup installer..."
+              [IO.File]::WriteAllBytes("cert.p12", [System.Convert]::FromBase64String($env:WIN_SIGNING_CERT_BASE64))
+              Get-ChildItem "papers-*-installer-x64.exe" | ForEach-Object {
+                  & osslsigncode sign -pkcs12 cert.p12 -pass $env:WIN_SIGNING_CERT_PASS -t http://timestamp.digicert.com -in $_.FullName -out $_.FullName
+              }
+              Remove-Item cert.p12 -Force
+          } else {
+              Write-Host "WIN_SIGNING_CERT_BASE64 and/or WIN_SIGNING_CERT_PASS secrets not set. Skipping installer signing."
+          }
+
+      - name: Upload Setup Installer Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: papers-windows-x86_64-setup
+          path: papers-*-installer-x64.exe
+          retention-days: 7
+
+  create-release:
+    name: Create GitHub Release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [package-windows-portable, package-windows-setup]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download Portable Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: papers-windows-x86_64-portable
+
+      - name: Download Setup Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: papers-windows-x86_64-setup
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            papers-*-portable.zip
+            papers-*-installer-x64.exe
+          draft: false
+          prerelease: false

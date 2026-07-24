@@ -602,7 +602,6 @@ pdf_document_get_info (PpsDocument *document)
 	GDateTime *modified_datetime = NULL;
 	gboolean has_javascript;
 	gint n_pages;
-	double paper_width = 0, paper_height = 0;
 
 	info = pps_document_info_new ();
 
@@ -628,11 +627,17 @@ pdf_document_get_info (PpsDocument *document)
 	n_pages = poppler_document_get_n_pages (PDF_DOCUMENT (document)->document);
 	has_javascript = poppler_document_has_javascript (PDF_DOCUMENT (document)->document);
 
-	if (n_pages > 0) {
-		PopplerPage *poppler_page = poppler_document_get_page (PDF_DOCUMENT (document)->document, 0);
-		poppler_page_get_size (poppler_page, &paper_width, &paper_height);
+	info->page_sizes = g_malloc (sizeof (PpsDocumentPageSize) * n_pages);
+	for (size_t i = 0; i < n_pages; i++) {
+		double height, width;
+		PopplerPage *poppler_page = poppler_document_get_page (PDF_DOCUMENT (document)->document, i);
+		poppler_page_get_size (poppler_page, &width, &height);
 		g_object_unref (poppler_page);
+		// convert to mm
+		(info->page_sizes[i]).width = width / 72.0f * 25.4f;
+		(info->page_sizes[i]).height = height / 72.0f * 25.4f;
 	}
+	info->n_pages = n_pages;
 
 	// Process all the data outside the lock
 	info->fields_mask |= PPS_DOCUMENT_INFO_LAYOUT |
@@ -665,14 +670,6 @@ pdf_document_get_info (PpsDocument *document)
 	if (metadata != NULL) {
 		pps_document_info_set_from_xmp (info, metadata, -1);
 		g_free (metadata);
-	}
-
-	info->n_pages = n_pages;
-
-	if (n_pages > 0) {
-		// Convert to mm.
-		info->paper_width = paper_width / 72.0f * 25.4f;
-		info->paper_height = paper_height / 72.0f * 25.4f;
 	}
 
 	switch (layout) {
@@ -3761,7 +3758,7 @@ pdf_document_annotations_add_annotation (PpsDocumentAnnotations *document_annota
 
 		gdk_rgba_to_poppler_color (font_rgba, &poppler_color);
 		poppler_annot_free_text_set_font_color (POPPLER_ANNOT_FREE_TEXT (poppler_annot), &poppler_color);
-		flags = poppler_annot_get_flags (poppler_annot) & POPPLER_ANNOT_FLAG_PRINT;
+		flags = poppler_annot_get_flags (poppler_annot) | POPPLER_ANNOT_FLAG_PRINT;
 		poppler_annot_set_flags (poppler_annot, flags);
 	} break;
 	case PPS_ANNOTATION_TYPE_INK: {
@@ -3817,7 +3814,7 @@ pdf_document_annotations_add_annotation (PpsDocumentAnnotations *document_annota
 		PopplerAnnotFlag flags;
 		poppler_annot = poppler_annot_stamp_new (self->document, &poppler_rect);
 		poppler_annot_stamp_set_custom_image (POPPLER_ANNOT_STAMP (poppler_annot), pps_annotation_stamp_get_surface (PPS_ANNOTATION_STAMP (annot)), NULL);
-		flags = poppler_annot_get_flags (poppler_annot) & POPPLER_ANNOT_FLAG_PRINT;
+		flags = poppler_annot_get_flags (poppler_annot) | POPPLER_ANNOT_FLAG_PRINT;
 		poppler_annot_set_flags (poppler_annot, flags);
 		break;
 	}

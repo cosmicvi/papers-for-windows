@@ -129,6 +129,7 @@ enum_sources = gnome.mkenums_simple(
 
 libdocument_deps = [
   cairo_dep,
+  exempi_dep,
   gdk_pixbuf_dep,
   gio_dep,
   glib_dep,
@@ -138,10 +139,6 @@ libdocument_deps = [
   zlib_dep,
   libsysprof_capture_dep,
 ]
-
-if exempi_dep.found()
-  libdocument_deps += exempi_dep
-endif
 
 cflags = [
   '-DG_LOG_DOMAIN="PapersDocument"',

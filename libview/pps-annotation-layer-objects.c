@@ -9,7 +9,6 @@
 
 #include "gtk/gtk.h"
 #include "pps-annotation-model.h"
-#include "pps-platform.h"
 
 struct _PpsAnnotationLayerObjects {
 	PpsAnnotationLayer base_instance;
@@ -33,7 +32,7 @@ pps_annotation_layer_objects_pressed (GtkGestureClick *gesture, int n_pressed, g
 	GdkRGBA *color = pps_annotation_model_get_text_color (GET_ANNOT_MODEL (layer));
 	gdouble scale = pps_document_model_get_scale (GET_DOC_MODEL (layer));
 
-	pps_platform_gesture_set_state (gesture, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_CLAIMED);
 
 	start.x = x / scale;
 	start.y = y / scale;

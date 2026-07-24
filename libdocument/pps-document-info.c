@@ -66,6 +66,7 @@ pps_document_info_copy (const PpsDocumentInfo *info)
 	copy->ui_hints = info->ui_hints;
 	copy->permissions = info->permissions;
 	copy->n_pages = info->n_pages;
+	copy->page_sizes = g_memdup2 (info->page_sizes, sizeof (PpsDocumentPageSize) * info->n_pages);
 	copy->license = pps_document_license_copy (info->license);
 
 	copy->fields_mask = info->fields_mask;
@@ -95,6 +96,7 @@ pps_document_info_free (PpsDocumentInfo *info)
 	g_free (info->linearized);
 	g_free (info->security);
 	pps_document_license_free (info->license);
+	g_free (info->page_sizes);
 
 	g_clear_pointer (&info->creation_datetime, g_date_time_unref);
 	g_clear_pointer (&info->modified_datetime, g_date_time_unref);
@@ -228,8 +230,69 @@ get_tolerance (gdouble size)
 		return 3.0f;
 }
 
+static gchar *
+format_page_ranges (const GList *page_numbers)
+{
+	GString *str = g_string_new (NULL);
+	const GList *l;
+	gint num, range_start = -1;
+
+	// iterate through the list and look for continuous sequences
+	for (l = page_numbers; l; l = g_list_next (l)) {
+		GList *next_l;
+		num = GPOINTER_TO_INT (l->data);
+		if (range_start == -1)
+			range_start = num;
+
+		next_l = g_list_next (l);
+		// end of the list or next number is not part of the current range
+		if (!next_l || (next_l && GPOINTER_TO_INT (next_l->data) != num + 1)) {
+			gint range_end = num;
+			g_autofree gchar *append_str = NULL;
+			if (range_start == range_end) {
+				append_str = g_strdup_printf ("%i", range_start);
+			} else {
+				/* Note to translators: this string makes a range of pages that have a certain size,
+				 * the first and the second placeholders %i are the start and the end of this range
+				 * (e.g. 1-5), and the minus sign separates them */
+				append_str = g_strdup_printf (_ ("%i-%i"), range_start, range_end);
+			}
+			g_string_append (str, append_str);
+			if (next_l)
+				/* Note to translators: this is a separator that separates two or more page ranges,
+				 * or individual page numbers (e.g. 1, 3-7, 9, 11-12) */
+				g_string_append (str, _ (", "));
+
+			// list has ended - nothing to process
+			if (!next_l)
+				break;
+			// start counting new range
+			if (GPOINTER_TO_INT (next_l->data) != num + 1)
+				range_start = GPOINTER_TO_INT (next_l->data);
+		}
+	}
+	return g_string_free_and_steal (str);
+}
+
+static void
+add_page_to_hashtable (GList **format_list, GHashTable *table, gchar *format, gint page)
+{
+	GList *pages = NULL;
+
+	if (g_hash_table_contains (table, format)) {
+		pages = g_hash_table_lookup (table, format);
+		pages = g_list_prepend (pages, GINT_TO_POINTER (page));
+		g_hash_table_insert (table, format, pages);
+	} else {
+		gchar *key = g_strdup (format);
+		pages = g_list_prepend (pages, GINT_TO_POINTER (page));
+		g_hash_table_insert (table, key, pages);
+		*format_list = g_list_append (*format_list, key);
+	}
+}
+
 /**
- * pps_document_info_regular_pager_size:
+ * pps_document_info_regular_paper_size:
  * @info: a #PpsDocumentInfo
  *
  * Returns: (transfer full) (nullable): A string represent the regular paper size
@@ -238,64 +301,119 @@ char *
 pps_document_info_regular_paper_size (const PpsDocumentInfo *info)
 {
 	GList *paper_sizes, *l;
-	gchar *exact_size;
-	gchar *str = NULL;
+	GString *str = g_string_new (NULL);
 	GtkUnit units;
+	// hash table with page formats as keys and lists of page numbers as values
+	GHashTable *page_format_table = g_hash_table_new (g_str_hash, g_str_equal);
+	/* list of page formats (e.g. A4 or Letter) in the order of how they appear */
+	/* in the document, without repeating them */
+	GList *format_order = NULL;
 
 	g_return_val_if_fail (info->fields_mask & PPS_DOCUMENT_INFO_PAPER_SIZE, NULL);
 
 	units = get_default_user_units ();
 
-	if (units == GTK_UNIT_MM) {
-		exact_size = g_strdup_printf (_ ("%.0f × %.0f mm"),
-		                              info->paper_width,
-		                              info->paper_height);
-	} else {
-		exact_size = g_strdup_printf (_ ("%.2f × %.2f inch"),
-		                              info->paper_width / 25.4f,
-		                              info->paper_height / 25.4f);
-	}
-
 	paper_sizes = gtk_paper_size_get_paper_sizes (FALSE);
 
-	for (l = paper_sizes; l && l->data; l = g_list_next (l)) {
-		GtkPaperSize *size = (GtkPaperSize *) l->data;
-		gdouble paper_width;
-		gdouble paper_height;
-		gdouble width_tolerance;
-		gdouble height_tolerance;
+	// identify page formats and their pages in the document
+	for (int i = 0; i < info->n_pages; i++) {
+		g_autofree gchar *exact_size = NULL;
+		g_autofree gchar *format_str = NULL;
 
-		paper_width = gtk_paper_size_get_width (size, GTK_UNIT_MM);
-		paper_height = gtk_paper_size_get_height (size, GTK_UNIT_MM);
+		if (units == GTK_UNIT_MM) {
+			/* Note to translators: first placeholder is the paper width
+			 * in mm, second placeholder is the paper height in mm,
+			 * both do not have a decimal point (e.g. 297 x 210 mm) */
+			exact_size = g_strdup_printf (_ ("%.0f × %.0f mm"),
+			                              info->page_sizes[i].width,
+			                              info->page_sizes[i].height);
+		} else {
+			/* Note to translators: first placeholder is the paper width
+			 * in inches, second placeholder is the paper height in inches,
+			 * both with 2 decimal places (e.g. 8.50 × 11.00 inch) */
+			exact_size = g_strdup_printf (_ ("%.2f × %.2f inch"),
+			                              info->page_sizes[i].width / 25.4f,
+			                              info->page_sizes[i].height / 25.4f);
+		}
 
-		width_tolerance = get_tolerance (paper_width);
-		height_tolerance = get_tolerance (paper_height);
+		for (l = paper_sizes; l && l->data; l = g_list_next (l)) {
+			GtkPaperSize *size = (GtkPaperSize *) l->data;
+			gdouble paper_width;
+			gdouble paper_height;
+			gdouble width_tolerance;
+			gdouble height_tolerance;
 
-		if (ABS (info->paper_height - paper_height) <= height_tolerance &&
-		    ABS (info->paper_width - paper_width) <= width_tolerance) {
-			/* Note to translators: first placeholder is the paper name (eg.
-			 * A4), second placeholder is the paper size (eg. 297x210 mm) */
-			str = g_strdup_printf (_ ("%s, Portrait (%s)"),
-			                       gtk_paper_size_get_display_name (size),
-			                       exact_size);
-		} else if (ABS (info->paper_width - paper_height) <= height_tolerance &&
-		           ABS (info->paper_height - paper_width) <= width_tolerance) {
-			/* Note to translators: first placeholder is the paper name (eg.
-			 * A4), second placeholder is the paper size (eg. 297x210 mm) */
-			str = g_strdup_printf (_ ("%s, Landscape (%s)"),
-			                       gtk_paper_size_get_display_name (size),
-			                       exact_size);
+			paper_width = gtk_paper_size_get_width (size, GTK_UNIT_MM);
+			paper_height = gtk_paper_size_get_height (size, GTK_UNIT_MM);
+
+			width_tolerance = get_tolerance (paper_width);
+			height_tolerance = get_tolerance (paper_height);
+
+			if (ABS (info->page_sizes[i].height - paper_height) <= height_tolerance &&
+			    ABS (info->page_sizes[i].width - paper_width) <= width_tolerance) {
+				/* Note to translators: first placeholder is the paper name (eg.
+				 * A4), second placeholder is the paper size (eg. 297x210 mm) */
+				format_str = g_strdup_printf (_ ("%s, Portrait (%s)"),
+				                              gtk_paper_size_get_display_name (size),
+				                              exact_size);
+			} else if (ABS (info->page_sizes[i].width - paper_height) <= height_tolerance &&
+			           ABS (info->page_sizes[i].height - paper_width) <= width_tolerance) {
+				/* Note to translators: first placeholder is the paper name (eg.
+				 * A4), second placeholder is the paper size (eg. 297x210 mm) */
+				format_str = g_strdup_printf (_ ("%s, Landscape (%s)"),
+				                              gtk_paper_size_get_display_name (size),
+				                              exact_size);
+			}
+
+			if (format_str)
+				break;
+		}
+
+		if (format_str) {
+			add_page_to_hashtable (&format_order, page_format_table, format_str, i + 1);
+		} else {
+			add_page_to_hashtable (&format_order, page_format_table, exact_size, i + 1);
+		}
+	}
+
+	// usual case of the same format for all pages
+	if (g_list_length (format_order) == 1) {
+		g_string_assign (str, (gchar *) format_order->data);
+	} else {
+		for (l = format_order; l && l->data; l = g_list_next (l)) {
+			gchar *key = (gchar *) l->data;
+			g_autofree gchar *page_ranges = NULL;
+			g_autofree gchar *append_str = NULL;
+
+			// reverse page number lists for proper order
+			GList *value = g_hash_table_lookup (page_format_table, key);
+			value = g_list_reverse (value);
+			g_hash_table_insert (page_format_table, key, value);
+
+			page_ranges = format_page_ranges (value);
+			/* Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+			 * the second placeholder is a page number or range(e.g. "1, 5-12"),
+			 * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch)) */
+			append_str = g_strdup_printf (_ ("%s %s: %s"), ngettext ("Page", "Pages", g_list_length (value)), page_ranges, key);
+			g_string_append (str, append_str);
+			if (g_list_next (l))
+				g_string_append (str, "\n");
 		}
 	}
 
 	g_clear_list (&paper_sizes, (GDestroyNotify) gtk_paper_size_free);
-
-	if (str != NULL) {
-		g_free (exact_size);
-		return str;
+	// free table values
+	for (l = format_order; l && l->data; l = g_list_next (l)) {
+		gchar *key = (gchar *) l->data;
+		GList *value = g_hash_table_lookup (page_format_table, key);
+		g_hash_table_remove (page_format_table, key);
+		g_list_free (value);
 	}
 
-	return exact_size;
+	g_list_free_full (format_order, g_free);
+
+	g_hash_table_destroy (page_format_table);
+	return g_string_free_and_steal (str);
 }
 
 /**

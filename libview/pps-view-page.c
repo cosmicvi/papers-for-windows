@@ -21,7 +21,6 @@
 #include "pps-overlay.h"
 #include "pps-view-private.h"
 #include "pps-view.h"
-#include "pps-platform.h"
 #include <gdk/gdk.h>
 
 #define PPS_STYLE_CLASS_DOCUMENT_PAGE "document-page"
@@ -540,8 +539,6 @@ pps_view_page_snapshot (GtkWidget *widget, GtkSnapshot *snapshot)
 	gdouble scale;
 	GtkNative *native = gtk_widget_get_native (widget);
 	gdouble fractional_scale = gdk_surface_get_scale (gtk_native_get_surface (native));
-	graphene_point_t origin;
-	gdouble delta_x = 0, delta_y = 0;
 
 	if (priv->model == NULL || priv->index < 0)
 		return;
@@ -564,22 +561,30 @@ pps_view_page_snapshot (GtkWidget *widget, GtkSnapshot *snapshot)
 		gtk_snapshot_pop (snapshot);
 	}
 
-	/* Snap the texture to a physical pixel so it is not blurred.
-	 * Compute residual sub-pixel offset of the widget origin in physical
-	 * pixel space and then pre-translate the texture by that amount so
-	 * it lands on the nearest physical (integer) pixel.
-	 * In the future, snapping API in GTK should provide a cleaner solution. */
-	if (gtk_widget_compute_point (widget, GTK_WIDGET (native),
-	                              &GRAPHENE_POINT_INIT_ZERO, &origin)) {
-		gdouble origin_phys_x = origin.x * fractional_scale;
-		gdouble origin_phys_y = origin.y * fractional_scale;
-		delta_x = round (origin_phys_x) - origin_phys_x;
-		delta_y = round (origin_phys_y) - origin_phys_y;
-	}
-	area = GRAPHENE_RECT_INIT (delta_x, delta_y,
+	area = GRAPHENE_RECT_INIT (0, 0,
 	                           ceil (width * fractional_scale),
 	                           ceil (height * fractional_scale));
 	gtk_snapshot_save (snapshot);
+
+#if GTK_CHECK_VERSION(4, 23, 1) /* TODO: bump this to 4.24.0 once it exists */
+	/* Snap the texture to a physical pixel so it is not blurred */
+	gtk_snapshot_set_snap (snapshot, GSK_RECT_SNAP_ROUND);
+#else
+	/* No snapping API; need to do it by hand:
+	 * Compute residual sub-pixel offset of the widget origin in physical
+-        * pixel space and shift the texture by that amount so
+-        * it lands on the nearest physical (integer) pixel. */
+	{
+		graphene_point_t origin;
+		if (gtk_widget_compute_point (widget, GTK_WIDGET (native),
+		                              &GRAPHENE_POINT_INIT_ZERO, &origin)) {
+			gdouble origin_phys_x = origin.x * fractional_scale;
+			gdouble origin_phys_y = origin.y * fractional_scale;
+			area.origin.x = round (origin_phys_x) - origin_phys_x;
+			area.origin.y = round (origin_phys_y) - origin_phys_y;
+		}
+	}
+#endif
 	gtk_snapshot_scale (snapshot, 1 / fractional_scale, 1 / fractional_scale);
 
 	draw_surface (snapshot, page_texture, &area, inverted);
@@ -750,7 +755,7 @@ annotation_drag_update_cb (GtkGestureDrag *annotation_drag_gesture,
 
 	if (gtk_drag_check_threshold (GTK_WIDGET (page), 0, 0,
 	                              offset_x, offset_y))
-		pps_platform_gesture_set_state (annotation_drag_gesture,
+		gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture),
 		                       GTK_EVENT_SEQUENCE_CLAIMED);
 
 	if (gtk_gesture_get_sequence_state (GTK_GESTURE (annotation_drag_gesture), sequence) != GTK_EVENT_SEQUENCE_CLAIMED)
@@ -775,7 +780,7 @@ annotation_drag_begin_cb (GtkGestureDrag *annotation_drag_gesture,
 	PpsRectangle annot_area;
 
 	if (!PPS_ANNOTATIONS_CONTEXT (priv->annots_context)) {
-		pps_platform_gesture_set_state (annotation_drag_gesture, GTK_EVENT_SEQUENCE_DENIED);
+		gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture), GTK_EVENT_SEQUENCE_DENIED);
 		return;
 	}
 
@@ -786,13 +791,13 @@ annotation_drag_begin_cb (GtkGestureDrag *annotation_drag_gesture,
 	                                                        &doc_point);
 
 	if (!PPS_IS_ANNOTATION_TEXT (annot)) {
-		pps_platform_gesture_set_state (annotation_drag_gesture,
+		gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture),
 		                       GTK_EVENT_SEQUENCE_DENIED);
 		return;
 	}
 
 	if (pps_document_model_get_annotation_editing_state (priv->model) != PPS_ANNOTATION_EDITING_STATE_NONE) {
-		pps_platform_gesture_set_state (annotation_drag_gesture,
+		gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture),
 		                       GTK_EVENT_SEQUENCE_DENIED);
 		return;
 	}

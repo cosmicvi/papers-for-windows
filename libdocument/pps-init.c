@@ -13,6 +13,10 @@
 #include <exempi/xmp.h>
 #endif
 
+#ifdef G_OS_WIN32
+#include <windows.h>
+#endif
+
 #include "pps-document-factory.h"
 #include "pps-file-helpers.h"
 #include "pps-init.h"
@@ -37,6 +41,17 @@ pps_init (void)
 
 	if (pps_init_count++ > 0)
 		return have_backends;
+
+#ifdef G_OS_WIN32
+	wchar_t module_path[MAX_PATH];
+	if (GetModuleFileNameW (NULL, module_path, MAX_PATH)) {
+		wchar_t *last_slash = wcsrchr (module_path, L'\\');
+		if (last_slash) {
+			*last_slash = L'\0';
+			SetDllDirectoryW (module_path);
+		}
+	}
+#endif
 
 	/* set up translation catalog */
 	bindtextdomain (GETTEXT_PACKAGE, PPS_LOCALEDIR);

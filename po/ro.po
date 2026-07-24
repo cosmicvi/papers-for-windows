@@ -1,19 +1,14 @@
-# Romanian translation for evince.
-# Copyright (C) 2005 - 2009 Free Software Foundation, Inc.
+# Romanian translation for papers.
+# Copyright (C) 2025-2026 the Papers authors
 # This file is distributed under the same license as the evince package.
-# Eugen Paiuc <eug_paiuc@bluewin.ch>, 2005.
-# Mișu Moldovan <dumol@gnome.ro>, 2005 - 2009.
-# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2009, 2010.
-# Simion Ruxandra <ruxy.simion@gmail.com>, 2010.
-# Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2015, 2018.
 # Antonio Marin <gnmer.6qxyg@slmail.me>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: evince\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-06-20 17:20+0000\n"
-"PO-Revision-Date: 2026-06-21 10:19+0200\n"
+"POT-Creation-Date: 2026-07-27 20:28+0000\n"
+"PO-Revision-Date: 2026-07-28 09:54+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -22,8 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);\n"
-"X-Generator: Gtranslator 48.0\n"
+"X-Generator: Gtranslator 50.0\n"
 "X-Project-Style: gnome\n"
+"X-DL-VCS-Web: https://gitlab.gnome.org/GNOME/papers\n"
+"X-DL-Lang: ro\n"
+"X-DL-Module: papers\n"
+"X-DL-Branch: main\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #. Manually set name and icon
 #: data/org.gnome.Papers.desktop.in.in:2
@@ -36,12 +37,12 @@ msgstr "Vizualizare documente"
 
 #: data/org.gnome.Papers.desktop.in.in:3
 msgid "View multi-page documents"
-msgstr "Vizualizează documente cu mai multe pagini"
+msgstr "Afișează documente cu mai multe pagini"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Papers.desktop.in.in:5
 msgid "pdf;djvu;tiff;document;presentation;viewer;papers;"
-msgstr "pdf;djvu;tiff;document;presentation;viewer;papers;prezentare;vizualizator;hârtii;"
+msgstr "pdf;djvu;tiff;document;presentation;viewer;papers;prezentare;vizualizare;afișare;hârtii;"
 
 #: data/org.gnome.Papers.desktop.in.in:20
 msgid "New Window"
@@ -159,6 +160,131 @@ msgstr ""
 "Acceptă documente în: PDF, DjVu, TIFF și arhive de benzi desenate (CBR, CBT, "
 "CBZ, CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "benzi desenate"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "cititor"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "editor"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "modificare"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "formulare"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "adnotare"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "observații"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "însemnare"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "semnătură digitală"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "semnături digitale"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "scriere de mână"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "scris de mână"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "cerneală"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "desen liber"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "desenare"
+
+# LG: descriere a unei iconițe atașabile unei notițe
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "caligrafie"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "notițe"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "evidențiere"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "subliniat"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "subliniere"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "tăiat"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "tipărire"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "noapte"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "întunecos"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "prezentare"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "prezentator"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "diapozitive"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "preferate"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "O interfață clară, simplă și modernă"
@@ -178,6 +304,10 @@ msgstr "Miniaturi mari în panoul lateral"
 #: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "Toate acțiunile de căutare sunt conținute în panoul lateral"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "Proiectul GNOME"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -261,52 +391,52 @@ msgid "Adds support for reading PDF Documents"
 msgstr "Adaugă compatibilitate pentru citirea documentelor PDF"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737
-#: libdocument/backend/pdf/pps-poppler.c:743
+#: libdocument/backend/pdf/pps-poppler.c:734
+#: libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "Da"
 
 #. translators: this is the document security state
+#: libdocument/backend/pdf/pps-poppler.c:737
 #: libdocument/backend/pdf/pps-poppler.c:740
-#: libdocument/backend/pdf/pps-poppler.c:743
 #: nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
 msgid "No"
 msgstr "Nu"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "Type 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "Type 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "Type 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "Type 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "Type 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "Tip necunoscut de caractere"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard "
 "14 fonts. If the substitute fonts selected by fontconfig are not the same as "
@@ -317,11 +447,11 @@ msgstr ""
 "fontconfig nu sunt aceleași folosite la crearea PDF-ului, afișarea poate să "
 "nu fie corectă."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "Toate tipurile de caractere sunt standard sau incluse."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "Fără nume"
 
@@ -329,21 +459,21 @@ msgstr "Fără nume"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878
 #: shell/src/properties_general.rs:85 shell/src/properties_general.rs:235
 #: shell/src/properties_general.rs:370
 msgid "None"
 msgstr "Fără"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "Inclus parțial"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "Inclus"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "Neinclus"
 
@@ -352,7 +482,7 @@ msgstr "Neinclus"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (Este unul dintre cele 14 tipuri standard de caractere)"
 
@@ -361,7 +491,7 @@ msgstr " (Este unul dintre cele 14 tipuri standard de caractere)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (Nu este unul dintre cele 14 tipuri standard de caractere)"
 
@@ -375,7 +505,7 @@ msgstr " (Nu este unul dintre cele 14 tipuri standard de caractere)"
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -399,7 +529,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -457,33 +587,68 @@ msgstr "Toate fișierele"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i-%i"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr ", "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f mm"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f inch"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, Verticală (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, Orizontală (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Pagina"
+msgstr[1] "Pagini"
+msgstr[2] "Pagini"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -656,51 +821,51 @@ msgstr "Dacă este activată, va fi desenat un chenar în jurul fiecărei pagini
 msgid "Page Handling"
 msgstr "Gestionare pagini"
 
-#: libview/pps-view.c:2135
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "La prima pagină"
 
-#: libview/pps-view.c:2137
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "La pagina precedentă"
 
-#: libview/pps-view.c:2139
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "La pagina următoare"
 
-#: libview/pps-view.c:2141
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "La ultima pagină"
 
-#: libview/pps-view.c:2143
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "Du-te la pagina"
 
-#: libview/pps-view.c:2145
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "Caută"
 
-#: libview/pps-view.c:2174
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "Du-te la pagina %s"
 
-#: libview/pps-view.c:2180
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "Du-te la %s în fișierul „%s”"
 
-#: libview/pps-view.c:2183
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "Du-te în fișierul „%s”"
 
-#: libview/pps-view.c:2191
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "Pornește %s"
 
-#: libview/pps-view.c:2198
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "Restabilește formularul"
@@ -1830,17 +1995,22 @@ msgstr "Tipărește această secțiune…"
 msgid "Previews"
 msgstr "Previzualizări"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "Deschide un document"
 
 #: shell/resources/pps-window.blp:44
 msgid "Drag and drop documents here"
-msgstr "Trage și așează documente aici"
+msgstr "Trage și așează aici documente"
 
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_Deschide…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "Deschide un document"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -1856,18 +2026,7 @@ msgstr "© 1996–2025 Autorii Papers"
 
 #: shell/src/application.rs:217
 msgid "translator-credits"
-msgstr ""
-"Eugen Paiuc <eug_paiuc@bluewin.ch>\n"
-"Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
-"Mișu Moldovan <dumol@gnome.ro>\n"
-"Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>\n"
-"Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
-"Antonio Marin <gnmer.6qxyg@slmail.me>\n"
-"\n"
-"Contribuții din Launchpad:\n"
-"  Dread Knight https://launchpad.net/~dread.knight\n"
-"  Gheorghe Pop https://launchpad.net/~pop-gheorghe\n"
-"  Ionuț Jula https://launchpad.net/~ionutjula"
+msgstr "Antonio Marin <gnmer.6qxyg@slmail.me>"
 
 #: shell/src/application.rs:396
 msgid "The page label of the document to display."
@@ -1991,6 +2150,7 @@ msgid "Draw a rectangle to insert a signature field"
 msgstr "Desenează un dreptunghi ca spațiu pentru semnătură"
 
 #: shell/src/document_view/io.rs:461
+#, rust-format
 msgid ""
 "Digitally signed by {}\n"
 "Date: {}"
@@ -2019,6 +2179,7 @@ msgid "Save Signed File"
 msgstr "Salvează fișierul semnat"
 
 #: shell/src/document_view/io.rs:663
+#, rust-format
 msgid "Please enter password for {}"
 msgstr "Introdu parola pentru {}"
 
@@ -2028,6 +2189,7 @@ msgstr "_Autentificare"
 
 #. TRANSLATORS: In the context of "the job {} is being printed"
 #: shell/src/document_view/print.rs:46
+#, rust-format
 msgid "Printing job “{}”"
 msgstr "Se tipărește „{}”"
 
@@ -2036,6 +2198,7 @@ msgid "No pending jobs in queue"
 msgstr "Nicio lucrare în așteptare"
 
 #: shell/src/document_view/print.rs:88
+#, rust-format
 msgid "{} pending job in queue"
 msgid_plural "{} pending jobs in queue"
 msgstr[0] "{} lucrare în așteptare"
@@ -2043,6 +2206,7 @@ msgstr[1] "{} lucrări în așteptare"
 msgstr[2] "{} de lucrări în așteptare"
 
 #: shell/src/document_view/signals.rs:266
+#, rust-format
 msgid ""
 "Security alert: this document has been prevented from opening the file “{}”"
 msgstr ""
@@ -2051,6 +2215,7 @@ msgstr ""
 
 #: shell/src/document_view/signals.rs:452 shell/src/page_selector.rs:91
 #: shell/src/sidebar_annotations_row.rs:83
+#, rust-format
 msgid "Page {}"
 msgstr "Pagina {}"
 
@@ -2058,15 +2223,18 @@ msgstr "Pagina {}"
 #. '{' and '}' they are variable names. Changing their
 #. order is possible
 #: shell/src/page_selector.rs:244 shell/src/page_selector.rs:271
+#, rust-format
 msgid "({pagenum} of {totalpages})"
 msgstr "({pagenum} din {totalpages})"
 
 #. Translators: the placeholder is the total amount of pages
 #: shell/src/page_selector.rs:251 shell/src/page_selector.rs:280
+#, rust-format
 msgid "of {}"
 msgstr "din {}"
 
 #: shell/src/password_view.rs:146
+#, rust-format
 msgid ""
 "The document “{}” is locked and requires a password before it can be opened"
 msgstr ""

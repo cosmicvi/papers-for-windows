@@ -85,12 +85,6 @@ sources = files(
   'pps-annotation-layer-ink.c'
 )
 
-if host_machine.system() == 'windows'
-  sources += files('pps-platform-win32.c')
-else
-  sources += files('pps-platform-gtk.c')
-endif
-
 marshal = 'pps-view-marshal'
 
 marshal_sources = gnome.genmarshal(

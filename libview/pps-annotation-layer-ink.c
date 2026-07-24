@@ -8,7 +8,6 @@
 #include "pps-annotation-layer-ink.h"
 #include "pps-annotation-model.h"
 #include "pps-view.h"
-#include "pps-platform.h"
 
 #include <cairo.h>
 #include <math.h>
@@ -402,7 +401,7 @@ drag_update (GtkGestureDrag *annotation_drag_gesture,
 #define TO_DOCX(xx) (init->x + xx) / scale
 #define TO_DOCY(yy) height - (init->y + yy) / scale
 
-	pps_platform_gesture_set_state (annotation_drag_gesture, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture), GTK_EVENT_SEQUENCE_CLAIMED);
 
 	if (tool == TOOL_PENCIL || tool == TOOL_HIGHLIGHT) {
 		PpsPoint *p = g_malloc (sizeof (PpsPoint));
@@ -517,7 +516,8 @@ drag_begin (GtkGestureDrag *annotation_drag_gesture,
 	priv->previous_drag_y = 0;
 	priv->pending_times = g_slist_prepend (NULL, first_time_point);
 
-	pps_platform_gesture_set_state (annotation_drag_gesture, GTK_EVENT_SEQUENCE_CLAIMED);
+	gtk_gesture_set_state (GTK_GESTURE (annotation_drag_gesture),
+	                       GTK_EVENT_SEQUENCE_CLAIMED);
 }
 
 static void
