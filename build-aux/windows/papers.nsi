@@ -18,6 +18,9 @@ RequestExecutionLevel user
 !define MUI_ABORTWARNING
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOBUILDING
 
+!define MUI_ICON "icons\papers.ico"
+!define MUI_UNICON "icons\papers.ico"
+
 ; Installer Pages
 !insertmacro MUI_PAGE_WELCOME
 Page custom WelcomePre
@@ -116,10 +119,12 @@ Section "Document Viewer Core Application" SEC01
   DetailPrint "Generating Fontconfig cache (this may take a few seconds)..."
   nsExec::ExecToLog '"$INSTDIR\bin\fc-cache.exe" -f -v'
 
+  File "icons\papers.ico"
+
   CreateDirectory "$SMPROGRAMS\Document Viewer"
   SetOutPath "$INSTDIR\bin"
-  CreateShortcut "$SMPROGRAMS\Document Viewer\Document Viewer.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "Document Viewer" "$INSTDIR\bin"
-  CreateShortcut "$DESKTOP\Document Viewer.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "Document Viewer" "$INSTDIR\bin"
+  CreateShortcut "$SMPROGRAMS\Document Viewer\Document Viewer.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\papers.ico" 0 "" "" "Document Viewer" "$INSTDIR\bin"
+  CreateShortcut "$DESKTOP\Document Viewer.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\papers.ico" 0 "" "" "Document Viewer" "$INSTDIR\bin"
   SetOutPath "$INSTDIR"
 
   WriteUninstaller "$INSTDIR\uninstall.exe"
@@ -127,13 +132,13 @@ Section "Document Viewer Core Application" SEC01
     WriteRegStr HKLM "Software\GNOME\Papers" "InstallDir" $INSTDIR
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Document Viewer"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\papers.ico"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
   ${Else}
     WriteRegStr HKCU "Software\GNOME\Papers" "InstallDir" $INSTDIR
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Document Viewer"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\papers.ico"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
   ${EndIf}
 SectionEnd
@@ -142,18 +147,18 @@ Section "Register as System PDF & Document Viewer" SEC02
   ${If} $InstallMode == "AllUsers"
     ; PDF Association
     WriteRegStr HKLM "Software\Classes\.pdf" "" "Papers.Document.PDF"
-    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF" "" "PDF Document (Papers)"
-    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF" "" "PDF Document"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\papers.ico,0"
     WriteRegStr HKLM "Software\Classes\Papers.Document.PDF\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; DjVu Association
     WriteRegStr HKLM "Software\Classes\.djvu" "" "Papers.Document.DjVu"
-    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu" "" "DjVu Document (Papers)"
-    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu" "" "DjVu Document"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\papers.ico,0"
     WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; Comic Book CBR/CBZ Association
     WriteRegStr HKLM "Software\Classes\.cbr" "" "Papers.Document.CBR"
-    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive (Papers)"
-    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\papers.ico,0"
     WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; Registered Application Capabilities
     WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "Document Viewer for Windows"
@@ -165,18 +170,18 @@ Section "Register as System PDF & Document Viewer" SEC02
   ${Else}
     ; PDF Association
     WriteRegStr HKCU "Software\Classes\.pdf" "" "Papers.Document.PDF"
-    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF" "" "PDF Document (Papers)"
-    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF" "" "PDF Document"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\papers.ico,0"
     WriteRegStr HKCU "Software\Classes\Papers.Document.PDF\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; DjVu Association
     WriteRegStr HKCU "Software\Classes\.djvu" "" "Papers.Document.DjVu"
-    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu" "" "DjVu Document (Papers)"
-    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu" "" "DjVu Document"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\papers.ico,0"
     WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; Comic Book CBR/CBZ Association
     WriteRegStr HKCU "Software\Classes\.cbr" "" "Papers.Document.CBR"
-    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive (Papers)"
-    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\papers.ico,0"
     WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; Registered Application Capabilities
     WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "Document Viewer for Windows"
@@ -210,6 +215,7 @@ Section "Uninstall"
   ${EndIf}
 
   RMDir /r "$INSTDIR"
+  Delete "$INSTDIR\papers.ico"
   Delete "$SMPROGRAMS\Document Viewer\Document Viewer.lnk"
   RMDir "$SMPROGRAMS\Document Viewer"
   Delete "$DESKTOP\Document Viewer.lnk"
