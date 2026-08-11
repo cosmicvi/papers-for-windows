@@ -45,16 +45,16 @@ if ($needMsysInstall) {
 
     $tempInstaller = Join-Path $env:TEMP "msys2-installer.exe"
     Write-Host "Downloading MSYS2 installer..." -ForegroundColor Cyan
-    $downloadUrl = "https://github.com/msys2/msys2-installer/releases/download/nightly-x86_64/msys2-x86_64-latest.exe"
+    $downloadUrl = "https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe"
 
     Invoke-WebRequest -Uri $downloadUrl -OutFile $tempInstaller
 
     Write-Host "Installing MSYS2 silently to $msysPath (this may take a few minutes)..." -ForegroundColor Cyan
     # Silent install arguments: dir, unchecked icons, automatic execution, etc.
     $installArgs = @(
-        "--mode", "script",
-        "--unattendedmodeui", "none",
-        "default_installation_directory=$msysPath"
+        "install",
+        "--root", $msysPath,
+        "--delete-after"
     )
     $process = Start-Process -FilePath $tempInstaller -ArgumentList $installArgs -Wait -NoNewWindow -PassThru
 
@@ -80,12 +80,12 @@ $packages = @(
     "mingw-w64-ucrt-x86_64-rust",
     "mingw-w64-ucrt-x86_64-gtk4",
     "mingw-w64-ucrt-x86_64-libadwaita",
-    "mingw-w64-ucrt-x86_64-poppler-glib",
+    "mingw-w64-ucrt-x86_64-poppler",
     "mingw-w64-ucrt-x86_64-libspelling",
     "mingw-w64-ucrt-x86_64-djvulibre",
     "mingw-w64-ucrt-x86_64-libarchive",
     "mingw-w64-ucrt-x86_64-libtiff",
-    "mingw-w64-ucrt-x86_64-pkg-config",
+    "mingw-w64-ucrt-x86_64-pkgconf",
     "diffutils"
 )
 

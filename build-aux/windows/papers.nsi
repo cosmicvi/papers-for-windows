@@ -9,9 +9,9 @@
 
 Name "${APP_NAME}"
 OutFile "..\..\papers-${APP_VERSION}-installer-x64.exe"
-InstallDir "$PROGRAMFILES64\Papers"
+InstallDir "$LOCALAPPDATA\Programs\Papers"
 InstallDirRegKey HKCU "Software\Papers" ""
-RequestExecutionLevel admin
+RequestExecutionLevel user
 
 ; UI Configuration
 !define MUI_ABORTWARNING
@@ -39,6 +39,9 @@ Section "Papers Core Application" SEC01
   SetOutPath "$INSTDIR"
   File /r "..\..\dist\*.*"
 
+  ; Set context for shortcuts and registry keys to the current user
+  SetShellVarContext current
+
   DetailPrint "Generating Fontconfig cache (this may take a few seconds)..."
   nsExec::ExecToLog '"$INSTDIR\bin\fc-cache.exe" -f -v'
 
@@ -50,10 +53,10 @@ Section "Papers Core Application" SEC01
 
   WriteUninstaller "$INSTDIR\uninstall.exe"
   WriteRegStr HKCU "Software\Papers" "InstallDir" $INSTDIR
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Papers Document Viewer"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Papers Document Viewer"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
 SectionEnd
 
 Section "Register as System PDF & Document Viewer" SEC02
@@ -88,12 +91,15 @@ Section "Register as System PDF & Document Viewer" SEC02
 SectionEnd
 
 Section "Uninstall"
+  ; Set context for shortcuts and registry keys to the current user
+  SetShellVarContext current
+
   RMDir /r "$INSTDIR"
   Delete "$SMPROGRAMS\Papers\Papers.lnk"
   RMDir "$SMPROGRAMS\Papers"
   Delete "$DESKTOP\Papers.lnk"
   DeleteRegKey HKCU "Software\Papers"
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers"
+  DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers"
   DeleteRegKey HKCU "Software\Classes\Papers.Document.PDF"
   DeleteRegKey HKCU "Software\Classes\Papers.Document.DjVu"
   DeleteRegKey HKCU "Software\Classes\Papers.Document.CBR"
