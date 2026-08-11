@@ -62,6 +62,16 @@ mod imp {
         #[template_child]
         pub(super) annot_menu_child: TemplateChild<gtk::Box>,
         #[template_child]
+        pub(super) signature_menu: TemplateChild<gio::Menu>,
+        #[template_child]
+        pub(super) signature_menu_child: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub(super) signature_menu_manage_child: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub(super) signature_menu_no_signature: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub(super) manage_signatures_button: TemplateChild<gtk::Button>,
+        #[template_child]
         pub(super) annot_toolbar: TemplateChild<gtk::Box>,
         #[template_child]
         pub(super) zoom_toolbar: TemplateChild<gtk::Box>,
@@ -190,6 +200,8 @@ mod imp {
         pub(super) certificate_info: RefCell<Option<papers_document::CertificateInfo>>,
         pub(super) signature_page: Cell<u32>,
         pub(super) signature_bounding_box: RefCell<Option<papers_document::Rectangle>>,
+        pub(super) signature_manager:
+            std::cell::OnceCell<crate::signature_manager::PpsSignatureManager>,
 
         // Job
         pub(super) save_job: RefCell<Option<papers_view::JobSave>>,
@@ -339,6 +351,12 @@ mod imp {
 
         pub(super) fn lockdown_settings(&self) -> Option<gio::Settings> {
             self.lockdown_settings.borrow().clone()
+        }
+
+        pub(super) fn info_message(&self, msg: &str) {
+            let toast = adw::Toast::builder().timeout(3).title(msg).build();
+
+            self.toast_overlay.add_toast(toast);
         }
 
         pub(super) fn warning_message(&self, msg: &str) {

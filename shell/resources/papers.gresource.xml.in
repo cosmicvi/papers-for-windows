@@ -26,6 +26,9 @@
     <file alias="ui/page-selector.ui" compressed="true" preprocess="xml-stripblanks">pps-page-selector.ui</file>
     <file alias="ui/loader-view.ui" compressed="true" preprocess="xml-stripblanks">pps-loader-view.ui</file>
     <file alias="ui/annotation-properties-dialog.ui" compressed="true" preprocess="xml-stripblanks">pps-annotation-properties-dialog.ui</file>
+    <file alias="ui/signature-drawing-widget.ui" compressed="true" preprocess="xml-stripblanks">pps-signature-drawing-widget.ui</file>
+    <file alias="ui/sign-manually-dialog.ui" compressed="true" preprocess="xml-stripblanks">pps-sign-manually-dialog.ui</file>
+    <file alias="ui/visual-signature-chooser.ui" compressed="true" preprocess="xml-stripblanks">pps-visual-signature-chooser.ui</file>
     <file alias="metainfo.xml" preprocess="xml-stripblanks">@APP_ID@.metainfo.xml</file>
   </gresource>
   <gresource prefix="/org/gnome/papers/icons/scalable/apps">
@@ -57,5 +60,8 @@
     <file alias="text-strikethrough-symbolic.svg" preprocess="xml-stripblanks">icons/text-strikethrough-symbolic.svg</file>
     <file alias="text-underline-symbolic.svg" preprocess="xml-stripblanks">icons/text-underline-symbolic.svg</file>
     <file alias="emblem-ok-symbolic.svg" preprocess="xml-stripblanks">icons/check-plain-symbolic.svg</file>
+    <file alias="signature-symbolic.svg" preprocess="xml-stripblanks">icons/signature-symbolic.svg</file>
+    <file alias="arrow-hook-left-horizontal2-symbolic.svg" preprocess="xml-stripblanks">icons/arrow-hook-left-horizontal2-symbolic.svg</file>
+    <file alias="arrow-turn-right-horizontal2-symbolic.svg" preprocess="xml-stripblanks">icons/arrow-turn-right-horizontal2-symbolic.svg</file>
   </gresource>
 </gresources>

@@ -54,10 +54,11 @@ impl imp::PpsDocumentView {
             self.set_action_enabled("toggle-find", false);
         }
 
-        if document
+        let can_add_annotation = document
             .dynamic_cast_ref::<DocumentAnnotations>()
-            .is_some_and(|d| d.can_add_annotation())
-        {
+            .is_some_and(|d| d.can_add_annotation());
+
+        if can_add_annotation {
             let item = gio::MenuItem::new(None, None);
 
             item.set_attribute_value("custom", Some(&"palette".into()));
@@ -76,6 +77,11 @@ impl imp::PpsDocumentView {
             .unwrap_or_default();
 
         self.set_action_enabled("digital-signing", can_sign);
+        self.set_action_enabled("manual-signing", can_add_annotation);
+
+        if can_add_annotation {
+            self.setup_signature_context_menu();
+        }
 
         self.set_action_enabled("dual-odd-left", dual_mode);
 
@@ -576,6 +582,38 @@ impl imp::PpsDocumentView {
                     self,
                     move |_, _, _| {
                         obj.create_certificate_selection();
+                    }
+                ))
+                .build(),
+            gio::ActionEntryBuilder::new("manual-signing")
+                .activate(glib::clone!(
+                    #[weak(rename_to = obj)]
+                    self,
+                    move |_, _, _| {
+                        obj.open_sign_manually_dialog();
+                    }
+                ))
+                .build(),
+            gio::ActionEntryBuilder::new("create-signature")
+                .activate(glib::clone!(
+                    #[weak(rename_to = obj)]
+                    self,
+                    move |_, _, _| {
+                        obj.view_popup.popdown();
+                        let dialog = obj.open_sign_manually_dialog();
+                        dialog.navigate_to_new_signature();
+                    }
+                ))
+                .build(),
+            gio::ActionEntryBuilder::new("add-manual-signature")
+                .parameter_type(Some(glib::VariantTy::STRING))
+                .activate(glib::clone!(
+                    #[weak(rename_to = obj)]
+                    self,
+                    move |_, _, param| {
+                        if let Some(signature_id) = param.and_then(|p| p.str()) {
+                            obj.cmd_add_manual_signature(signature_id);
+                        }
                     }
                 ))
                 .build(),
@@ -1171,6 +1209,129 @@ impl imp::PpsDocumentView {
                 AddAnnotationData::None,
             );
         };
+    }
+
+    pub(super) fn cmd_add_manual_signature(&self, signature_id: &str) {
+        let (x, y);
+        if let Some((px, py)) = Document::misc_get_pointer_position(&self.view.get()) {
+            x = px;
+            y = py;
+        } else {
+            let (_, rect) = self.view_popup.pointing_to();
+            x = rect.x();
+            y = rect.y();
+        };
+
+        if let Some(doc_point) = self.view.document_point_for_view_point(x.into(), y.into()) {
+            self.apply_signature_to_document(
+                signature_id,
+                doc_point.page_index(),
+                Some(&doc_point.point_on_page()),
+            );
+        }
+
+        self.view_popup.popdown();
+    }
+
+    fn setup_signature_context_menu(&self) {
+        if self.signature_menu.n_items() > 0 {
+            return;
+        }
+
+        self.manage_signatures_button.connect_clicked(glib::clone!(
+            #[weak(rename_to=obj)]
+            self,
+            move |_| obj.view_popup.popdown()
+        ));
+        let submenu = gio::Menu::new();
+
+        let previews_section = gio::Menu::new();
+        let custom_item = gio::MenuItem::new(None, None);
+        custom_item.set_attribute_value("custom", Some(&"signature-previews".into()));
+        previews_section.insert_item(0, &custom_item);
+        submenu.append_section(None, &previews_section);
+
+        let submenu_item =
+            gio::MenuItem::new_submenu(Some(&gettext("Add _Visual Signature")), &submenu);
+        self.signature_menu.insert_item(0, &submenu_item);
+
+        self.view_popup
+            .add_child(&self.signature_menu_child.get(), "signature-previews");
+
+        let signature_manager = self
+            .signature_manager
+            .get_or_init(crate::signature_manager::PpsSignatureManager::new);
+
+        self.refresh_signature_previews();
+
+        signature_manager.connect_closure(
+            "signatures-list-changed",
+            false,
+            glib::closure_local!(
+                #[weak(rename_to = obj)]
+                self,
+                move |_: &crate::signature_manager::PpsSignatureManager| {
+                    obj.refresh_signature_previews();
+                }
+            ),
+        );
+    }
+
+    fn refresh_signature_previews(&self) {
+        glib::spawn_future_local(glib::clone!(
+            #[weak(rename_to=obj)]
+            self,
+            async move {
+                let manager = obj.signature_manager.get().unwrap();
+                let container = obj.signature_menu_child.get();
+                while let Some(child) = container.first_child() {
+                    container.remove(&child);
+                }
+
+                let signatures = manager.list_signatures().await;
+
+                if signatures.is_empty() {
+                    container.append(&obj.signature_menu_no_signature.get());
+                    return;
+                }
+
+                for sig in &signatures {
+                    if let Some(pixbuf) = manager.get_signature_pixbuf(&sig.id) {
+                        let max_width = 120.0_f64;
+                        let max_height = 48.0_f64;
+                        let scale = (max_width / pixbuf.width() as f64)
+                            .min(max_height / pixbuf.height() as f64)
+                            .min(1.0);
+                        let new_width = (pixbuf.width() as f64 * scale) as i32;
+                        let new_height = (pixbuf.height() as f64 * scale) as i32;
+
+                        if let Some(scaled) = pixbuf.scale_simple(
+                            new_width,
+                            new_height,
+                            gdk_pixbuf::InterpType::Bilinear,
+                        ) {
+                            let texture = gdk::Texture::for_pixbuf(&scaled);
+                            let picture = gtk::Picture::builder()
+                                .paintable(&texture)
+                                .can_shrink(false)
+                                .content_fit(gtk::ContentFit::Contain)
+                                .build();
+                            picture.add_css_class("signature-preview");
+
+                            let button = gtk::Button::builder()
+                                .child(&picture)
+                                .action_name("doc.add-manual-signature")
+                                .action_target(&sig.id.to_variant())
+                                .css_classes(vec!["flat"])
+                                .build();
+
+                            container.append(&button);
+                        }
+                    }
+                }
+                container.append(&obj.signature_menu_manage_child.get());
+            }
+        ));
     }
 
     pub(super) fn update_edit_toolbar_visibility(&self, visible: bool) {

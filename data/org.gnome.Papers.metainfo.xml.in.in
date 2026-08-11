@@ -98,10 +98,16 @@
   <translation type="gettext">papers</translation>
   <content_rating type="oars-1.1" />
   <releases>
-    <release version="51~alpha" type="development" date="2026-07-04">
+    <release version="51~beta" type="development" date="2026-08-01">
       <description>
         <p>Papers has seen numerous improvements and bug fixes over the course of the last six months:</p>
         <ul>
+          <li>Ability to insert visual signatures within Papers</li>
+          <li>More details on paper sizes</li>
+          <li>Use new gtk snapping API for fractional scaling</li>
+          <li>Improved keyboard navigation (do not reset cursor page on focus)</li>
+          <li>Several fixes for DJVU documents</li>
+          <li>Free text annotations are now printed by default</li>
           <li>Adjust symbolic stroke icons to be compatible with GTK >= 4.22</li>
           <li>Add missing tooltips in annotations toolbar</li>
           <li>Default settings: don't allow documents to change zoom level by default</li>
@@ -115,6 +121,7 @@
         </ul>
       </description>
     </release>
+    <release version="51~alpha" type="development" date="2026-07-04" />
     <release version="50.0" type="stable" date="2026-03-13">
       <description>
         <p>Since the last stable release, we can highlight the following changes:</p>

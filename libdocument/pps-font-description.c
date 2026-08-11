@@ -38,12 +38,21 @@ pps_font_description_set_property (GObject *object,
 	PpsFontDescriptionPrivate *priv = GET_PRIVATE (PPS_FONT_DESCRIPTION (object));
 
 	switch (prop_id) {
-	case PROP_NAME:
-		priv->name = g_strdup (g_value_get_string (value));
+	case PROP_NAME: {
+		const char *name = g_value_get_string (value);
+
+		/* PDF font names are not required to be UTF-8. */
+		g_free (priv->name);
+		priv->name = name != NULL ? g_utf8_make_valid (name, -1) : NULL;
 		break;
-	case PROP_DETAILS:
-		priv->details = g_strdup (g_value_get_string (value));
+	}
+	case PROP_DETAILS: {
+		const char *details = g_value_get_string (value);
+
+		g_free (priv->details);
+		priv->details = details != NULL ? g_utf8_make_valid (details, -1) : NULL;
 		break;
+	}
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 		break;

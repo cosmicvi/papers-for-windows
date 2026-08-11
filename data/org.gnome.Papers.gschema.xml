@@ -110,6 +110,10 @@
       <summary>Last used signature ID</summary>
       <description>ID of the signature most recently used for manual signing</description>
     </key>
+    <key name="signature-last-placed-scale" type="d">
+      <default>0.0</default>
+      <summary>Last placed signature scale</summary>
+    </key>
   </schema>
 
   <schema id="org.gnome.Papers.Previewer" path="/org/gnome/papers/previewer/" gettext-domain="papers">

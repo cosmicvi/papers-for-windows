@@ -1,6 +1,8 @@
 use crate::deps::*;
 use gdk::gdk_pixbuf;
 use serde::{Deserialize, Serialize};
+use std::cell::Cell;
+use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::OnceLock;
 
@@ -17,10 +19,6 @@ pub struct SignatureMetadata {
     pub pending_deletion: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub deletion_time: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub last_width: Option<f64>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub last_height: Option<f64>,
 }
 
 /// Root metadata structure for the JSON file
@@ -46,6 +44,8 @@ mod imp {
     pub struct PpsSignatureManager {
         pub(super) metadata: RefCell<Option<MetadataFile>>,
         pub(super) file_monitor: RefCell<Option<gio::FileMonitor>>,
+        pub(super) pending_saves: Cell<u32>,
+        pub(super) pixbuf_cache: RefCell<HashMap<String, gdk_pixbuf::Pixbuf>>,
     }
 
     #[glib::object_subclass]
@@ -80,13 +80,28 @@ mod imp {
                 Ok(monitor) => {
                     let obj = self.obj().downgrade();
                     monitor.connect_changed(move |_, _, _, event| {
-                        if matches!(
-                            event,
-                            gio::FileMonitorEvent::ChangesDoneHint | gio::FileMonitorEvent::Created
-                        ) && let Some(manager) = obj.upgrade()
-                        {
-                            *manager.imp().metadata.borrow_mut() = None;
-                            manager.emit_by_name::<()>("signatures-list-changed", &[]);
+                        let Some(manager) = obj.upgrade() else {
+                            return;
+                        };
+                        let imp = manager.imp();
+                        match event {
+                            gio::FileMonitorEvent::Created | gio::FileMonitorEvent::Changed => {
+                                if imp.pending_saves.get() > 0 {
+                                    return;
+                                }
+                                *imp.metadata.borrow_mut() = None;
+                                manager.emit_by_name::<()>("signatures-list-changed", &[]);
+                            }
+                            gio::FileMonitorEvent::ChangesDoneHint => {
+                                let n = imp.pending_saves.get();
+                                if n > 0 {
+                                    imp.pending_saves.set(n - 1);
+                                    return;
+                                }
+                                *imp.metadata.borrow_mut() = None;
+                                manager.emit_by_name::<()>("signatures-list-changed", &[]);
+                            }
+                            _ => {}
                         }
                     });
                     *self.file_monitor.borrow_mut() = Some(monitor);
@@ -146,9 +161,21 @@ mod imp {
             &self,
             metadata: MetadataFile,
         ) -> Result<(), glib::Error> {
-            Self::write_metadata_async(&metadata).await?;
-            *self.metadata.borrow_mut() = Some(metadata);
-            Ok(())
+            self.pending_saves.set(self.pending_saves.get() + 1);
+            match Self::write_metadata_async(&metadata).await {
+                Ok(()) => {
+                    *self.metadata.borrow_mut() = Some(metadata);
+                    Ok(())
+                }
+                Err(e) => {
+                    // Write failed — no monitor event will arrive, so decrement now.
+                    let n = self.pending_saves.get();
+                    if n > 0 {
+                        self.pending_saves.set(n - 1);
+                    }
+                    Err(e)
+                }
+            }
         }
 
         // Write metadata to disk asynchronously
@@ -184,8 +211,6 @@ mod imp {
                 height: pixbuf.height(),
                 pending_deletion: None,
                 deletion_time: None,
-                last_width: None,
-                last_height: None,
             }
         }
 
@@ -339,6 +364,8 @@ mod imp {
                 Err(e) => return Err(e),
             }
 
+            self.pixbuf_cache.borrow_mut().remove(id);
+
             metadata.signatures.retain(|s| s.id != id);
             self.save_metadata(metadata).await?;
 
@@ -350,22 +377,6 @@ mod imp {
             Ok(())
         }
 
-        pub(super) async fn save_last_placed_size(
-            &self,
-            id: &str,
-            width: f64,
-            height: f64,
-        ) -> Result<(), glib::Error> {
-            self.ensure_metadata_loaded().await?;
-            let mut metadata = self.metadata.borrow().as_ref().unwrap().clone();
-            if let Some(sig) = metadata.signatures.iter_mut().find(|s| s.id == id) {
-                sig.last_width = Some(width);
-                sig.last_height = Some(height);
-                self.save_metadata(metadata).await?;
-            }
-            Ok(())
-        }
-
         pub(super) async fn get_signature_path(&self, id: &str) -> Option<PathBuf> {
             self.ensure_metadata_loaded().await.ok();
             self.metadata
@@ -373,6 +384,25 @@ mod imp {
                 .as_ref()
                 .and_then(|m| m.signatures.iter().find(|s| s.id == id))
                 .map(|_| Self::signature_path_for_id(id))
+        }
+
+        pub(super) fn get_signature_pixbuf(&self, id: &str) -> Option<gdk_pixbuf::Pixbuf> {
+            if let Some(pixbuf) = self.pixbuf_cache.borrow().get(id).cloned() {
+                return Some(pixbuf);
+            }
+            let path = Self::signature_path_for_id(id);
+            match gdk_pixbuf::Pixbuf::from_file(&path) {
+                Ok(pixbuf) => {
+                    self.pixbuf_cache
+                        .borrow_mut()
+                        .insert(id.to_string(), pixbuf.clone());
+                    Some(pixbuf)
+                }
+                Err(e) => {
+                    log::warn!("Failed to load signature pixbuf {}: {}", id, e);
+                    None
+                }
+            }
         }
 
         pub(super) async fn update_signature(
@@ -393,8 +423,6 @@ mod imp {
             signature.name = name.to_string();
             signature.width = pixbuf.width();
             signature.height = pixbuf.height();
-            signature.last_width = None;
-            signature.last_height = None;
 
             let png_data = pixbuf.save_to_bufferv("png", &[]).map_err(|e| {
                 glib::Error::new(
@@ -412,6 +440,8 @@ mod imp {
                 )
                 .await
                 .map_err(|(_, e)| e)?;
+
+            self.pixbuf_cache.borrow_mut().remove(id);
 
             self.save_metadata(metadata).await?;
 
@@ -467,17 +497,12 @@ impl PpsSignatureManager {
         self.imp().permanently_delete(id).await
     }
 
-    pub async fn save_last_placed_size(
-        &self,
-        id: &str,
-        width: f64,
-        height: f64,
-    ) -> Result<(), glib::Error> {
-        self.imp().save_last_placed_size(id, width, height).await
-    }
-
     pub async fn get_signature_path(&self, id: &str) -> Option<PathBuf> {
         self.imp().get_signature_path(id).await
+    }
+
+    pub fn get_signature_pixbuf(&self, id: &str) -> Option<gdk_pixbuf::Pixbuf> {
+        self.imp().get_signature_pixbuf(id)
     }
 
     pub async fn update_signature(

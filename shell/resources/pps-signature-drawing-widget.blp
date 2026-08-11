@@ -1,0 +1,106 @@
+using Gtk 4.0;
+
+template $PpsSignatureDrawingWidget: Box {
+  orientation: vertical;
+  spacing: 12;
+  // Canvas area (drawing only)
+  Box canvas_container {
+    orientation: vertical;
+    spacing: 0;
+
+    Frame {
+      styles [
+        "card",
+      ]
+
+      Overlay {
+        [overlay]
+        Label placeholder_label {
+          label: _("Draw your signature here");
+          halign: center;
+          valign: center;
+          opacity: 0.3;
+
+          styles [
+            "dim-label",
+          ]
+        }
+
+        DrawingArea drawing_area {
+          hexpand: true;
+          height-request: 200;
+        }
+      }
+    }
+  }
+
+  // Drawing controls
+  CenterBox {
+    [start]
+    Box {
+      orientation: horizontal;
+      spacing: 6;
+      valign: center;
+
+      Button undo_button {
+        icon-name: "arrow-hook-left-horizontal2-symbolic";
+        tooltip-text: _("Undo");
+        sensitive: false;
+
+        styles [
+          "flat",
+          "circular",
+        ]
+      }
+
+      Button redo_button {
+        icon-name: "arrow-turn-right-horizontal2-symbolic";
+        tooltip-text: _("Redo");
+        sensitive: false;
+
+        styles [
+          "flat",
+          "circular",
+        ]
+      }
+    }
+
+    [end]
+    Button import_button {
+      tooltip-text: _("Import signature image");
+      clicked => $on_choose_file_clicked() swapped;
+
+      styles [
+        "flat",
+      ]
+
+      Box {
+        orientation: horizontal;
+        spacing: 6;
+
+        Image {
+          icon-name: "document-open-symbolic";
+        }
+
+        Label {
+          label: _("Import");
+        }
+      }
+    }
+
+    [center]
+    Button insert_button {
+      label: _("_Insert");
+      use-underline: true;
+      halign: center;
+      hexpand: true;
+      height-request: 32;
+      sensitive: false;
+
+      styles [
+        "suggested-action",
+        "pill",
+      ]
+    }
+  }
+}

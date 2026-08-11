@@ -31,8 +31,6 @@ futures = "0.3"
 git-version = "0.3"
 formatx = "0.2"
 ink-stroke-modeler-rs = { version = "0.1" }
-geo = { version = "0.30", default-features = false }
-geo-types = { version = "0.7", default-features = false }
 image.workspace = true
 imageproc = "0.26"
 

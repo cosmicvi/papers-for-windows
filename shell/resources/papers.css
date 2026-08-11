@@ -85,6 +85,17 @@ pps-view .document-page.inverted {
     filter: invert(1) hue-rotate(180deg);
 }
 
+.signature-preview {
+    margin: 6px;
+    margin-left: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .signature-preview {
+        filter: invert(1);
+    }
+}
+
 pps-presentation-view {
     background-color: black;
 }
@@ -290,4 +301,7 @@ window.pps-annotation-window textview {
 }
 .dotbox:disabled {
     background-color: transparent;
+}
+.nobold-label {
+    font-weight: normal;
 }

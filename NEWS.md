@@ -1,3 +1,26 @@
+Papers 51.beta
+--------------
+
+* Potentially of interest to packaging and other downstreams might be:
+  - crate geo is no longer needed
+  - crate imageproc is now required to process signature images
+
+* Some changes we can highlight:
+  - Ability to insert visual signatures within Papers (Malika Asman)
+  - #635 More details on paper sizes (Mark Tkachov)
+  - Use new gtk snapping API for fractional scaling (balooii)
+
+* Bug fixes:
+  - #705 Fix a crash when font names are not UTF-8 (Qiu Wenbo)
+  - #712 crate geo is no longer needed (Myriade)
+  - Fix GNUC_CONST usage (Maximiliano)
+  - #715 Do not reset the cursor page on focus (Lukáš Tyrychtr)
+  - Several fixes for DJVU documents (Qiu Wenbo)
+
+* Other changes:
+  - Free text annotations are now printed by default (Lucas Baudin)
+  - More properties are now exposed in PpsView for apps using Papers as a library (Peter Eisenmann)
+
 Papers 51.alpha
 ---------------
 

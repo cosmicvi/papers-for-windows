@@ -1,0 +1,64 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PpsVisualSignatureChooser: Box {
+  orientation: vertical;
+  spacing: 0;
+
+  ScrolledWindow {
+    propagate-natural-height: true;
+    hscrollbar-policy: never;
+
+    child: Stack signatures_stack {
+      vhomogeneous: false;
+      // add a widget with 0 height, otherwise the dialog is automatically resized to
+      // the status page height, which is too big
+      Box {}
+
+      // Empty state - shown when no signatures exist
+      Adw.StatusPage empty_state {
+        icon-name: "signature-symbolic";
+        title: _("No Signatures");
+        description: _("Create a signature by drawing or opening an image");
+        vexpand: false;
+        height-request: 350;
+
+        styles [
+          "compact",
+        ]
+
+        child: Button empty_add_button {
+          label: _("Add Signature");
+          halign: center;
+          action-name: "navigation.push";
+          action-target: "'new-signature'";
+
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+        };
+      }
+
+      ListBox signatures_listbox {
+        selection-mode: none;
+        margin-top: 12;
+        margin-bottom: 12;
+        margin-start: 12;
+        margin-end: 12;
+        valign: start;
+
+        styles [
+          "boxed-list",
+        ]
+
+        Adw.ButtonRow add_signature_row {
+          title: _("Add Signature");
+          start-icon-name: "list-add-symbolic";
+          action-name: "navigation.push";
+          action-target: "'new-signature'";
+        }
+      }
+    };
+  }
+}

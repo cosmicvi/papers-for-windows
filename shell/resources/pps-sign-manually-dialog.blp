@@ -1,0 +1,60 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PpsSignManuallyDialog: Adw.Dialog {
+  title: _("Manage Signatures");
+  content-width: 400;
+
+  child: Adw.NavigationView navigation_view {
+    // PAGE 1: Signature Chooser
+    Adw.NavigationPage {
+      tag: "chooser";
+      title: _("Manage Signatures");
+
+      child: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+          show-title: true;
+        }
+
+        content: Adw.ToastOverlay toast_overlay {
+          child: $PpsVisualSignatureChooser signature_chooser {
+            hexpand: true;
+            vexpand: true;
+          };
+        };
+      };
+    }
+
+    // PAGE 2: Signature Editor
+    Adw.NavigationPage {
+      tag: "new-signature";
+      title: _("Edit Signature");
+
+      child: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+          show-title: true;
+        }
+
+        content: Adw.Bin draw_page {
+          margin-top: 12;
+          margin-bottom: 12;
+          margin-start: 12;
+          margin-end: 12;
+          valign: center;
+
+          ScrolledWindow {
+            propagate-natural-height: true;
+            hscrollbar-policy: never;
+
+            child: $PpsSignatureDrawingWidget signature_drawing_widget {
+              hexpand: true;
+              valign: center;
+            };
+          }
+        };
+      };
+    }
+  };
+}

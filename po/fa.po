@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: evince HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-04-24 21:04+0000\n"
-"PO-Revision-Date: 2026-04-28 02:35+0330\n"
+"POT-Creation-Date: 2026-08-02 11:32+0000\n"
+"PO-Revision-Date: 2026-08-06 01:47+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -100,15 +100,27 @@ msgid ""
 "side)"
 msgstr "نمایش صفحهٔ نخست (صفحهٔ فرد) در چپ (هنگام نمایش دو صفحه در کنار هم)"
 
-#: data/org.gnome.Papers.gschema.xml:113
+#: data/org.gnome.Papers.gschema.xml:110
+msgid "Last used signature ID"
+msgstr "شناسهٔ آخرین امضای استفاده شده"
+
+#: data/org.gnome.Papers.gschema.xml:111
+msgid "ID of the signature most recently used for manual signing"
+msgstr "شناسهٔ امضایی که آخرین بار برای امضا کردن دستی استفاده شده"
+
+#: data/org.gnome.Papers.gschema.xml:115
+msgid "Last placed signature scale"
+msgstr "مقیایس آخرین امضای گذاشته شده"
+
+#: data/org.gnome.Papers.gschema.xml:122
 msgid "Previewer window height"
 msgstr "بلندای پنجرهٔ پیش‌نمایشگر"
 
-#: data/org.gnome.Papers.gschema.xml:117
+#: data/org.gnome.Papers.gschema.xml:126
 msgid "Previewer window width"
 msgstr "پهنای پنجرهٔ پیش‌نمایشگر"
 
-#: data/org.gnome.Papers.gschema.xml:121
+#: data/org.gnome.Papers.gschema.xml:130
 msgid "Previewer window maximized state"
 msgstr "وضعیت بیشینهٔ پنجرهٔ پیش‌نمایشگر"
 
@@ -132,6 +144,130 @@ msgstr ""
 "کاغذها ازاین قالب‌ها پشتیبانی می‌کند: PDF ،DjVu ،TIFF و کتاب‌های تصویری "
 "(CBR ،CBT ،CBZ ،CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "کُمیک"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "خواننده"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "ویرایشگر"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "ویراستن"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "فرم‌ها"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "حاشیه‌نویسی"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "حاشیه‌نویسی‌ها"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "حاشیه نوشتن"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "امضا کردن دیجیتال"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "امضاهای دیجیتال"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "دستخط"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "دستنوشته"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "جوهر"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "آزادانه"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "رسم کردن"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "خوشنویسی"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "یادداشت‌ها"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "برجسته سازی"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "زیرخط"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "زیرخط گذاری"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "خط‌خورده"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "چاپ کردن"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "حالت شب"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "حالت تیره"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "حالت ارائه"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "حالت ارائه‌دهنده"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "نمایش‌های پرده‌ای"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "نشانک‌ها"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "رابط کاربری تمیز، ساده و نوین"
@@ -151,6 +287,10 @@ msgstr "بندانگشتی‌های بزرگ در نوار کناری"
 #: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "همهٔ کنش‌های جست‌وجو در نوار کناریند"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "پروژهٔ گنوم"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -233,52 +373,52 @@ msgid "Adds support for reading PDF Documents"
 msgstr "پشتیبانی از خواندن سندهای PDF را اضافه می‌کند"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737
-#: libdocument/backend/pdf/pps-poppler.c:743 nautilus/pps-nautilus-extension.c:93
+#: libdocument/backend/pdf/pps-poppler.c:734
+#: libdocument/backend/pdf/pps-poppler.c:740 nautilus/pps-nautilus-extension.c:93
 #: shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "بله"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:740
-#: libdocument/backend/pdf/pps-poppler.c:743 nautilus/pps-nautilus-extension.c:95
+#: libdocument/backend/pdf/pps-poppler.c:737
+#: libdocument/backend/pdf/pps-poppler.c:740 nautilus/pps-nautilus-extension.c:95
 #: shell/src/properties_general.rs:337
 msgid "No"
 msgstr "خیر"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "نوع ۱"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "نوع ‎1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "نوع ۳"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "تروتایپ"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "نوع ۱ (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "نوع ‏1C‏ (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "تروتایپ (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "نوع قلم نامعلوم"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard 14 "
 "fonts. If the substitute fonts selected by fontconfig are not the same as the "
@@ -288,11 +428,11 @@ msgstr ""
 "جایگزین انتخاب شده به‌وسیلهٔ fontconfig مشابه قلم‌های استفاده شده در ساخت PDF "
 "نباشند، ممکن است نمایش آن صحیح نباشد."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "تمام قلم‌ها یا استاندارد هستند یا توکار."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "بدون نام"
 
@@ -300,21 +440,21 @@ msgstr "بدون نام"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878
 #: shell/src/properties_general.rs:85 shell/src/properties_general.rs:235
 #: shell/src/properties_general.rs:370
 msgid "None"
 msgstr "هیچ‌کدام"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "زیرمجموعهٔ توکار"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "توکار"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "غیر توکار"
 
@@ -323,7 +463,7 @@ msgstr "غیر توکار"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (یکی از ۱۴ قلم اصلی)"
 
@@ -332,7 +472,7 @@ msgstr " (یکی از ۱۴ قلم اصلی)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (یکی از ۱۴ قلم اصلی نیست)"
 
@@ -346,7 +486,7 @@ msgstr " (یکی از ۱۴ قلم اصلی نیست)"
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -370,7 +510,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -428,33 +568,67 @@ msgstr "همهٔ پرونده‌ها"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "‏%Ii-%Ii"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr "، "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
-msgstr "%I.0f × %I.0f میلی‌متر"
+msgstr "‏%I.0f × %I.0f میلی‌متر"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
-msgstr "%I.2f × %I.2f اینچ"
+msgstr "‏%I.2f × %I.2f اینچ"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s، عمودی (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s، افقی (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "صفحه"
+msgstr[1] "صفحه %s"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -541,8 +715,8 @@ msgstr "محدوده انتخاب شدهٔ شما جهت چاپ هیچ صفحه�
 
 #. show close if the certificate is null, or if no cert is found
 #: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83
-#: shell/resources/pps-document-view.blp:789 shell/resources/pps-window.blp:138
-#: shell/src/document_view/io.rs:566
+#: shell/resources/pps-document-view.blp:791 shell/resources/pps-window.blp:138
+#: shell/src/document_view/io.rs:574
 msgid "_Close"
 msgstr "_بستن"
 
@@ -618,55 +792,55 @@ msgstr "رسم لبه دور صفحه‌ها"
 msgid "When enabled, a border will be drawn around each page."
 msgstr "هنگام به کار افتادن، دور هر صفحه، لبه‌ای رسم خواهد شد."
 
-#: libview/pps-print-operation.c:2006
+#: libview/pps-print-operation.c:2010
 msgid "Page Handling"
 msgstr "دست‌گرفتن صفحه"
 
-#: libview/pps-view.c:2120
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "رفتن به صفحهٔ نخست"
 
-#: libview/pps-view.c:2122
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "رفتن به صفحهٔ پیشین"
 
-#: libview/pps-view.c:2124
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "رفتن به صفحهٔ بعدی"
 
-#: libview/pps-view.c:2126
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "رفتن به صفحهٔ پایانی"
 
-#: libview/pps-view.c:2128
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "رفتن به صفحه"
 
-#: libview/pps-view.c:2130
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "یافتن"
 
-#: libview/pps-view.c:2159
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "رفتن به صفحهٔ %s"
 
-#: libview/pps-view.c:2165
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "برو به %s در پروندهٔ «%s»"
 
-#: libview/pps-view.c:2168
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "رفتن به پروندهٔ «%s»"
 
-#: libview/pps-view.c:2176
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "راه‌اندازی %s"
 
-#: libview/pps-view.c:2183
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "بازنشانی فرم"
@@ -686,7 +860,7 @@ msgstr "پریدن به صفحه‌:"
 #: previewer/pps-page-selector.c:65 previewer/pps-page-selector.c:104
 #, c-format
 msgid "(%d of %d)"
-msgstr "(%Id از %Id)"
+msgstr "‏(%Id از %Id)"
 
 #: previewer/pps-page-selector.c:67 previewer/pps-page-selector.c:108
 #, c-format
@@ -742,8 +916,8 @@ msgstr "نمایشگر سند کاغذها"
 msgid "The selected printer “%s” could not be found"
 msgstr "چاپگر انتخاب شده «%s» پیدا نشد"
 
-#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:204
-#: shell/src/document_view/io.rs:205
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:212
+#: shell/src/document_view/io.rs:213
 msgid "Papers"
 msgstr "کاغذها"
 
@@ -916,7 +1090,7 @@ msgid "_Markup Type"
 msgstr "_گونهٔ نشانه‌گذاری"
 
 #: shell/resources/pps-annotation-properties-dialog.blp:75
-#: shell/resources/pps-document-view.blp:488
+#: shell/resources/pps-document-view.blp:490
 msgid "Highlight"
 msgstr "پررنگ"
 
@@ -995,7 +1169,7 @@ msgstr "برازش خودکار"
 
 #: shell/resources/pps-document-view.blp:343
 #: shell/resources/pps-document-view.blp:385
-#: shell/resources/pps-document-view.blp:416
+#: shell/resources/pps-document-view.blp:417
 msgid "Choose Color"
 msgstr "انتخاب رنگ"
 
@@ -1003,36 +1177,44 @@ msgstr "انتخاب رنگ"
 msgid "Font Settings"
 msgstr "تنظیمات قلم"
 
-#: shell/resources/pps-document-view.blp:431
+#: shell/resources/pps-document-view.blp:399
+msgid "Highlight Stroke Size"
+msgstr "اندازهٔ ضربهٔ برجسته سازی"
+
+#: shell/resources/pps-document-view.blp:432
 msgid "Pencil Size"
 msgstr "اندازهٔ مداد"
 
-#: shell/resources/pps-document-view.blp:458
+#: shell/resources/pps-document-view.blp:444
+msgid "Eraser Settings"
+msgstr "تنظمیات پاک‌کن"
+
+#: shell/resources/pps-document-view.blp:460
 msgid "Change Eraser Radius"
 msgstr "تغییر شعاع پاک‌کن"
 
-#: shell/resources/pps-document-view.blp:476
+#: shell/resources/pps-document-view.blp:478
 msgid "Insert Text"
 msgstr "درج متن"
 
-#: shell/resources/pps-document-view.blp:482
+#: shell/resources/pps-document-view.blp:484
 msgid "Draw"
 msgstr "رسم"
 
-#: shell/resources/pps-document-view.blp:494
+#: shell/resources/pps-document-view.blp:496
 msgid "Erase Annotations"
 msgstr "پاک کردن حاشیه‌نویسی‌ها"
 
-#: shell/resources/pps-document-view.blp:511
-#: shell/src/document_view/actions.rs:1198
+#: shell/resources/pps-document-view.blp:513
+#: shell/src/document_view/actions.rs:1359
 msgid "Edit Document"
 msgstr "ویرایش سند"
 
-#: shell/resources/pps-document-view.blp:758
+#: shell/resources/pps-document-view.blp:760
 msgid "Selection too Small"
 msgstr "گزینش بیش از حد کوچک"
 
-#: shell/resources/pps-document-view.blp:759
+#: shell/resources/pps-document-view.blp:761
 msgid ""
 "A signature of this size may be too small to read. If you would like to create "
 "a potentially more readable signature, press `Start over` and draw a bigger "
@@ -1042,262 +1224,278 @@ msgstr ""
 "با قابلیت خواندن بیش‌تری ایجاد کنید، «امضا از نو» را زده و چهارگوشی بزرگ‌تر رسم "
 "کنید."
 
-#: shell/resources/pps-document-view.blp:766
+#: shell/resources/pps-document-view.blp:768
 msgid "Start _Over"
 msgstr "آغاز از _نو"
 
-#: shell/resources/pps-document-view.blp:767
+#: shell/resources/pps-document-view.blp:769
 msgid "_Sign"
 msgstr "_امضا"
 
-#: shell/resources/pps-document-view.blp:774
+#: shell/resources/pps-document-view.blp:776
 msgid "Abort Printing?"
 msgstr "خاتمهٔ چاپ؟"
 
-#: shell/resources/pps-document-view.blp:775
+#: shell/resources/pps-document-view.blp:777
 msgid ""
 "There is one or more active print jobs. If the window is closed, pending print "
 "jobs will not be printed."
 msgstr ""
 "یک یا چند کار چاپ فعّال است. اگر پنجره بسته شود، کارهای منتظر، چاپ نخواهند شد."
 
-#: shell/resources/pps-document-view.blp:779
+#: shell/resources/pps-document-view.blp:781
 msgid "Abort _Print and Close"
 msgstr "خاتمهٔ _چاپ و بستن"
 
-#: shell/resources/pps-document-view.blp:780 shell/src/document_view.rs:815
-#: shell/src/document_view/io.rs:439 shell/src/document_view/io.rs:487
-#: shell/src/document_view/io.rs:679
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:833
+#: shell/src/document_view/io.rs:447 shell/src/document_view/io.rs:495
+#: shell/src/document_view/io.rs:872
 msgid "_Cancel"
 msgstr "_لغو"
 
-#: shell/resources/pps-document-view.blp:781
+#: shell/resources/pps-document-view.blp:783
 msgid "Close _After Printing"
 msgstr "بستن _پس از چاپ"
 
-#: shell/resources/pps-document-view.blp:796
+#: shell/resources/pps-document-view.blp:798
 msgid "Open…"
 msgstr "گشودن…"
 
-#: shell/resources/pps-document-view.blp:803
+#: shell/resources/pps-document-view.blp:805
 msgid "Ni_ght Mode"
 msgstr "حالت _شب"
 
-#: shell/resources/pps-document-view.blp:810 shell/resources/pps-window.blp:145
+#: shell/resources/pps-document-view.blp:812 shell/resources/pps-window.blp:145
 msgid "_Keyboard Shortcuts"
 msgstr "_کلید‌های میانبر"
 
-#: shell/resources/pps-document-view.blp:815 shell/resources/pps-window.blp:150
+#: shell/resources/pps-document-view.blp:817 shell/resources/pps-window.blp:150
 msgid "_Help"
 msgstr "_راهنما"
 
-#: shell/resources/pps-document-view.blp:820 shell/resources/pps-window.blp:155
+#: shell/resources/pps-document-view.blp:822 shell/resources/pps-window.blp:155
 msgid "_About Document Viewer"
 msgstr "_دربارهٔ نمایشگر سند"
 
-#: shell/resources/pps-document-view.blp:829
+#: shell/resources/pps-document-view.blp:831
 msgid "_Print…"
 msgstr "_چاپ…"
 
-#: shell/resources/pps-document-view.blp:834
+#: shell/resources/pps-document-view.blp:836
 msgid "Fullscreen"
 msgstr "تمام‌صفحه"
 
-#: shell/resources/pps-document-view.blp:839
+#: shell/resources/pps-document-view.blp:841
 msgid "Present as Slideshow"
 msgstr "ارائه به شکل نمایش پرده‌ای"
 
-#: shell/resources/pps-document-view.blp:846
+#: shell/resources/pps-document-view.blp:848
 msgid "Sign D_igitally…"
 msgstr "امضای _رقمی…"
 
 #: shell/resources/pps-document-view.blp:853
+msgid "_Manage Signatures…"
+msgstr "_مدیریت امضاها…"
+
+#: shell/resources/pps-document-view.blp:860
 msgid "Open a C_opy"
 msgstr "گشودن یک _رونوشت"
 
-#: shell/resources/pps-document-view.blp:858 shell/src/properties_general.rs:137
+#: shell/resources/pps-document-view.blp:865 shell/src/properties_general.rs:137
 msgid "Open With…"
 msgstr "گشودن با…"
 
-#: shell/resources/pps-document-view.blp:863
+#: shell/resources/pps-document-view.blp:870
 msgid "_Save As…"
 msgstr "_ذخیره به نام…"
 
-#: shell/resources/pps-document-view.blp:870
+#: shell/resources/pps-document-view.blp:877
 msgid "_Continuous"
 msgstr "_پیوسته"
 
-#: shell/resources/pps-document-view.blp:875
+#: shell/resources/pps-document-view.blp:882
 msgid "_Dual"
 msgstr "_دوتایی"
 
-#: shell/resources/pps-document-view.blp:880
+#: shell/resources/pps-document-view.blp:887
 msgid "_Odd Pages Left"
 msgstr "شروع از صفحات _فرد"
 
-#: shell/resources/pps-document-view.blp:885
+#: shell/resources/pps-document-view.blp:892
 msgid "Right to Left Document"
 msgstr "سند راست به چپ"
 
-#: shell/resources/pps-document-view.blp:892
+#: shell/resources/pps-document-view.blp:899
 msgid "Ro_tate ⤵"
 msgstr "_چرخش ⤵"
 
-#: shell/resources/pps-document-view.blp:899
+#: shell/resources/pps-document-view.blp:906
 msgid "Document Prop_erties"
 msgstr "_ویژگی‌های سند"
 
-#: shell/resources/pps-document-view.blp:952
-#: shell/resources/pps-document-view.blp:1260
+#: shell/resources/pps-document-view.blp:959
+#: shell/resources/pps-document-view.blp:1267
 msgid "Black"
 msgstr "سیاه"
 
-#: shell/resources/pps-document-view.blp:964
-#: shell/resources/pps-document-view.blp:1051
-#: shell/resources/pps-document-view.blp:1200
+#: shell/resources/pps-document-view.blp:971
+#: shell/resources/pps-document-view.blp:1058
+#: shell/resources/pps-document-view.blp:1207
 msgid "Orange"
 msgstr "نارنجی"
 
-#: shell/resources/pps-document-view.blp:976
-#: shell/resources/pps-document-view.blp:1064
-#: shell/resources/pps-document-view.blp:1212
+#: shell/resources/pps-document-view.blp:983
+#: shell/resources/pps-document-view.blp:1071
+#: shell/resources/pps-document-view.blp:1219
 msgid "Red"
 msgstr "قرمز"
 
-#: shell/resources/pps-document-view.blp:988
-#: shell/resources/pps-document-view.blp:1077
-#: shell/resources/pps-document-view.blp:1224
+#: shell/resources/pps-document-view.blp:995
+#: shell/resources/pps-document-view.blp:1084
+#: shell/resources/pps-document-view.blp:1231
 msgid "Purple"
 msgstr "بنفش"
 
-#: shell/resources/pps-document-view.blp:1000
-#: shell/resources/pps-document-view.blp:1090
-#: shell/resources/pps-document-view.blp:1236
+#: shell/resources/pps-document-view.blp:1007
+#: shell/resources/pps-document-view.blp:1097
+#: shell/resources/pps-document-view.blp:1243
 msgid "Blue"
 msgstr "آبی"
 
-#: shell/resources/pps-document-view.blp:1012
-#: shell/resources/pps-document-view.blp:1103
-#: shell/resources/pps-document-view.blp:1248
+#: shell/resources/pps-document-view.blp:1019
+#: shell/resources/pps-document-view.blp:1110
+#: shell/resources/pps-document-view.blp:1255
 msgid "Green"
 msgstr "سبز"
 
-#: shell/resources/pps-document-view.blp:1038
-#: shell/resources/pps-document-view.blp:1188
+#: shell/resources/pps-document-view.blp:1045
+#: shell/resources/pps-document-view.blp:1195
 msgid "Yellow"
 msgstr "زرد"
 
-#: shell/resources/pps-document-view.blp:1125
-#: shell/resources/pps-document-view.blp:1282
-#: shell/resources/pps-document-view.blp:1341
+#: shell/resources/pps-document-view.blp:1132
+#: shell/resources/pps-document-view.blp:1289
+#: shell/resources/pps-document-view.blp:1348
 msgid "Thin"
 msgstr "نازک"
 
-#: shell/resources/pps-document-view.blp:1137
-#: shell/resources/pps-document-view.blp:1295
-#: shell/resources/pps-document-view.blp:1353
+#: shell/resources/pps-document-view.blp:1144
+#: shell/resources/pps-document-view.blp:1302
+#: shell/resources/pps-document-view.blp:1360
 msgid "Medium"
 msgstr "متوسط"
 
-#: shell/resources/pps-document-view.blp:1149
-#: shell/resources/pps-document-view.blp:1307
-#: shell/resources/pps-document-view.blp:1365
+#: shell/resources/pps-document-view.blp:1156
+#: shell/resources/pps-document-view.blp:1314
+#: shell/resources/pps-document-view.blp:1372
 msgid "Thick"
 msgstr "ضخیم"
 
-#: shell/resources/pps-document-view.blp:1161
-#: shell/resources/pps-document-view.blp:1319
-#: shell/resources/pps-document-view.blp:1377
+#: shell/resources/pps-document-view.blp:1168
+#: shell/resources/pps-document-view.blp:1326
+#: shell/resources/pps-document-view.blp:1384
 msgid "Very Thick"
 msgstr "بسیار ضخیم"
 
-#: shell/resources/pps-document-view.blp:1390
+#: shell/resources/pps-document-view.blp:1397
 msgid "Erase Ink"
 msgstr "پاک کردن جوهر"
 
-#: shell/resources/pps-document-view.blp:1396
+#: shell/resources/pps-document-view.blp:1403
 msgid "Erase Whole Strokes"
 msgstr "پاک کردن کل خط‌ها"
 
+#: shell/resources/pps-document-view.blp:1432
+msgid "Manage Signatures…"
+msgstr "مدیریت امضاها…"
+
+#: shell/resources/pps-document-view.blp:1451
+msgid "No Signatures Yet"
+msgstr "هنوز امضایی وجود ندارد"
+
+#: shell/resources/pps-document-view.blp:1461
+msgid "Add Signature"
+msgstr "افزودن امضا"
+
 #. Translators: As a noun, this is describing the type of text marking annotation, as are squiggly, strikethrough, and underline. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1435
+#: shell/resources/pps-document-view.blp:1509
 msgid "Highlight (h)"
 msgstr "برجسته (h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text marking annotation, as are highlight, squiggly, and underline. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1451
+#: shell/resources/pps-document-view.blp:1525
 msgid "Strikethrough (k)"
 msgstr "خط‌خورده (k)"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are highlight, squiggly, and strikethrough. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1467
+#: shell/resources/pps-document-view.blp:1541
 msgid "Underline (u)"
 msgstr "زیر خط (u)"
 
 #. Translators: As an adjective, this is describing the type of text marking annotation, as are highlight, strikethrough, and underline. A noun could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1483
+#: shell/resources/pps-document-view.blp:1557
 msgid "Squiggly (q)"
 msgstr "با پیچ‌وتاب (q)"
 
-#: shell/resources/pps-document-view.blp:1574
+#: shell/resources/pps-document-view.blp:1648
 msgid "_Open Link"
 msgstr "_گشودن پیوند"
 
-#: shell/resources/pps-document-view.blp:1580
+#: shell/resources/pps-document-view.blp:1654
 msgid "Send an Email"
 msgstr "ارسال رایانامه"
 
-#: shell/resources/pps-document-view.blp:1586
+#: shell/resources/pps-document-view.blp:1660
 msgid "_Copy Link Address"
 msgstr "_رونوشت از نشانی پیوند"
 
-#: shell/resources/pps-document-view.blp:1592
+#: shell/resources/pps-document-view.blp:1666
 msgid "Copy Email Address"
 msgstr "رونوشت از نشانی رایانامه"
 
-#: shell/resources/pps-document-view.blp:1598
+#: shell/resources/pps-document-view.blp:1672
 msgid "_Go To"
 msgstr "_رفتن به"
 
-#: shell/resources/pps-document-view.blp:1604
+#: shell/resources/pps-document-view.blp:1678
 msgid "Open in New _Window"
 msgstr "گشودن در یک پنجرهٔ _جدید"
 
-#: shell/resources/pps-document-view.blp:1612
+#: shell/resources/pps-document-view.blp:1686
 msgid "_Copy"
 msgstr "_رونوشت"
 
-#: shell/resources/pps-document-view.blp:1617
+#: shell/resources/pps-document-view.blp:1691
 msgid "Select _All"
 msgstr "انتخاب _همه"
 
-#: shell/resources/pps-document-view.blp:1624
+#: shell/resources/pps-document-view.blp:1698
 msgid "_Save Image As…"
 msgstr "_ذخیرهٔ تصویر به نام…"
 
-#: shell/resources/pps-document-view.blp:1630
+#: shell/resources/pps-document-view.blp:1704
 msgid "Copy _Image"
 msgstr "رونوشت _تصویر"
 
-#: shell/resources/pps-document-view.blp:1638
+#: shell/resources/pps-document-view.blp:1712
 #: shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "_گشودن پیوست"
 
-#: shell/resources/pps-document-view.blp:1644
+#: shell/resources/pps-document-view.blp:1718
 #: shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "_ذخیرهٔ پیوست به نام…"
 
-#: shell/resources/pps-document-view.blp:1654
+#: shell/resources/pps-document-view.blp:1728
 msgid "Annotation _Properties…"
 msgstr "_ویژگی‌های حاشیه‌نویسی…"
 
-#: shell/resources/pps-document-view.blp:1660
+#: shell/resources/pps-document-view.blp:1734
 msgid "R_emove Annotation"
 msgstr "_برداشتن حاشیه‌نویسی"
 
-#: shell/resources/pps-document-view.blp:1668
+#: shell/resources/pps-document-view.blp:1742
 msgid "_Add Text Annotation"
 msgstr "_افزودن حاشیه‌نویسی متنی"
 
@@ -1327,7 +1525,7 @@ msgstr "_لغو"
 
 #: shell/resources/pps-password-dialog.blp:5
 #: shell/resources/pps-password-view.blp:11
-#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:672
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:865
 msgid "Password Required"
 msgstr "گذرواژه لازم است"
 
@@ -1769,7 +1967,7 @@ msgstr "چاپ این بخش…"
 msgid "Previews"
 msgstr "پیش‌نمایش‌ها"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "گشودن سند"
 
@@ -1780,6 +1978,11 @@ msgstr "کشیدن و رها کردن سندها در این‌جا"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_گشودن…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "گشودن سند"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -1844,84 +2047,89 @@ msgstr "نمایش نگارش برنامه."
 msgid "[FILE…]"
 msgstr "[FILE…]"
 
-#: shell/src/document_view.rs:354
+#: shell/src/document_view.rs:372
 msgid "View Details"
 msgstr "نمایش جزییات"
 
-#: shell/src/document_view.rs:791
+#: shell/src/document_view.rs:809
 msgid ""
 "Document contains new or modified annotations and form fields that have been "
 "filled out."
 msgstr ""
 "سند دارای زمینه‌های فرم یا حاشیه نویسی‌های جدید یا تغییریافته  است که پُر شده‌اند."
 
-#: shell/src/document_view.rs:794
+#: shell/src/document_view.rs:812
 msgid "Document contains form fields that have been filled out."
 msgstr "سند دارای زمینه‌های فرمی است که پُر شده‌اند."
 
-#: shell/src/document_view.rs:796
+#: shell/src/document_view.rs:814
 msgid "Document contains new or modified annotations."
 msgstr "سند دارای حاشیه‌نویسی‌های جدید یا تغییر یافته است."
 
-#: shell/src/document_view.rs:804
+#: shell/src/document_view.rs:822
 msgid "If you don’t save a copy, changes will be permanently lost."
 msgstr ""
 "اگر یک رونوشت از سند را ذخیره نکنید، تغییرات برای همیشه از بین خواهند رفت."
 
-#: shell/src/document_view.rs:805
+#: shell/src/document_view.rs:823
 msgid "Save Changes to a Copy?"
 msgstr "ذخیرهٔ دگرگونی‌ها در یک رونوشت؟"
 
-#: shell/src/document_view.rs:814
+#: shell/src/document_view.rs:832
 msgid "Close _Without Saving"
 msgstr "بستن _بدون ذخیره"
 
-#: shell/src/document_view.rs:816
+#: shell/src/document_view.rs:834
 msgid "_Save a Copy"
 msgstr "_ذخیرهٔ یک رونوشت"
 
-#: shell/src/document_view/actions.rs:995
+#: shell/src/document_view/actions.rs:1033
 msgid "Save Image"
 msgstr "ذخیرهٔ تصویر"
 
-#: shell/src/document_view/actions.rs:1127
+#: shell/src/document_view/actions.rs:1165
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr "حالت پیمایش مکان‌نما اکنون به کار افتاده. برای از کار انداختن F7 را بزنید."
 
-#: shell/src/document_view/actions.rs:1129
+#: shell/src/document_view/actions.rs:1167
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr "حالت پیمایش مکان‌نما اکنون از کار افتاده. برای به کار انداختن F7 را بزنید."
 
-#: shell/src/document_view/actions.rs:1187
+#: shell/src/document_view/actions.rs:1255
+msgid "Add _Visual Signature"
+msgstr "افزودن امضای _بصری"
+
+#: shell/src/document_view/actions.rs:1348
 msgid "Close Menu"
 msgstr "بستن فهرست"
 
-#: shell/src/document_view/actions.rs:1283
+#: shell/src/document_view/actions.rs:1444
 msgid "Unable to Open Attachment"
 msgstr "ناتوان در گشودن پیوست"
 
-#: shell/src/document_view/actions.rs:1298
+#: shell/src/document_view/actions.rs:1459
 msgctxt "This is an action"
 msgid "Save Attachment"
 msgstr "ذخیرهٔ پیوست"
 
-#: shell/src/document_view/io.rs:283
+#: shell/src/document_view/io.rs:291
 msgid "The Document Contains No Pages"
 msgstr "سند هیچ صفحه‌ای ندارد"
 
-#: shell/src/document_view/io.rs:285
+#: shell/src/document_view/io.rs:293
 msgid "The Document Contains Only Empty Pages"
 msgstr "سند تنها صفحه‌های خالی دارد"
 
-#: shell/src/document_view/io.rs:361
+#: shell/src/document_view/io.rs:369
 msgid "Save As…"
 msgstr "ذخیرهٔ به نام…"
 
-#: shell/src/document_view/io.rs:438
+#: shell/src/document_view/io.rs:446
 msgid "Draw a rectangle to insert a signature field"
 msgstr "رسم چهارگوشی برای درج زمینهٔ امضا"
 
-#: shell/src/document_view/io.rs:461
+#: shell/src/document_view/io.rs:469
+#, rust-format
 msgid ""
 "Digitally signed by {}\n"
 "Date: {}"
@@ -1929,36 +2137,38 @@ msgstr ""
 "امضای رقمی به دست {}\n"
 "تاریخ: {}"
 
-#: shell/src/document_view/io.rs:480
+#: shell/src/document_view/io.rs:488
 msgid "Certificate Required"
 msgstr "نیازمند گواهی"
 
-#: shell/src/document_view/io.rs:483
+#: shell/src/document_view/io.rs:491
 msgid "Select signing certificate"
 msgstr "گزینش گواهی امضا"
 
-#: shell/src/document_view/io.rs:484
+#: shell/src/document_view/io.rs:492
 msgid "Select"
 msgstr "گزینش"
 
-#: shell/src/document_view/io.rs:564
+#: shell/src/document_view/io.rs:572
 msgid "A certificate is required to sign this document"
 msgstr "امضای این سند نیازمند گواهی است"
 
-#: shell/src/document_view/io.rs:633
+#: shell/src/document_view/io.rs:826
 msgid "Save Signed File"
 msgstr "ذخیرهٔ پروندهٔ امضا شده"
 
-#: shell/src/document_view/io.rs:663
+#: shell/src/document_view/io.rs:856
+#, rust-format
 msgid "Please enter password for {}"
 msgstr "ورود گذرواژه برای {}"
 
-#: shell/src/document_view/io.rs:680
+#: shell/src/document_view/io.rs:873
 msgid "_Login"
 msgstr "_ورود"
 
 #. TRANSLATORS: In the context of "the job {} is being printed"
 #: shell/src/document_view/print.rs:46
+#, rust-format
 msgid "Printing job “{}”"
 msgstr "چاپ کردن کار «{}»"
 
@@ -1967,18 +2177,21 @@ msgid "No pending jobs in queue"
 msgstr "هیچ کاری در صف منتظر نیست"
 
 #: shell/src/document_view/print.rs:88
+#, rust-format
 msgid "{} pending job in queue"
 msgid_plural "{} pending jobs in queue"
 msgstr[0] "تعداد {} کار منتظر در صف"
 msgstr[1] "تعداد {} کار منتظر در صف"
 
 #: shell/src/document_view/signals.rs:266
+#, rust-format
 msgid ""
 "Security alert: this document has been prevented from opening the file “{}”"
 msgstr "هشدار امنیتی: این سند از گشودن پروندهٔ «{}» باز داشته شد"
 
 #: shell/src/document_view/signals.rs:452 shell/src/page_selector.rs:91
 #: shell/src/sidebar_annotations_row.rs:83
+#, rust-format
 msgid "Page {}"
 msgstr "صفحهٔ {}"
 
@@ -1986,15 +2199,18 @@ msgstr "صفحهٔ {}"
 #. '{' and '}' they are variable names. Changing their
 #. order is possible
 #: shell/src/page_selector.rs:244 shell/src/page_selector.rs:271
+#, rust-format
 msgid "({pagenum} of {totalpages})"
 msgstr "({pagenum} از {totalpages})"
 
 #. Translators: the placeholder is the total amount of pages
 #: shell/src/page_selector.rs:251 shell/src/page_selector.rs:280
+#, rust-format
 msgid "of {}"
 msgstr "از {}"
 
 #: shell/src/password_view.rs:146
+#, rust-format
 msgid ""
 "The document “{}” is locked and requires a password before it can be opened"
 msgstr "سند {} قفل شده است و پیش از گشودن نیازمند گذرواژه است"
@@ -2214,9 +2430,6 @@ msgstr "تاریخ و زمان"
 
 #~ msgid "Decoding error"
 #~ msgstr "خطای کدگشایی"
-
-#~ msgid "Bookmarks"
-#~ msgstr "نشانک‌ها"
 
 #~ msgid "Document Status"
 #~ msgstr "وضعیت سند"
@@ -2467,10 +2680,6 @@ msgstr "تاریخ و زمان"
 #~ msgctxt "shortcut window"
 #~ msgid "Add a post-it like note"
 #~ msgstr "افزودن یک یادداشت"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Highlight text"
-#~ msgstr "نشانه‌گذاری متن"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Show the search bar"

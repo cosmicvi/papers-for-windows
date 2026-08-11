@@ -1,9 +1,17 @@
+use crate::sign_manually_dialog::PpsSignManuallyDialog;
 use crate::window::WindowRunMode;
 
 use papers_document::{DocumentSignatures, SignatureStatus};
+use papers_view::annotations_context::AddAnnotationData;
 use papers_view::{JobPriority, JobSignatures};
 
 use super::*;
+use cairo as cairo_rs;
+
+// Constants for manual signature placement
+const SIGNATURE_MARGIN: f64 = 50.0;
+const SIGNATURE_MAX_WIDTH: f64 = 150.0;
+const SIGNATURE_MAX_HEIGHT: f64 = 50.0;
 
 impl imp::PpsDocumentView {
     pub(crate) fn message_area(&self) -> Option<PpsProgressMessageArea> {
@@ -568,6 +576,191 @@ impl imp::PpsDocumentView {
         }
 
         dialog.present(Some(self.obj().as_ref()));
+    }
+
+    pub(crate) fn open_sign_manually_dialog(&self) -> PpsSignManuallyDialog {
+        let dialog = crate::sign_manually_dialog::PpsSignManuallyDialog::new(
+            self.signature_manager
+                .get_or_init(crate::signature_manager::PpsSignatureManager::new),
+        );
+
+        dialog.connect_local(
+            "insert-signature",
+            false,
+            glib::clone!(
+                #[weak(rename_to = obj)]
+                self,
+                #[upgrade_or]
+                None,
+                move |values| {
+                    let sig_id = values[1].get::<String>().unwrap();
+                    obj.cmd_add_manual_signature(&sig_id);
+                    None
+                }
+            ),
+        );
+
+        dialog.present(Some(self.obj().as_ref()));
+        dialog
+    }
+
+    pub(crate) fn apply_signature_to_document(
+        &self,
+        signature_id: &str,
+        page: i32,
+        center: Option<&papers_document::Point>,
+    ) {
+        log::info!("Applying signature to document: {}", signature_id);
+
+        let manager = self
+            .signature_manager
+            .get_or_init(crate::signature_manager::PpsSignatureManager::new)
+            .clone();
+        let sig_id = signature_id.to_string();
+        let center = center.cloned();
+
+        glib::spawn_future_local(glib::clone!(
+            #[weak(rename_to=imp)]
+            self,
+            async move {
+                let sig = manager
+                    .get_signature(&sig_id)
+                    .await
+                    .expect("Signature not found");
+
+                match manager.get_signature_pixbuf(&sig.id) {
+                    Some(pixbuf) => {
+                        let document = imp.document().expect("No document loaded");
+                        let (page_width, page_height) = document.page_size(page);
+
+                        // Use last placed size if available, clamped to page; else scale from MAX
+                        let last_scale = imp.default_settings.double("signature-last-placed-scale");
+                        let last_scale = if last_scale > 0.0 { last_scale } else { 1.0 };
+                        let (scaled_width, scaled_height) = if last_scale > 0.0 {
+                            let natural_w = sig.width as f64 * last_scale;
+                            let natural_h = sig.height as f64 * last_scale;
+                            let max_w = page_width - 2.0 * SIGNATURE_MARGIN;
+                            let max_h = page_height - 2.0 * SIGNATURE_MARGIN;
+                            let clamp = (max_w / natural_w).min(max_h / natural_h).min(1.0_f64);
+                            (natural_w * clamp, natural_h * clamp)
+                        } else {
+                            let scale = (SIGNATURE_MAX_WIDTH / sig.width as f64)
+                                .min(SIGNATURE_MAX_HEIGHT / sig.height as f64);
+                            (sig.width as f64 * scale, sig.height as f64 * scale)
+                        };
+
+                        // Position: centered on click point, or bottom-right fallback
+                        let (x, y) = if let Some(pt) = center {
+                            (pt.x() - scaled_width / 2.0, pt.y() - scaled_height / 2.0)
+                        } else {
+                            (
+                                page_width - scaled_width - SIGNATURE_MARGIN,
+                                page_height - scaled_height - SIGNATURE_MARGIN,
+                            )
+                        };
+
+                        log::info!(
+                            "Creating stamp annotation on page {page} at ({x}, {y}) size {scaled_width}x{scaled_height}",
+                        );
+
+                        // Convert Pixbuf to cairo surface FIRST
+                        match cairo_rs::ImageSurface::create(
+                            cairo_rs::Format::ARgb32,
+                            pixbuf.width(),
+                            pixbuf.height(),
+                        ) {
+                            Ok(img_surface) => {
+                                let cr = match cairo_rs::Context::new(&img_surface) {
+                                    Ok(ctx) => ctx,
+                                    Err(e) => {
+                                        log::error!("Failed to create cairo context: {}", e);
+                                        imp.warning_message(&gettext("Unable to draw signature."));
+                                        return;
+                                    }
+                                };
+
+                                cr.set_source_pixbuf(&pixbuf, 0.0, 0.0);
+                                if let Err(e) = cr.paint() {
+                                    log::error!("Failed to paint pixbuf to surface: {}", e);
+                                    imp.warning_message(&gettext("Unable to draw signature"));
+                                    return;
+                                }
+
+                                let mut start_point = papers_document::Point::new();
+                                start_point.set_x(x);
+                                start_point.set_y(y);
+
+                                let mut end_point = papers_document::Point::new();
+                                end_point.set_x(x + scaled_width);
+                                end_point.set_y(y + scaled_height);
+
+                                let annot = imp.annots_context.add_annotation_sync(
+                                    page,
+                                    papers_document::AnnotationType::Stamp,
+                                    &start_point,
+                                    &end_point,
+                                    &gdk::RGBA::TRANSPARENT,
+                                    AddAnnotationData::Stamp(img_surface),
+                                );
+
+                                // Track annotation for resize-driven size updates.
+                                // Also set focused-annotation on the model so that
+                                // Ctrl+D (duplicate-stamp) is immediately usable.
+                                if let Some(annot) = annot {
+                                    imp.track_stamp_for_resize(
+                                        annot,
+                                        sig.width as f64,
+                                        scaled_width,
+                                        scaled_height,
+                                    );
+                                }
+
+                                imp.default_settings
+                                    .set_string("last-used-signature-id", &sig_id)
+                                    .expect("Unable to save signature id");
+
+                                imp.info_message(
+                                    &formatx!(gettext("Signature added to page {}"), page + 1)
+                                        .expect("Wrong format in translated string"),
+                                );
+                            }
+                            Err(e) => {
+                                log::error!("Failed to create cairo surface: {}", e);
+                                imp.warning_message(&gettext("Unable to load signature"));
+                            }
+                        }
+                    }
+                    None => {
+                        log::error!("Failed to load signature image");
+                        imp.warning_message(&gettext("Unable to load signature"));
+                    }
+                }
+            }
+        ));
+    }
+
+    fn track_stamp_for_resize(
+        &self,
+        annot: papers_document::Annotation,
+        sig_width_px: f64,
+        placed_width: f64,
+        placed_height: f64,
+    ) {
+        let settings = self.default_settings.get();
+
+        annot.connect_area_notify(glib::clone!(
+            #[weak]
+            settings,
+            move |annot| {
+                let area = annot.area();
+                let new_w = area.x2() - area.x1();
+                let new_h = area.y2() - area.y1();
+                if (new_w - placed_width).abs() > 0.5 || (new_h - placed_height).abs() > 0.5 {
+                    let _ =
+                        settings.set_double("signature-last-placed-scale", new_w / sig_width_px);
+                }
+            }
+        ));
     }
 
     fn certificate_save_file(&self, path: impl AsRef<std::path::Path>) {

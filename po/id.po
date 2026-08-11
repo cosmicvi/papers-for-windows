@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: papers gnome-49\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2025-12-19 18:00+0000\n"
-"PO-Revision-Date: 2026-01-02 11:46+0700\n"
+"POT-Creation-Date: 2026-08-02 11:32+0000\n"
+"PO-Revision-Date: 2026-08-11 18:09+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: GNOME Indonesian Translation Team <gnome@i15n.org>\n"
 "Language: id\n"
@@ -21,14 +21,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Manually set name and icon
 #: data/org.gnome.Papers.desktop.in.in:2
 #: data/org.gnome.Papers.metainfo.xml.in.in:9
-#: shell/resources/pps-document-view.blp:85
+#: shell/resources/pps-document-view.blp:88
 #: shell/resources/pps-loader-view.blp:10 shell/src/application.rs:47
-#: shell/src/application.rs:359
+#: shell/src/application.rs:389
 msgid "Document Viewer"
 msgstr "Penampil Dokumen"
 
@@ -79,20 +79,20 @@ msgstr ""
 msgid "Allow links to change the zoom level."
 msgstr "Izinkan tautan mengubah level zum."
 
-#: data/org.gnome.Papers.gschema.xml:43
+#: data/org.gnome.Papers.gschema.xml:44
 msgid "Check spelling when writing annotation notes or filling text forms."
 msgstr "Periksa ejaan saat menulis catatan anotasi atau mengisi formulir teks."
 
-#: data/org.gnome.Papers.gschema.xml:47
+#: data/org.gnome.Papers.gschema.xml:48
 msgid "Show a side bar next to the document to help navigate the document."
 msgstr ""
 "Menampilkan bilah sisi di sebelah dokumen untuk membantu menavigasi dokumen."
 
-#: data/org.gnome.Papers.gschema.xml:60
+#: data/org.gnome.Papers.gschema.xml:61
 msgid "Set the default zoom level to display a document."
 msgstr "Memilih tingkat zum baku untuk menampilkan suatu dokumen."
 
-#: data/org.gnome.Papers.gschema.xml:64
+#: data/org.gnome.Papers.gschema.xml:65
 msgid ""
 "Display the document as a continuous stream of pages instead of page at a "
 "time."
@@ -100,17 +100,42 @@ msgstr ""
 "Menampilkan dokumen secara halaman-halaman berkesinambungan bukan satu "
 "halaman setiap saat."
 
-#: data/org.gnome.Papers.gschema.xml:68
+#: data/org.gnome.Papers.gschema.xml:69
 msgid "Show two pages side by side."
 msgstr "Menampilkan dua halaman bersisian."
 
-#: data/org.gnome.Papers.gschema.xml:72
+#: data/org.gnome.Papers.gschema.xml:73
 msgid ""
 "Show the first page (odd page) on the left (when displaying two pages side "
 "by side)"
 msgstr ""
 "Tampilkan halaman pertama (halama ganjil) di kiri (ketika menampilkan dua "
 "halaman bersisian)"
+
+#: data/org.gnome.Papers.gschema.xml:110
+msgid "Last used signature ID"
+msgstr "ID tanda tangan yang terakhir dipakai"
+
+#: data/org.gnome.Papers.gschema.xml:111
+msgid "ID of the signature most recently used for manual signing"
+msgstr ""
+"ID dari tanda tangan yang terakhir kali dipakai untuk penandatanganan manual"
+
+#: data/org.gnome.Papers.gschema.xml:115
+msgid "Last placed signature scale"
+msgstr "Skala tanda tangan yang terakhir ditempatkan"
+
+#: data/org.gnome.Papers.gschema.xml:122
+msgid "Previewer window height"
+msgstr "Tinggi jendela pratinjau"
+
+#: data/org.gnome.Papers.gschema.xml:126
+msgid "Previewer window width"
+msgstr "Lebar jendela pratinjau"
+
+#: data/org.gnome.Papers.gschema.xml:130
+msgid "Previewer window maximized state"
+msgstr "Keadaan termaksimalkan jendela pratinjau"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:10
 msgid "Read documents"
@@ -132,25 +157,153 @@ msgstr ""
 "Papers mendukung dokumen dalam: PDF, DjVu, TIFF, dan arsip-arsip Comic Books "
 "(CBR, CBT, CBZ, CB7)."
 
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "komik"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "pembaca"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "penyunting"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "menyunting"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "formulir"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "anotasikan"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "anotasi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "menganotasi"
+
 #: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "penanda tanganan digital"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "tanda tangan digital"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "tulisan tangan"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "ditulis tangan"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "tinta"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr ""
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr ""
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "kaligrafi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "catatan"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "penyorotan"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "garis bawah"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "menggarisbawahi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "coret"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "pencetakan"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "mode malam"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "mode gelap"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "mode presentasi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "mode penyaji"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "pertunjukan salindia"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "markah"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "UI yang jelas, sederhana, dan modern"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:33
+#: data/org.gnome.Papers.metainfo.xml.in.in:69
 msgid "A mobile-friendly UI"
 msgstr "UI yang ramah seluler"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:37
+#: data/org.gnome.Papers.metainfo.xml.in.in:73
 msgid "A modern and colorful annotation list"
 msgstr "Daftar anotasi yang modern dan berwarna-warni"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:41
+#: data/org.gnome.Papers.metainfo.xml.in.in:77
 msgid "Big thumbnails in the sidebar"
 msgstr "Gambar mini besar di bilah sisi"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:45
+#: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "Semua aksi pencarian ditampung dalam bilah sisi"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "Proyek GNOME"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -234,52 +387,52 @@ msgid "Adds support for reading PDF Documents"
 msgstr "Menambahkan dukungan untuk membaca dokumen PDF"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:741
-#: libdocument/backend/pdf/pps-poppler.c:747
+#: libdocument/backend/pdf/pps-poppler.c:734
+#: libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "Ya"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:744
-#: libdocument/backend/pdf/pps-poppler.c:747
+#: libdocument/backend/pdf/pps-poppler.c:737
+#: libdocument/backend/pdf/pps-poppler.c:740
 #: nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
 msgid "No"
 msgstr "Tidak"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "Jenis 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "Jenis 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "Jenis 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "Jenis 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "Jenis 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:869
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:871
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "Jenis fonta tidak dikenal"
 
-#: libdocument/backend/pdf/pps-poppler.c:915
+#: libdocument/backend/pdf/pps-poppler.c:908
 msgid ""
 "This document contains non-embedded fonts that are not from the PDF Standard "
 "14 fonts. If the substitute fonts selected by fontconfig are not the same as "
@@ -289,11 +442,11 @@ msgstr ""
 "Jika fonta pengganti yang dipilih oleh fontconfig tidak sama dengan fonta "
 "yang dipakai untuk membuat PDF, perenderan mungkin jadi tak benar."
 
-#: libdocument/backend/pdf/pps-poppler.c:920
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "Semua fonta standar atau tertanam."
 
-#: libdocument/backend/pdf/pps-poppler.c:956
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "Tidak ada nama"
 
@@ -301,21 +454,21 @@ msgstr "Tidak ada nama"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:965 libview/pps-print-operation.c:1878
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878
 #: shell/src/properties_general.rs:85 shell/src/properties_general.rs:235
 #: shell/src/properties_general.rs:370
 msgid "None"
 msgstr "Nihil"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "Subset yang tertanam"
 
-#: libdocument/backend/pdf/pps-poppler.c:975
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "Tertanam"
 
-#: libdocument/backend/pdf/pps-poppler.c:977
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "Tidak tertanam"
 
@@ -324,7 +477,7 @@ msgstr "Tidak tertanam"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:984
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (Satu dari Standar 14 Fonta)"
 
@@ -333,7 +486,7 @@ msgstr " (Satu dari Standar 14 Fonta)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:991
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (Bukan satu dari Standar 14 Fonta)"
 
@@ -347,7 +500,7 @@ msgstr " (Bukan satu dari Standar 14 Fonta)"
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1010
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -371,7 +524,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1028
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -429,33 +582,66 @@ msgstr "Semua Berkas"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "default:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i-%i"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr ", "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f mm"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f inci"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s, Tegak (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s, Tumbang (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Halaman"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
@@ -473,7 +659,6 @@ msgid "This work is in the Public Domain"
 msgstr "Karya ini berada di Ranah Publik"
 
 #: libview/context/pps-attachment-context.c:350
-#: shell/src/document_view/actions.rs:1042
 msgid "Save Attachment"
 msgid_plural "Save Attachments"
 msgstr[0] "Simpan Lampiran"
@@ -483,7 +668,8 @@ msgstr[0] "Simpan Lampiran"
 msgid "Page %s"
 msgstr "Halaman %s"
 
-#: libview/pps-annotation-window.c:237
+#: libview/pps-annotation-window.c:242
+#: shell/resources/pps-sidebar-annotations.blp:60
 msgid "Edit Note"
 msgstr "Sunting Catatan"
 
@@ -540,9 +726,9 @@ msgid "Your print range selection does not include any pages"
 msgstr "Pemilihan jangkauan cetak Anda tidak menyertakan halaman apapun"
 
 #. show close if the certificate is null, or if no cert is found
-#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:81
-#: shell/resources/pps-document-view.blp:560 shell/resources/pps-window.blp:138
-#: shell/src/document_view/io.rs:602
+#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83
+#: shell/resources/pps-document-view.blp:791 shell/resources/pps-window.blp:138
+#: shell/src/document_view/io.rs:574
 msgid "_Close"
 msgstr "_Tutup"
 
@@ -622,55 +808,55 @@ msgstr "Menggambar batas di sekitar halaman"
 msgid "When enabled, a border will be drawn around each page."
 msgstr "Saat diaktifkan, batas akan digambar di sekitar setiap halaman."
 
-#: libview/pps-print-operation.c:2006
+#: libview/pps-print-operation.c:2010
 msgid "Page Handling"
 msgstr "Penanganan Halaman"
 
-#: libview/pps-view.c:2110
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "Pergi ke halaman pertama"
 
-#: libview/pps-view.c:2112
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "Pergi ke halaman sebelumnya"
 
-#: libview/pps-view.c:2114
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "Pergi ke halaman selanjutnya"
 
-#: libview/pps-view.c:2116
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "Pergi ke halaman terakhir"
 
-#: libview/pps-view.c:2118
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "Pergi ke halaman"
 
-#: libview/pps-view.c:2120
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "Cari"
 
-#: libview/pps-view.c:2149
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "Pergi ke halaman %s"
 
-#: libview/pps-view.c:2155
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "Pergi ke %s pada berkas “%s”"
 
-#: libview/pps-view.c:2158
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "Pergi ke berkas “%s”"
 
-#: libview/pps-view.c:2166
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "Luncurkan %s"
 
-#: libview/pps-view.c:2173
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "Reset formulir"
@@ -737,57 +923,56 @@ msgstr "Deskriptor berkas dari berkas pengaturan cetak"
 msgid "GNOME Document Previewer"
 msgstr "Peninjau Dokumen GNOME"
 
-#: previewer/pps-previewer-window.c:171 previewer/pps-previewer-window.c:494
-#: shell/src/application.rs:72
+#: previewer/pps-previewer-window.c:172 previewer/pps-previewer-window.c:512
 msgid "Papers Document Viewer"
 msgstr "Penampil Dokumen Papers"
 
-#: previewer/pps-previewer-window.c:209
+#: previewer/pps-previewer-window.c:210
 #, c-format
 msgid "The selected printer “%s” could not be found"
 msgstr "Pencetak '%s' yang dipilih tidak ditemukan"
 
-#: previewer/pps-previewer-window.c:472 shell/src/document_view/io.rs:201
-#: shell/src/document_view/io.rs:202
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:212
+#: shell/src/document_view/io.rs:213
 msgid "Papers"
 msgstr "Papers"
 
-#: previewer/pps-previewer-window.blp:19
+#: previewer/pps-previewer-window.blp:21
 msgid "Previous Page"
 msgstr "Halaman Sebelumnya"
 
-#: previewer/pps-previewer-window.blp:25
+#: previewer/pps-previewer-window.blp:27
 msgid "Next Page"
 msgstr "Halaman Selanjutnya"
 
-#: previewer/pps-previewer-window.blp:31
-#: shell/resources/pps-document-view.blp:210
+#: previewer/pps-previewer-window.blp:33
+#: shell/resources/pps-document-view.blp:213
 msgid "Page Count"
 msgstr "Cacah Halaman"
 
-#: previewer/pps-previewer-window.blp:36
+#: previewer/pps-previewer-window.blp:38
 msgid "_Print"
 msgstr "C_etak"
 
-#: previewer/pps-previewer-window.blp:37
+#: previewer/pps-previewer-window.blp:39
 msgid "Print This Document"
 msgstr "Cetak Dokumen Ini"
 
-#: previewer/pps-previewer-window.blp:48
-#: shell/resources/pps-document-view.blp:287
+#: previewer/pps-previewer-window.blp:50
+#: shell/resources/pps-document-view.blp:293
 msgid "Zoom Out"
 msgstr "Perkecil"
 
-#: previewer/pps-previewer-window.blp:55
+#: previewer/pps-previewer-window.blp:57
 msgid "Normal Size"
 msgstr "Ukuran Normal"
 
-#: previewer/pps-previewer-window.blp:62
-#: shell/resources/pps-document-view.blp:275
+#: previewer/pps-previewer-window.blp:64
+#: shell/resources/pps-document-view.blp:280
 msgid "Zoom In"
 msgstr "Perbesar"
 
-#: previewer/pps-previewer-window.blp:78 shell/src/document_view/print.rs:110
+#: previewer/pps-previewer-window.blp:80 shell/src/document_view/print.rs:114
 msgid "Failed to Print Document"
 msgstr "Gagal Mencetak Dokumen"
 
@@ -822,12 +1007,12 @@ msgid "Keywords"
 msgstr "Kata Kunci"
 
 #: nautilus/pps-nautilus-extension.h:50 shell/src/properties_general.rs:304
-msgid "Producer"
-msgstr "Produsen"
+msgid "Document produced with"
+msgstr "Dokumen dibuat dengan"
 
 #: nautilus/pps-nautilus-extension.h:51 shell/src/properties_general.rs:305
-msgid "Creator"
-msgstr "Pembuat"
+msgid "Source file created with"
+msgstr "Berkas sumber dibuat dengan"
 
 #: nautilus/pps-nautilus-extension.h:52 shell/src/properties_general.rs:316
 msgid "Created"
@@ -924,6 +1109,7 @@ msgid "_Markup Type"
 msgstr "Tipe _Markup"
 
 #: shell/resources/pps-annotation-properties-dialog.blp:75
+#: shell/resources/pps-document-view.blp:490
 msgid "Highlight"
 msgstr "Sorot"
 
@@ -952,59 +1138,102 @@ msgid "Pop up note while scrolling the document"
 msgstr "Munculkan catatan saat menggulir dokumen"
 
 #. Translators: Translators: This is an action (a verb in English) that opens the sidebar to start a search
-#: shell/resources/pps-document-view.blp:76
+#: shell/resources/pps-document-view.blp:79
 msgid "Search"
 msgstr "Cari"
 
-#: shell/resources/pps-document-view.blp:91 shell/resources/pps-window.blp:35
+#: shell/resources/pps-document-view.blp:94 shell/resources/pps-window.blp:35
 msgid "Main Menu"
 msgstr "Menu Utama"
 
-#: shell/resources/pps-document-view.blp:110
+#: shell/resources/pps-document-view.blp:113
 msgid "Thumbnails"
 msgstr "Gambar Mini"
 
-#: shell/resources/pps-document-view.blp:121
+#: shell/resources/pps-document-view.blp:124
 msgid "Outline"
 msgstr "Garis Besar"
 
-#: shell/resources/pps-document-view.blp:133
+#: shell/resources/pps-document-view.blp:136
 msgid "Annotations"
 msgstr "Anotasi"
 
-#: shell/resources/pps-document-view.blp:151
+#: shell/resources/pps-document-view.blp:154
 msgid "Attachments"
 msgstr "Lampiran"
 
-#: shell/resources/pps-document-view.blp:167
+#: shell/resources/pps-document-view.blp:170
 msgid "Layers"
 msgstr "Lapisan"
 
-#: shell/resources/pps-document-view.blp:197
+#: shell/resources/pps-document-view.blp:200
 msgid "Toggle Sidebar"
 msgstr "Jungkitkan Bilah Sisi"
 
-#: shell/resources/pps-document-view.blp:203
+#: shell/resources/pps-document-view.blp:206
 msgid "Document Menu"
 msgstr "Menu Dokumen"
 
-#: shell/resources/pps-document-view.blp:223 shell/src/document_view/io.rs:265
+#: shell/resources/pps-document-view.blp:226
 msgid "Document has been digitally signed."
 msgstr "Dokumen telah ditandatangani secara digital."
 
-#: shell/resources/pps-document-view.blp:224
+#: shell/resources/pps-document-view.blp:227
 msgid "View Signature…"
 msgstr "Lihat Tanda Tangan…"
 
-#: shell/resources/pps-document-view.blp:257
+#: shell/resources/pps-document-view.blp:260
 msgid "Fit Automatically"
 msgstr "Pas Secara Otomatis"
 
-#: shell/resources/pps-document-view.blp:529
+#: shell/resources/pps-document-view.blp:343
+#: shell/resources/pps-document-view.blp:385
+#: shell/resources/pps-document-view.blp:417
+msgid "Choose Color"
+msgstr "Pilih Warna"
+
+#: shell/resources/pps-document-view.blp:363
+msgid "Font Settings"
+msgstr "Pengaturan Fonta"
+
+#: shell/resources/pps-document-view.blp:399
+msgid "Highlight Stroke Size"
+msgstr "Ukuran Sapuan Sorot"
+
+#: shell/resources/pps-document-view.blp:432
+msgid "Pencil Size"
+msgstr "Ukuran Pinsil"
+
+#: shell/resources/pps-document-view.blp:444
+msgid "Eraser Settings"
+msgstr "Pengaturan Penghapus"
+
+#: shell/resources/pps-document-view.blp:460
+msgid "Change Eraser Radius"
+msgstr "Ubah Radius Penghapus"
+
+#: shell/resources/pps-document-view.blp:478
+msgid "Insert Text"
+msgstr "Sisipkan Teks"
+
+#: shell/resources/pps-document-view.blp:484
+msgid "Draw"
+msgstr "Gambar"
+
+#: shell/resources/pps-document-view.blp:496
+msgid "Erase Annotations"
+msgstr "Hapus Anotasi"
+
+#: shell/resources/pps-document-view.blp:513
+#: shell/src/document_view/actions.rs:1359
+msgid "Edit Document"
+msgstr "Sunting Dokumen"
+
+#: shell/resources/pps-document-view.blp:760
 msgid "Selection too Small"
 msgstr "Pilihan Terlalu Kecil"
 
-#: shell/resources/pps-document-view.blp:530
+#: shell/resources/pps-document-view.blp:761
 msgid ""
 "A signature of this size may be too small to read. If you would like to "
 "create a potentially more readable signature, press `Start over` and draw a "
@@ -1014,19 +1243,19 @@ msgstr ""
 "ingin membuat tanda tangan yang lebih mudah dibaca, tekan `Mulai dari awal` "
 "dan gambar persegi panjang yang lebih besar."
 
-#: shell/resources/pps-document-view.blp:537
+#: shell/resources/pps-document-view.blp:768
 msgid "Start _Over"
 msgstr "Mulai Dari _Awal"
 
-#: shell/resources/pps-document-view.blp:538
+#: shell/resources/pps-document-view.blp:769
 msgid "_Sign"
 msgstr "_Tandatangani"
 
-#: shell/resources/pps-document-view.blp:545
+#: shell/resources/pps-document-view.blp:776
 msgid "Abort Printing?"
 msgstr "Batalkan Pencetakan?"
 
-#: shell/resources/pps-document-view.blp:546
+#: shell/resources/pps-document-view.blp:777
 msgid ""
 "There is one or more active print jobs. If the window is closed, pending "
 "print jobs will not be printed."
@@ -1034,164 +1263,260 @@ msgstr ""
 "Ada satu atau beberapa pekerjaan cetak yang aktif. Jika jendela ditutup, "
 "pekerjaan cetak yang tertunda tidak akan dicetak."
 
-#: shell/resources/pps-document-view.blp:550
+#: shell/resources/pps-document-view.blp:781
 msgid "Abort _Print and Close"
 msgstr "Batal _Mencetak dan Keluar"
 
-#: shell/resources/pps-document-view.blp:551 shell/src/document_view.rs:726
-#: shell/src/document_view/io.rs:486 shell/src/document_view/io.rs:530
-#: shell/src/document_view/io.rs:714
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:833
+#: shell/src/document_view/io.rs:447 shell/src/document_view/io.rs:495
+#: shell/src/document_view/io.rs:872
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: shell/resources/pps-document-view.blp:552
+#: shell/resources/pps-document-view.blp:783
 msgid "Close _After Printing"
 msgstr "Tutup Setel_ah Mencetak"
 
-#: shell/resources/pps-document-view.blp:567
+#: shell/resources/pps-document-view.blp:798
 msgid "Open…"
 msgstr "Buka…"
 
-#: shell/resources/pps-document-view.blp:574
+#: shell/resources/pps-document-view.blp:805
 msgid "Ni_ght Mode"
 msgstr "Mode ma_lam"
 
-#: shell/resources/pps-document-view.blp:581 shell/resources/pps-window.blp:145
+#: shell/resources/pps-document-view.blp:812 shell/resources/pps-window.blp:145
 msgid "_Keyboard Shortcuts"
 msgstr "_Tombol Pintas"
 
-#: shell/resources/pps-document-view.blp:586 shell/resources/pps-window.blp:150
+#: shell/resources/pps-document-view.blp:817 shell/resources/pps-window.blp:150
 msgid "_Help"
 msgstr "_Bantuan"
 
-#: shell/resources/pps-document-view.blp:591 shell/resources/pps-window.blp:155
+#: shell/resources/pps-document-view.blp:822 shell/resources/pps-window.blp:155
 msgid "_About Document Viewer"
 msgstr "Tent_ang Penampil Dokumen"
 
-#: shell/resources/pps-document-view.blp:600
+#: shell/resources/pps-document-view.blp:831
 msgid "_Print…"
 msgstr "_Cetak…"
 
-#: shell/resources/pps-document-view.blp:605
+#: shell/resources/pps-document-view.blp:836
 msgid "Fullscreen"
 msgstr "Layar Penuh"
 
-#: shell/resources/pps-document-view.blp:610
+#: shell/resources/pps-document-view.blp:841
 msgid "Present as Slideshow"
 msgstr "Tampilkan sebagai Salindia"
 
-#: shell/resources/pps-document-view.blp:617
+#: shell/resources/pps-document-view.blp:848
 msgid "Sign D_igitally…"
 msgstr "Tanda Tangani Secara D_igital…"
 
-#: shell/resources/pps-document-view.blp:624
+#: shell/resources/pps-document-view.blp:853
+msgid "_Manage Signatures…"
+msgstr "_Kelola Tanda Tangan…"
+
+#: shell/resources/pps-document-view.blp:860
 msgid "Open a C_opy"
 msgstr "Bu_ka Salinan"
 
-#: shell/resources/pps-document-view.blp:629
+#: shell/resources/pps-document-view.blp:865
 #: shell/src/properties_general.rs:137
 msgid "Open With…"
 msgstr "Buka Dengan…"
 
-#: shell/resources/pps-document-view.blp:634
+#: shell/resources/pps-document-view.blp:870
 msgid "_Save As…"
 msgstr "_Simpan Sebagai…"
 
-#: shell/resources/pps-document-view.blp:641
+#: shell/resources/pps-document-view.blp:877
 msgid "_Continuous"
 msgstr "_Berkelanjutan"
 
-#: shell/resources/pps-document-view.blp:646
+#: shell/resources/pps-document-view.blp:882
 msgid "_Dual"
 msgstr "Gan_da"
 
-#: shell/resources/pps-document-view.blp:651
+#: shell/resources/pps-document-view.blp:887
 msgid "_Odd Pages Left"
 msgstr "Halaman _Ganjil Kiri"
 
-#: shell/resources/pps-document-view.blp:656
+#: shell/resources/pps-document-view.blp:892
 msgid "Right to Left Document"
 msgstr "Dokumen Kanan ke Kiri"
 
-#: shell/resources/pps-document-view.blp:663
+#: shell/resources/pps-document-view.blp:899
 msgid "Ro_tate ⤵"
 msgstr "Pu_tar ⤵"
 
-#: shell/resources/pps-document-view.blp:670
+#: shell/resources/pps-document-view.blp:906
 msgid "Document Prop_erties"
 msgstr "Prop_erti Dokumen"
 
+#: shell/resources/pps-document-view.blp:959
+#: shell/resources/pps-document-view.blp:1267
+msgid "Black"
+msgstr "Hitam"
+
+#: shell/resources/pps-document-view.blp:971
+#: shell/resources/pps-document-view.blp:1058
+#: shell/resources/pps-document-view.blp:1207
+msgid "Orange"
+msgstr "Oranye"
+
+#: shell/resources/pps-document-view.blp:983
+#: shell/resources/pps-document-view.blp:1071
+#: shell/resources/pps-document-view.blp:1219
+msgid "Red"
+msgstr "Merah"
+
+#: shell/resources/pps-document-view.blp:995
+#: shell/resources/pps-document-view.blp:1084
+#: shell/resources/pps-document-view.blp:1231
+msgid "Purple"
+msgstr "Ungu"
+
+#: shell/resources/pps-document-view.blp:1007
+#: shell/resources/pps-document-view.blp:1097
+#: shell/resources/pps-document-view.blp:1243
+msgid "Blue"
+msgstr "Biru"
+
+#: shell/resources/pps-document-view.blp:1019
+#: shell/resources/pps-document-view.blp:1110
+#: shell/resources/pps-document-view.blp:1255
+msgid "Green"
+msgstr "Hijau"
+
+#: shell/resources/pps-document-view.blp:1045
+#: shell/resources/pps-document-view.blp:1195
+msgid "Yellow"
+msgstr "Kuning"
+
+#: shell/resources/pps-document-view.blp:1132
+#: shell/resources/pps-document-view.blp:1289
+#: shell/resources/pps-document-view.blp:1348
+msgid "Thin"
+msgstr "Tipis"
+
+#: shell/resources/pps-document-view.blp:1144
+#: shell/resources/pps-document-view.blp:1302
+#: shell/resources/pps-document-view.blp:1360
+msgid "Medium"
+msgstr "Sedang"
+
+#: shell/resources/pps-document-view.blp:1156
+#: shell/resources/pps-document-view.blp:1314
+#: shell/resources/pps-document-view.blp:1372
+msgid "Thick"
+msgstr "Tebal"
+
+#: shell/resources/pps-document-view.blp:1168
+#: shell/resources/pps-document-view.blp:1326
+#: shell/resources/pps-document-view.blp:1384
+msgid "Very Thick"
+msgstr "Sangat Tebal"
+
+#: shell/resources/pps-document-view.blp:1397
+msgid "Erase Ink"
+msgstr "Hapus Tinta"
+
+#: shell/resources/pps-document-view.blp:1403
+msgid "Erase Whole Strokes"
+msgstr "Hapus Seluruh Sapuan"
+
+#: shell/resources/pps-document-view.blp:1432
+msgid "Manage Signatures…"
+msgstr "Kelola Tanda Tangan…"
+
+#: shell/resources/pps-document-view.blp:1451
+msgid "No Signatures Yet"
+msgstr "Belum Ada Tanda Tangan"
+
+#: shell/resources/pps-document-view.blp:1461
+msgid "Add Signature"
+msgstr "Tambahkan Tanda Tangan"
+
 #. Translators: As a noun, this is describing the type of text marking annotation, as are squiggly, strikethrough, and underline. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:708
+#: shell/resources/pps-document-view.blp:1509
 msgid "Highlight (h)"
 msgstr "Sorot (h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text marking annotation, as are highlight, squiggly, and underline. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:724
+#: shell/resources/pps-document-view.blp:1525
 msgid "Strikethrough (k)"
 msgstr "Coret (k)"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are highlight, squiggly, and strikethrough. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:740
+#: shell/resources/pps-document-view.blp:1541
 msgid "Underline (u)"
 msgstr "Garis bawahi (u)"
 
 #. Translators: As an adjective, this is describing the type of text marking annotation, as are highlight, strikethrough, and underline. A noun could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:756
+#: shell/resources/pps-document-view.blp:1557
 msgid "Squiggly (q)"
 msgstr "Cacing (q)"
 
-#: shell/resources/pps-document-view.blp:847
+#: shell/resources/pps-document-view.blp:1648
 msgid "_Open Link"
 msgstr "_Buka Taut"
 
-#: shell/resources/pps-document-view.blp:853
+#: shell/resources/pps-document-view.blp:1654
+msgid "Send an Email"
+msgstr "Kirim Surel"
+
+#: shell/resources/pps-document-view.blp:1660
 msgid "_Copy Link Address"
 msgstr "_Salin Alamat Taut"
 
-#: shell/resources/pps-document-view.blp:859
+#: shell/resources/pps-document-view.blp:1666
+msgid "Copy Email Address"
+msgstr "Salin Alamat Surel"
+
+#: shell/resources/pps-document-view.blp:1672
 msgid "_Go To"
 msgstr "_Ke"
 
-#: shell/resources/pps-document-view.blp:865
+#: shell/resources/pps-document-view.blp:1678
 msgid "Open in New _Window"
 msgstr "Buka di _Jendela Baru"
 
-#: shell/resources/pps-document-view.blp:873
+#: shell/resources/pps-document-view.blp:1686
 msgid "_Copy"
 msgstr "_Salin"
 
-#: shell/resources/pps-document-view.blp:878
+#: shell/resources/pps-document-view.blp:1691
 msgid "Select _All"
 msgstr "Pilih Semu_a"
 
-#: shell/resources/pps-document-view.blp:885
+#: shell/resources/pps-document-view.blp:1698
 msgid "_Save Image As…"
 msgstr "_Simpan Gambar Sebagai…"
 
-#: shell/resources/pps-document-view.blp:891
+#: shell/resources/pps-document-view.blp:1704
 msgid "Copy _Image"
 msgstr "Salin _Gambar"
 
-#: shell/resources/pps-document-view.blp:899
-#: shell/resources/pps-sidebar-annotations.blp:72
+#: shell/resources/pps-document-view.blp:1712
+#: shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "_Buka Lampiran"
 
-#: shell/resources/pps-document-view.blp:905
-#: shell/resources/pps-sidebar-annotations.blp:78
+#: shell/resources/pps-document-view.blp:1718
+#: shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "_Simpan Lampiran Sebagai…"
 
-#: shell/resources/pps-document-view.blp:915
+#: shell/resources/pps-document-view.blp:1728
 msgid "Annotation _Properties…"
 msgstr "_Properti Anotasi…"
 
-#: shell/resources/pps-document-view.blp:921
+#: shell/resources/pps-document-view.blp:1734
 msgid "R_emove Annotation"
 msgstr "Bu_ang Anotasi"
 
-#: shell/resources/pps-document-view.blp:929
+#: shell/resources/pps-document-view.blp:1742
 msgid "_Add Text Annotation"
 msgstr "T_ambahkan Anotasi Teks"
 
@@ -1215,13 +1540,13 @@ msgstr "Hasil pencarian akan muncul di sini"
 msgid "Loading Document"
 msgstr "Memuat Dokumen"
 
-#: shell/resources/pps-loader-view.blp:48 shell/src/document_view/print.rs:49
+#: shell/resources/pps-loader-view.blp:48 shell/src/document_view/print.rs:50
 msgid "C_ancel"
 msgstr "B_atal"
 
 #: shell/resources/pps-password-dialog.blp:5
 #: shell/resources/pps-password-view.blp:11
-#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:707
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:865
 msgid "Password Required"
 msgstr "Perlu Sandi"
 
@@ -1272,15 +1597,6 @@ msgstr "Lisensi Teks"
 msgid "Further Information"
 msgstr "Informasi Lebih Lanjut"
 
-#: shell/resources/pps-properties-signatures.blp:32
-msgid "Signature Information"
-msgstr "Informasi Tanda Tangan"
-
-#: shell/resources/pps-properties-signatures.blp:48
-#: shell/src/properties_signatures.rs:405
-msgid "View Details…"
-msgstr "Lihat Detail…"
-
 #: shell/resources/pps-properties-window.blp:5
 msgid "Properties"
 msgstr "Properti"
@@ -1305,15 +1621,15 @@ msgstr "_Tanda Tangan"
 msgid "Search in document"
 msgstr "Mencari di dokumen"
 
-#: shell/resources/pps-search-box.blp:38
+#: shell/resources/pps-search-box.blp:45
 msgid "Search Options"
 msgstr "Opsi Pencarian"
 
-#: shell/resources/pps-search-box.blp:46
+#: shell/resources/pps-search-box.blp:53
 msgid "_Whole Words Only"
 msgstr "Hanya _Seluruh Kata"
 
-#: shell/resources/pps-search-box.blp:51
+#: shell/resources/pps-search-box.blp:58
 msgid "C_ase Sensitive"
 msgstr "Sesuai Bes_ar/Kecil Huruf"
 
@@ -1572,67 +1888,72 @@ msgctxt "shortcut window"
 msgid "Underline Text"
 msgstr "Teks Bergaris Bawah"
 
-#: shell/resources/pps-shortcuts-dialog.blp:255
+#: shell/resources/pps-shortcuts-dialog.blp:254
+msgctxt "shortcut window"
+msgid "Digital Signing"
+msgstr "Penandatanganan Digital"
+
+#: shell/resources/pps-shortcuts-dialog.blp:261
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Cari"
 
-#: shell/resources/pps-shortcuts-dialog.blp:258
+#: shell/resources/pps-shortcuts-dialog.blp:264
 msgctxt "shortcut window"
 msgid "Find"
 msgstr "Cari"
 
-#: shell/resources/pps-shortcuts-dialog.blp:263
+#: shell/resources/pps-shortcuts-dialog.blp:269
 msgctxt "shortcut window"
 msgid "Find Next"
 msgstr "Cari Selanjutnya"
 
-#: shell/resources/pps-shortcuts-dialog.blp:268
+#: shell/resources/pps-shortcuts-dialog.blp:274
 msgctxt "shortcut window"
 msgid "Find Previous"
 msgstr "Cari Sebelumnya"
 
-#: shell/resources/pps-shortcuts-dialog.blp:274
+#: shell/resources/pps-shortcuts-dialog.blp:280
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Umum"
 
-#: shell/resources/pps-shortcuts-dialog.blp:277
+#: shell/resources/pps-shortcuts-dialog.blp:283
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Bantuan"
 
-#: shell/resources/pps-shortcuts-dialog.blp:282
+#: shell/resources/pps-shortcuts-dialog.blp:288
 msgctxt "shortcut window"
 msgid "Menu"
 msgstr "Menu"
 
-#: shell/resources/pps-shortcuts-dialog.blp:287
+#: shell/resources/pps-shortcuts-dialog.blp:293
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
 msgstr "Pintasan Papan Tik"
 
-#: shell/resources/pps-shortcuts-dialog.blp:292
+#: shell/resources/pps-shortcuts-dialog.blp:298
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Jendela Baru"
 
-#: shell/resources/pps-shortcuts-dialog.blp:297
+#: shell/resources/pps-shortcuts-dialog.blp:303
 msgctxt "shortcut window"
 msgid "Close Window"
 msgstr "Tutup Jendela"
 
-#: shell/resources/pps-shortcuts-dialog.blp:303
+#: shell/resources/pps-shortcuts-dialog.blp:309
 msgctxt "shortcut window"
 msgid "Presentation Mode"
 msgstr "Mode Presentasi"
 
-#: shell/resources/pps-shortcuts-dialog.blp:306
+#: shell/resources/pps-shortcuts-dialog.blp:312
 msgctxt "shortcut window"
 msgid "Black Screen"
 msgstr "Layar Hitam"
 
-#: shell/resources/pps-shortcuts-dialog.blp:311
+#: shell/resources/pps-shortcuts-dialog.blp:317
 msgctxt "shortcut window"
 msgid "White Screen"
 msgstr "Layar Putih"
@@ -1641,11 +1962,11 @@ msgstr "Layar Putih"
 msgid "No Annotations"
 msgstr "Tidak Ada Anotasi"
 
-#: shell/resources/pps-sidebar-annotations.blp:60
+#: shell/resources/pps-sidebar-annotations.blp:66
 msgid "Annotation Properties"
 msgstr "Properti Anotasi"
 
-#: shell/resources/pps-sidebar-annotations.blp:66
+#: shell/resources/pps-sidebar-annotations.blp:72
 msgid "Remove Annotation"
 msgstr "Buang Anotasi"
 
@@ -1669,7 +1990,7 @@ msgstr "Cetak bagian ini…"
 msgid "Previews"
 msgstr "Pratinjau"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "Buka Dokumen"
 
@@ -1680,6 +2001,11 @@ msgstr "Seret dan jatuhkan dokumen di sini"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "_Buka…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "Buka Dokumen"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -1703,51 +2029,51 @@ msgstr ""
 "Zamani Karmana <zamani.karmana@gmail.com>, 2015.\n"
 "Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2022."
 
-#: shell/src/application.rs:366
+#: shell/src/application.rs:396
 msgid "The page label of the document to display."
 msgstr "Label halaman dari dokumen yang ingin ditampilkan."
 
-#: shell/src/application.rs:367
+#: shell/src/application.rs:397
 msgid "PAGE"
 msgstr "HALAMAN"
 
-#: shell/src/application.rs:375
+#: shell/src/application.rs:405
 msgid "The page number of the document to display."
 msgstr "Nomor halaman dari dokumen yang ingin ditampilkan."
 
-#: shell/src/application.rs:376
+#: shell/src/application.rs:406
 msgid "NUMBER"
 msgstr "NOMOR"
 
-#: shell/src/application.rs:384
+#: shell/src/application.rs:414
 msgid "Named destination to display."
 msgstr "Tujuan yang dinamai untuk ditampilkan."
 
-#: shell/src/application.rs:385
+#: shell/src/application.rs:415
 msgid "DEST"
 msgstr "TUJUAN"
 
-#: shell/src/application.rs:393
+#: shell/src/application.rs:423
 msgid "Run papers in fullscreen mode."
 msgstr "Menjalankan papers dalam mode layar penuh."
 
-#: shell/src/application.rs:402
+#: shell/src/application.rs:432
 msgid "Run papers in presentation mode."
 msgstr "Menjalankan papers dalam mode presentasi."
 
-#: shell/src/application.rs:411
+#: shell/src/application.rs:441
 msgid "Show the version of the program."
 msgstr "Menampilkan versi program."
 
-#: shell/src/application.rs:421
+#: shell/src/application.rs:451
 msgid "[FILE…]"
 msgstr "[BERKAS…]"
 
-#: shell/src/document_view.rs:300
+#: shell/src/document_view.rs:372
 msgid "View Details"
 msgstr "Lihat Detail"
 
-#: shell/src/document_view.rs:705
+#: shell/src/document_view.rs:809
 msgid ""
 "Document contains new or modified annotations and form fields that have been "
 "filled out."
@@ -1755,85 +2081,79 @@ msgstr ""
 "Dokumen tidak mengandung anotasi dan ruas formulir yang telah diisi yang "
 "baru atau diubah."
 
-#: shell/src/document_view.rs:706
+#: shell/src/document_view.rs:812
 msgid "Document contains form fields that have been filled out."
 msgstr "Dokumen mengandung ruas formulir yang telah diisi."
 
-#: shell/src/document_view.rs:707
+#: shell/src/document_view.rs:814
 msgid "Document contains new or modified annotations."
 msgstr "Dokumen mengandung anotasi baru atau anotasi yang dimodifikasi."
 
-#: shell/src/document_view.rs:715
+#: shell/src/document_view.rs:822
 msgid "If you don’t save a copy, changes will be permanently lost."
 msgstr ""
 "Jika Anda tidak menyimpan salinan, perubahan akan hilang secara permanen."
 
-#: shell/src/document_view.rs:716
+#: shell/src/document_view.rs:823
 msgid "Save Changes to a Copy?"
 msgstr "Simpan Perubahan ke Salinan?"
 
-#: shell/src/document_view.rs:725
+#: shell/src/document_view.rs:832
 msgid "Close _Without Saving"
 msgstr "Tutup _Tanpa Menyimpan"
 
-#: shell/src/document_view.rs:727
+#: shell/src/document_view.rs:834
 msgid "_Save a Copy"
 msgstr "Simpan _Salinan"
 
-#: shell/src/document_view/actions.rs:844
+#: shell/src/document_view/actions.rs:1033
 msgid "Save Image"
 msgstr "Simpan Gambar"
 
-#: shell/src/document_view/actions.rs:880
-msgid "Couldn’t find appropriate format to save image"
-msgstr "Tidak dapat menemukan format yang cocok tepat menyimpan gambar"
-
-#: shell/src/document_view/actions.rs:897
-msgid "The image could not be saved."
-msgstr "Gambar tidak dapat disimpan."
-
-#: shell/src/document_view/actions.rs:969
+#: shell/src/document_view/actions.rs:1165
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr "Mode navigasi caret sekarang diaktifkan, tekan F7 untuk menonaktifkan."
 
-#: shell/src/document_view/actions.rs:971
+#: shell/src/document_view/actions.rs:1167
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr ""
 "Mode navigasi caret sekarang dinonaktifkan, tekan F7 untuk mengaktifkan."
 
-#: shell/src/document_view/actions.rs:1026 shell/src/sidebar_attachments.rs:286
+#: shell/src/document_view/actions.rs:1255
+msgid "Add _Visual Signature"
+msgstr "Tambahkan Tanda Tangan _Visual…"
+
+#: shell/src/document_view/actions.rs:1348
+msgid "Close Menu"
+msgstr "Tutup Menu"
+
+#: shell/src/document_view/actions.rs:1444
 msgid "Unable to Open Attachment"
 msgstr "Tidak Bisa Membuka Lampiran"
 
-#: shell/src/document_view/actions.rs:1059
-msgid "The attachment could not be saved."
-msgstr "Lampiran tidak dapat disimpan."
+#: shell/src/document_view/actions.rs:1459
+msgctxt "This is an action"
+msgid "Save Attachment"
+msgstr "Simpan Lampiran"
 
-#: shell/src/document_view/io.rs:269
-msgid "Digital signature is invalid"
-msgstr "Tanda tangan digital tidak valid"
-
-#: shell/src/document_view/io.rs:280
+#: shell/src/document_view/io.rs:291
 msgid "The Document Contains No Pages"
 msgstr "Dokumen Tidak Memuat Halaman"
 
-#: shell/src/document_view/io.rs:282
+#: shell/src/document_view/io.rs:293
 msgid "The Document Contains Only Empty Pages"
 msgstr "Dokumen Hanya Memuat Halaman Kosong"
 
-#: shell/src/document_view/io.rs:368 shell/src/document_view/io.rs:446
-msgid "The file could not be saved as “{}”."
-msgstr "Berkas tidak dapat disimpan sebagai \"{}\"."
-
-#: shell/src/document_view/io.rs:409
+#: shell/src/document_view/io.rs:369
 msgid "Save As…"
 msgstr "Simpan Sebagai…"
 
-#: shell/src/document_view/io.rs:485
+#: shell/src/document_view/io.rs:446
 msgid "Draw a rectangle to insert a signature field"
 msgstr "Gambarlah sebuah persegi panjang untuk menyisipkan bidang tanda tangan"
 
-#: shell/src/document_view/io.rs:507
+#: shell/src/document_view/io.rs:469
+#, rust-format
 msgid ""
 "Digitally signed by {}\n"
 "Date: {}"
@@ -1841,71 +2161,80 @@ msgstr ""
 "Ditandatangani secara digital oleh {}\n"
 "Tanggal: {}"
 
-#: shell/src/document_view/io.rs:523
+#: shell/src/document_view/io.rs:488
 msgid "Certificate Required"
 msgstr "Diperlukan Sertifikat"
 
-#: shell/src/document_view/io.rs:526
+#: shell/src/document_view/io.rs:491
 msgid "Select signing certificate"
 msgstr "Pilih sertifikat penandatanganan"
 
-#: shell/src/document_view/io.rs:527
+#: shell/src/document_view/io.rs:492
 msgid "Select"
 msgstr "Pilih"
 
-#: shell/src/document_view/io.rs:600
+#: shell/src/document_view/io.rs:572
 msgid "A certificate is required to sign this document"
 msgstr "Sertifikat diperlukan untuk menandatangani dokumen ini"
 
-#: shell/src/document_view/io.rs:669
+#: shell/src/document_view/io.rs:826
 msgid "Save Signed File"
 msgstr "Simpan Berkas yang Ditandatangani"
 
-#: shell/src/document_view/io.rs:699
+#: shell/src/document_view/io.rs:856
+#, rust-format
 msgid "Please enter password for {}"
 msgstr "Masukkan kata sandi untuk {}"
 
-#: shell/src/document_view/io.rs:715
+#: shell/src/document_view/io.rs:873
 msgid "_Login"
 msgstr "_Log masuk"
 
 #. TRANSLATORS: In the context of "the job {} is being printed"
 #: shell/src/document_view/print.rs:46
+#, rust-format
 msgid "Printing job “{}”"
 msgstr "Pekerjaan pencetakan \"{}\""
 
-#: shell/src/document_view/print.rs:83
+#: shell/src/document_view/print.rs:84
 msgid "No pending jobs in queue"
 msgstr "Tidak ada pekerjaan yang tertunda dalam antrian"
 
-#: shell/src/document_view/signals.rs:226
-msgid "Unable to open external link"
-msgstr "Tidak dapat membuka tautan eksternal"
+#: shell/src/document_view/print.rs:88
+#, rust-format
+msgid "{} pending job in queue"
+msgid_plural "{} pending jobs in queue"
+msgstr[0] "{} pekerjaan tertunda dalam antrian"
 
-#: shell/src/document_view/signals.rs:254
+#: shell/src/document_view/signals.rs:266
+#, rust-format
 msgid ""
 "Security alert: this document has been prevented from opening the file “{}”"
 msgstr ""
 "Peringatan keamanan: dokumen ini telah dicegah untuk membuka berkas \"{}\""
 
-#: shell/src/document_view/signals.rs:433 shell/src/page_selector.rs:77
-#: shell/src/sidebar_annotations_row.rs:82
+#: shell/src/document_view/signals.rs:452 shell/src/page_selector.rs:91
+#: shell/src/sidebar_annotations_row.rs:83
+#, rust-format
 msgid "Page {}"
 msgstr "Halaman {}"
 
 #. Translators: Do NOT translate the content between
 #. '{' and '}' they are variable names. Changing their
 #. order is possible
-#: shell/src/page_selector.rs:230 shell/src/page_selector.rs:258
+#: shell/src/page_selector.rs:244 shell/src/page_selector.rs:271
+#, rust-format
 msgid "({pagenum} of {totalpages})"
 msgstr "({pagenum} dari {totalpages})"
 
 #. Translators: the placeholder is the total amount of pages
-#: shell/src/page_selector.rs:238 shell/src/page_selector.rs:268
+#: shell/src/page_selector.rs:251 shell/src/page_selector.rs:280
+#, rust-format
 msgid "of {}"
 msgstr "dari {}"
 
-#: shell/src/password_view.rs:145
+#: shell/src/password_view.rs:146
+#, rust-format
 msgid ""
 "The document “{}” is locked and requires a password before it can be opened"
 msgstr ""
@@ -1942,93 +2271,3 @@ msgstr "Isi"
 #: shell/src/properties_general.rs:314
 msgid "Date &amp; Time"
 msgstr "Tanggal &amp; Waktu"
-
-#: shell/src/properties_signatures.rs:138
-#: shell/src/properties_signatures.rs:146
-msgid "Signed by"
-msgstr "Ditandatangani oleh"
-
-#: shell/src/properties_signatures.rs:187
-msgid "Signature is valid."
-msgstr "Tanda tangan valid."
-
-#: shell/src/properties_signatures.rs:190
-msgid "Signature is invalid."
-msgstr "Tanda tangan tidak valid."
-
-#: shell/src/properties_signatures.rs:194
-msgid "Document has been changed after signing."
-msgstr "Dokumen telah diubah setelah ditandatangani."
-
-#: shell/src/properties_signatures.rs:198
-msgid "Signature could not be decoded."
-msgstr "Tanda tangan tidak dapat diterjemahkan."
-
-#: shell/src/properties_signatures.rs:202
-msgid "Signature verification error."
-msgstr "Kesalahan verifikasi tanda tangan."
-
-#: shell/src/properties_signatures.rs:214
-msgid "Signed with a certificate issued by trusted issuer."
-msgstr ""
-"Ditandatangani dengan sertifikat yang dikeluarkan oleh penerbit tepercaya."
-
-#: shell/src/properties_signatures.rs:220
-msgid "Signed with a certificate issued by untrusted issuer."
-msgstr ""
-"Ditandatangani dengan sertifikat yang dikeluarkan oleh penerbit yang tidak "
-"terpercaya."
-
-#: shell/src/properties_signatures.rs:226
-msgid "Signed with a certificate issued by unknown issuer."
-msgstr ""
-"Ditandatangani dengan sertifikat yang dikeluarkan oleh penerbit yang tidak "
-"dikenal."
-
-#: shell/src/properties_signatures.rs:231
-msgid "Signed with revoked certificate."
-msgstr "Ditandatangani dengan sertifikat yang telah dicabut."
-
-#: shell/src/properties_signatures.rs:235
-msgid "Signed with expired certificate."
-msgstr "Ditandatangani dengan sertifikat yang sudah kedaluwarsa."
-
-#: shell/src/properties_signatures.rs:239
-msgid "Certificate verification error."
-msgstr "Kesalahan verifikasi sertifikat."
-
-#: shell/src/properties_signatures.rs:243
-msgid "Certificate has not been verified."
-msgstr "Sertifikat belum diverifikasi."
-
-#: shell/src/properties_signatures.rs:256
-msgid "Organization"
-msgstr "Organisasi"
-
-#: shell/src/properties_signatures.rs:265
-msgid "Date and Time"
-msgstr "Tanggal dan Waktu"
-
-#: shell/src/properties_signatures.rs:276
-msgid "Certificate Issuer"
-msgstr "Penerbit Sertifikat"
-
-#: shell/src/properties_signatures.rs:287
-msgid "Certificate Issuer's Email"
-msgstr "Surel Penerbit Sertifikat"
-
-#: shell/src/properties_signatures.rs:298
-msgid "Certificate Issuer's Organization"
-msgstr "Organisasi Penerbit Sertifikat"
-
-#: shell/src/properties_signatures.rs:309
-msgid "Certificate's Issuance Time"
-msgstr "Waktu Penerbitan Sertifikat"
-
-#: shell/src/properties_signatures.rs:321
-msgid "Certificate's Expiration Time"
-msgstr "Waktu Kedaluwarsa Sertifikat"
-
-#: shell/src/properties_signatures.rs:403
-msgid "Hide Details…"
-msgstr "Sembunyikan Detail…"

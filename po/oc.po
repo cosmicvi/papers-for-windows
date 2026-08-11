@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Evince HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-07-28 08:00+0000\n"
-"PO-Revision-Date: 2026-07-29 13:34+0200\n"
+"POT-Creation-Date: 2026-08-01 10:26+0000\n"
+"PO-Revision-Date: 2026-08-01 13:54+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -102,15 +102,19 @@ msgstr "Darrièr ID de signatura utilizat"
 msgid "ID of the signature most recently used for manual signing"
 msgstr "ID de la signatura utilizada mai recentament per una signatura manuala"
 
-#: data/org.gnome.Papers.gschema.xml:118
+#: data/org.gnome.Papers.gschema.xml:115
+msgid "Last placed signature scale"
+msgstr "Escala de la darrièra signatura utilizada"
+
+#: data/org.gnome.Papers.gschema.xml:122
 msgid "Previewer window height"
 msgstr "La nautor de la fenèstra d’apercebut"
 
-#: data/org.gnome.Papers.gschema.xml:122
+#: data/org.gnome.Papers.gschema.xml:126
 msgid "Previewer window width"
 msgstr "La largor de la fenèstra d’apercebut"
 
-#: data/org.gnome.Papers.gschema.xml:126
+#: data/org.gnome.Papers.gschema.xml:130
 msgid "Previewer window maximized state"
 msgstr "La talha maximala de la fenèstra d’apercebut"
 
@@ -688,7 +692,7 @@ msgstr "Vòstre interval d'impression inclutz pas cap de pagina"
 
 #. show close if the certificate is null, or if no cert is found
 #: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83 shell/resources/pps-document-view.blp:791
-#: shell/resources/pps-window.blp:138 shell/src/document_view/io.rs:566
+#: shell/resources/pps-window.blp:138 shell/src/document_view/io.rs:574
 msgid "_Close"
 msgstr "_Tampar"
 
@@ -884,7 +888,7 @@ msgstr "Visionador de documents Papers"
 msgid "The selected printer “%s” could not be found"
 msgstr "L'imprimenta seleccionada « %s » pòt pas èsser trobada"
 
-#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:204 shell/src/document_view/io.rs:205
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:212 shell/src/document_view/io.rs:213
 msgid "Papers"
 msgstr "Papers"
 
@@ -1168,7 +1172,7 @@ msgstr "Dessenhar"
 msgid "Erase Annotations"
 msgstr "Escafar las anotacions"
 
-#: shell/resources/pps-document-view.blp:513 shell/src/document_view/actions.rs:1198
+#: shell/resources/pps-document-view.blp:513 shell/src/document_view/actions.rs:1359
 msgid "Edit Document"
 msgstr "Editar lo document"
 
@@ -1206,8 +1210,8 @@ msgstr ""
 msgid "Abort _Print and Close"
 msgstr "Anullar l'_impression e tampar"
 
-#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:815 shell/src/document_view/io.rs:439
-#: shell/src/document_view/io.rs:487 shell/src/document_view/io.rs:679
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:833 shell/src/document_view/io.rs:447
+#: shell/src/document_view/io.rs:495 shell/src/document_view/io.rs:872
 msgid "_Cancel"
 msgstr "_Anullar"
 
@@ -1251,180 +1255,196 @@ msgstr "Presentar en diaporama"
 msgid "Sign D_igitally…"
 msgstr "S_ignar electronicament…"
 
-#: shell/resources/pps-document-view.blp:855
+#: shell/resources/pps-document-view.blp:853
+msgid "_Manage Signatures…"
+msgstr "_Gestion de las signaturas…"
+
+#: shell/resources/pps-document-view.blp:860
 msgid "Open a C_opy"
 msgstr "Dobrir una _còpia"
 
-#: shell/resources/pps-document-view.blp:860 shell/src/properties_general.rs:137
+#: shell/resources/pps-document-view.blp:865 shell/src/properties_general.rs:137
 msgid "Open With…"
 msgstr "Dobrir amb…"
 
-#: shell/resources/pps-document-view.blp:865
+#: shell/resources/pps-document-view.blp:870
 msgid "_Save As…"
 msgstr "_Enregistrar jos…"
 
-#: shell/resources/pps-document-view.blp:872
+#: shell/resources/pps-document-view.blp:877
 msgid "_Continuous"
 msgstr "_Continú"
 
-#: shell/resources/pps-document-view.blp:877
+#: shell/resources/pps-document-view.blp:882
 msgid "_Dual"
 msgstr "_Doble"
 
-#: shell/resources/pps-document-view.blp:882
+#: shell/resources/pps-document-view.blp:887
 msgid "_Odd Pages Left"
 msgstr "_Paginas imparas a esquèrra"
 
-#: shell/resources/pps-document-view.blp:887
+#: shell/resources/pps-document-view.blp:892
 msgid "Right to Left Document"
 msgstr "Document de drecha a esquèrra"
 
-#: shell/resources/pps-document-view.blp:894
+#: shell/resources/pps-document-view.blp:899
 msgid "Ro_tate ⤵"
 msgstr "Pivo_tar ⤵"
 
-#: shell/resources/pps-document-view.blp:901
+#: shell/resources/pps-document-view.blp:906
 msgid "Document Prop_erties"
 msgstr "Propri_etats del document"
 
-#: shell/resources/pps-document-view.blp:954 shell/resources/pps-document-view.blp:1262
+#: shell/resources/pps-document-view.blp:959 shell/resources/pps-document-view.blp:1267
 msgid "Black"
 msgstr "Negre"
 
-#: shell/resources/pps-document-view.blp:966 shell/resources/pps-document-view.blp:1053
-#: shell/resources/pps-document-view.blp:1202
+#: shell/resources/pps-document-view.blp:971 shell/resources/pps-document-view.blp:1058
+#: shell/resources/pps-document-view.blp:1207
 msgid "Orange"
 msgstr "Irange"
 
-#: shell/resources/pps-document-view.blp:978 shell/resources/pps-document-view.blp:1066
-#: shell/resources/pps-document-view.blp:1214
+#: shell/resources/pps-document-view.blp:983 shell/resources/pps-document-view.blp:1071
+#: shell/resources/pps-document-view.blp:1219
 msgid "Red"
 msgstr "Roge"
 
-#: shell/resources/pps-document-view.blp:990 shell/resources/pps-document-view.blp:1079
-#: shell/resources/pps-document-view.blp:1226
+#: shell/resources/pps-document-view.blp:995 shell/resources/pps-document-view.blp:1084
+#: shell/resources/pps-document-view.blp:1231
 msgid "Purple"
 msgstr "Violet"
 
-#: shell/resources/pps-document-view.blp:1002 shell/resources/pps-document-view.blp:1092
-#: shell/resources/pps-document-view.blp:1238
+#: shell/resources/pps-document-view.blp:1007 shell/resources/pps-document-view.blp:1097
+#: shell/resources/pps-document-view.blp:1243
 msgid "Blue"
 msgstr "Blau"
 
-#: shell/resources/pps-document-view.blp:1014 shell/resources/pps-document-view.blp:1105
-#: shell/resources/pps-document-view.blp:1250
+#: shell/resources/pps-document-view.blp:1019 shell/resources/pps-document-view.blp:1110
+#: shell/resources/pps-document-view.blp:1255
 msgid "Green"
 msgstr "Verd"
 
-#: shell/resources/pps-document-view.blp:1040 shell/resources/pps-document-view.blp:1190
+#: shell/resources/pps-document-view.blp:1045 shell/resources/pps-document-view.blp:1195
 msgid "Yellow"
 msgstr "Jaune"
 
-#: shell/resources/pps-document-view.blp:1127 shell/resources/pps-document-view.blp:1284
-#: shell/resources/pps-document-view.blp:1343
+#: shell/resources/pps-document-view.blp:1132 shell/resources/pps-document-view.blp:1289
+#: shell/resources/pps-document-view.blp:1348
 msgid "Thin"
 msgstr "Fin"
 
-#: shell/resources/pps-document-view.blp:1139 shell/resources/pps-document-view.blp:1297
-#: shell/resources/pps-document-view.blp:1355
+#: shell/resources/pps-document-view.blp:1144 shell/resources/pps-document-view.blp:1302
+#: shell/resources/pps-document-view.blp:1360
 msgid "Medium"
 msgstr "Mejan"
 
-#: shell/resources/pps-document-view.blp:1151 shell/resources/pps-document-view.blp:1309
-#: shell/resources/pps-document-view.blp:1367
+#: shell/resources/pps-document-view.blp:1156 shell/resources/pps-document-view.blp:1314
+#: shell/resources/pps-document-view.blp:1372
 msgid "Thick"
 msgstr "Espés"
 
-#: shell/resources/pps-document-view.blp:1163 shell/resources/pps-document-view.blp:1321
-#: shell/resources/pps-document-view.blp:1379
+#: shell/resources/pps-document-view.blp:1168 shell/resources/pps-document-view.blp:1326
+#: shell/resources/pps-document-view.blp:1384
 msgid "Very Thick"
 msgstr "Plan espés"
 
-#: shell/resources/pps-document-view.blp:1392
+#: shell/resources/pps-document-view.blp:1397
 msgid "Erase Ink"
 msgstr "Escafar la tencha"
 
-#: shell/resources/pps-document-view.blp:1398
+#: shell/resources/pps-document-view.blp:1403
 msgid "Erase Whole Strokes"
 msgstr "Escafar totes los traches"
 
+#: shell/resources/pps-document-view.blp:1432
+msgid "Manage Signatures…"
+msgstr "Gestion de las signaturas…"
+
+#: shell/resources/pps-document-view.blp:1451
+msgid "No Signatures Yet"
+msgstr "Cap de signatura pel moment"
+
+#: shell/resources/pps-document-view.blp:1461
+msgid "Add Signature"
+msgstr "Apondre una signatura"
+
 #. Translators: As a noun, this is describing the type of text marking annotation, as are squiggly, strikethrough, and underline. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1437
+#: shell/resources/pps-document-view.blp:1509
 msgid "Highlight (h)"
 msgstr "Suslinhar (h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text marking annotation, as are highlight, squiggly, and underline. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1453
+#: shell/resources/pps-document-view.blp:1525
 msgid "Strikethrough (k)"
 msgstr "Raiar (k)"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are highlight, squiggly, and strikethrough. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1469
+#: shell/resources/pps-document-view.blp:1541
 msgid "Underline (u)"
 msgstr "Soslinhar (u)"
 
 #. Translators: As an adjective, this is describing the type of text marking annotation, as are highlight, strikethrough, and underline. A noun could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1485
+#: shell/resources/pps-document-view.blp:1557
 msgid "Squiggly (q)"
 msgstr "Desformat (q)"
 
-#: shell/resources/pps-document-view.blp:1576
+#: shell/resources/pps-document-view.blp:1648
 msgid "_Open Link"
 msgstr "_Dobrir lo ligam"
 
-#: shell/resources/pps-document-view.blp:1582
+#: shell/resources/pps-document-view.blp:1654
 msgid "Send an Email"
 msgstr "Mandar un corrièr electronic"
 
-#: shell/resources/pps-document-view.blp:1588
+#: shell/resources/pps-document-view.blp:1660
 msgid "_Copy Link Address"
 msgstr "_Copiar l'adreça del ligam"
 
-#: shell/resources/pps-document-view.blp:1594
+#: shell/resources/pps-document-view.blp:1666
 msgid "Copy Email Address"
 msgstr "Copiar l’adreça electronica"
 
-#: shell/resources/pps-document-view.blp:1600
+#: shell/resources/pps-document-view.blp:1672
 msgid "_Go To"
 msgstr "A_nar a"
 
-#: shell/resources/pps-document-view.blp:1606
+#: shell/resources/pps-document-view.blp:1678
 msgid "Open in New _Window"
 msgstr "Dobrir dins una _novèla fenèstra"
 
-#: shell/resources/pps-document-view.blp:1614
+#: shell/resources/pps-document-view.blp:1686
 msgid "_Copy"
 msgstr "_Copiar"
 
-#: shell/resources/pps-document-view.blp:1619
+#: shell/resources/pps-document-view.blp:1691
 msgid "Select _All"
 msgstr "Seleccionar _tot"
 
-#: shell/resources/pps-document-view.blp:1626
+#: shell/resources/pps-document-view.blp:1698
 msgid "_Save Image As…"
 msgstr "_Enregistrar l'imatge jos…"
 
-#: shell/resources/pps-document-view.blp:1632
+#: shell/resources/pps-document-view.blp:1704
 msgid "Copy _Image"
 msgstr "Copiar l'_imatge"
 
-#: shell/resources/pps-document-view.blp:1640 shell/resources/pps-sidebar-annotations.blp:78
+#: shell/resources/pps-document-view.blp:1712 shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "_Dobrir la pèça junta"
 
-#: shell/resources/pps-document-view.blp:1646 shell/resources/pps-sidebar-annotations.blp:84
+#: shell/resources/pps-document-view.blp:1718 shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "_Enregistrar la pèça junta jos…"
 
-#: shell/resources/pps-document-view.blp:1656
+#: shell/resources/pps-document-view.blp:1728
 msgid "Annotation _Properties…"
 msgstr "_Proprietats de l'anotacion…"
 
-#: shell/resources/pps-document-view.blp:1662
+#: shell/resources/pps-document-view.blp:1734
 msgid "R_emove Annotation"
 msgstr "L_evar las anotacions"
 
-#: shell/resources/pps-document-view.blp:1670
+#: shell/resources/pps-document-view.blp:1742
 msgid "_Add Text Annotation"
 msgstr "_Apondre una anotacion tèxte"
 
@@ -1453,7 +1473,7 @@ msgid "C_ancel"
 msgstr "An_ullar"
 
 #: shell/resources/pps-password-dialog.blp:5 shell/resources/pps-password-view.blp:11
-#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:672
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:865
 msgid "Password Required"
 msgstr "Senhal requesit"
 
@@ -1967,80 +1987,84 @@ msgstr "Afichar la version del programa."
 msgid "[FILE…]"
 msgstr "[FICHIÈR…]"
 
-#: shell/src/document_view.rs:354
+#: shell/src/document_view.rs:372
 msgid "View Details"
 msgstr "Veire los detalhs"
 
-#: shell/src/document_view.rs:791
+#: shell/src/document_view.rs:809
 msgid "Document contains new or modified annotations and form fields that have been filled out."
 msgstr "Lo document conten d’anotacions novèlas o modificadas e de camps de formulari que son estats garnits."
 
-#: shell/src/document_view.rs:794
+#: shell/src/document_view.rs:812
 msgid "Document contains form fields that have been filled out."
 msgstr "Lo document conten de camps de formulari que son estats garnits."
 
-#: shell/src/document_view.rs:796
+#: shell/src/document_view.rs:814
 msgid "Document contains new or modified annotations."
 msgstr "Lo document conten d'anotacions novèlas o modificadas."
 
-#: shell/src/document_view.rs:804
+#: shell/src/document_view.rs:822
 msgid "If you don’t save a copy, changes will be permanently lost."
 msgstr "Se enregistratz pas una còpia, las modificacions seràn perdudas definitivament."
 
-#: shell/src/document_view.rs:805
+#: shell/src/document_view.rs:823
 msgid "Save Changes to a Copy?"
 msgstr "Enregistrar las modificacion dins una còpia ?"
 
-#: shell/src/document_view.rs:814
+#: shell/src/document_view.rs:832
 msgid "Close _Without Saving"
 msgstr "Tampar _sans enregistrar"
 
-#: shell/src/document_view.rs:816
+#: shell/src/document_view.rs:834
 msgid "_Save a Copy"
 msgstr "_Enregistrar una còpia"
 
-#: shell/src/document_view/actions.rs:995
+#: shell/src/document_view/actions.rs:1033
 msgid "Save Image"
 msgstr "Enregistrar l'imatge"
 
-#: shell/src/document_view/actions.rs:1127
+#: shell/src/document_view/actions.rs:1165
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr "Lo mòde navegacion al cursor es ara activat, quichatz F7 per lo desactivar."
 
-#: shell/src/document_view/actions.rs:1129
+#: shell/src/document_view/actions.rs:1167
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr "Lo mòde navegacion al cursor es ara desactivat, quichatz F7 per l’activar."
 
-#: shell/src/document_view/actions.rs:1187
+#: shell/src/document_view/actions.rs:1255
+msgid "Add _Visual Signature"
+msgstr "Apondre una signatura _visuala"
+
+#: shell/src/document_view/actions.rs:1348
 msgid "Close Menu"
 msgstr "Tampar lo menú"
 
-#: shell/src/document_view/actions.rs:1283
+#: shell/src/document_view/actions.rs:1444
 msgid "Unable to Open Attachment"
 msgstr "Impossible de dobrir la pèça junta"
 
-#: shell/src/document_view/actions.rs:1298
+#: shell/src/document_view/actions.rs:1459
 msgctxt "This is an action"
 msgid "Save Attachment"
 msgstr "Enregistrar la pèça junta"
 
-#: shell/src/document_view/io.rs:283
+#: shell/src/document_view/io.rs:291
 msgid "The Document Contains No Pages"
 msgstr "Lo document a pas cap de pagina"
 
-#: shell/src/document_view/io.rs:285
+#: shell/src/document_view/io.rs:293
 msgid "The Document Contains Only Empty Pages"
 msgstr "Lo document conten pas que de paginas voidas"
 
-#: shell/src/document_view/io.rs:361
+#: shell/src/document_view/io.rs:369
 msgid "Save As…"
 msgstr "Enregistrar jos…"
 
-#: shell/src/document_view/io.rs:438
+#: shell/src/document_view/io.rs:446
 msgid "Draw a rectangle to insert a signature field"
 msgstr "Dessenhar un rectangle per inserir un camp de signatura"
 
-#: shell/src/document_view/io.rs:461
+#: shell/src/document_view/io.rs:469
 #, rust-format
 msgid ""
 "Digitally signed by {}\n"
@@ -2049,32 +2073,32 @@ msgstr ""
 "Signat electronicament per {}\n"
 "Data : {}"
 
-#: shell/src/document_view/io.rs:480
+#: shell/src/document_view/io.rs:488
 msgid "Certificate Required"
 msgstr "Certificat requerit"
 
-#: shell/src/document_view/io.rs:483
+#: shell/src/document_view/io.rs:491
 msgid "Select signing certificate"
 msgstr "Seleccionar lo certificat de signatura"
 
-#: shell/src/document_view/io.rs:484
+#: shell/src/document_view/io.rs:492
 msgid "Select"
 msgstr "Seleccionar"
 
-#: shell/src/document_view/io.rs:564
+#: shell/src/document_view/io.rs:572
 msgid "A certificate is required to sign this document"
 msgstr "Se requerís un certificat per signar aqueste document"
 
-#: shell/src/document_view/io.rs:633
+#: shell/src/document_view/io.rs:826
 msgid "Save Signed File"
 msgstr "Enregistrat fichièr signat"
 
-#: shell/src/document_view/io.rs:663
+#: shell/src/document_view/io.rs:856
 #, rust-format
 msgid "Please enter password for {}"
 msgstr "Mercés de picar lo senhal per {}"
 
-#: shell/src/document_view/io.rs:680
+#: shell/src/document_view/io.rs:873
 msgid "_Login"
 msgstr "_Connexion"
 
@@ -2345,9 +2369,6 @@ msgstr "Data e ora"
 
 #~ msgid "Document Status"
 #~ msgstr "Estatut del document"
-
-#~ msgid "Signature Details"
-#~ msgstr "Detalhs de la signatura"
 
 #~ msgid "Date"
 #~ msgstr "Data"

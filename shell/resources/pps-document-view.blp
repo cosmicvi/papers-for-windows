@@ -848,6 +848,11 @@ menu document_menu {
       label: _("Sign D_igitally…");
       action: "doc.digital-signing";
     }
+
+    item {
+      label: _("_Manage Signatures…");
+      action: "doc.manual-signing";
+    }
   }
 
   section {
@@ -1402,6 +1407,73 @@ menu eraser-settings-menu {
   }
 }
 
+Box signature_menu_child {
+  orientation: vertical;
+  spacing: 4;
+}
+
+Box signature_menu_manage_child {
+  orientation: vertical;
+
+  Separator {}
+
+  Button manage_signatures_button {
+    styles [
+      "flat",
+    ]
+
+    action-name: "doc.manual-signing";
+
+    child: Label {
+      styles [
+        "nobold-label",
+      ]
+
+      label: _("Manage Signatures…");
+      xalign: 0.0;
+    };
+  }
+}
+
+Box signature_menu_no_signature {
+  orientation: vertical;
+
+  Image {
+    icon-name: "signature-symbolic";
+    pixel-size: 75;
+
+    styles [
+      "dimmed",
+    ]
+  }
+
+  Label {
+    label: _("No Signatures Yet");
+    margin-top: 10;
+    margin-bottom: 10;
+
+    styles [
+      "dimmed",
+    ]
+  }
+
+  Button {
+    label: _("Add Signature");
+
+    styles [
+      "pill",
+      "suggested-action",
+    ]
+
+    halign: center;
+    action-name: "doc.create-signature";
+  }
+
+  spacing: 5;
+  margin-top: 10;
+  margin-bottom: 10;
+}
+
 Box annot_menu_child {
   orientation: vertical;
 
@@ -1672,4 +1744,6 @@ menu view-popup-menu {
       hidden-when: "action-disabled";
     }
   }
+
+  section signature_menu {}
 }
