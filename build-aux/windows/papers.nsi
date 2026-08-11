@@ -108,7 +108,7 @@ Function DirectoryShow
   ${EndIf}
 FunctionEnd
 
-Section "Papers Core Application" SEC01
+Section "Document Viewer Core Application" SEC01
   SectionIn RO
   SetOutPath "$INSTDIR"
   File /r "..\..\dist\*.*"
