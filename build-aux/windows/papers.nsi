@@ -43,16 +43,24 @@ Page custom WelcomePre
 Var InstallMode
 
 Function .onInit
-  ; Check if we were launched with /ALLUSERS flag
-  ${GetParameters} $R0
-  ${If} $R0 == "/ALLUSERS"
+  ; Default to current user install unless specified otherwise
+  StrCpy $InstallMode "JustMe"
+
+  ; Check for /ALLUSERS or /CURRENTUSER command line switches
+  ${GetOptions} $CMDLINE "/ALLUSERS" $R0
+  ${If} $R0 != ""
     StrCpy $InstallMode "AllUsers"
-  ${Else}
-    StrCpy $InstallMode "" ; Let user decide on the welcome page
+  ${EndIf}
+  ${GetOptions} $CMDLINE "/CURRENTUSER" $R0
+  ${If} $R0 != ""
+    StrCpy $InstallMode "JustMe"
   ${EndIf}
 FunctionEnd
 
 Function WelcomePre
+  ; If running a silent install, skip all UI pages
+  IfSilent +3
+
   ; If already running as admin, skip the choice page
   ClearErrors
   FileOpen $0 "$WINDIR\temp.tmp" w
@@ -60,9 +68,7 @@ Function WelcomePre
     FileClose $0
     Delete "$WINDIR\temp.tmp"
     ; We are admin. If launched for all users, skip the choice page.
-    ${If} $InstallMode == "AllUsers"
-      Abort
-    ${EndIf}
+    Abort
 
   !insertmacro INSTALLOPTIONS_EXTRACT "papers-installmode.ini"
   !insertmacro INSTALLOPTIONS_DISPLAY "papers-installmode.ini"
@@ -70,14 +76,16 @@ FunctionEnd
 
 Function DirectoryPre
   ; If InstallMode is not set, read it from the custom page
-  ${If} $InstallMode == ""
+  IfSilent 0 +4 ; Skip UI interaction if silent
+  ${If} $InstallMode == "JustMe" ; Default is JustMe, check if user changed it
     !insertmacro INSTALLOPTIONS_READ $0 "papers-installmode.ini" "Field 3" "State"
-    ${If} $0 == 0 ; If "Just Me" is not checked, it must be "All Users"
+    ${If} $0 == 1 ; "Just Me" is checked
+        StrCpy $InstallMode "JustMe"
+    ${Else} ; "All Users" must be checked
         StrCpy $InstallMode "AllUsers"
-    ${Else}
-      StrCpy $InstallMode "JustMe"
     ${EndIf}
   ${EndIf}
+
 
   ${If} $InstallMode == "AllUsers"
     ; Check if we are already admin
@@ -85,7 +93,7 @@ Function DirectoryPre
     FileOpen $R0 "$WINDIR\temp.tmp" w
     ${If} ${Errors}
       ; Not admin, so re-launch with elevation request
-      ExecShell "runas" "$EXEPATH" "/ALLUSERS"
+      ExecShell "runas" "$EXEPATH" '/S /ALLUSERS'
       Quit
     ${Else}
       ; We are admin, clean up the temp file
