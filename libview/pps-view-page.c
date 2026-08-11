@@ -21,10 +21,7 @@
 #include "pps-overlay.h"
 #include "pps-view-private.h"
 #include "pps-view.h"
-#include <gdk/gdk.h>
-#include <gsk/gskenums.h> // For GSK_RECT_SNAP_ROUND
-#include <gsk/gskrender.h> // For gtk_snapshot_set_snap
-#include <gsk/gsk.h>
+#include <gtk/gtk.h>
 
 #define PPS_STYLE_CLASS_DOCUMENT_PAGE "document-page"
 #define PPS_STYLE_CLASS_INVERTED "inverted"
