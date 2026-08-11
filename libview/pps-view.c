@@ -4355,15 +4355,19 @@ middle_clicked_drag_update_cb (GtkGestureDrag *self,
 	/* We will update the drag event's start position if
 	 * the adjustment value is changed, but only if the
 	 * change was not caused by this function. */
+	priv->drag_info.in_scroll_notify = TRUE;
 
 	/* clamp scrolling to visible area */
-	gtk_adjustment_set_value (priv->hadjustment, MIN (gtk_adjustment_get_value (priv->hadjustment) - delta_h_adjustment,
-	                                                  gtk_adjustment_get_upper (priv->hadjustment) -
-	                                                      gtk_adjustment_get_page_size (priv->hadjustment)));
-	gtk_adjustment_set_value (priv->vadjustment, MIN (gtk_adjustment_get_value (priv->vadjustment) - delta_v_adjustment,
-	                                                  gtk_adjustment_get_upper (priv->vadjustment) -
-	                                                      gtk_adjustment_get_page_size (priv->vadjustment)));
+	gtk_adjustment_set_value (priv->hadjustment, CLAMP (gtk_adjustment_get_value (priv->hadjustment) - delta_h_adjustment,
+	                                                    gtk_adjustment_get_lower (priv->hadjustment),
+	                                                    gtk_adjustment_get_upper (priv->hadjustment) -
+	                                                        gtk_adjustment_get_page_size (priv->hadjustment)));
+	gtk_adjustment_set_value (priv->vadjustment, CLAMP (gtk_adjustment_get_value (priv->vadjustment) - delta_v_adjustment,
+	                                                    gtk_adjustment_get_lower (priv->vadjustment),
+	                                                    gtk_adjustment_get_upper (priv->vadjustment) -
+	                                                        gtk_adjustment_get_page_size (priv->vadjustment)));
 
+	priv->drag_info.in_scroll_notify = FALSE;
 	priv->drag_info.last_offset_x = offset_x;
 	priv->drag_info.last_offset_y = offset_y;
 }

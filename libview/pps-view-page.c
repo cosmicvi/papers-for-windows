@@ -571,10 +571,9 @@ pps_view_page_snapshot (GtkWidget *widget, GtkSnapshot *snapshot)
 	gtk_snapshot_set_snap (snapshot, GSK_RECT_SNAP_ROUND);
 #else
 	/* No snapping API; need to do it by hand:
-	 * Compute residual sub-pixel offset of the widget origin in physical
--        * pixel space and shift the texture by that amount so
--        * it lands on the nearest physical (integer) pixel. */
+	 * Compute residual sub-pixel offset of the widget origin in physical pixel space and shift the texture by that amount so it lands on the nearest physical (integer) pixel. */
 	{
+		/* HACK: this is a hack to avoid jitter on fractional scaling. It is not perfect, but it is better than nothing. */
 		graphene_point_t origin;
 		if (gtk_widget_compute_point (widget, GTK_WIDGET (native),
 		                              &GRAPHENE_POINT_INIT_ZERO, &origin)) {
