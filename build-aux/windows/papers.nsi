@@ -1,6 +1,7 @@
 ; Enable Modern User Interface (MUI2)
 !include "MUI2.nsh"
-!include "UAC.nsh"
+!include "FileFunc.nsh"
+!include "InstallOptions.nsh"
 
 !define APP_NAME "Papers"
 !define PUBLISHER "GNOME Project"
@@ -12,8 +13,8 @@ Name "${APP_NAME}"
 OutFile "..\..\papers-${APP_VERSION}-installer-x64.exe"
 ; Default to admin install dir, will be changed for user mode.
 InstallDir "$PROGRAMFILES64\GNOME\Papers"
-InstallDirRegKey HKLM "Software\GNOME\Papers" ""
-RequestExecutionLevel admin
+InstallDirRegKey HKCU "Software\GNOME\Papers" ""
+RequestExecutionLevel user
 
 ; UI Configuration
 !define MUI_ABORTWARNING
@@ -21,6 +22,9 @@ RequestExecutionLevel admin
 
 ; Installer Pages
 !insertmacro MUI_PAGE_WELCOME
+Page custom WelcomePre
+!define MUI_PAGE_CUSTOMFUNCTION_PRE DirectoryPre
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW DirectoryShow
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
@@ -36,44 +40,73 @@ RequestExecutionLevel admin
 ; Language
 !insertmacro MUI_LANGUAGE "English"
 
-Var IsAdmin
+Var InstallMode
 
 Function .onInit
-  # If the /U flag is passed, we are in user mode.
+  ; Check if we were launched with /ALLUSERS flag
   ${GetParameters} $R0
-  ${If} $R0 == "/U"
-    StrCpy $IsAdmin 0
+  ${If} $R0 == "/ALLUSERS"
+    StrCpy $InstallMode "AllUsers"
   ${Else}
-    # Otherwise, check for admin privileges.
-    ${UAC.IsAdmin} $IsAdmin
+    StrCpy $InstallMode "" ; Let user decide on the welcome page
   ${EndIf}
+FunctionEnd
 
-  ${If} $IsAdmin == 0
-    # Not running as admin. This happens if UAC was cancelled or if we re-launched.
-    # If /U is not set, it means UAC was cancelled, so we ask the user.
-    ${If} $R0 != "/U"
-      MessageBox MB_YESNO|MB_ICONQUESTION \
-        "Administrator privileges are required for system-wide installation.$\n$\nWould you like to install for the current user only?" \
-        /SD=IDYES IDYES relaunch_user IDNO abort_install
-
-      abort_install:
-        Quit
-
-      relaunch_user:
-        # Re-launch ourselves with the /U flag to force user mode.
-        ${UAC.ExecUser} "$EXEPATH" "/U"
-        Quit ; Quit the current (non-elevated) admin-mode installer.
+Function WelcomePre
+  ; If already running as admin, skip the choice page
+  ClearErrors
+  FileOpen $0 "$WINDIR\temp.tmp" w
+  IfErrors +2 0
+    FileClose $0
+    Delete "$WINDIR\temp.tmp"
+    ; We are admin. If launched for all users, skip the choice page.
+    ${If} $InstallMode == "AllUsers"
+      Abort
     ${EndIf}
 
-    # We are in user mode. Set user-specific paths.
-    SetShellVarContext current
-    StrCpy $InstDir "$LOCALAPPDATA\GNOME\Papers"
-    InstallDirRegKey HKCU "Software\GNOME\Papers" ""
-  ${Else}
-    # We are in admin mode. Set system-wide paths.
+  !insertmacro INSTALLOPTIONS_EXTRACT "papers-installmode.ini"
+  !insertmacro INSTALLOPTIONS_DISPLAY "papers-installmode.ini"
+FunctionEnd
+
+Function DirectoryPre
+  ; If InstallMode is not set, read it from the custom page
+  ${If} $InstallMode == ""
+    !insertmacro INSTALLOPTIONS_READ $0 "papers-installmode.ini" "Field 3" "State"
+    ${If} $0 == 0 ; If "Just Me" is not checked, it must be "All Users"
+        StrCpy $InstallMode "AllUsers"
+    ${Else}
+      StrCpy $InstallMode "JustMe"
+    ${EndIf}
+  ${EndIf}
+
+  ${If} $InstallMode == "AllUsers"
+    ; Check if we are already admin
+    ClearErrors
+    FileOpen $R0 "$WINDIR\temp.tmp" w
+    ${If} ${Errors}
+      ; Not admin, so re-launch with elevation request
+      ExecShell "runas" "$EXEPATH" "/ALLUSERS"
+      Quit
+    ${Else}
+      ; We are admin, clean up the temp file
+      FileClose $R0
+      Delete "$WINDIR\temp.tmp"
+    ${EndIf}
+    ; We are admin, set system-wide paths
     SetShellVarContext all
     StrCpy $InstDir "$PROGRAMFILES64\GNOME\Papers"
-    InstallDirRegKey HKLM "Software\GNOME\Papers" ""
+  ${Else}
+    ; "JustMe" mode, set user-specific paths
+    SetShellVarContext current
+    StrCpy $InstDir "$LOCALAPPDATA\GNOME\Papers"
+  ${EndIf}
+FunctionEnd
+
+Function DirectoryShow
+  ; Hide the directory selection page if we are in "JustMe" mode
+  ; to provide a simpler install experience.
+  ${If} $InstallMode == "JustMe"
+    Abort
   ${EndIf}
 FunctionEnd
 
@@ -92,14 +125,14 @@ Section "Papers Core Application" SEC01
   SetOutPath "$INSTDIR"
 
   WriteUninstaller "$INSTDIR\uninstall.exe"
-  ${If} $IsAdmin == 1
-    WriteRegStr HKLM "Software\Papers" "InstallDir" $INSTDIR
+  ${If} $InstallMode == "AllUsers"
+    WriteRegStr HKLM "Software\GNOME\Papers" "InstallDir" $INSTDIR
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Papers Document Viewer"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
   ${Else}
-    WriteRegStr HKCU "Software\Papers" "InstallDir" $INSTDIR
+    WriteRegStr HKCU "Software\GNOME\Papers" "InstallDir" $INSTDIR
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Papers Document Viewer"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
@@ -108,37 +141,53 @@ Section "Papers Core Application" SEC01
 SectionEnd
 
 Section "Register as System PDF & Document Viewer" SEC02
-  ${If} $IsAdmin == 1
-    !define REG_ROOT HKLM
+  ${If} $InstallMode == "AllUsers"
+    ; PDF Association
+    WriteRegStr HKLM "Software\Classes\.pdf" "" "Papers.Document.PDF"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF" "" "PDF Document (Papers)"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.PDF\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
+    ; DjVu Association
+    WriteRegStr HKLM "Software\Classes\.djvu" "" "Papers.Document.DjVu"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu" "" "DjVu Document (Papers)"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.DjVu\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
+    ; Comic Book CBR/CBZ Association
+    WriteRegStr HKLM "Software\Classes\.cbr" "" "Papers.Document.CBR"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive (Papers)"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
+    ; Registered Application Capabilities
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "GNOME Papers Document Viewer for Windows"
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationName" "Papers"
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities\FileAssociations" ".pdf" "Papers.Document.PDF"
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities\FileAssociations" ".djvu" "Papers.Document.DjVu"
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities\FileAssociations" ".cbr" "Papers.Document.CBR"
+    WriteRegStr HKLM "Software\RegisteredApplications" "Papers" "Software\GNOME\Papers\Capabilities"
   ${Else}
-    !define REG_ROOT HKCU
+    ; PDF Association
+    WriteRegStr HKCU "Software\Classes\.pdf" "" "Papers.Document.PDF"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF" "" "PDF Document (Papers)"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.PDF\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
+    ; DjVu Association
+    WriteRegStr HKCU "Software\Classes\.djvu" "" "Papers.Document.DjVu"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu" "" "DjVu Document (Papers)"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.DjVu\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
+    ; Comic Book CBR/CBZ Association
+    WriteRegStr HKCU "Software\Classes\.cbr" "" "Papers.Document.CBR"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive (Papers)"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
+    WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
+    ; Registered Application Capabilities
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "GNOME Papers Document Viewer for Windows"
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationName" "Papers"
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities\FileAssociations" ".pdf" "Papers.Document.PDF"
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities\FileAssociations" ".djvu" "Papers.Document.DjVu"
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities\FileAssociations" ".cbr" "Papers.Document.CBR"
+    WriteRegStr HKCU "Software\RegisteredApplications" "Papers" "Software\GNOME\Papers\Capabilities"
   ${EndIf}
-
-  ; PDF Association
-  WriteRegStr ${REG_ROOT} "Software\Classes\.pdf" "" "Papers.Document.PDF"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.PDF" "" "PDF Document (Papers)"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.PDF\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.PDF\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
-
-  ; DjVu Association
-  WriteRegStr ${REG_ROOT} "Software\Classes\.djvu" "" "Papers.Document.DjVu"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.DjVu" "" "DjVu Document (Papers)"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.DjVu\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.DjVu\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
-
-  ; Comic Book CBR/CBZ Association
-  WriteRegStr ${REG_ROOT} "Software\Classes\.cbr" "" "Papers.Document.CBR"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.CBR" "" "Comic Book Archive (Papers)"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
-  WriteRegStr ${REG_ROOT} "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
-
-  ; Registered Application Capabilities
-  WriteRegStr ${REG_ROOT} "Software\Papers\Capabilities" "ApplicationDescription" "GNOME Papers Document Viewer for Windows"
-  WriteRegStr ${REG_ROOT} "Software\Papers\Capabilities" "ApplicationName" "Papers"
-  WriteRegStr ${REG_ROOT} "Software\Papers\Capabilities\FileAssociations" ".pdf" "Papers.Document.PDF"
-  WriteRegStr ${REG_ROOT} "Software\Papers\Capabilities\FileAssociations" ".djvu" "Papers.Document.DjVu"
-  WriteRegStr ${REG_ROOT} "Software\Papers\Capabilities\FileAssociations" ".cbr" "Papers.Document.CBR"
-  WriteRegStr ${REG_ROOT} "Software\RegisteredApplications" "Papers" "Software\Papers\Capabilities"
 
   ; Notify Windows Shell of File Association Change
   System::Call 'shell32::SHChangeNotify(i 0x08000000, i 0, i 0, i 0)'
@@ -146,17 +195,17 @@ SectionEnd
 
 Section "Uninstall"
   ; Read install path from registry to determine if it was admin or user install
-  ReadRegStr $0 HKLM "Software\Papers" "InstallDir"
+  ReadRegStr $0 HKLM "Software\GNOME\Papers" "InstallDir"
   IfErrors 0 +2
-  ReadRegStr $0 HKCU "Software\Papers" "InstallDir"
+  ReadRegStr $0 HKCU "Software\GNOME\Papers" "InstallDir"
 
   ; If the path contains Program Files, it was an admin install
-  StrCpy $IsAdmin 0
+  StrCpy $InstallMode "JustMe"
   IfFileExists "$PROGRAMFILES64\*.*" 0 +2
-    StrCmp $0 "$PROGRAMFILES64\Papers" 0 +2
-    StrCpy $IsAdmin 1
+    StrCmp $0 "$PROGRAMFILES64\GNOME\Papers" 0 +2
+      StrCpy $InstallMode "AllUsers"
 
-  ${If} $IsAdmin == 1
+  ${If} $InstallMode == "AllUsers"
     SetShellVarContext all
   ${Else}
     SetShellVarContext current
@@ -167,15 +216,15 @@ Section "Uninstall"
   RMDir "$SMPROGRAMS\Papers"
   Delete "$DESKTOP\Papers.lnk"
 
-  ${If} $IsAdmin == 1
-    DeleteRegKey HKLM "Software\Papers"
+  ${If} $InstallMode == "AllUsers"
+    DeleteRegKey HKLM "Software\GNOME\Papers"
     DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers"
     DeleteRegKey HKLM "Software\Classes\Papers.Document.PDF"
     DeleteRegKey HKLM "Software\Classes\Papers.Document.DjVu"
     DeleteRegKey HKLM "Software\Classes\Papers.Document.CBR"
     DeleteRegValue HKLM "Software\RegisteredApplications" "Papers"
   ${Else}
-    DeleteRegKey HKCU "Software\Papers"
+    DeleteRegKey HKCU "Software\GNOME\Papers"
     DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers"
     DeleteRegKey HKCU "Software\Classes\Papers.Document.PDF"
     DeleteRegKey HKCU "Software\Classes\Papers.Document.DjVu"

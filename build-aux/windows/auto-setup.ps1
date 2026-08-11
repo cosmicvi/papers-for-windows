@@ -88,6 +88,8 @@ $packages = @(
     "mingw-w64-ucrt-x86_64-pkgconf",
     "mingw-w64-ucrt-x86_64-blueprint-compiler",
     "mingw-w64-ucrt-x86_64-itstool",
+    "mingw-w64-ucrt-x86_64-nsis",
+    "mingw-w64-ucrt-x86_64-osslsigncode",
     "diffutils"
 )
 
