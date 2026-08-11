@@ -21,9 +21,7 @@
 #include "pps-overlay.h"
 #include "pps-view-private.h"
 #include "pps-view.h"
-#include <gtk/gtk.h> // Keep this general GTK header
-#include <gtk/gtksnapshot.h> // Explicitly add for gtk_snapshot_set_snap
-#include <gsk/gskenums.h> // Explicitly add for GSK_RECT_SNAP_ROUND
+#include <gdk/gdk.h>
 
 #define PPS_STYLE_CLASS_DOCUMENT_PAGE "document-page"
 #define PPS_STYLE_CLASS_INVERTED "inverted"
@@ -568,7 +566,7 @@ pps_view_page_snapshot (GtkWidget *widget, GtkSnapshot *snapshot)
 	                           ceil (height * fractional_scale));
 	gtk_snapshot_save (snapshot);
 
-#if GTK_CHECK_VERSION(4, 15, 1) /* TODO: bump this to 4.24.0 once it exists */
+#if GTK_CHECK_VERSION(4, 99, 0) /* HACK: Use a high version to force else branch on current build systems */
 	/* Snap the texture to a physical pixel so it is not blurred */
 	gtk_snapshot_set_snap (snapshot, GSK_RECT_SNAP_ROUND);
 #else
