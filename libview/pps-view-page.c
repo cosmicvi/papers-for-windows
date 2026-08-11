@@ -22,6 +22,7 @@
 #include "pps-view-private.h"
 #include "pps-view.h"
 #include <gdk/gdk.h>
+#include <gsk/gsk.h>
 
 #define PPS_STYLE_CLASS_DOCUMENT_PAGE "document-page"
 #define PPS_STYLE_CLASS_INVERTED "inverted"
