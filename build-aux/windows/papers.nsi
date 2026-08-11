@@ -11,8 +11,8 @@
 Name "${APP_NAME}"
 OutFile "..\..\papers-${APP_VERSION}-installer-x64.exe"
 ; Default to admin install dir, will be changed for user mode.
-InstallDir "$PROGRAMFILES64\Papers"
-InstallDirRegKey HKLM "Software\Papers" ""
+InstallDir "$PROGRAMFILES64\GNOME\Papers"
+InstallDirRegKey HKLM "Software\GNOME\Papers" ""
 RequestExecutionLevel admin
 
 ; UI Configuration
@@ -67,13 +67,13 @@ Function .onInit
 
     # We are in user mode. Set user-specific paths.
     SetShellVarContext current
-    StrCpy $InstDir "$LOCALAPPDATA\Papers"
-    InstallDirRegKey HKCU "Software\Papers" ""
+    StrCpy $InstDir "$LOCALAPPDATA\GNOME\Papers"
+    InstallDirRegKey HKCU "Software\GNOME\Papers" ""
   ${Else}
     # We are in admin mode. Set system-wide paths.
     SetShellVarContext all
-    StrCpy $InstDir "$PROGRAMFILES64\Papers"
-    InstallDirRegKey HKLM "Software\Papers" ""
+    StrCpy $InstDir "$PROGRAMFILES64\GNOME\Papers"
+    InstallDirRegKey HKLM "Software\GNOME\Papers" ""
   ${EndIf}
 FunctionEnd
 
