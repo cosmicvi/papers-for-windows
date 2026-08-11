@@ -86,6 +86,8 @@ $packages = @(
     "mingw-w64-ucrt-x86_64-libarchive",
     "mingw-w64-ucrt-x86_64-libtiff",
     "mingw-w64-ucrt-x86_64-pkgconf",
+    "mingw-w64-ucrt-x86_64-blueprint-compiler",
+    "mingw-w64-ucrt-x86_64-itstool",
     "diffutils"
 )
 
