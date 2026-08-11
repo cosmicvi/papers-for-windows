@@ -19,7 +19,6 @@ RequestExecutionLevel user
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOBUILDING
 
 !define MUI_ICON "icons\papers.ico"
-!define MUI_UNICON "icons\papers.ico"
 
 ; Installer Pages
 !insertmacro MUI_PAGE_WELCOME
@@ -31,7 +30,7 @@ Page custom WelcomePre
 !insertmacro MUI_PAGE_INSTFILES
 
 !define MUI_FINISHPAGE_RUN "$INSTDIR\bin\papers.exe"
-!define MUI_FINISHPAGE_RUN_TEXT "Launch Papers"
+!define MUI_FINISHPAGE_RUN_TEXT "Launch Document Viewer"
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller Pages
