@@ -59,7 +59,7 @@ typedef struct
 	PpsAnnotationLayer *layers[LAYER_COUNT];
 } PpsViewPagePrivate;
 
-PPS_PUBLIC G_DEFINE_TYPE_WITH_CODE (PpsViewPage, pps_view_page, GTK_TYPE_WIDGET, G_ADD_PRIVATE (PpsViewPage) G_IMPLEMENT_INTERFACE (GTK_TYPE_ACCESSIBLE_TEXT, pps_view_page_accessible_text_init))
+G_DEFINE_TYPE_WITH_CODE (PpsViewPage, pps_view_page, GTK_TYPE_WIDGET, G_ADD_PRIVATE (PpsViewPage) G_IMPLEMENT_INTERFACE (GTK_TYPE_ACCESSIBLE_TEXT, pps_view_page_accessible_text_init))
 
 #define GET_PRIVATE(o) pps_view_page_get_instance_private (o)
 
@@ -566,7 +566,7 @@ pps_view_page_snapshot (GtkWidget *widget, GtkSnapshot *snapshot)
 	                           ceil (height * fractional_scale));
 	gtk_snapshot_save (snapshot);
 
-#if GTK_CHECK_VERSION(4, 15, 1)
+#if GTK_CHECK_VERSION(4, 23, 1) /* This version check is for a future GTK version, forcing the else branch for GTK 4.22.4 */
 	/* Snap the texture to a physical pixel so it is not blurred */
 	gtk_snapshot_set_snap (snapshot, GSK_RECT_SNAP_ROUND);
 #else
@@ -1370,7 +1370,7 @@ pps_view_page_accessible_text_get_offset (GtkAccessibleText *text,
 	return TRUE;
 }
 
-PPS_PUBLIC void
+void
 pps_view_page_accessible_text_init (GtkAccessibleTextInterface *iface)
 {
 	iface->get_contents = pps_view_page_accessible_text_get_contents;
@@ -1383,7 +1383,7 @@ pps_view_page_accessible_text_init (GtkAccessibleTextInterface *iface)
 	iface->get_offset = pps_view_page_accessible_text_get_offset;
 }
 
-PPS_PUBLIC void
+void
 pps_view_page_init (PpsViewPage *page)
 {
 	GtkGesture *annot_drag;
@@ -1486,7 +1486,7 @@ pps_view_page_size_allocate (GtkWidget *widget,
 	}
 }
 
-PPS_PUBLIC void
+void
 pps_view_page_class_init (PpsViewPageClass *page_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (page_class);
@@ -1580,7 +1580,7 @@ pps_view_page_new (void)
 	                     NULL);
 }
 
-PPS_PUBLIC
+
 void
 pps_view_page_set_page (PpsViewPage *page, gint index)
 {
@@ -1606,7 +1606,7 @@ pps_view_page_set_page (PpsViewPage *page, gint index)
 	gtk_widget_queue_resize (GTK_WIDGET (page));
 }
 
-PPS_PUBLIC
+
 gint
 pps_view_page_get_page (PpsViewPage *page)
 {
