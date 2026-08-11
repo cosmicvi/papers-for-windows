@@ -3,11 +3,9 @@
 !include "FileFunc.nsh"
 !include "InstallOptions.nsh"
 
-!define APP_NAME "Papers"
+!define APP_NAME "Document Viewer"
 !define PUBLISHER "GNOME Project"
-!ifndef APP_VERSION
-  !define APP_VERSION "51.alpha"
-!endif
+!define APP_VERSION "51.beta"
 
 Name "${APP_NAME}"
 OutFile "..\..\papers-${APP_VERSION}-installer-x64.exe"
@@ -118,22 +116,22 @@ Section "Papers Core Application" SEC01
   DetailPrint "Generating Fontconfig cache (this may take a few seconds)..."
   nsExec::ExecToLog '"$INSTDIR\bin\fc-cache.exe" -f -v'
 
-  CreateDirectory "$SMPROGRAMS\Papers"
+  CreateDirectory "$SMPROGRAMS\Document Viewer"
   SetOutPath "$INSTDIR\bin"
-  CreateShortcut "$SMPROGRAMS\Papers\Papers.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "GNOME Papers Document Viewer" "$INSTDIR\bin"
-  CreateShortcut "$DESKTOP\Papers.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "GNOME Papers Document Viewer" "$INSTDIR\bin"
+  CreateShortcut "$SMPROGRAMS\Document Viewer\Document Viewer.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "Document Viewer" "$INSTDIR\bin"
+  CreateShortcut "$DESKTOP\Document Viewer.lnk" "$INSTDIR\bin\papers.exe" "" "$INSTDIR\bin\papers.exe" 0 "" "" "Document Viewer" "$INSTDIR\bin"
   SetOutPath "$INSTDIR"
 
   WriteUninstaller "$INSTDIR\uninstall.exe"
   ${If} $InstallMode == "AllUsers"
     WriteRegStr HKLM "Software\GNOME\Papers" "InstallDir" $INSTDIR
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Papers Document Viewer"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Document Viewer"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
   ${Else}
     WriteRegStr HKCU "Software\GNOME\Papers" "InstallDir" $INSTDIR
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Papers Document Viewer"
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayName" "Document Viewer"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString" '"$INSTDIR\uninstall.exe"'
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "DisplayIcon" "$INSTDIR\bin\papers.exe"
     WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "Publisher" "${PUBLISHER}"
@@ -158,12 +156,12 @@ Section "Register as System PDF & Document Viewer" SEC02
     WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
     WriteRegStr HKLM "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; Registered Application Capabilities
-    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "GNOME Papers Document Viewer for Windows"
-    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationName" "Papers"
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "Document Viewer for Windows"
+    WriteRegStr HKLM "Software\GNOME\Papers\Capabilities" "ApplicationName" "Document Viewer"
     WriteRegStr HKLM "Software\GNOME\Papers\Capabilities\FileAssociations" ".pdf" "Papers.Document.PDF"
     WriteRegStr HKLM "Software\GNOME\Papers\Capabilities\FileAssociations" ".djvu" "Papers.Document.DjVu"
     WriteRegStr HKLM "Software\GNOME\Papers\Capabilities\FileAssociations" ".cbr" "Papers.Document.CBR"
-    WriteRegStr HKLM "Software\RegisteredApplications" "Papers" "Software\GNOME\Papers\Capabilities"
+    WriteRegStr HKLM "Software\RegisteredApplications" "Document Viewer" "Software\GNOME\Papers\Capabilities"
   ${Else}
     ; PDF Association
     WriteRegStr HKCU "Software\Classes\.pdf" "" "Papers.Document.PDF"
@@ -181,12 +179,12 @@ Section "Register as System PDF & Document Viewer" SEC02
     WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\DefaultIcon" "" "$INSTDIR\bin\papers.exe,0"
     WriteRegStr HKCU "Software\Classes\Papers.Document.CBR\shell\open\command" "" '"$INSTDIR\bin\papers.exe" "%1"'
     ; Registered Application Capabilities
-    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "GNOME Papers Document Viewer for Windows"
-    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationName" "Papers"
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationDescription" "Document Viewer for Windows"
+    WriteRegStr HKCU "Software\GNOME\Papers\Capabilities" "ApplicationName" "Document Viewer"
     WriteRegStr HKCU "Software\GNOME\Papers\Capabilities\FileAssociations" ".pdf" "Papers.Document.PDF"
     WriteRegStr HKCU "Software\GNOME\Papers\Capabilities\FileAssociations" ".djvu" "Papers.Document.DjVu"
     WriteRegStr HKCU "Software\GNOME\Papers\Capabilities\FileAssociations" ".cbr" "Papers.Document.CBR"
-    WriteRegStr HKCU "Software\RegisteredApplications" "Papers" "Software\GNOME\Papers\Capabilities"
+    WriteRegStr HKCU "Software\RegisteredApplications" "Document Viewer" "Software\GNOME\Papers\Capabilities"
   ${EndIf}
 
   ; Notify Windows Shell of File Association Change
@@ -212,9 +210,9 @@ Section "Uninstall"
   ${EndIf}
 
   RMDir /r "$INSTDIR"
-  Delete "$SMPROGRAMS\Papers\Papers.lnk"
-  RMDir "$SMPROGRAMS\Papers"
-  Delete "$DESKTOP\Papers.lnk"
+  Delete "$SMPROGRAMS\Document Viewer\Document Viewer.lnk"
+  RMDir "$SMPROGRAMS\Document Viewer"
+  Delete "$DESKTOP\Document Viewer.lnk"
 
   ${If} $InstallMode == "AllUsers"
     DeleteRegKey HKLM "Software\GNOME\Papers"
@@ -222,14 +220,14 @@ Section "Uninstall"
     DeleteRegKey HKLM "Software\Classes\Papers.Document.PDF"
     DeleteRegKey HKLM "Software\Classes\Papers.Document.DjVu"
     DeleteRegKey HKLM "Software\Classes\Papers.Document.CBR"
-    DeleteRegValue HKLM "Software\RegisteredApplications" "Papers"
+    DeleteRegValue HKLM "Software\RegisteredApplications" "Document Viewer"
   ${Else}
     DeleteRegKey HKCU "Software\GNOME\Papers"
     DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers"
     DeleteRegKey HKCU "Software\Classes\Papers.Document.PDF"
     DeleteRegKey HKCU "Software\Classes\Papers.Document.DjVu"
     DeleteRegKey HKCU "Software\Classes\Papers.Document.CBR"
-    DeleteRegValue HKCU "Software\RegisteredApplications" "Papers"
+    DeleteRegValue HKCU "Software\RegisteredApplications" "Document Viewer"
   ${EndIf}
 
   ; Refresh Shell
