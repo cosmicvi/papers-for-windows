@@ -22,23 +22,23 @@
 G_BEGIN_DECLS
 
 #define PPS_TYPE_VIEW_PAGE (pps_view_page_get_type ())
-
+PPS_PUBLIC
 G_DECLARE_FINAL_TYPE (PpsViewPage, pps_view_page, PPS, VIEW_PAGE, GtkWidget)
 
 struct _PpsViewPage {
 	GtkWidget parent_instance;
 };
 
-PpsViewPage *pps_view_page_new (void);
+PPS_PUBLIC PpsViewPage *pps_view_page_new (void);
 
-void pps_view_page_setup (PpsViewPage *page,
+PPS_PUBLIC void pps_view_page_setup (PpsViewPage *page,
                           PpsDocumentModel *model,
                           PpsAnnotationsContext *annots_context,
                           PpsSearchContext *search_context,
                           PpsPageCache *page_cache,
                           PpsPixbufCache *pixbuf_cache);
 
-void pps_view_page_set_page (PpsViewPage *page, gint index);
-gint pps_view_page_get_page (PpsViewPage *page);
+PPS_PUBLIC void pps_view_page_set_page (PpsViewPage *page, gint index);
+PPS_PUBLIC gint pps_view_page_get_page (PpsViewPage *page);
 
 G_END_DECLS
