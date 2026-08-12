@@ -76,8 +76,8 @@ FunctionEnd
 
 Function DirectoryPre
   ; If InstallMode is not set, read it from the custom page
-  IfSilent 0 +4 ; Skip UI interaction if silent
-  ${If} $InstallMode == "JustMe" ; Default is JustMe, check if user changed it
+  IfSilent +5 ; Skip UI interaction if silent
+  ${If} $InstallMode == "JustMe" ; Check if user changed the mode on the custom page
     !insertmacro INSTALLOPTIONS_READ $0 "papers-installmode.ini" "Field 3" "State"
     ${If} $0 == 1 ; "Just Me" is checked
         StrCpy $InstallMode "JustMe"
@@ -93,7 +93,7 @@ Function DirectoryPre
     FileOpen $R0 "$WINDIR\temp.tmp" w
     ${If} ${Errors}
       ; Not admin, so re-launch with elevation request
-      ExecShell "runas" "$EXEPATH" '/S /ALLUSERS'
+      ExecShell "runas" "$EXEPATH" '/S /ALLUSERS' ; Preserve silent switch
       Quit
     ${Else}
       ; We are admin, clean up the temp file
@@ -113,6 +113,7 @@ FunctionEnd
 Function DirectoryShow
   ; Hide the directory selection page if we are in "JustMe" mode
   ; to provide a simpler install experience.
+  IfSilent +2
   ${If} $InstallMode == "JustMe"
     Abort
   ${EndIf}
@@ -204,16 +205,14 @@ Section "Register as System PDF & Document Viewer" SEC02
 SectionEnd
 
 Section "Uninstall"
-  ; Read install path from registry to determine if it was admin or user install
-  ReadRegStr $0 HKLM "Software\GNOME\Papers" "InstallDir"
-  IfErrors 0 +2
-  ReadRegStr $0 HKCU "Software\GNOME\Papers" "InstallDir"
-
-  ; If the path contains Program Files, it was an admin install
-  StrCpy $InstallMode "JustMe"
-  IfFileExists "$PROGRAMFILES64\*.*" 0 +2
-    StrCmp $0 "$PROGRAMFILES64\GNOME\Papers" 0 +2
-      StrCpy $InstallMode "AllUsers"
+  ; Determine if it was an AllUsers or JustMe install by checking the HKLM registry first.
+  ClearErrors
+  ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Papers" "UninstallString"
+  IfErrors 0 +3
+    ; HKLM key not found, must be a user install
+    StrCpy $InstallMode "JustMe"
+    Goto +2
+  StrCpy $InstallMode "AllUsers"
 
   ${If} $InstallMode == "AllUsers"
     SetShellVarContext all
