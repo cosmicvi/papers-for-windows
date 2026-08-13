@@ -8,9 +8,17 @@ For more general information about Papers and how to get started, please visit [
 
 Papers is licensed under the [GPLv2][license].
 
-[![flatpak]](https://flathub.org/apps/details/org.gnome.Papers)
+### Windows
 
----
+Available via the [Windows Package Manager](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
+
+```sh
+winget install Tling.GNOME.Papers
+```
+
+### Installer
+
+Download the latest `.exe` installer from the [releases page](https://github.com/tling0001/papers-for-windows/releases/latest).
 
 ## Windows Implementation & Building on Windows
 
@@ -75,7 +83,6 @@ Developers should make sure to read the [contributing](CONTRIBUTING.md) guidelin
 [tiff]: https://libtiff.gitlab.io/libtiff/
 [license]: COPYING
 [papers-logo]: data/icons/scalable/apps/org.gnome.Papers.svg
-[flatpak]: https://flathub.org/api/badge?svg&locale=en
 
 ## Documentation
 
