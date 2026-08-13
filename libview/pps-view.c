@@ -10,6 +10,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <adwaita.h>
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
@@ -568,6 +572,7 @@ pps_view_update_adjustment_value (PpsView *view,
 	GtkAdjustment *adjustment;
 	gint req_size, alloc_size;
 	gdouble page_size, value, new_value, upper, factor, zoom_center;
+	gdouble step_increment;
 	PpsViewPrivate *priv = GET_PRIVATE (view);
 
 	if (orientation == GTK_ORIENTATION_HORIZONTAL) {
@@ -623,8 +628,21 @@ pps_view_update_adjustment_value (PpsView *view,
 		break;
 	}
 
+#ifdef _WIN32
+	UINT scroll_lines;
+	SystemParametersInfo (SPI_GETWHEELSCROLLLINES, 0, &scroll_lines, 0);
+	if (scroll_lines == WHEEL_PAGESCROLL) {
+		step_increment = page_size;
+	} else {
+		step_increment = (gdouble)scroll_lines * 16; /* 16 pixels per line */
+	}
+#else
+	step_increment = 40;
+#endif
+
+
 	gtk_adjustment_configure (adjustment, new_value, 0, upper,
-	                          alloc_size * 0.1, alloc_size * 0.9, page_size);
+	                          step_increment, alloc_size * 0.9, page_size);
 }
 
 static void
