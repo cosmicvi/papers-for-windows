@@ -1,0 +1,90 @@
+name: Windows Release Build
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    name: Build & Release Windows Binaries
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-ninja
+            mingw-w64-ucrt-x86_64-meson
+            mingw-w64-ucrt-x86_64-pkgconf
+            mingw-w64-ucrt-x86_64-rust
+            mingw-w64-ucrt-x86_64-gtk4
+            mingw-w64-ucrt-x86_64-libadwaita
+            mingw-w64-ucrt-x86_64-poppler
+            mingw-w64-ucrt-x86_64-libarchive
+            mingw-w64-ucrt-x86_64-djvulibre
+            mingw-w64-ucrt-x86_64-libtiff
+            mingw-w64-ucrt-x86_64-libspelling
+            mingw-w64-ucrt-x86_64-blueprint-compiler
+            mingw-w64-ucrt-x86_64-gobject-introspection
+            mingw-w64-ucrt-x86_64-nsis
+            mingw-w64-ucrt-x86_64-appstream
+            gettext
+
+      - name: Build project with Meson & Ninja
+        shell: msys2 {0}
+        run: |
+          meson setup build --buildtype=release -Ddocumentation=false -Duser_doc=false -Dkeyring=disabled -Dnautilus=false
+          ninja -C build
+
+      - name: Stage Windows Bundle (dist/)
+        shell: powershell
+        run: |
+          .\build-aux\windows\bundle.ps1
+
+      - name: Package Portable Zip
+        shell: powershell
+        run: |
+          Compress-Archive -Path "dist\*" -DestinationPath "papers-51.beta-portable-x64.zip" -Force
+
+      - name: Compile NSIS Windows Setup Installer
+        shell: msys2 {0}
+        run: |
+          makensis build-aux/windows/papers.nsi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
+        with:
+          name: GNOME Papers for Windows 51.beta
+          tag_name: ${{ github.ref_name == 'main' && 'v51.beta' || github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            papers-51.beta-installer-x64.exe
+            papers-51.beta-portable-x64.zip
+          body: |
+            ## GNOME Papers for Windows 51.beta
+
+            ### 📦 Downloads & Installation
+            - **Windows Installer (`.exe`)**: `papers-51.beta-installer-x64.exe`
+            - **Portable Release (`.zip`)**: `papers-51.beta-portable-x64.zip`
+
+            ### 🚀 Quick Install via Winget
+            ```cmd
+            winget install Papers.PDF.Desktop
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
