@@ -41,11 +41,12 @@ jobs:
             mingw-w64-ucrt-x86_64-gobject-introspection
             mingw-w64-ucrt-x86_64-nsis
             mingw-w64-ucrt-x86_64-appstream
-            gettext
+            mingw-w64-ucrt-x86_64-gettext
 
       - name: Build project with Meson & Ninja
         shell: msys2 {0}
         run: |
+          export GETTEXTDATADIR=/ucrt64/share/gettext
           meson setup build --buildtype=release -Ddocumentation=false -Duser_doc=false -Dkeyring=disabled -Dnautilus=false
           ninja -C build
 
