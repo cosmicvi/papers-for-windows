@@ -44,7 +44,7 @@ An automated PowerShell setup script is provided in the repository root:
 2. Run the environment setup script:
    ```powershell
    Set-ExecutionPolicy Bypass -Scope Process
-   .\auto-setup.ps1
+   .\build-aux\windows\auto-setup.ps1
    ```
 3. The script configures MSYS2 UCRT64, GCC, Meson, Ninja, Rust, GTK4, Libadwaita, Poppler, and all optional document backend libraries.
 
