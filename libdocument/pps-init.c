@@ -9,7 +9,13 @@
 #include <glib.h>
 #include <glib/gi18n-lib.h>
 
+#ifdef HAVE_EXEMPI
 #include <exempi/xmp.h>
+#endif
+
+#ifdef G_OS_WIN32
+#include <windows.h>
+#endif
 
 #include "pps-document-factory.h"
 #include "pps-file-helpers.h"
@@ -36,11 +42,24 @@ pps_init (void)
 	if (pps_init_count++ > 0)
 		return have_backends;
 
+#ifdef G_OS_WIN32
+	wchar_t module_path[MAX_PATH];
+	if (GetModuleFileNameW (NULL, module_path, MAX_PATH)) {
+		wchar_t *last_slash = wcsrchr (module_path, L'\\');
+		if (last_slash) {
+			*last_slash = L'\0';
+			SetDllDirectoryW (module_path);
+		}
+	}
+#endif
+
 	/* set up translation catalog */
 	bindtextdomain (GETTEXT_PACKAGE, PPS_LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
+#ifdef HAVE_EXEMPI
 	xmp_init ();
+#endif
 	gdk_pixbuf_init_modules (EXTRA_GDK_PIXBUF_LOADERS_DIR, NULL);
 	_pps_file_helpers_init ();
 	have_backends = _pps_document_factory_init ();
@@ -61,7 +80,9 @@ pps_shutdown (void)
 	if (--pps_init_count > 0)
 		return;
 
+#ifdef HAVE_EXEMPI
 	xmp_terminate ();
+#endif
 	_pps_document_factory_shutdown ();
 	_pps_file_helpers_shutdown ();
 }

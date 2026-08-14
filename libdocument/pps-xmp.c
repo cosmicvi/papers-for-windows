@@ -14,9 +14,12 @@
 #include <glib/gi18n-lib.h>
 #include <pango/pango.h>
 
+#ifdef HAVE_EXEMPI
 #include <exempi/xmp.h>
 #include <exempi/xmpconsts.h>
+#endif
 
+#ifdef HAVE_EXEMPI
 #define NS_PDFA_ID "http://www.aiim.org/pdfa/ns/id/"
 #define NS_PDFX_ID "http://www.npes.org/pdfx/ns/id/"
 #define NS_PDFX "http://ns.adobe.com/pdfx/1.3/"
@@ -224,6 +227,7 @@ pps_xmp_get_license (XmpPtr xmp)
 
 	return license;
 }
+#endif
 
 /**
  * pps_xmp_parse:
@@ -240,6 +244,7 @@ pps_xmp_parse (const char *metadata,
                gsize size,
                PpsDocumentInfo *info)
 {
+#ifdef HAVE_EXEMPI
 	gchar *fmt;
 	gchar *author;
 	gchar *keywords;
@@ -337,4 +342,7 @@ pps_xmp_parse (const char *metadata,
 	xmp_free (xmp);
 
 	return TRUE;
+#else
+	return FALSE;
+#endif
 }

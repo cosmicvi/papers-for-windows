@@ -12,6 +12,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#ifdef _WIN32
+#ifndef O_CLOEXEC
+#define O_CLOEXEC 0
+#endif
+#endif
+
 #include <glib.h>
 #include <glib/gi18n-lib.h>
 #include <glib/gstdio.h>
@@ -489,6 +495,7 @@ static const char *compressor_cmds[] = {
 static void
 compression_child_setup_cb (gpointer fd_ptr)
 {
+#ifndef G_OS_WIN32
 	int fd = GPOINTER_TO_INT (fd_ptr);
 	int flags;
 
@@ -497,6 +504,7 @@ compression_child_setup_cb (gpointer fd_ptr)
 		flags &= ~FD_CLOEXEC;
 		fcntl (fd, F_SETFD, flags);
 	}
+#endif
 }
 
 static gchar *

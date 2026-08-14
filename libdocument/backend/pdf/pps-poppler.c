@@ -12,6 +12,10 @@
 #include <gtk/gtk.h>
 #include <poppler.h>
 #include <string.h>
+#ifdef G_OS_WIN32
+#include <io.h>
+#endif
+#include <unistd.h>
 #ifdef HAVE_CAIRO_PDF
 #include <cairo-pdf.h>
 #endif
@@ -309,6 +313,12 @@ pdf_document_load_fd (PpsDocument *document,
                       int fd,
                       GError **error)
 {
+#ifdef G_OS_WIN32
+	g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+	                     "File descriptor support is not available on Windows");
+	close (fd);
+	return FALSE;
+#else
 	GError *err = NULL;
 	PdfDocument *self = PDF_DOCUMENT (document);
 	gboolean success;
@@ -331,6 +341,7 @@ pdf_document_load_fd (PpsDocument *document,
 	g_rw_lock_writer_unlock (&self->rwlock);
 
 	return success;
+#endif
 }
 
 static int

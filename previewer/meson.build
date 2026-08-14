@@ -21,6 +21,7 @@ blueprints = custom_target(
   'blueprints',
   input: blueprint_sources,
   output: blueprint_output,
+  env: blueprint_env,
   command: [
     blueprint_compiler,
     'batch-compile',
@@ -37,6 +38,17 @@ previewer_sources += gnome.compile_resources(
   c_name: 'pps_previewer',
   dependencies: blueprints,
 )
+
+if host_machine.system() == 'windows'
+  win = import('windows')
+
+  previewer_win_res = win.compile_resources(
+    'papers-previewer.rc',
+    depend_files: files('../shell/resources/papers.ico'),
+  )
+  previewer_sources += previewer_win_res
+endif
+
 
 previewer_deps = [
   libppsdocument_dep,

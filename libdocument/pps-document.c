@@ -411,6 +411,12 @@ pps_document_load_fd (PpsDocument *document,
 		return FALSE;
 	}
 
+#ifdef G_OS_WIN32
+	g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+	                     "Loading from file descriptor is not supported on Windows");
+	close (fd);
+	return FALSE;
+#else
 	if (fstat (fd, &statbuf) == -1 ||
 	    (fd_flags = fcntl (fd, F_GETFL, NULL)) == -1) {
 		int errsv = errno;
@@ -446,6 +452,7 @@ pps_document_load_fd (PpsDocument *document,
 	priv->n_pages = klass->get_n_pages (document);
 
 	return TRUE;
+#endif
 }
 
 /**

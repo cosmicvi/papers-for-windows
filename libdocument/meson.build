@@ -143,6 +143,7 @@ libdocument_deps = [
 cflags = [
   '-DG_LOG_DOMAIN="PapersDocument"',
   '-DPPS_BACKENDSDIR="@0@"'.format(pps_backendsdir),
+  '-DPPS_BACKENDS_SUBDIR="@0@"'.format(pps_backends_subdir),
   '-DPPS_BACKENDSBINARYVERSION="@0@"'.format(pps_backends_binary_version),
   '-DPAPERS_COMPILATION',
 ]
