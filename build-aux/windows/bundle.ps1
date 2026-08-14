@@ -64,7 +64,7 @@ if ($projectRoot -match '^([A-Za-z]):(.*)') {
     $buildPathPosix = $projectRoot -replace '\\', '/'
 }
 
-$lddCmd = "export PATH=/ucrt64/bin:/usr/bin:$buildPathPosix/build/libdocument:$buildPathPosix/build/libview:`$PATH && ldd $buildPathPosix/build/shell/src/papers.exe $buildPathPosix/build/libdocument/backend/*.dll /ucrt64/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.dll"
+$lddCmd = "export PATH=/ucrt64/bin:/usr/bin:$buildPathPosix/build/libdocument:$buildPathPosix/build/libview:`$PATH && shopt -s nullglob && ldd $buildPathPosix/build/shell/src/papers.exe $buildPathPosix/build/libdocument/backend/*.dll /ucrt64/lib/gdk-pixbuf-2.0/*/loaders/*.dll"
 $lddOutput = & $bashExe -lc $lddCmd
 
 $copiedCount = 0
