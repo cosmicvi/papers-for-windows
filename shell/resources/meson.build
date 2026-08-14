@@ -39,6 +39,7 @@ blueprints = custom_target(
   'blueprints',
   input: blueprint_sources,
   output: blueprint_output,
+  env: blueprint_env,
   command: [
     blueprint_compiler,
     'batch-compile',
@@ -58,4 +59,5 @@ papers_resources = gnome.compile_resources(
   source_dir: [data_dir, data_build_dir],
   dependencies: [metainfo_file, blueprints],
   gresource_bundle: true,
+
 )[0]

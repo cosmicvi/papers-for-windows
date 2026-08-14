@@ -476,7 +476,7 @@ impl PpsApplication {
             .property("application-id", APP_ID)
             .property("flags", flags)
             .property("resource-base-path", "/org/gnome/papers")
-            .property("register-session", true)
+            .property("register-session", cfg!(not(target_os = "windows")))
             .build()
     }
 }
@@ -561,12 +561,24 @@ pub fn spawn(file: Option<&gio::File>, dest: Option<&LinkDest>, mode: Option<Win
 
         // MacOS take this path since GAppInfo doesn't support created by
         // command line on MacOS.
-        if let Err(e) = glib::spawn_command_line_async(cmd) {
-            glib::g_printerr!(
-                "Error launching papers {}: {}\n",
-                uri.unwrap_or_default(),
-                e.message()
-            );
+        unsafe {
+            let mut err = std::ptr::null_mut();
+            let cmd_c = std::ffi::CString::new(cmd).unwrap_or_default();
+            if glib::ffi::g_spawn_command_line_async(cmd_c.as_ptr(), &mut err) == glib::ffi::GFALSE
+            {
+                let err_msg = if !err.is_null() {
+                    let msg = std::ffi::CStr::from_ptr((*err).message).to_string_lossy();
+                    glib::ffi::g_error_free(err);
+                    msg
+                } else {
+                    std::borrow::Cow::Borrowed("Unknown error")
+                };
+                glib::g_printerr!(
+                    "Error launching papers {}: {}\n",
+                    uri.unwrap_or_default(),
+                    err_msg
+                );
+            }
         }
     }
 }
