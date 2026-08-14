@@ -166,7 +166,8 @@ libaw_dep = dependency(
     'tests=false',
     'examples=false',
   ])
-exempi_dep = dependency('exempi-2.0', version: exempi_req_version)
+exempi_dep = dependency('exempi-2.0', version: exempi_req_version, required: false)
+config_h.set('HAVE_EXEMPI', exempi_dep.found())
 
 m_dep = cc.find_library('m')
 
@@ -178,14 +179,14 @@ assert(zlib_dep.found() and cc.has_function('inflate', dependencies: zlib_dep) a
       'No sufficient zlib library found on your system')
 
 # *** Nautilus property page build ***
-enable_nautilus = get_option('nautilus')
+enable_nautilus = get_option('nautilus') and host_machine.system() != 'windows'
 if enable_nautilus
   libnautilus_extension_dep = dependency('libnautilus-extension-4', version: ['>= 43'])
   nautilus_extension_dir = libnautilus_extension_dep.get_variable(pkgconfig: 'extensiondir', pkgconfig_define: ['libdir', pps_libdir])
 endif
 
 # *** GNOME Keyring support ***
-enable_keyring = get_option('keyring').enabled()
+enable_keyring = get_option('keyring').allowed() and host_machine.system() != 'windows'
 
 # GKT+ Unix Printing
 gtk_unix_print_dep = dependency('gtk4-unix-print', version: gtk_req_version, required: get_option('gtk_unix_print'))
@@ -207,6 +208,8 @@ endif
 
 # *** Blueprint-Compiler ***
 blueprint_compiler = find_program('blueprint-compiler', version: '>= 0.16')
+blueprint_env = environment()
+blueprint_env.set('PYTHONUTF8', '1')
 
 # *** Appstream CLI ***
 appstreamcli = find_program('appstreamcli', required: true)
@@ -329,7 +332,7 @@ subdir('nautilus')
 subdir('rust')
 
 # Print Previewer
-enable_previewer = get_option('previewer')
+enable_previewer = get_option('previewer') and host_machine.system() != 'windows'
 if enable_previewer
   subdir('previewer')
 endif
@@ -346,7 +349,7 @@ subdir('po')
 subdir('help')
 
 # *** Thumbnailer ***
-enable_thumbnailer = get_option('thumbnailer')
+enable_thumbnailer = get_option('thumbnailer') and host_machine.system() != 'windows'
 if enable_thumbnailer
   subdir('thumbnailer')
 endif
@@ -359,7 +362,7 @@ configure_file(
 gnome.post_install(
   glib_compile_schemas: true,
   gtk_update_icon_cache: true,
-  update_desktop_database: true,
+  update_desktop_database: host_machine.system() != 'windows',
 )
 
 # *** File Tests ***
