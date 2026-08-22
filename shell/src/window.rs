@@ -398,8 +398,10 @@ mod imp {
                             obj.document_view.set_fullscreen_mode(enabled);
 
                             if enabled {
-                                obj.obj().fullscreen();
-                            } else {
+                                if !obj.obj().is_fullscreen() {
+                                    obj.obj().fullscreen();
+                                }
+                            } else if obj.obj().is_fullscreen() {
                                 obj.obj().unfullscreen();
                             }
 

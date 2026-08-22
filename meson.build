@@ -208,6 +208,8 @@ endif
 
 # *** Blueprint-Compiler ***
 blueprint_compiler = find_program('blueprint-compiler', version: '>= 0.16')
+blueprint_env = environment()
+blueprint_env.set('PYTHONUTF8', '1')
 
 # *** Appstream CLI ***
 appstreamcli = find_program('appstreamcli', required: true)
@@ -330,7 +332,7 @@ subdir('nautilus')
 subdir('rust')
 
 # Print Previewer
-enable_previewer = get_option('previewer')
+enable_previewer = get_option('previewer') and host_machine.system() != 'windows'
 if enable_previewer
   subdir('previewer')
 endif
@@ -347,7 +349,7 @@ subdir('po')
 subdir('help')
 
 # *** Thumbnailer ***
-enable_thumbnailer = get_option('thumbnailer')
+enable_thumbnailer = get_option('thumbnailer') and host_machine.system() != 'windows'
 if enable_thumbnailer
   subdir('thumbnailer')
 endif

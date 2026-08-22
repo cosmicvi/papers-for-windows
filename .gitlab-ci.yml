@@ -240,11 +240,13 @@ build-windows:
     variables:
         MSYSTEM: "UCRT64"
         PKG_PREFIX: "mingw-w64-ucrt-x86_64"
+        PYTHONUTF8: "1"
     before_script:
+        - '$env:PYTHONUTF8 = "1"'
         - '$env:Path = "C:\msys64\${env:MSYSTEM}\bin;C:\msys64\usr\bin;${env:Path}"'
         - 'C:\msys64\usr\bin\pacman --noconfirm -S --refresh --needed ${env:PKG_PREFIX}-gcc ${env:PKG_PREFIX}-meson ${env:PKG_PREFIX}-ninja ${env:PKG_PREFIX}-rust ${env:PKG_PREFIX}-gtk4 ${env:PKG_PREFIX}-libadwaita ${env:PKG_PREFIX}-poppler ${env:PKG_PREFIX}-libspelling ${env:PKG_PREFIX}-blueprint-compiler ${env:PKG_PREFIX}-gettext ${env:PKG_PREFIX}-appstream ${env:PKG_PREFIX}-djvulibre ${env:PKG_PREFIX}-libarchive ${env:PKG_PREFIX}-libtiff ${env:PKG_PREFIX}-pkgconf ${env:PKG_PREFIX}-osslsigncode diffutils'
     script:
-        - 'meson setup build --buildtype=release --strip -Ddocumentation=false -Duser_doc=false -Dnautilus=false -Dkeyring=disabled --reconfigure'
+        - 'meson setup build --buildtype=release --strip -Ddocumentation=false -Duser_doc=false -Dnautilus=false -Dkeyring=disabled -Dpreviewer=false -Dthumbnailer=false --reconfigure'
         - 'meson compile -C build'
         - 'powershell -ExecutionPolicy Bypass -File "${env:CI_PROJECT_DIR}\build-aux\windows\bundle.ps1"'
         - |

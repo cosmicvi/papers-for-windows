@@ -8,7 +8,8 @@ This document provides a comprehensive overview of the porting design, architect
 
 The Windows port is achieved through standard cross-platform GTK4 libraries and conditional compilation, minimizing direct changes to the platform-independent core logic.
 
-### 1.1 Gating Unix-Specific Features
+### 1.1 Gating Unix-Specific Features & Frontends
+- **Previewer & Thumbnailer**: Disabled on Windows (`enable_previewer` and `enable_thumbnailer` set to `false` in `meson.build`) to reduce package footprint and reliance on Unix print/thumbnailing services.
 - **Keyring/Secrets Service**: Disabled on Windows since the D-Bus secret service provider (`oo7`) is Linux-only.
 - **Nautilus Extension**: Disabled on Windows since Nautilus is a Linux-only file manager.
 - **File Descriptors**: Unix file descriptor APIs (`fcntl` / `F_DUPFD_CLOEXEC` / `poppler_document_new_from_fd`) are gated behind `#ifndef G_OS_WIN32` blocks in:

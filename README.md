@@ -6,19 +6,26 @@ For more general information about Papers and how to get started, please visit [
 
 ## Installation
 
-Papers is licensed under the [GPLv2][license].
+### Windows Installation
 
-### Windows
+#### 📦 Via Winget
+You can install GNOME Papers on Windows directly using the Windows Package Manager:
 
-Available via the [Windows Package Manager](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
-
-```sh
-winget install Tling.GNOME.Papers
+```cmd
+winget install Papers.PDF.Desktop
 ```
 
-### Installer
+#### 🚀 Via GitHub Releases (Recommended)
+Download pre-built binary packages from [GitHub Releases](../../releases):
+- **Setup Installer (`.exe`)**: Automatic installation with Start Menu shortcuts and file associations (`.pdf`, `.djvu`, `.cbr`).
+- **Portable Package (`.zip`)**: Standalone portable archive — extract and run `papers.exe`.
 
-Download the latest `.exe` installer from the [releases page](https://github.com/tling0001/papers-for-windows/releases/latest).
+### Linux Installation
+Papers is licensed under the [GPLv2][license].
+
+[![flatpak]](https://flathub.org/apps/details/org.gnome.Papers)
+
+---
 
 ## Windows Implementation & Building on Windows
 
@@ -37,7 +44,7 @@ An automated PowerShell setup script is provided in the repository root:
 2. Run the environment setup script:
    ```powershell
    Set-ExecutionPolicy Bypass -Scope Process
-   .\auto-setup.ps1
+   .\build-aux\windows\auto-setup.ps1
    ```
 3. The script configures MSYS2 UCRT64, GCC, Meson, Ninja, Rust, GTK4, Libadwaita, Poppler, and all optional document backend libraries.
 
@@ -83,6 +90,7 @@ Developers should make sure to read the [contributing](CONTRIBUTING.md) guidelin
 [tiff]: https://libtiff.gitlab.io/libtiff/
 [license]: COPYING
 [papers-logo]: data/icons/scalable/apps/org.gnome.Papers.svg
+[flatpak]: https://flathub.org/api/badge?svg&locale=en
 
 ## Documentation
 

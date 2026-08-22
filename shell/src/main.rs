@@ -76,7 +76,22 @@ fn main() -> glib::ExitCode {
 
     log_builder.init();
 
-    gettextrs::bindtextdomain(GETTEXT_PACKAGE, PPS_LOCALEDIR)
+    gettextrs::setlocale(gettextrs::LocaleCategory::LcAll, "");
+
+    let locale_dir = if cfg!(target_os = "windows") {
+        if let Ok(mut path) = std::env::current_exe() {
+            path.pop();
+            path.push("share");
+            path.push("locale");
+            path
+        } else {
+            std::path::PathBuf::from(PPS_LOCALEDIR)
+        }
+    } else {
+        std::path::PathBuf::from(PPS_LOCALEDIR)
+    };
+
+    gettextrs::bindtextdomain(GETTEXT_PACKAGE, &locale_dir)
         .expect("Unable to bind the text domain");
     gettextrs::bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8")
         .expect("Unable to bind the text domain codeset");
