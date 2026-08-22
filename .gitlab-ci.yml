@@ -253,7 +253,7 @@ build-windows:
           if ($env:WIN_SIGNING_CERT_BASE64 -and $env:WIN_SIGNING_CERT_PASS) {
               Write-Host "Signing certificate found. Proceeding to sign binaries..."
               [IO.File]::WriteAllBytes("cert.p12", [System.Convert]::FromBase64String($env:WIN_SIGNING_CERT_BASE64))
-              Get-ChildItem "dist\*.dll", "dist\*.exe", "dist\lib\papers\6\backends\*.dll" | ForEach-Object {
+              Get-ChildItem "dist\bin\*.dll", "dist\bin\*.exe", "dist\lib\papers\6\backends\*.dll" | ForEach-Object {
                   & osslsigncode sign -pkcs12 cert.p12 -pass $env:WIN_SIGNING_CERT_PASS -t http://timestamp.digicert.com -in $_.FullName -out $_.FullName
               }
               Remove-Item cert.p12 -Force

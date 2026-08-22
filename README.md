@@ -12,10 +12,10 @@ For more general information about Papers and how to get started, please visit [
 You can install GNOME Papers on Windows directly using the Windows Package Manager:
 
 ```cmd
-winget install Papers.PDF.Desktop
+winget install tling.GNOME.Papers
 ```
 
-#### 🚀 Via GitHub Releases (Recommended)
+#### 🚀 Via GitHub Releases
 Download pre-built binary packages from [GitHub Releases](../../releases):
 - **Setup Installer (`.exe`)**: Automatic installation with Start Menu shortcuts and file associations (`.pdf`, `.djvu`, `.cbr`).
 - **Portable Package (`.zip`)**: Standalone portable archive — extract and run `papers.exe`.

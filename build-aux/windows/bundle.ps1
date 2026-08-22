@@ -13,7 +13,7 @@ if (Test-Path (Join-Path $scriptDir "..\..\meson.build")) {
 Set-Location $projectRoot
 
 $distDir = Join-Path $projectRoot "dist"
-$binDir = $distDir
+$binDir = Join-Path $distDir "bin"
 $backendsDir = Join-Path $distDir "lib\papers\6\backends"
 $schemasDir = Join-Path $distDir "share\glib-2.0\schemas"
 $iconsDir = Join-Path $distDir "share\icons"
@@ -44,18 +44,13 @@ if ($bashCmd) {
     throw "MSYS2 bash.exe was not found."
 }
 
-if ($env:MSYSTEM_PREFIX -and (Test-Path $env:MSYSTEM_PREFIX)) {
-    $ucrtBin = Join-Path $env:MSYSTEM_PREFIX "bin"
-    $ucrtShare = Join-Path $env:MSYSTEM_PREFIX "share"
-    $ucrtLib = Join-Path $env:MSYSTEM_PREFIX "lib"
-} else {
-    $ucrtBin = Join-Path $msysPath "ucrt64\bin"
-    $ucrtShare = Join-Path $msysPath "ucrt64\share"
-    $ucrtLib = Join-Path $msysPath "ucrt64\lib"
-}
+$ucrtBin = Join-Path $msysPath "ucrt64\bin"
+$ucrtShare = Join-Path $msysPath "ucrt64\share"
+$ucrtLib = Join-Path $msysPath "ucrt64\lib"
 
+Write-Host "Using MSYS2 installation at: $msysPath" -ForegroundColor Cyan
 Write-Host "Creating staging directories in $distDir..." -ForegroundColor Cyan
-New-Item -ItemType Directory -Force -Path $distDir | Out-Null
+New-Item -ItemType Directory -Force -Path $binDir | Out-Null
 New-Item -ItemType Directory -Force -Path $backendsDir | Out-Null
 New-Item -ItemType Directory -Force -Path $schemasDir | Out-Null
 New-Item -ItemType Directory -Force -Path $iconsDir | Out-Null
@@ -63,6 +58,12 @@ New-Item -ItemType Directory -Force -Path $pixbufDir | Out-Null
 
 Write-Host "Copying compiled binaries and backends..." -ForegroundColor Cyan
 Copy-Item "build\shell\src\papers.exe" $binDir -Force
+if (Test-Path "build\thumbnailer\papers-thumbnailer.exe") {
+    Copy-Item "build\thumbnailer\papers-thumbnailer.exe" $binDir -Force
+} elseif (Test-Path "build\thumbnailer\release\papers-thumbnailer.exe") {
+    Copy-Item "build\thumbnailer\release\papers-thumbnailer.exe" $binDir -Force
+}
+Copy-Item "build\previewer\papers-previewer.exe" $binDir -Force
 Copy-Item "build\libdocument\libppsdocument-4.0-6.dll" $binDir -Force
 Copy-Item "build\libview\libppsview-4.0-5.dll" $binDir -Force
 Copy-Item "build\libdocument\backend\*.dll" $backendsDir -Force
@@ -76,14 +77,22 @@ Copy-Item "$ucrtBin\libwinpthread-1.dll" $backendsDir -Force -ErrorAction Silent
 Copy-Item "build\data\gschemas.compiled" $schemasDir -Force
 
 Write-Host "Resolving and copying DLL dependencies via ldd..." -ForegroundColor Cyan
-$env:CHERE_INVOKING = "1"
-$posixRoot = (& $bashExe -c "cygpath -u '$projectRoot'").Trim()
-$lddCmd = "export PATH=/ucrt64/bin:/usr/bin:$posixRoot/build/libdocument:$posixRoot/build/libview:`$PATH && shopt -s nullglob && ldd '$posixRoot/build/shell/src/papers.exe' '$posixRoot'/build/libdocument/backend/*.dll"
-$lddOutput = & $bashExe -c $lddCmd
+if ($projectRoot -match '^([A-Za-z]):(.*)') {
+    $drive = $Matches[1].ToLower()
+    $rest = $Matches[2] -replace '\\', '/'
+    $buildPathPosix = "/$drive$rest"
+} else {
+    $buildPathPosix = $projectRoot -replace '\\', '/'
+}
+
+$lddCmd = "export PATH=/ucrt64/bin:/usr/bin:$buildPathPosix/build/libdocument:$buildPathPosix/build/libview:`$PATH && loaders=`$(ls /ucrt64/lib/gdk-pixbuf-2.0/*/loaders/*.dll 2>/dev/null) && ldd $buildPathPosix/build/shell/src/papers.exe $buildPathPosix/build/previewer/papers-previewer.exe $buildPathPosix/build/libdocument/backend/*.dll `$loaders"
+$lddOutput = & $bashExe -lc $lddCmd
+
+
 
 $copiedCount = 0
 foreach ($line in $lddOutput) {
-    if ($line -match '(?i)([a-z0-9_\-\.]+\.dll)') {
+    if ($line -match '(?i)/ucrt64/bin/([a-z0-9_\-\.]+\.dll)') {
         $dllName = $Matches[1]
         $srcPath = Join-Path $ucrtBin $dllName
         $dstPath = Join-Path $binDir $dllName
@@ -105,6 +114,7 @@ foreach ($dll in $extraDlls) {
     }
 }
 
+
 $totalDlls = (Get-ChildItem $binDir -Filter "*.dll").Count
 if ($totalDlls -lt 10) {
     throw "Fatal error during bundling: No DLL dependencies were resolved by ldd! (Only $totalDlls DLLs in bin)"
@@ -112,22 +122,7 @@ if ($totalDlls -lt 10) {
     Write-Host "Successfully resolved and bundled $totalDlls total DLL dependencies in bin." -ForegroundColor Green
 }
 
-Write-Host "Copying translation catalogs (.mo) and UI assets..." -ForegroundColor Cyan
-$targetLocaleDir = Join-Path $distDir "share\locale"
-New-Item -ItemType Directory -Force -Path $targetLocaleDir | Out-Null
-if (Test-Path "build\po") {
-    Get-ChildItem -Path "build\po" -Filter "*.mo" -Recurse | ForEach-Object {
-        $lang = $_.Directory.Parent.Name
-        if ($lang -and $lang -ne "po") {
-            $langDir = Join-Path $targetLocaleDir "$lang\LC_MESSAGES"
-            New-Item -ItemType Directory -Force -Path $langDir | Out-Null
-            Copy-Item $_.FullName (Join-Path $langDir "papers.mo") -Force
-        }
-    }
-}
-if (Test-Path (Join-Path $ucrtShare "locale")) {
-    Copy-Item -Path (Join-Path $ucrtShare "locale\*") -Destination $targetLocaleDir -Recurse -Container -Force -ErrorAction SilentlyContinue
-}
+Write-Host "Copying UI assets, MIME database, and GdkPixbuf loaders..." -ForegroundColor Cyan
 if (Test-Path (Join-Path $ucrtShare "icons\Adwaita")) {
     Copy-Item -Path (Join-Path $ucrtShare "icons\Adwaita") -Destination $iconsDir -Recurse -Container -Force
 }

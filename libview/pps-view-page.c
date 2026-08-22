@@ -566,15 +566,14 @@ pps_view_page_snapshot (GtkWidget *widget, GtkSnapshot *snapshot)
 	                           ceil (height * fractional_scale));
 	gtk_snapshot_save (snapshot);
 
-#if GTK_CHECK_VERSION(4, 23, 1) /* TODO: bump this to 4.24.0 once it exists */
+#if GTK_CHECK_VERSION(4, 23, 1) /* This version check is for a future GTK version, forcing the else branch for GTK 4.22.4 */
 	/* Snap the texture to a physical pixel so it is not blurred */
 	gtk_snapshot_set_snap (snapshot, GSK_RECT_SNAP_ROUND);
 #else
 	/* No snapping API; need to do it by hand:
-	 * Compute residual sub-pixel offset of the widget origin in physical
--        * pixel space and shift the texture by that amount so
--        * it lands on the nearest physical (integer) pixel. */
+	 * Compute residual sub-pixel offset of the widget origin in physical pixel space and shift the texture by that amount so it lands on the nearest physical (integer) pixel. */
 	{
+		/* HACK: this is a hack to avoid jitter on fractional scaling. It is not perfect, but it is better than nothing. */
 		graphene_point_t origin;
 		if (gtk_widget_compute_point (widget, GTK_WIDGET (native),
 		                              &GRAPHENE_POINT_INIT_ZERO, &origin)) {
@@ -1371,7 +1370,7 @@ pps_view_page_accessible_text_get_offset (GtkAccessibleText *text,
 	return TRUE;
 }
 
-static void
+void
 pps_view_page_accessible_text_init (GtkAccessibleTextInterface *iface)
 {
 	iface->get_contents = pps_view_page_accessible_text_get_contents;
@@ -1384,7 +1383,7 @@ pps_view_page_accessible_text_init (GtkAccessibleTextInterface *iface)
 	iface->get_offset = pps_view_page_accessible_text_get_offset;
 }
 
-static void
+void
 pps_view_page_init (PpsViewPage *page)
 {
 	GtkGesture *annot_drag;
@@ -1487,7 +1486,7 @@ pps_view_page_size_allocate (GtkWidget *widget,
 	}
 }
 
-static void
+void
 pps_view_page_class_init (PpsViewPageClass *page_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (page_class);
@@ -1581,6 +1580,7 @@ pps_view_page_new (void)
 	                     NULL);
 }
 
+
 void
 pps_view_page_set_page (PpsViewPage *page, gint index)
 {
@@ -1605,6 +1605,7 @@ pps_view_page_set_page (PpsViewPage *page, gint index)
 
 	gtk_widget_queue_resize (GTK_WIDGET (page));
 }
+
 
 gint
 pps_view_page_get_page (PpsViewPage *page)

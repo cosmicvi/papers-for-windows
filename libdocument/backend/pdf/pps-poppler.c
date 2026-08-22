@@ -4055,6 +4055,7 @@ pps_media_from_poppler_rendition (PpsDocument *document,
 	if (!poppler_media)
 		return NULL;
 
+#ifndef G_OS_WIN32
 	if (poppler_media_is_embedded (poppler_media)) {
 		gint fd;
 		gchar *filename;
@@ -4074,7 +4075,10 @@ pps_media_from_poppler_rendition (PpsDocument *document,
 	} else {
 		file = get_media_file (poppler_media_get_filename (poppler_media), document);
 	}
-
+#else
+	file = get_media_file (poppler_media_get_filename (poppler_media), document);
+#endif
+	
 	if (!file)
 		return NULL;
 
@@ -4086,7 +4090,9 @@ pps_media_from_poppler_rendition (PpsDocument *document,
 	if (is_temp_file)
 		g_object_set_data_full (G_OBJECT (media), "poppler-media-temp-file", file, (GDestroyNotify) delete_temp_file);
 	else
+#ifndef G_OS_WIN32
 		g_object_unref (file);
+#endif
 
 	return media;
 }

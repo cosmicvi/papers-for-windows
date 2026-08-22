@@ -13,6 +13,8 @@ The Windows port is achieved through standard cross-platform GTK4 libraries and 
 - **Keyring/Secrets Service**: Disabled on Windows since the D-Bus secret service provider (`oo7`) is Linux-only.
 - **Nautilus Extension**: Disabled on Windows since Nautilus is a Linux-only file manager.
 - **File Descriptors**: Unix file descriptor APIs (`fcntl` / `F_DUPFD_CLOEXEC` / `poppler_document_new_from_fd`) are gated behind `#ifndef G_OS_WIN32` blocks in:
+  - `previewer/pps-previewer-window.c`
+  - `previewer/pps-previewer.c`
   - `libview/pps-jobs.c`
   - `libdocument/backend/pdf/pps-poppler.c`
 
@@ -45,12 +47,13 @@ export PATH=/ucrt64/bin:$PATH
 # Setup or reconfigure the Meson build directory
 meson setup build --reconfigure
 
-# Compile targets (C backends, Rust shell, and Windows resources)
+# Compile all targets (C backends, Rust shell, thumbnailer, and previewer)
 meson compile -C build
 ```
 
 The compilation generates the following binaries in the `build/` directory:
 - `build/shell/src/papers.exe` (Main GUI Application)
+- `build/thumbnailer/release/papers-thumbnailer.exe` (Thumbnailer)
 - Backend libraries: `build/libdocument/backend/libpdfdocument.dll`, etc.
 
 ---

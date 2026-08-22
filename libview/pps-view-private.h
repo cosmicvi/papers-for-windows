@@ -29,7 +29,7 @@ typedef struct
 	guint release_timeout_id;
 	gdouble momentum_x;
 	gdouble momentum_y;
-	gboolean in_notify;
+	gboolean in_scroll_notify;
 } DragInfo;
 
 /* Information for handling selection */

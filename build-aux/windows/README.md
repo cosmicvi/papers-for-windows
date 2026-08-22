@@ -54,15 +54,15 @@ meson compile -C build
 
 This compiles:
 - Application binary: `build/shell/src/papers.exe`
+- Previewer binary: `build/previewer/papers-previewer.exe`
+- Thumbnailer binary: `build/thumbnailer/release/papers-thumbnailer.exe`
 - Document backend plugins: `build/libdocument/backend/*.dll`
-
-*(Note: `previewer` and `thumbnailer` are automatically disabled on Windows builds).*
 
 ---
 
 ## 3. Packaging & Staging
 
-To stage a standalone portable release directory (`dist/`) containing `papers.exe` at the root, along with DLL dependencies, backends, GSettings schemas, and MIME database:
+To stage a standalone portable release directory (`dist/`) containing the executables, DLL dependencies, backends, GSettings schemas, and MIME database:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\build-aux\windows\bundle.ps1

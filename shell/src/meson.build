@@ -29,8 +29,8 @@ cargo_deps = [papers_resources]
 if host_machine.system() == 'windows'
   win = import('windows')
   shell_win_res = win.compile_resources(
-    '../../build-aux/windows/papers.rc',
-    depend_files: files('../../build-aux/windows/papers.ico'),
+    '../papers.rc',
+    depend_files: files('../resources/papers.ico'),
   )
   cargo_deps += shell_win_res
   cargo_env.set('RUSTFLAGS', '-C link-arg=' + shell_win_res[0].full_path())

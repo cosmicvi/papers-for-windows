@@ -129,12 +129,12 @@ enum_sources = gnome.mkenums_simple(
 
 libdocument_deps = [
   cairo_dep,
+  exempi_dep,
   gdk_pixbuf_dep,
   gio_dep,
   glib_dep,
   gtk_dep,
   gmodule_dep,
-  exempi_dep,
   m_dep,
   zlib_dep,
   libsysprof_capture_dep,

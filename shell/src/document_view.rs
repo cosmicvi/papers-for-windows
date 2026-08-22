@@ -278,6 +278,8 @@ mod imp {
             self.view
                 .set_allow_links_change_zoom(allow_links_change_zoom);
 
+            self.scrolled_window.set_kinetic_scrolling(true);
+
             self.view.set_model(&self.model);
             self.view
                 .set_annotations_context(&self.annots_context.get());
