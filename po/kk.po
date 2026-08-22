@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-07-30 21:52+0000\n"
-"PO-Revision-Date: 2026-08-01 14:33+0500\n"
+"POT-Creation-Date: 2026-08-02 11:32+0000\n"
+"PO-Revision-Date: 2026-08-21 21:59+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -717,7 +717,7 @@ msgstr "Сіздің баспаға шығару парақтар аралығы
 #. show close if the certificate is null, or if no cert is found
 #: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83
 #: shell/resources/pps-document-view.blp:791 shell/resources/pps-window.blp:138
-#: shell/src/document_view/io.rs:573
+#: shell/src/document_view/io.rs:574
 msgid "_Close"
 msgstr "_Жабу"
 
@@ -918,8 +918,8 @@ msgstr "Papers құжаттарды қарау құралы"
 msgid "The selected printer “%s” could not be found"
 msgstr "Ерекшеленген \"%s\" принтері табылмады"
 
-#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:211
-#: shell/src/document_view/io.rs:212
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:212
+#: shell/src/document_view/io.rs:213
 msgid "Papers"
 msgstr "Papers"
 
@@ -1211,7 +1211,7 @@ msgid "Erase Annotations"
 msgstr "Аннотацияларды өшіру"
 
 #: shell/resources/pps-document-view.blp:513
-#: shell/src/document_view/actions.rs:1350
+#: shell/src/document_view/actions.rs:1359
 msgid "Edit Document"
 msgstr "Құжатты түзету"
 
@@ -1253,9 +1253,9 @@ msgstr ""
 msgid "Abort _Print and Close"
 msgstr "Басы_п шығаруды тоқтату және жабу"
 
-#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:827
-#: shell/src/document_view/io.rs:446 shell/src/document_view/io.rs:494
-#: shell/src/document_view/io.rs:870
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:833
+#: shell/src/document_view/io.rs:447 shell/src/document_view/io.rs:495
+#: shell/src/document_view/io.rs:872
 msgid "_Cancel"
 msgstr "_Бас тарту"
 
@@ -1300,7 +1300,6 @@ msgid "Sign D_igitally…"
 msgstr "Цифрлық қол қо_ю…"
 
 #: shell/resources/pps-document-view.blp:853
-#: shell/src/document_view/actions.rs:1236
 msgid "_Manage Signatures…"
 msgstr "Қолтаңбаларды ба_сқару…"
 
@@ -1413,85 +1412,97 @@ msgstr "Сияны өшіру"
 msgid "Erase Whole Strokes"
 msgstr "Тұтас штрихтарды өшіру"
 
+#: shell/resources/pps-document-view.blp:1432
+msgid "Manage Signatures…"
+msgstr "Қолтаңбаларды басқару…"
+
+#: shell/resources/pps-document-view.blp:1451
+msgid "No Signatures Yet"
+msgstr "Қолтаңбалар әлі жоқ"
+
+#: shell/resources/pps-document-view.blp:1461
+msgid "Add Signature"
+msgstr "Қолтаңбаны қосу"
+
 #. Translators: As a noun, this is describing the type of text marking annotation, as are squiggly, strikethrough, and underline. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1447
+#: shell/resources/pps-document-view.blp:1509
 msgid "Highlight (h)"
 msgstr "Ерекшелеу (h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text marking annotation, as are highlight, squiggly, and underline. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1463
+#: shell/resources/pps-document-view.blp:1525
 msgid "Strikethrough (k)"
 msgstr "Сызып тастау (k)"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are highlight, squiggly, and strikethrough. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1479
+#: shell/resources/pps-document-view.blp:1541
 msgid "Underline (u)"
 msgstr "Астын сызу (u)"
 
 #. Translators: As an adjective, this is describing the type of text marking annotation, as are highlight, strikethrough, and underline. A noun could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1495
+#: shell/resources/pps-document-view.blp:1557
 msgid "Squiggly (q)"
 msgstr "Ирек сызық (q)"
 
-#: shell/resources/pps-document-view.blp:1586
+#: shell/resources/pps-document-view.blp:1648
 msgid "_Open Link"
 msgstr "Сі_лтемені ашу"
 
-#: shell/resources/pps-document-view.blp:1592
+#: shell/resources/pps-document-view.blp:1654
 msgid "Send an Email"
 msgstr "Электрондық поштаны жіберу"
 
-#: shell/resources/pps-document-view.blp:1598
+#: shell/resources/pps-document-view.blp:1660
 msgid "_Copy Link Address"
 msgstr "Сілтеме адр_есін көшіру"
 
-#: shell/resources/pps-document-view.blp:1604
+#: shell/resources/pps-document-view.blp:1666
 msgid "Copy Email Address"
 msgstr "Электрондық пошта адресін көшіру"
 
-#: shell/resources/pps-document-view.blp:1610
+#: shell/resources/pps-document-view.blp:1672
 msgid "_Go To"
 msgstr "Ө_ту"
 
-#: shell/resources/pps-document-view.blp:1616
+#: shell/resources/pps-document-view.blp:1678
 msgid "Open in New _Window"
 msgstr "Жаңа тере_зеде ашу"
 
-#: shell/resources/pps-document-view.blp:1624
+#: shell/resources/pps-document-view.blp:1686
 msgid "_Copy"
 msgstr "_Көшіру"
 
-#: shell/resources/pps-document-view.blp:1629
+#: shell/resources/pps-document-view.blp:1691
 msgid "Select _All"
 msgstr "Б_арлығын таңдау"
 
-#: shell/resources/pps-document-view.blp:1636
+#: shell/resources/pps-document-view.blp:1698
 msgid "_Save Image As…"
 msgstr "_Суретті қалайша сақтау…"
 
-#: shell/resources/pps-document-view.blp:1642
+#: shell/resources/pps-document-view.blp:1704
 msgid "Copy _Image"
 msgstr "Сурет_ті көшіру"
 
-#: shell/resources/pps-document-view.blp:1650
+#: shell/resources/pps-document-view.blp:1712
 #: shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "Сал_ынымды ашу"
 
-#: shell/resources/pps-document-view.blp:1656
+#: shell/resources/pps-document-view.blp:1718
 #: shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "С_алынымды қалайша сақтау…"
 
-#: shell/resources/pps-document-view.blp:1666
+#: shell/resources/pps-document-view.blp:1728
 msgid "Annotation _Properties…"
 msgstr "Аңдатпа қас_иеттері…"
 
-#: shell/resources/pps-document-view.blp:1672
+#: shell/resources/pps-document-view.blp:1734
 msgid "R_emove Annotation"
 msgstr "Аңдатпаны ө_шіру"
 
-#: shell/resources/pps-document-view.blp:1680
+#: shell/resources/pps-document-view.blp:1742
 msgid "_Add Text Annotation"
 msgstr "_Мәтіндік аңдатпа қосу"
 
@@ -1521,7 +1532,7 @@ msgstr "Б_ас тарту"
 
 #: shell/resources/pps-password-dialog.blp:5
 #: shell/resources/pps-password-view.blp:11
-#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:863
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:865
 msgid "Password Required"
 msgstr "Пароль керек"
 
@@ -2037,11 +2048,11 @@ msgstr "Бағдарлама нұсқасын көрсету."
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: shell/src/document_view.rs:366
+#: shell/src/document_view.rs:372
 msgid "View Details"
 msgstr "Мәліметтерді көру"
 
-#: shell/src/document_view.rs:803
+#: shell/src/document_view.rs:809
 msgid ""
 "Document contains new or modified annotations and form fields that have been "
 "filled out."
@@ -2049,82 +2060,78 @@ msgstr ""
 "Құжатта жаңа немесе өзгертілген аңдатпалар мен толтырылған форма өрістері "
 "бар."
 
-#: shell/src/document_view.rs:806
+#: shell/src/document_view.rs:812
 msgid "Document contains form fields that have been filled out."
 msgstr "Құжатта толтырылған форма өрістері бар."
 
-#: shell/src/document_view.rs:808
+#: shell/src/document_view.rs:814
 msgid "Document contains new or modified annotations."
 msgstr "Құжатта жаңа немесе өзгертілген аңдатпалар бар."
 
-#: shell/src/document_view.rs:816
+#: shell/src/document_view.rs:822
 msgid "If you don’t save a copy, changes will be permanently lost."
 msgstr "Көшірмесін сақтамасаңыз, өзгерістер жоғалады."
 
-#: shell/src/document_view.rs:817
+#: shell/src/document_view.rs:823
 msgid "Save Changes to a Copy?"
 msgstr "Өзгерістерді көшірмеге сақтау керек пе?"
 
-#: shell/src/document_view.rs:826
+#: shell/src/document_view.rs:832
 msgid "Close _Without Saving"
 msgstr "Сақтаус_ыз жабу"
 
-#: shell/src/document_view.rs:828
+#: shell/src/document_view.rs:834
 msgid "_Save a Copy"
 msgstr "Көшірмесін _сақтау"
 
-#: shell/src/document_view/actions.rs:1022
+#: shell/src/document_view/actions.rs:1033
 msgid "Save Image"
 msgstr "Суретті сақтау"
 
-#: shell/src/document_view/actions.rs:1154
+#: shell/src/document_view/actions.rs:1165
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr ""
 "Меңзермен навигация режимі іске қосылды, сөндіру үшін F7 пернесін басыңыз."
 
-#: shell/src/document_view/actions.rs:1156
+#: shell/src/document_view/actions.rs:1167
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr ""
 "Меңзермен навигация режимі сөндірілді, іске қосу үшін F7 пернесін басыңыз."
 
-#: shell/src/document_view/actions.rs:1242
-msgid "Add _Manual Signature"
-msgstr "Қол_дан қойылған қолтаңбаны қосу"
+#: shell/src/document_view/actions.rs:1255
+msgid "Add _Visual Signature"
+msgstr "_Визуалды қолтаңбаны қосу"
 
-#: shell/src/document_view/actions.rs:1282
-msgid "No signatures yet"
-msgstr "Қолтаңбалар әлі жоқ"
-
-#: shell/src/document_view/actions.rs:1339
+#: shell/src/document_view/actions.rs:1348
 msgid "Close Menu"
 msgstr "Мәзірді жабу"
 
-#: shell/src/document_view/actions.rs:1435
+#: shell/src/document_view/actions.rs:1444
 msgid "Unable to Open Attachment"
 msgstr "Салынымды ашу мүмкін емес"
 
-#: shell/src/document_view/actions.rs:1450
+#: shell/src/document_view/actions.rs:1459
 msgctxt "This is an action"
 msgid "Save Attachment"
 msgstr "Тіркемені сақтау"
 
-#: shell/src/document_view/io.rs:290
+#: shell/src/document_view/io.rs:291
 msgid "The Document Contains No Pages"
 msgstr "Құжатта беттер жоқ"
 
-#: shell/src/document_view/io.rs:292
+#: shell/src/document_view/io.rs:293
 msgid "The Document Contains Only Empty Pages"
 msgstr "Құжатта тек бос беттер бар"
 
-#: shell/src/document_view/io.rs:368
+#: shell/src/document_view/io.rs:369
 msgid "Save As…"
 msgstr "Қалайша сақтау…"
 
-#: shell/src/document_view/io.rs:445
+#: shell/src/document_view/io.rs:446
 msgid "Draw a rectangle to insert a signature field"
 msgstr "Қолтаңба өрісін кірістіру үшін тіктөртбұрыш салыңыз"
 
-#: shell/src/document_view/io.rs:468
+#: shell/src/document_view/io.rs:469
 #, rust-format
 msgid ""
 "Digitally signed by {}\n"
@@ -2133,32 +2140,32 @@ msgstr ""
 "Цифрлық қол қойған: {}\n"
 "Күні: {}"
 
-#: shell/src/document_view/io.rs:487
+#: shell/src/document_view/io.rs:488
 msgid "Certificate Required"
 msgstr "Сертификат қажет"
 
-#: shell/src/document_view/io.rs:490
+#: shell/src/document_view/io.rs:491
 msgid "Select signing certificate"
 msgstr "Қол қою сертификатын таңдаңыз"
 
-#: shell/src/document_view/io.rs:491
+#: shell/src/document_view/io.rs:492
 msgid "Select"
 msgstr "Таңдау"
 
-#: shell/src/document_view/io.rs:571
+#: shell/src/document_view/io.rs:572
 msgid "A certificate is required to sign this document"
 msgstr "Бұл құжатқа қол қою үшін сертификат қажет"
 
-#: shell/src/document_view/io.rs:824
+#: shell/src/document_view/io.rs:826
 msgid "Save Signed File"
 msgstr "Қол қойылған файлды сақтау"
 
-#: shell/src/document_view/io.rs:854
+#: shell/src/document_view/io.rs:856
 #, rust-format
 msgid "Please enter password for {}"
 msgstr "{} үшін парольді енгізіңіз"
 
-#: shell/src/document_view/io.rs:871
+#: shell/src/document_view/io.rs:873
 msgid "_Login"
 msgstr "_Кіру"
 

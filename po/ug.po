@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: evince\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
-"POT-Creation-Date: 2026-01-26 15:31+0000\n"
-"PO-Revision-Date: 2026-01-27 16:19-0500\n"
+"POT-Creation-Date: 2026-08-02 11:32+0000\n"
+"PO-Revision-Date: 2026-08-19 11:27-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -18,10 +18,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-DamnedLies-Scope: partial\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Manually set name and icon
-#: data/org.gnome.Papers.desktop.in.in:2 data/org.gnome.Papers.metainfo.xml.in.in:9 shell/resources/pps-document-view.blp:87 shell/resources/pps-loader-view.blp:10 shell/src/application.rs:47 shell/src/application.rs:359
+#: data/org.gnome.Papers.desktop.in.in:2 data/org.gnome.Papers.metainfo.xml.in.in:9
+#: shell/resources/pps-document-view.blp:88 shell/resources/pps-loader-view.blp:10
+#: shell/src/application.rs:47 shell/src/application.rs:389
 msgid "Document Viewer"
 msgstr "پۈتۈك كۆرگۈچ"
 
@@ -48,7 +51,8 @@ msgstr "پۈتۈكتىكى كۆچۈرۈش ۋە بېسىش ھەققىدىكى چ�
 
 #: data/org.gnome.Papers.gschema.xml:19
 msgid "The URI of the directory last used to open or save a document"
-msgstr "ھۆججەت ئوقۇش ياكى ساقلاشتا ئىشلىتىلگەن ئەڭ ئاخىرقى مۇندەرىجىنىڭ ئالاھىدە يولى(URI)"
+msgstr ""
+"ھۆججەت ئوقۇش ياكى ساقلاشتا ئىشلىتىلگەن ئەڭ ئاخىرقى مۇندەرىجىنىڭ ئالاھىدە يولى(URI)"
 
 #: data/org.gnome.Papers.gschema.xml:23
 msgid "The URI of the directory last used to save a picture"
@@ -59,68 +63,222 @@ msgid "Page cache size in MiB"
 msgstr "بەت غەملەك چوڭلۇقى MiB"
 
 #: data/org.gnome.Papers.gschema.xml:28
-msgid "The maximum size that will be used to cache rendered pages, limits maximum zoom level."
-msgstr "شەكىللەندۈرگەن غەملەكنىڭ ئەڭ چوڭ چوڭلۇقى، ئەڭ چوڭ چوڭايتىش دەرىجىسىنى چەكلەيدۇ."
+msgid ""
+"The maximum size that will be used to cache rendered pages, limits maximum zoom "
+"level."
+msgstr ""
+"شەكىللەندۈرگەن غەملەكنىڭ ئەڭ چوڭ چوڭلۇقى، ئەڭ چوڭ چوڭايتىش دەرىجىسىنى چەكلەيدۇ."
 
 #: data/org.gnome.Papers.gschema.xml:32
 msgid "Allow links to change the zoom level."
 msgstr "ئۇلانمىنىڭ چوڭايتىش دەرىجىسىنى ئۆزگەرتىشىگە يول قويىدۇ."
 
-#: data/org.gnome.Papers.gschema.xml:43
+#: data/org.gnome.Papers.gschema.xml:44
 msgid "Check spelling when writing annotation notes or filling text forms."
 msgstr "بەت ئاستى ئىزاھاتى يازغاندا ياكى تېكىست جەدۋەل تولدۇرغاندا ئىملا تەكشۈرىدۇ."
 
-#: data/org.gnome.Papers.gschema.xml:47
+#: data/org.gnome.Papers.gschema.xml:48
 msgid "Show a side bar next to the document to help navigate the document."
-msgstr "پۈتۈكنىڭ يېنىدا يان بالداقنى كۆرسىتىپ پۈتۈكنى يېتەكلەپ كۆرسىتىشكە ياردەم بېرىدۇ."
+msgstr ""
+"پۈتۈكنىڭ يېنىدا يان بالداقنى كۆرسىتىپ پۈتۈكنى يېتەكلەپ كۆرسىتىشكە ياردەم بېرىدۇ."
 
-#: data/org.gnome.Papers.gschema.xml:60
+#: data/org.gnome.Papers.gschema.xml:61
 msgid "Set the default zoom level to display a document."
 msgstr "پۈتۈكنى كۆرسىتىشنىڭ كۆڭۈلدىكى چوڭايتىش دەرىجىسىنى تەڭشەيدۇ."
 
-#: data/org.gnome.Papers.gschema.xml:64
+#: data/org.gnome.Papers.gschema.xml:65
 msgid "Display the document as a continuous stream of pages instead of page at a time."
 msgstr "پۈتۈكنى بىر قېتىمدا بىر بەت ئەمەس بەلكى ئۈزلۈكسىز بەت ئېقىمىدەك كۆرسىتىدۇ."
 
-#: data/org.gnome.Papers.gschema.xml:68
+#: data/org.gnome.Papers.gschema.xml:69
 msgid "Show two pages side by side."
 msgstr "ئىككى بەتنى يانمۇيان كۆرسىتىدۇ."
 
-#: data/org.gnome.Papers.gschema.xml:72
-msgid "Show the first page (odd page) on the left (when displaying two pages side by side)"
-msgstr "بىرىنچى بەت (تاق بەت) نى سول تەرەپتە كۆرسىتىدۇ (ئىككى بەتنى يانمۇ يان كۆرسەتكەندە)"
+#: data/org.gnome.Papers.gschema.xml:73
+msgid ""
+"Show the first page (odd page) on the left (when displaying two pages side by side)"
+msgstr ""
+"بىرىنچى بەت (تاق بەت) نى سول تەرەپتە كۆرسىتىدۇ (ئىككى بەتنى يانمۇ يان كۆرسەتكەندە)"
+
+#: data/org.gnome.Papers.gschema.xml:122
+msgid "Previewer window height"
+msgstr "ئالدىن كۆزىتىش كۆزنىكىنىڭ ئېگىزلىكى"
+
+#: data/org.gnome.Papers.gschema.xml:126
+msgid "Previewer window width"
+msgstr "ئالدىن كۆزەتكۈچ كۆزنىكىنىڭ ئېگىزلىكى"
+
+#: data/org.gnome.Papers.gschema.xml:130
+msgid "Previewer window maximized state"
+msgstr "ئالدىن كۆزەتكۈچ كۆزنىكىنىڭ ئېگىزلىكى"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:10
 msgid "Read documents"
 msgstr "پۈتۈك ئوقۇيدۇ"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:12
-msgid "A document viewer for the GNOME desktop. You can view, search or annotate documents in many different formats."
-msgstr "GNOME پۈتۈك ئوقۇغۇچ. نۇرغۇن پەرقلىق پىچىمدىكى پۈتۈكنى كۆرۈپ، ئىزدەپ ياكى ئىزاھات يازالايسىز."
+msgid ""
+"A document viewer for the GNOME desktop. You can view, search or annotate documents "
+"in many different formats."
+msgstr ""
+"GNOME پۈتۈك ئوقۇغۇچ. نۇرغۇن پەرقلىق پىچىمدىكى پۈتۈكنى كۆرۈپ، ئىزدەپ ياكى ئىزاھات "
+"يازالايسىز."
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:13
-msgid "Papers supports documents in: PDF, DjVu, TIFF, and Comic Books archives (CBR, CBT, CBZ, CB7)."
-msgstr "Papers قوللايدىغان پۈتۈك: PDF، DjVu، TIFF ۋە ھەجۋىي رەسىملىك كىتاب (CBR، CBT، CBZ، CB7)"
+msgid ""
+"Papers supports documents in: PDF, DjVu, TIFF, and Comic Books archives (CBR, CBT, "
+"CBZ, CB7)."
+msgstr ""
+"Papers قوللايدىغان پۈتۈك: PDF، DjVu، TIFF ۋە ھەجۋىي رەسىملىك كىتاب (CBR، CBT، CBZ، "
+"CB7)"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:18
+msgid "PDF"
+msgstr "PDF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:19
+msgid "comics"
+msgstr "ھەجۋىي رەسىم"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:20
+msgid "DjVu"
+msgstr "DjVu"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:21
+msgid "TIFF"
+msgstr "TIFF"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:22
+msgid "reader"
+msgstr "ئوقۇغۇچ"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:23
+msgid "editor"
+msgstr "تەھرىرلىگۈچ"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:24
+msgid "editing"
+msgstr "تەھرىرلەش"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:25
+msgid "forms"
+msgstr "كۆزنەك"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:26
+msgid "annotate"
+msgstr "ئىلاۋە"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:27
+msgid "annotations"
+msgstr "ئىلاۋە"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:28
+msgid "annotating"
+msgstr "ئىلاۋە يېزىۋاتىدۇ"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:29
+msgid "digital signing"
+msgstr "رەقەملىك ئىمزا"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:30
+msgid "digital signatures"
+msgstr "رەقەملىك ئىمزا"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:31
+msgid "handwriting"
+msgstr "قوليازما"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:32
+msgid "handwritten"
+msgstr "قولدا يېزىلغان"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:33
+msgid "ink"
+msgstr "سىياھ"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:34
+msgid "freehand"
+msgstr "قۇرۇق قول"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:35
+msgid "drawing"
+msgstr "سىزمىچىلىق"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:36
+msgid "calligraphy"
+msgstr "خەتتاتلىق"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:37
+msgid "notes"
+msgstr "خاتىرە"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:38
+msgid "highlighting"
+msgstr "يورۇتۇش"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:39
+msgid "underline"
+msgstr "ئاستى سىزىق"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:40
+msgid "underlining"
+msgstr "ئاستى سىزىق"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:41
+msgid "strikethrough"
+msgstr "ئۆچۈرۈش سىزىقى"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:42
+msgid "printing"
+msgstr "بېسىش"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:43
+msgid "night mode"
+msgstr "كېچە ھالىتى"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:44
+msgid "dark mode"
+msgstr "قاراڭغۇ ھالەت"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:45
+msgid "presentation mode"
+msgstr "كۆرسەتمە ھالىتى"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:46
+msgid "presenter mode"
+msgstr "رىياسەتچى ھالىتى"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:47
+msgid "slideshows"
+msgstr "سىيرىلما"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:48
+msgid "bookmarks"
+msgstr "خەتكۈش"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:65
 msgid "A clear, simple, and modern UI"
 msgstr "ئېنىق، ئاددىي ۋە زامانىۋى ئىشلەتكۈچى ئارايۈز"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:33
+#: data/org.gnome.Papers.metainfo.xml.in.in:69
 msgid "A mobile-friendly UI"
 msgstr "كۆچمە ئۈسكۈنىگە دوستانە ئىشلەتكۈچى ئارايۈز"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:37
+#: data/org.gnome.Papers.metainfo.xml.in.in:73
 msgid "A modern and colorful annotation list"
 msgstr "زامانىۋى ۋە رەڭلىك ئىزاھات تىزىمى"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:41
+#: data/org.gnome.Papers.metainfo.xml.in.in:77
 msgid "Big thumbnails in the sidebar"
 msgstr "يان بالداقتا چوڭ ئۆلچەمدىكى كىچىك سۈرەت"
 
-#: data/org.gnome.Papers.metainfo.xml.in.in:45
+#: data/org.gnome.Papers.metainfo.xml.in.in:81
 msgid "All search actions are contained in the sidebar"
 msgstr "يان بالداقتا بارلىق ئىزدەش مەشغۇلاتى بار"
+
+#: data/org.gnome.Papers.metainfo.xml.in.in:96
+msgid "The GNOME Project"
+msgstr "GNOME قۇرۇلۇشى"
 
 #: data/org.gnome.Papers-previewer.desktop.in.in:2
 msgid "Print Preview"
@@ -130,7 +288,8 @@ msgstr "بېسىشنى ئالدىن كۆزەت"
 msgid "Preview before printing"
 msgstr "بېسىپ چىقىرىشتىن بۇرۇن كۆرۈپ باقىدۇ"
 
-#: libdocument/backend/comics/comics-document.c:179 libdocument/backend/comics/comics-document.c:248
+#: libdocument/backend/comics/comics-document.c:179
+#: libdocument/backend/comics/comics-document.c:248
 msgid "File is corrupted"
 msgstr "ھۆججەت بۇزۇلغان"
 
@@ -152,14 +311,19 @@ msgid "Not a comic book MIME type: %s"
 msgstr "ھەجۋىي رەسىملىك كىتاب MIME تىپى ئەمەس: %s"
 
 #: libdocument/backend/comics/comics-document.c:309
-msgid "libarchive lacks support for this comic book’s compression, please contact your distributor"
-msgstr "libarchive مەزكۇر ھەجۋىي رەسىملىك كىتابنىڭ قىسىش ھېسابلاش ئۇسۇلىنى تېخى قوللىمايدۇ، يۇمشاق دېتال تارقاتقۇچى بىلەن ئالاقىلىشىڭ"
+msgid ""
+"libarchive lacks support for this comic book’s compression, please contact your "
+"distributor"
+msgstr ""
+"libarchive مەزكۇر ھەجۋىي رەسىملىك كىتابنىڭ قىسىش ھېسابلاش ئۇسۇلىنى تېخى قوللىمايدۇ، "
+"يۇمشاق دېتال تارقاتقۇچى بىلەن ئالاقىلىشىڭ"
 
 #: libdocument/backend/comics/comics-document.c:348
 msgid "Can not get local path for archive"
 msgstr "ئارخىپنىڭ يەرلىك يولىغا ئېرىشەلمەيدۇ"
 
-#: libdocument/backend/comics/org.gnome.Papers.ComicsDocument.papers-backend.desktop.in.in:3 libdocument/backend/comics/org.gnome.Papers.ComicsDocument.metainfo.xml.in.in:5
+#: libdocument/backend/comics/org.gnome.Papers.ComicsDocument.papers-backend.desktop.in.in:3
+#: libdocument/backend/comics/org.gnome.Papers.ComicsDocument.metainfo.xml.in.in:5
 msgid "Comic Books"
 msgstr "ھەجۋىي رەسىملىك كىتاب"
 
@@ -172,10 +336,15 @@ msgid "DjVu document has incorrect format"
 msgstr "DjVu پۈتۈكىدە ناتوغرا پىچىم بار"
 
 #: libdocument/backend/djvu/djvu-document.c:263
-msgid "The document is composed of several files. One or more of these files cannot be accessed."
-msgstr "بۇ پۈتۈك بىر قانچە ھۆججەتتىن تەركىب تاپقان، بىر ياكى بىر قانچىسىنى زىيارەت قىلغىلى بولمايدۇ."
+msgid ""
+"The document is composed of several files. One or more of these files cannot be "
+"accessed."
+msgstr ""
+"بۇ پۈتۈك بىر قانچە ھۆججەتتىن تەركىب تاپقان، بىر ياكى بىر قانچىسىنى زىيارەت قىلغىلى "
+"بولمايدۇ."
 
-#: libdocument/backend/djvu/org.gnome.Papers.DjvuDocument.papers-backend.desktop.in.in:3 libdocument/backend/djvu/org.gnome.Papers.DjvuDocument.metainfo.xml.in.in:5
+#: libdocument/backend/djvu/org.gnome.Papers.DjvuDocument.papers-backend.desktop.in.in:3
+#: libdocument/backend/djvu/org.gnome.Papers.DjvuDocument.metainfo.xml.in.in:5
 msgid "DjVu Documents"
 msgstr "DjVu پۈتۈك"
 
@@ -183,7 +352,8 @@ msgstr "DjVu پۈتۈك"
 msgid "Adds support for reading DjVu documents"
 msgstr "DjVu پۈتۈكنى ئوقۇش ئىقتىدارىنى قوشىدۇ"
 
-#: libdocument/backend/pdf/org.gnome.Papers.PdfDocument.metainfo.xml.in.in:5 libdocument/backend/pdf/org.gnome.Papers.PdfDocument.papers-backend.desktop.in.in:4
+#: libdocument/backend/pdf/org.gnome.Papers.PdfDocument.metainfo.xml.in.in:5
+#: libdocument/backend/pdf/org.gnome.Papers.PdfDocument.papers-backend.desktop.in.in:4
 msgid "PDF Documents"
 msgstr "PDF پۈتۈك"
 
@@ -192,56 +362,65 @@ msgid "Adds support for reading PDF Documents"
 msgstr "PDF پۈتۈكنى ئوقۇش ئىقتىدارىنى قوشىدۇ"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:737 libdocument/backend/pdf/pps-poppler.c:743 nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
+#: libdocument/backend/pdf/pps-poppler.c:734 libdocument/backend/pdf/pps-poppler.c:740
+#: nautilus/pps-nautilus-extension.c:93 shell/src/properties_general.rs:336
 msgid "Yes"
 msgstr "ھەئە"
 
 #. translators: this is the document security state
-#: libdocument/backend/pdf/pps-poppler.c:740 libdocument/backend/pdf/pps-poppler.c:743 nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
+#: libdocument/backend/pdf/pps-poppler.c:737 libdocument/backend/pdf/pps-poppler.c:740
+#: nautilus/pps-nautilus-extension.c:95 shell/src/properties_general.rs:337
 msgid "No"
 msgstr "ياق"
 
-#: libdocument/backend/pdf/pps-poppler.c:853
+#: libdocument/backend/pdf/pps-poppler.c:850
 msgid "Type 1"
 msgstr "تىپى 1"
 
-#: libdocument/backend/pdf/pps-poppler.c:855
+#: libdocument/backend/pdf/pps-poppler.c:852
 msgid "Type 1C"
 msgstr "تىپى 1C"
 
-#: libdocument/backend/pdf/pps-poppler.c:857
+#: libdocument/backend/pdf/pps-poppler.c:854
 msgid "Type 3"
 msgstr "تىپى 3"
 
-#: libdocument/backend/pdf/pps-poppler.c:859
+#: libdocument/backend/pdf/pps-poppler.c:856
 msgid "TrueType"
 msgstr "TrueType"
 
-#: libdocument/backend/pdf/pps-poppler.c:861
+#: libdocument/backend/pdf/pps-poppler.c:858
 msgid "Type 1 (CID)"
 msgstr "تىپى 1 (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:863
+#: libdocument/backend/pdf/pps-poppler.c:860
 msgid "Type 1C (CID)"
 msgstr "تىپى 1C (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:865
+#: libdocument/backend/pdf/pps-poppler.c:862
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: libdocument/backend/pdf/pps-poppler.c:867
+#: libdocument/backend/pdf/pps-poppler.c:864
 msgid "Unknown font type"
 msgstr "نامەلۇم فونت تىپى"
 
-#: libdocument/backend/pdf/pps-poppler.c:911
-msgid "This document contains non-embedded fonts that are not from the PDF Standard 14 fonts. If the substitute fonts selected by fontconfig are not the same as the fonts used to create the PDF, the rendering may not be correct."
-msgstr "مەزكۇر پۈتۈكنىڭ ئىچىدە PDF ئۆلچىمىدە بەلگىلەنگەن 14 دانە ئۆلچەملىك خەت نۇسخىسىدىن باشقا خەت نۇسخىسى بار ئىكەن. fontconfig ئارقىلىق بەلگىلەن ئالماشتۇرۇپ ئىشلىتىدىغان خەت نۇسخىلىرى PDF نى ياساشتا ئىشلىتىلگەن خەت نۇسخىلىرى بىلەن ئوخشىماي قالسا، PDF نىڭ كۆرۈنۈشىمۇ توغرا بولماي قالىدۇ."
+#: libdocument/backend/pdf/pps-poppler.c:908
+msgid ""
+"This document contains non-embedded fonts that are not from the PDF Standard 14 "
+"fonts. If the substitute fonts selected by fontconfig are not the same as the fonts "
+"used to create the PDF, the rendering may not be correct."
+msgstr ""
+"مەزكۇر پۈتۈكنىڭ ئىچىدە PDF ئۆلچىمىدە بەلگىلەنگەن 14 دانە ئۆلچەملىك خەت نۇسخىسىدىن "
+"باشقا خەت نۇسخىسى بار ئىكەن. fontconfig ئارقىلىق بەلگىلەن ئالماشتۇرۇپ ئىشلىتىدىغان "
+"خەت نۇسخىلىرى PDF نى ياساشتا ئىشلىتىلگەن خەت نۇسخىلىرى بىلەن ئوخشىماي قالسا، PDF نىڭ "
+"كۆرۈنۈشىمۇ توغرا بولماي قالىدۇ."
 
-#: libdocument/backend/pdf/pps-poppler.c:916
+#: libdocument/backend/pdf/pps-poppler.c:913
 msgid "All fonts are either standard or embedded."
 msgstr "بارلىق خەت نۇسخىلىرى ئۆلچەملىك ياكى ئىچىگە سىڭدۈرۈلگەن ئىكەن."
 
-#: libdocument/backend/pdf/pps-poppler.c:952
+#: libdocument/backend/pdf/pps-poppler.c:949
 msgid "No name"
 msgstr "ئاتسىز"
 
@@ -249,19 +428,21 @@ msgstr "ئاتسىز"
 #. encoding information or it is unknown.  Example:
 #. Encoding: None
 #.
-#: libdocument/backend/pdf/pps-poppler.c:961 libview/pps-print-operation.c:1878 shell/src/properties_general.rs:85 shell/src/properties_general.rs:235 shell/src/properties_general.rs:370
+#: libdocument/backend/pdf/pps-poppler.c:958 libview/pps-print-operation.c:1878
+#: shell/src/properties_general.rs:85 shell/src/properties_general.rs:235
+#: shell/src/properties_general.rs:370
 msgid "None"
 msgstr "يوق"
 
-#: libdocument/backend/pdf/pps-poppler.c:969
+#: libdocument/backend/pdf/pps-poppler.c:966
 msgid "Embedded subset"
 msgstr "سىڭدۈرمە تارماق توپلام"
 
-#: libdocument/backend/pdf/pps-poppler.c:971
+#: libdocument/backend/pdf/pps-poppler.c:968
 msgid "Embedded"
 msgstr "سىڭدۈرۈلگەن"
 
-#: libdocument/backend/pdf/pps-poppler.c:973
+#: libdocument/backend/pdf/pps-poppler.c:970
 msgid "Not embedded"
 msgstr "سىڭدۈرۈلمىگەن"
 
@@ -270,7 +451,7 @@ msgstr "سىڭدۈرۈلمىگەن"
 #. * type. Example:
 #. * "Type 1 (One of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:980
+#: libdocument/backend/pdf/pps-poppler.c:977
 msgid " (One of the Standard 14 Fonts)"
 msgstr " (14 دانە ئۆلچەملىك خەت نۇسخىسىنىڭ بىرى)"
 
@@ -279,7 +460,7 @@ msgstr " (14 دانە ئۆلچەملىك خەت نۇسخىسىنىڭ بىرى)"
 #. * type. Example:
 #. * "TrueType (Not one of the Standard 14 Fonts)"
 #.
-#: libdocument/backend/pdf/pps-poppler.c:987
+#: libdocument/backend/pdf/pps-poppler.c:984
 msgid " (Not one of the Standard 14 Fonts)"
 msgstr " (14 دانە ئۆلچەملىك خەت نۇسخىسىنىڭ بىرى ئەمەس)"
 
@@ -293,7 +474,7 @@ msgstr " (14 دانە ئۆلچەملىك خەت نۇسخىسىنىڭ بىرى ئ
 #. * Substituting with TeXGyreTermes-Regular
 #. * (/usr/share/textmf/.../texgyretermes-regular.otf)
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1006
+#: libdocument/backend/pdf/pps-poppler.c:1003
 #, c-format
 msgid ""
 "%s%s\n"
@@ -317,7 +498,7 @@ msgstr ""
 #. * Encoding: Custom
 #. * Embedded subset
 #.
-#: libdocument/backend/pdf/pps-poppler.c:1024
+#: libdocument/backend/pdf/pps-poppler.c:1021
 #, c-format
 msgid ""
 "%s%s\n"
@@ -328,7 +509,8 @@ msgstr ""
 "كودلاش: %s\n"
 "%s"
 
-#: libdocument/backend/tiff/org.gnome.Papers.TiffDocument.metainfo.xml.in.in:5 libdocument/backend/tiff/org.gnome.Papers.TiffDocument.papers-backend.desktop.in.in:3
+#: libdocument/backend/tiff/org.gnome.Papers.TiffDocument.metainfo.xml.in.in:5
+#: libdocument/backend/tiff/org.gnome.Papers.TiffDocument.papers-backend.desktop.in.in:3
 msgid "TIFF Documents"
 msgstr "TIFF پۈتۈك"
 
@@ -374,40 +556,75 @@ msgstr "ھەممە ھۆججەت"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libdocument/pps-document-info.c:198
+#: libdocument/pps-document-info.c:200
 msgid "default:mm"
 msgstr "كۆڭۈلدىكى:mm"
 
-#: libdocument/pps-document-info.c:250
+#. Note to translators: this string makes a range of pages that have a certain size,
+#. * the first and the second placeholders %i are the start and the end of this range
+#. * (e.g. 1-5), and the minus sign separates them
+#: libdocument/pps-document-info.c:258
+#, c-format
+msgid "%i-%i"
+msgstr "%i-%i"
+
+#. Note to translators: this is a separator that separates two or more page ranges,
+#. * or individual page numbers (e.g. 1, 3-7, 9, 11-12)
+#: libdocument/pps-document-info.c:264
+msgid ", "
+msgstr "، "
+
+#. Note to translators: first placeholder is the paper width
+#. * in mm, second placeholder is the paper height in mm,
+#. * both do not have a decimal point (e.g. 297 x 210 mm)
+#: libdocument/pps-document-info.c:327
 #, c-format
 msgid "%.0f × %.0f mm"
 msgstr "%.0f × %.0f mm"
 
-#: libdocument/pps-document-info.c:254
+#. Note to translators: first placeholder is the paper width
+#. * in inches, second placeholder is the paper height in inches,
+#. * both with 2 decimal places (e.g. 8.50 × 11.00 inch)
+#: libdocument/pps-document-info.c:334
 #, c-format
 msgid "%.2f × %.2f inch"
 msgstr "%.2f × %.2f inch"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:278
+#: libdocument/pps-document-info.c:356
 #, c-format
 msgid "%s, Portrait (%s)"
 msgstr "%s، بويىغا (%s)"
 
 #. Note to translators: first placeholder is the paper name (eg.
 #. * A4), second placeholder is the paper size (eg. 297x210 mm)
-#: libdocument/pps-document-info.c:285
+#: libdocument/pps-document-info.c:363
 #, c-format
 msgid "%s, Landscape (%s)"
 msgstr "%s، توغرىسىغا (%s)"
+
+#. Note to translators: the first placeholder %s is the singular or plural form of the word "Page",
+#. * the second placeholder is a page number or range(e.g. "1, 5-12"),
+#. * the third placeholder is the page format (e.g. US Letter, Portrait (8.50 × 11.00 inch))
+#: libdocument/pps-document-info.c:397
+#, c-format
+msgid "%s %s: %s"
+msgstr "%s %s: %s"
+
+#: libdocument/pps-document-info.c:397
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "بەت"
 
 #: libdocument/pps-file-helpers.c:131
 #, c-format
 msgid "Failed to create a temporary file: %s"
 msgstr "ۋاقىتلىق ھۆججەت قۇرالمىدى: %s"
 
-#: libdocument/pps-file-helpers.c:337 libdocument/pps-file-helpers.c:374 libdocument/pps-file-helpers.c:381 libdocument/pps-file-helpers.c:463 libdocument/pps-file-helpers.c:470
+#: libdocument/pps-file-helpers.c:337 libdocument/pps-file-helpers.c:374
+#: libdocument/pps-file-helpers.c:381 libdocument/pps-file-helpers.c:463
+#: libdocument/pps-file-helpers.c:470
 msgid "Unknown MIME Type"
 msgstr "نامەلۇم MIME تىپى"
 
@@ -425,7 +642,7 @@ msgstr[0] "قوشۇلمىنى ساقلا"
 msgid "Page %s"
 msgstr "‎%s‎‏-بەت"
 
-#: libview/pps-annotation-window.c:237 shell/resources/pps-sidebar-annotations.blp:60
+#: libview/pps-annotation-window.c:242 shell/resources/pps-sidebar-annotations.blp:60
 msgid "Edit Note"
 msgstr "ئىزاھ تەھرىر"
 
@@ -482,7 +699,9 @@ msgid "Your print range selection does not include any pages"
 msgstr "تاللانغان بېسىش دائىرىسىدە ھېچقانداق بەت يوق"
 
 #. show close if the certificate is null, or if no cert is found
-#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:81 shell/resources/pps-document-view.blp:788 shell/resources/pps-window.blp:138 shell/src/document_view/io.rs:617
+#: libview/pps-print-operation.c:1336 previewer/pps-previewer-window.blp:83
+#: shell/resources/pps-document-view.blp:791 shell/resources/pps-window.blp:138
+#: shell/src/document_view/io.rs:574
 msgid "_Close"
 msgstr "ياپ(_C)"
 
@@ -505,36 +724,47 @@ msgstr "بېسىشچان رايونغا ماسلاش"
 
 #: libview/pps-print-operation.c:1887
 msgid ""
-"Scale document pages to fit the selected printer page. Select from one of the following:\n"
+"Scale document pages to fit the selected printer page. Select from one of the "
+"following:\n"
 "\n"
 "• “None”: No page scaling is performed.\n"
 "\n"
-"• “Shrink to Printable Area”: Document pages larger than the printable area are reduced to fit the printable area of the printer page.\n"
+"• “Shrink to Printable Area”: Document pages larger than the printable area are "
+"reduced to fit the printable area of the printer page.\n"
 "\n"
-"• “Fit to Printable Area”: Document pages are enlarged or reduced as required to fit the printable area of the printer page.\n"
+"• “Fit to Printable Area”: Document pages are enlarged or reduced as required to fit "
+"the printable area of the printer page.\n"
 msgstr ""
-"پۈتۈك بېتىنى پىرىنتېرنىڭ تاللانغان بېتىگە ماسلاشتۇرۇش ئۈچۈن تۆۋەندىكىلەردىن بىرى تاللىنىدۇ:\n"
+"پۈتۈك بېتىنى پىرىنتېرنىڭ تاللانغان بېتىگە ماسلاشتۇرۇش ئۈچۈن تۆۋەندىكىلەردىن بىرى "
+"تاللىنىدۇ:\n"
 "\n"
 "• «يوق»: ماسلاشتۇرۇش ئېلىپ بېرىلمايدۇ\n"
 "\n"
-"• «بېسىشچان رايونغا كىچىكلەت»: پۈتۈك بېتى بېسىلىدىغان رايوندىن چوڭ بولۇپ قالسا، كىچىكلىتىپ باسىدۇ.\n"
+"• «بېسىشچان رايونغا كىچىكلەت»: پۈتۈك بېتى بېسىلىدىغان رايوندىن چوڭ بولۇپ قالسا، "
+"كىچىكلىتىپ باسىدۇ.\n"
 "\n"
-"• «بېسىشچان رايونغا ماسلاش»: پۈتۈك بېتىنى چوڭايتىش ياكى كىچىكلىتىش ئارقىلىق، بېسىلىدىغان رايونغا دەل كەلتۈرۈپ باسىدۇ.\n"
+"• «بېسىشچان رايونغا ماسلاش»: پۈتۈك بېتىنى چوڭايتىش ياكى كىچىكلىتىش ئارقىلىق، "
+"بېسىلىدىغان رايونغا دەل كەلتۈرۈپ باسىدۇ.\n"
 
 #: libview/pps-print-operation.c:1898
 msgid "Auto Rotate and Center"
 msgstr "ئۆزلۈكىدىن ئايلاندۇر ھەم ئوتتۇرىغا توغرىلا"
 
 #: libview/pps-print-operation.c:1901
-msgid "Rotate printer page orientation of each page to match orientation of each document page. Document pages will be centered within the printer page."
-msgstr "پىرىنتېردىكى ھەر بىر بەت يۆنىلىشىنى پۈتۈكتىكى ھەر بىر بەتنىڭ يۆنىلىشىگە ماسلاشتۇرىدۇ. پۈتۈك بەتنىڭ ئوتتۇرىسىغا توغرىلىنىپ بېسىلىدۇ."
+msgid ""
+"Rotate printer page orientation of each page to match orientation of each document "
+"page. Document pages will be centered within the printer page."
+msgstr ""
+"پىرىنتېردىكى ھەر بىر بەت يۆنىلىشىنى پۈتۈكتىكى ھەر بىر بەتنىڭ يۆنىلىشىگە "
+"ماسلاشتۇرىدۇ. پۈتۈك بەتنىڭ ئوتتۇرىسىغا توغرىلىنىپ بېسىلىدۇ."
 
 #: libview/pps-print-operation.c:1905
 msgid "Select page size using document page size"
 msgstr "پۈتۈك چوڭلۇقىغا ئاساسەن بەت چوڭلۇقىنى تاللا"
 
 #: libview/pps-print-operation.c:1907
-msgid "When enabled, each page will be printed on the same size paper as the document page."
+msgid ""
+"When enabled, each page will be printed on the same size paper as the document page."
 msgstr "چەكلەنمىگەندە ھەر بىر بەت پۈتۈك بېتىگە ئوخشاش چوڭلۇقتا بېسىلىدۇ."
 
 #: libview/pps-print-operation.c:1911
@@ -545,55 +775,55 @@ msgstr "بەت گىرۋىكىنى سىزىدۇ"
 msgid "When enabled, a border will be drawn around each page."
 msgstr "قوزغىتىلغاندا، ھەر بىر بەت گىرۋىكىنى سىزىدۇ."
 
-#: libview/pps-print-operation.c:2006
+#: libview/pps-print-operation.c:2010
 msgid "Page Handling"
 msgstr "بەت بىر تەرەپ قىلىش ئۇسۇلى"
 
-#: libview/pps-view.c:2111
+#: libview/pps-view.c:2140
 msgid "Go to first page"
 msgstr "بىرىنچى بەتكە يۆتكەل"
 
-#: libview/pps-view.c:2113
+#: libview/pps-view.c:2142
 msgid "Go to previous page"
 msgstr "ئالدىنقى بەتكە يۆتكەل"
 
-#: libview/pps-view.c:2115
+#: libview/pps-view.c:2144
 msgid "Go to next page"
 msgstr "كېيىنكى بەتكە يۆتكەل"
 
-#: libview/pps-view.c:2117
+#: libview/pps-view.c:2146
 msgid "Go to last page"
 msgstr "ئاخىرقى بەتكە يۆتكەل"
 
-#: libview/pps-view.c:2119
+#: libview/pps-view.c:2148
 msgid "Go to page"
 msgstr "بەتكە يۆتكەل"
 
-#: libview/pps-view.c:2121
+#: libview/pps-view.c:2150
 msgid "Find"
 msgstr "ئىزدە"
 
-#: libview/pps-view.c:2150
+#: libview/pps-view.c:2179
 #, c-format
 msgid "Go to page %s"
 msgstr "%s بەتكە يۆتكەل"
 
-#: libview/pps-view.c:2156
+#: libview/pps-view.c:2185
 #, c-format
 msgid "Go to %s on file “%s”"
 msgstr "«%s» ھۆججەتتىكى %s غا يۆتكەل"
 
-#: libview/pps-view.c:2159
+#: libview/pps-view.c:2188
 #, c-format
 msgid "Go to file “%s”"
 msgstr "«%s» ھۆججەتكە يۆتكەل"
 
-#: libview/pps-view.c:2167
+#: libview/pps-view.c:2196
 #, c-format
 msgid "Launch %s"
 msgstr "%s نى ئىجرا قىل"
 
-#: libview/pps-view.c:2174
+#: libview/pps-view.c:2203
 #, c-format
 msgid "Reset form"
 msgstr "جەدۋەلنى ئەسلىگە قايتۇر"
@@ -660,56 +890,59 @@ msgstr "بېسىش تەڭشەك ھۆججىتىنىڭ ھۆججەت چۈشەندۈ
 msgid "GNOME Document Previewer"
 msgstr "GNOME پۈتۈكنى ئالدىن كۆزەتكۈچ"
 
-#: previewer/pps-previewer-window.c:171 previewer/pps-previewer-window.c:494
+#: previewer/pps-previewer-window.c:172 previewer/pps-previewer-window.c:512
 msgid "Papers Document Viewer"
 msgstr "Papers پۈتۈك كۆرگۈچ"
 
-#: previewer/pps-previewer-window.c:209
+#: previewer/pps-previewer-window.c:210
 #, c-format
 msgid "The selected printer “%s” could not be found"
 msgstr "تاللانغان «%s» پىرىنتېر تېپىلمىدى"
 
-#: previewer/pps-previewer-window.c:472 shell/src/document_view/io.rs:205 shell/src/document_view/io.rs:206
+#: previewer/pps-previewer-window.c:490 shell/src/document_view/io.rs:212
+#: shell/src/document_view/io.rs:213
 msgid "Papers"
 msgstr "Papers"
 
-#: previewer/pps-previewer-window.blp:19
+#: previewer/pps-previewer-window.blp:21
 msgid "Previous Page"
 msgstr "ئالدىنقى بەت"
 
-#: previewer/pps-previewer-window.blp:25
+#: previewer/pps-previewer-window.blp:27
 msgid "Next Page"
 msgstr "كېيىنكى بەت"
 
-#: previewer/pps-previewer-window.blp:31 shell/resources/pps-document-view.blp:212
+#: previewer/pps-previewer-window.blp:33 shell/resources/pps-document-view.blp:213
 msgid "Page Count"
 msgstr "بەت سانى"
 
-#: previewer/pps-previewer-window.blp:36
+#: previewer/pps-previewer-window.blp:38
 msgid "_Print"
 msgstr "باس(_P)"
 
-#: previewer/pps-previewer-window.blp:37
+#: previewer/pps-previewer-window.blp:39
 msgid "Print This Document"
 msgstr "بۇ پۈتۈكنى باس"
 
-#: previewer/pps-previewer-window.blp:48 shell/resources/pps-document-view.blp:292
+#: previewer/pps-previewer-window.blp:50 shell/resources/pps-document-view.blp:293
 msgid "Zoom Out"
 msgstr "يىراقلات"
 
-#: previewer/pps-previewer-window.blp:55
+#: previewer/pps-previewer-window.blp:57
 msgid "Normal Size"
 msgstr "ئەسلى چوڭلۇقى"
 
-#: previewer/pps-previewer-window.blp:62 shell/resources/pps-document-view.blp:279
+#: previewer/pps-previewer-window.blp:64 shell/resources/pps-document-view.blp:280
 msgid "Zoom In"
 msgstr "يېقىنلات"
 
-#: previewer/pps-previewer-window.blp:78 shell/src/document_view/print.rs:114
+#: previewer/pps-previewer-window.blp:80 shell/src/document_view/print.rs:114
 msgid "Failed to Print Document"
 msgstr "پۈتۈكنى باسالمىدى"
 
-#: nautilus/pps-nautilus-extension.c:97 shell/resources/pps-annotation-properties-dialog.blp:60 shell/src/properties_general.rs:338
+#: nautilus/pps-nautilus-extension.c:97
+#: shell/resources/pps-annotation-properties-dialog.blp:60
+#: shell/src/properties_general.rs:338
 msgid "Unknown"
 msgstr "يوچۇن"
 
@@ -738,12 +971,12 @@ msgid "Keywords"
 msgstr "ھالقىلىق سۆز"
 
 #: nautilus/pps-nautilus-extension.h:50 shell/src/properties_general.rs:304
-msgid "Producer"
-msgstr "ئىشلىگۈچى"
+msgid "Document produced with"
+msgstr "پۈتۈك ھاسىللاش شەكلى"
 
 #: nautilus/pps-nautilus-extension.h:51 shell/src/properties_general.rs:305
-msgid "Creator"
-msgstr "قۇرغۇچى"
+msgid "Source file created with"
+msgstr "ئەسلى ھۆججەت قۇرۇش ئۇسۇلى"
 
 #: nautilus/pps-nautilus-extension.h:52 shell/src/properties_general.rs:316
 msgid "Created"
@@ -761,7 +994,8 @@ msgstr "بەت سانى"
 msgid "Optimized"
 msgstr "ئەلالاشتۇرۇلغان"
 
-#: nautilus/pps-nautilus-extension.h:56 shell/src/properties_general.rs:326 shell/src/properties_general.rs:328
+#: nautilus/pps-nautilus-extension.h:56 shell/src/properties_general.rs:326
+#: shell/src/properties_general.rs:328
 msgid "Format"
 msgstr "پىچىم"
 
@@ -838,7 +1072,8 @@ msgstr "چەمبەر"
 msgid "_Markup Type"
 msgstr "بەلگە تۈرى(_M)"
 
-#: shell/resources/pps-annotation-properties-dialog.blp:75 shell/resources/pps-document-view.blp:487
+#: shell/resources/pps-annotation-properties-dialog.blp:75
+#: shell/resources/pps-document-view.blp:490
 msgid "Highlight"
 msgstr "يورۇت"
 
@@ -867,323 +1102,376 @@ msgid "Pop up note while scrolling the document"
 msgstr "پۈتۈكنى سىيرىغاندا ئىزاھات قاڭقىيدۇ"
 
 #. Translators: Translators: This is an action (a verb in English) that opens the sidebar to start a search
-#: shell/resources/pps-document-view.blp:78
+#: shell/resources/pps-document-view.blp:79
 msgid "Search"
 msgstr "ئىزدە"
 
-#: shell/resources/pps-document-view.blp:93 shell/resources/pps-window.blp:35
+#: shell/resources/pps-document-view.blp:94 shell/resources/pps-window.blp:35
 msgid "Main Menu"
 msgstr "ئاساسىي تىزىملىك"
 
-#: shell/resources/pps-document-view.blp:112
+#: shell/resources/pps-document-view.blp:113
 msgid "Thumbnails"
 msgstr "كىچىك سۈرەت"
 
-#: shell/resources/pps-document-view.blp:123
+#: shell/resources/pps-document-view.blp:124
 msgid "Outline"
 msgstr "ئىزنا"
 
-#: shell/resources/pps-document-view.blp:135
+#: shell/resources/pps-document-view.blp:136
 msgid "Annotations"
 msgstr "ئىلاۋە"
 
-#: shell/resources/pps-document-view.blp:153
+#: shell/resources/pps-document-view.blp:154
 msgid "Attachments"
 msgstr "قوشۇلما"
 
-#: shell/resources/pps-document-view.blp:169
+#: shell/resources/pps-document-view.blp:170
 msgid "Layers"
 msgstr "قەۋەت"
 
-#: shell/resources/pps-document-view.blp:199
+#: shell/resources/pps-document-view.blp:200
 msgid "Toggle Sidebar"
 msgstr "يان بالداق ئالماشتۇر"
 
-#: shell/resources/pps-document-view.blp:205
+#: shell/resources/pps-document-view.blp:206
 msgid "Document Menu"
 msgstr "پۈتۈك تىزىملىكى"
 
-#: shell/resources/pps-document-view.blp:225
+#: shell/resources/pps-document-view.blp:226
 msgid "Document has been digitally signed."
 msgstr "پۈتۈككە رەقەملىك ئىمزا قويۇلغان."
 
-#: shell/resources/pps-document-view.blp:226
+#: shell/resources/pps-document-view.blp:227
 msgid "View Signature…"
 msgstr "ئىمزا كۆرسەت…"
 
-#: shell/resources/pps-document-view.blp:259
+#: shell/resources/pps-document-view.blp:260
 msgid "Fit Automatically"
 msgstr "ئۆزلۈكىدىن ماسلاشتۇر"
 
-#: shell/resources/pps-document-view.blp:342 shell/resources/pps-document-view.blp:384 shell/resources/pps-document-view.blp:415
+#: shell/resources/pps-document-view.blp:343 shell/resources/pps-document-view.blp:385
+#: shell/resources/pps-document-view.blp:417
 msgid "Choose Color"
 msgstr "رەڭ تاللىنىدۇ"
 
-#: shell/resources/pps-document-view.blp:362
+#: shell/resources/pps-document-view.blp:363
 msgid "Font Settings"
 msgstr "خەت نۇسخا تەڭشەك"
 
-#: shell/resources/pps-document-view.blp:430
+#: shell/resources/pps-document-view.blp:399
+msgid "Highlight Stroke Size"
+msgstr "يورۇتۇش سىزىقىنىڭ چوڭلۇقى"
+
+#: shell/resources/pps-document-view.blp:432
 msgid "Pencil Size"
 msgstr "قېرىنداش چوڭلۇقى"
 
-#: shell/resources/pps-document-view.blp:457
+#: shell/resources/pps-document-view.blp:444
+msgid "Eraser Settings"
+msgstr "ئۆچۈرگۈچ تەڭشىكى"
+
+#: shell/resources/pps-document-view.blp:460
 msgid "Change Eraser Radius"
 msgstr "ئۆچۈرگۈچ رادىيوسىنى ئۆزگەرتىدۇ"
 
-#: shell/resources/pps-document-view.blp:475
+#: shell/resources/pps-document-view.blp:478
 msgid "Insert Text"
 msgstr "تېكىست قىستۇر"
 
-#: shell/resources/pps-document-view.blp:481
+#: shell/resources/pps-document-view.blp:484
 msgid "Draw"
 msgstr "سىز"
 
-#: shell/resources/pps-document-view.blp:493
+#: shell/resources/pps-document-view.blp:496
 msgid "Erase Annotations"
 msgstr "ئىزاھات ئۆچۈر"
 
-#: shell/resources/pps-document-view.blp:510 shell/src/document_view/actions.rs:1211
+#: shell/resources/pps-document-view.blp:513 shell/src/document_view/actions.rs:1359
 msgid "Edit Document"
 msgstr "پۈتۈك تەھرىر"
 
-#: shell/resources/pps-document-view.blp:757
+#: shell/resources/pps-document-view.blp:760
 msgid "Selection too Small"
 msgstr "تاللانغىنى بەك كىچىك"
 
-#: shell/resources/pps-document-view.blp:758
-msgid "A signature of this size may be too small to read. If you would like to create a potentially more readable signature, press `Start over` and draw a bigger rectangle."
-msgstr "بۇنداق چوڭلۇقتىكى ئىمزا ئوقۇش ئۈچۈن بەك كىچىك. ئەگەر ئوقۇشچانلىقى يۇقىرى ئىمزا قۇرماقچى بولسىڭىز، «قايتا باشلا» نى چېكىپ چوڭراق تۆت چاسا سىزىڭ."
+#: shell/resources/pps-document-view.blp:761
+msgid ""
+"A signature of this size may be too small to read. If you would like to create a "
+"potentially more readable signature, press `Start over` and draw a bigger rectangle."
+msgstr ""
+"بۇنداق چوڭلۇقتىكى ئىمزا ئوقۇش ئۈچۈن بەك كىچىك. ئەگەر ئوقۇشچانلىقى يۇقىرى ئىمزا "
+"قۇرماقچى بولسىڭىز، «قايتا باشلا» نى چېكىپ چوڭراق تۆت چاسا سىزىڭ."
 
-#: shell/resources/pps-document-view.blp:765
+#: shell/resources/pps-document-view.blp:768
 msgid "Start _Over"
 msgstr "قايتا باشلا(_O)"
 
-#: shell/resources/pps-document-view.blp:766
+#: shell/resources/pps-document-view.blp:769
 msgid "_Sign"
 msgstr "ئىمزا(_S)"
 
-#: shell/resources/pps-document-view.blp:773
+#: shell/resources/pps-document-view.blp:776
 msgid "Abort Printing?"
 msgstr "بېسىشنى توختىتامدۇ؟"
 
-#: shell/resources/pps-document-view.blp:774
-msgid "There is one or more active print jobs. If the window is closed, pending print jobs will not be printed."
-msgstr "بىر ياكى بىر قانچە ئاكتىپ بېسىش ۋەزىپىسى بار. ئەگەر كۆزنەك تاقالسا، كۈتۈۋاتقان بېسىش ۋەزىپىسى ئىجرا قىلىنمايدۇ."
+#: shell/resources/pps-document-view.blp:777
+msgid ""
+"There is one or more active print jobs. If the window is closed, pending print jobs "
+"will not be printed."
+msgstr ""
+"بىر ياكى بىر قانچە ئاكتىپ بېسىش ۋەزىپىسى بار. ئەگەر كۆزنەك تاقالسا، كۈتۈۋاتقان بېسىش "
+"ۋەزىپىسى ئىجرا قىلىنمايدۇ."
 
-#: shell/resources/pps-document-view.blp:778
+#: shell/resources/pps-document-view.blp:781
 msgid "Abort _Print and Close"
 msgstr "بېسىشنى توختىتىپ ۋە تاقا(_P)"
 
-#: shell/resources/pps-document-view.blp:779 shell/src/document_view.rs:794 shell/src/document_view/io.rs:490 shell/src/document_view/io.rs:538 shell/src/document_view/io.rs:730
+#: shell/resources/pps-document-view.blp:782 shell/src/document_view.rs:833
+#: shell/src/document_view/io.rs:447 shell/src/document_view/io.rs:495
+#: shell/src/document_view/io.rs:872
 msgid "_Cancel"
 msgstr "ۋاز كەچ(_C)"
 
-#: shell/resources/pps-document-view.blp:780
+#: shell/resources/pps-document-view.blp:783
 msgid "Close _After Printing"
 msgstr "بېسىپ بولغاندىن كېيىن تاقا(_A)"
 
-#: shell/resources/pps-document-view.blp:795
+#: shell/resources/pps-document-view.blp:798
 msgid "Open…"
 msgstr "ئاچ…"
 
-#: shell/resources/pps-document-view.blp:802
+#: shell/resources/pps-document-view.blp:805
 msgid "Ni_ght Mode"
 msgstr "كېچە ھالىتى(_G)"
 
-#: shell/resources/pps-document-view.blp:809 shell/resources/pps-window.blp:145
+#: shell/resources/pps-document-view.blp:812 shell/resources/pps-window.blp:145
 msgid "_Keyboard Shortcuts"
 msgstr "ھەرپتاختا تېزلەتمىسى(_K)"
 
-#: shell/resources/pps-document-view.blp:814 shell/resources/pps-window.blp:150
+#: shell/resources/pps-document-view.blp:817 shell/resources/pps-window.blp:150
 msgid "_Help"
 msgstr "ياردەم(_H)"
 
-#: shell/resources/pps-document-view.blp:819 shell/resources/pps-window.blp:155
+#: shell/resources/pps-document-view.blp:822 shell/resources/pps-window.blp:155
 msgid "_About Document Viewer"
 msgstr "پۈتۈك كۆرگۈچ ھەققىدە(_A)"
 
-#: shell/resources/pps-document-view.blp:828
+#: shell/resources/pps-document-view.blp:831
 msgid "_Print…"
 msgstr "باس(_P)…"
 
-#: shell/resources/pps-document-view.blp:833
+#: shell/resources/pps-document-view.blp:836
 msgid "Fullscreen"
 msgstr "پۈتۈن ئېكران"
 
-#: shell/resources/pps-document-view.blp:838
+#: shell/resources/pps-document-view.blp:841
 msgid "Present as Slideshow"
 msgstr "تام تەسۋىردەك كۆرسەت"
 
-#: shell/resources/pps-document-view.blp:845
+#: shell/resources/pps-document-view.blp:848
 msgid "Sign D_igitally…"
 msgstr "رەقەملىك ئىمزا(_I)…"
 
-#: shell/resources/pps-document-view.blp:852
+#: shell/resources/pps-document-view.blp:853
+msgid "_Manage Signatures…"
+msgstr "ئىمزا باشقۇرۇش(_M)…"
+
+#: shell/resources/pps-document-view.blp:860
 msgid "Open a C_opy"
 msgstr "كۆپەيتىلمىنى ئاچ(_O)"
 
-#: shell/resources/pps-document-view.blp:857 shell/src/properties_general.rs:137
+#: shell/resources/pps-document-view.blp:865 shell/src/properties_general.rs:137
 msgid "Open With…"
 msgstr "ئاچقۇز…"
 
-#: shell/resources/pps-document-view.blp:862
+#: shell/resources/pps-document-view.blp:870
 msgid "_Save As…"
 msgstr "باشقا ئاتتا ساقلا(_S)…"
 
-#: shell/resources/pps-document-view.blp:869
+#: shell/resources/pps-document-view.blp:877
 msgid "_Continuous"
 msgstr "ئۈزلۈكسىز(_C)"
 
-#: shell/resources/pps-document-view.blp:874
+#: shell/resources/pps-document-view.blp:882
 msgid "_Dual"
 msgstr "قوش(_D)"
 
-#: shell/resources/pps-document-view.blp:879
+#: shell/resources/pps-document-view.blp:887
 msgid "_Odd Pages Left"
 msgstr "تاق بەت سولدا(_O)"
 
-#: shell/resources/pps-document-view.blp:884
+#: shell/resources/pps-document-view.blp:892
 msgid "Right to Left Document"
 msgstr "ئوڭدىن سولغا يېزىلىدىغان پۈتۈك"
 
-#: shell/resources/pps-document-view.blp:891
+#: shell/resources/pps-document-view.blp:899
 msgid "Ro_tate ⤵"
 msgstr "⤵ئايلاندۇر(_T)"
 
-#: shell/resources/pps-document-view.blp:898
+#: shell/resources/pps-document-view.blp:906
 msgid "Document Prop_erties"
 msgstr "پۈتۈك خاسلىقى(_E)"
 
-#: shell/resources/pps-document-view.blp:951 shell/resources/pps-document-view.blp:1259
+#: shell/resources/pps-document-view.blp:959 shell/resources/pps-document-view.blp:1267
 msgid "Black"
 msgstr "قارا"
 
-#: shell/resources/pps-document-view.blp:963 shell/resources/pps-document-view.blp:1050 shell/resources/pps-document-view.blp:1199
+#: shell/resources/pps-document-view.blp:971 shell/resources/pps-document-view.blp:1058
+#: shell/resources/pps-document-view.blp:1207
 msgid "Orange"
 msgstr "قىزغۇچ سېرىق"
 
-#: shell/resources/pps-document-view.blp:975 shell/resources/pps-document-view.blp:1063 shell/resources/pps-document-view.blp:1211
+#: shell/resources/pps-document-view.blp:983 shell/resources/pps-document-view.blp:1071
+#: shell/resources/pps-document-view.blp:1219
 msgid "Red"
 msgstr "قىزىل"
 
-#: shell/resources/pps-document-view.blp:987 shell/resources/pps-document-view.blp:1076 shell/resources/pps-document-view.blp:1223
+#: shell/resources/pps-document-view.blp:995 shell/resources/pps-document-view.blp:1084
+#: shell/resources/pps-document-view.blp:1231
 msgid "Purple"
 msgstr "بىنەپشە"
 
-#: shell/resources/pps-document-view.blp:999 shell/resources/pps-document-view.blp:1089 shell/resources/pps-document-view.blp:1235
+#: shell/resources/pps-document-view.blp:1007
+#: shell/resources/pps-document-view.blp:1097
+#: shell/resources/pps-document-view.blp:1243
 msgid "Blue"
 msgstr "كۆك"
 
-#: shell/resources/pps-document-view.blp:1011 shell/resources/pps-document-view.blp:1102 shell/resources/pps-document-view.blp:1247
+#: shell/resources/pps-document-view.blp:1019
+#: shell/resources/pps-document-view.blp:1110
+#: shell/resources/pps-document-view.blp:1255
 msgid "Green"
 msgstr "يېشىل"
 
-#: shell/resources/pps-document-view.blp:1037 shell/resources/pps-document-view.blp:1187
+#: shell/resources/pps-document-view.blp:1045
+#: shell/resources/pps-document-view.blp:1195
 msgid "Yellow"
 msgstr "سېرىق"
 
-#: shell/resources/pps-document-view.blp:1124 shell/resources/pps-document-view.blp:1281 shell/resources/pps-document-view.blp:1340
+#: shell/resources/pps-document-view.blp:1132
+#: shell/resources/pps-document-view.blp:1289
+#: shell/resources/pps-document-view.blp:1348
 msgid "Thin"
 msgstr "ئىنچىكە"
 
-#: shell/resources/pps-document-view.blp:1136 shell/resources/pps-document-view.blp:1294 shell/resources/pps-document-view.blp:1352
+#: shell/resources/pps-document-view.blp:1144
+#: shell/resources/pps-document-view.blp:1302
+#: shell/resources/pps-document-view.blp:1360
 msgid "Medium"
 msgstr "ئوتتۇراھال"
 
-#: shell/resources/pps-document-view.blp:1148 shell/resources/pps-document-view.blp:1306 shell/resources/pps-document-view.blp:1364
+#: shell/resources/pps-document-view.blp:1156
+#: shell/resources/pps-document-view.blp:1314
+#: shell/resources/pps-document-view.blp:1372
 msgid "Thick"
 msgstr "توم"
 
-#: shell/resources/pps-document-view.blp:1160 shell/resources/pps-document-view.blp:1318 shell/resources/pps-document-view.blp:1376
+#: shell/resources/pps-document-view.blp:1168
+#: shell/resources/pps-document-view.blp:1326
+#: shell/resources/pps-document-view.blp:1384
 msgid "Very Thick"
 msgstr "بەك توم"
 
-#: shell/resources/pps-document-view.blp:1389
+#: shell/resources/pps-document-view.blp:1397
 msgid "Erase Ink"
 msgstr "سىياھ ئۆچۈر"
 
-#: shell/resources/pps-document-view.blp:1395
+#: shell/resources/pps-document-view.blp:1403
 msgid "Erase Whole Strokes"
 msgstr "پۈتكۈل قەلەم ئىزىنى ئۆچۈر"
 
+#: shell/resources/pps-document-view.blp:1432
+msgid "Manage Signatures…"
+msgstr "ئىمزا باشقۇرۇش…"
+
+#: shell/resources/pps-document-view.blp:1451
+msgid "No Signatures Yet"
+msgstr "تېخى ئىمزا يوق"
+
+#: shell/resources/pps-document-view.blp:1461
+msgid "Add Signature"
+msgstr "ئىمزا قوش"
+
 #. Translators: As a noun, this is describing the type of text marking annotation, as are squiggly, strikethrough, and underline. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1434
+#: shell/resources/pps-document-view.blp:1509
 msgid "Highlight (h)"
 msgstr "يورۇت(h)"
 
 #. Translators: As a noun or adjective, this is describing the type of text marking annotation, as are highlight, squiggly, and underline. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1450
+#: shell/resources/pps-document-view.blp:1525
 msgid "Strikethrough (k)"
 msgstr "ئۆچۈرۈش سىزىقى(k)"
 
 #. Translators: As a noun, this is describing the type of text marking annotation, as are highlight, squiggly, and strikethrough. An adjective could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1466
+#: shell/resources/pps-document-view.blp:1541
 msgid "Underline (u)"
 msgstr "ئاستى سىزىق(u)"
 
 #. Translators: As an adjective, this is describing the type of text marking annotation, as are highlight, strikethrough, and underline. A noun could also make sense as a translation. The letter in parenthesis marks the keyboard shortcut and should not be translated.
-#: shell/resources/pps-document-view.blp:1482
+#: shell/resources/pps-document-view.blp:1557
 msgid "Squiggly (q)"
 msgstr "دولقۇنسىمان سىزىق(q)"
 
-#: shell/resources/pps-document-view.blp:1573
+#: shell/resources/pps-document-view.blp:1648
 msgid "_Open Link"
 msgstr "ئۇلانما ئاچ(_O)"
 
-#: shell/resources/pps-document-view.blp:1579
+#: shell/resources/pps-document-view.blp:1654
 msgid "Send an Email"
 msgstr "ئېلخەت يوللايدۇ"
 
-#: shell/resources/pps-document-view.blp:1585
+#: shell/resources/pps-document-view.blp:1660
 msgid "_Copy Link Address"
 msgstr "ئۇلانما ئاتىنى كۆچۈر(_C)"
 
-#: shell/resources/pps-document-view.blp:1591
+#: shell/resources/pps-document-view.blp:1666
 msgid "Copy Email Address"
 msgstr "ئېلخەت ئادرېسىنى كۆچۈر"
 
-#: shell/resources/pps-document-view.blp:1597
+#: shell/resources/pps-document-view.blp:1672
 msgid "_Go To"
 msgstr "يۆتكەل(_G)"
 
-#: shell/resources/pps-document-view.blp:1603
+#: shell/resources/pps-document-view.blp:1678
 msgid "Open in New _Window"
 msgstr "يېڭى كۆزنەكتە ئاچ(_W)"
 
-#: shell/resources/pps-document-view.blp:1611
+#: shell/resources/pps-document-view.blp:1686
 msgid "_Copy"
 msgstr "كۆچۈر(_C)"
 
-#: shell/resources/pps-document-view.blp:1616
+#: shell/resources/pps-document-view.blp:1691
 msgid "Select _All"
 msgstr "ھەممىنى تاللا(_A)"
 
-#: shell/resources/pps-document-view.blp:1623
+#: shell/resources/pps-document-view.blp:1698
 msgid "_Save Image As…"
 msgstr "سۈرەتنى باشقا ئاتتا ساقلا(_S)…"
 
-#: shell/resources/pps-document-view.blp:1629
+#: shell/resources/pps-document-view.blp:1704
 msgid "Copy _Image"
 msgstr "سۈرەت كۆچۈر(_I)"
 
-#: shell/resources/pps-document-view.blp:1637 shell/resources/pps-sidebar-annotations.blp:78
+#: shell/resources/pps-document-view.blp:1712
+#: shell/resources/pps-sidebar-annotations.blp:78
 msgid "_Open Attachment"
 msgstr "قوشۇلما ھۆججەت ئاچ(_O)"
 
-#: shell/resources/pps-document-view.blp:1643 shell/resources/pps-sidebar-annotations.blp:84
+#: shell/resources/pps-document-view.blp:1718
+#: shell/resources/pps-sidebar-annotations.blp:84
 msgid "_Save Attachment As…"
 msgstr "قوشۇلما ھۆججەتنى باشقا ئاتتا ساقلا(_S)…"
 
-#: shell/resources/pps-document-view.blp:1653
+#: shell/resources/pps-document-view.blp:1728
 msgid "Annotation _Properties…"
 msgstr "ئىزاھات خاسلىقى(_P)…"
 
-#: shell/resources/pps-document-view.blp:1659
+#: shell/resources/pps-document-view.blp:1734
 msgid "R_emove Annotation"
 msgstr "ئىزاھاتنى چىقىرىۋەت(_R)"
 
-#: shell/resources/pps-document-view.blp:1667
+#: shell/resources/pps-document-view.blp:1742
 msgid "_Add Text Annotation"
 msgstr "تېكىست ئىزاھاتى قوش(_A)"
 
@@ -1211,7 +1499,8 @@ msgstr "پۈتۈكنى يۈكلەۋاتىدۇ"
 msgid "C_ancel"
 msgstr "ۋاز كەچ(_A)"
 
-#: shell/resources/pps-password-dialog.blp:5 shell/resources/pps-password-view.blp:11 shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:723
+#: shell/resources/pps-password-dialog.blp:5 shell/resources/pps-password-view.blp:11
+#: shell/resources/pps-password-view.blp:17 shell/src/document_view/io.rs:865
 msgid "Password Required"
 msgstr "ئىم زۆرۈر"
 
@@ -1258,14 +1547,6 @@ msgstr "تېكىست ئىجازەتنامىسى"
 #: shell/resources/pps-properties-license.blp:79
 msgid "Further Information"
 msgstr "تېخىمۇ كۆپ ئۇچۇر"
-
-#: shell/resources/pps-properties-signatures.blp:32
-msgid "Signature Information"
-msgstr "ئىمزا ئۇچۇرى"
-
-#: shell/resources/pps-properties-signatures.blp:48 shell/src/properties_signatures.rs:405
-msgid "View Details…"
-msgstr "تەپسىلاتىنى كۆرسەت…"
 
 #: shell/resources/pps-properties-window.blp:5
 msgid "Properties"
@@ -1660,7 +1941,7 @@ msgstr "بۇ بۆلەكنى باس…"
 msgid "Previews"
 msgstr "ئالدىن كۆزەت"
 
-#: shell/resources/pps-window.blp:43 shell/resources/pps-window.blp:51
+#: shell/resources/pps-window.blp:43
 msgid "Open a Document"
 msgstr "پۈتۈك ئاچ"
 
@@ -1671,6 +1952,11 @@ msgstr "پۈتۈك بۇ جايغا سۆرەپ تاشلىنىدۇ"
 #: shell/resources/pps-window.blp:49
 msgid "_Open…"
 msgstr "ئاچ(_O)…"
+
+#: shell/resources/pps-window.blp:51
+msgctxt "tooltip"
+msgid "Open a Document"
+msgstr "پۈتۈك ئاچ"
 
 #: shell/resources/pps-window.blp:71
 msgid "Unable to Open Document"
@@ -1690,120 +1976,127 @@ msgstr ""
 "غەيرەت ت.كەنجى <gheyret@gmail.com>\n"
 "ئابدۇقادىر ئابلىز <sahranbay@gmail.com>"
 
-#: shell/src/application.rs:366
+#: shell/src/application.rs:396
 msgid "The page label of the document to display."
 msgstr "پۈتۈكنىڭ كۆرسىتىدىغان بەت ئەنى."
 
-#: shell/src/application.rs:367
+#: shell/src/application.rs:397
 msgid "PAGE"
 msgstr "بەت"
 
-#: shell/src/application.rs:375
+#: shell/src/application.rs:405
 msgid "The page number of the document to display."
 msgstr "پۈتۈكنىڭ كۆرسىتىدىغان بەت سانى."
 
-#: shell/src/application.rs:376
+#: shell/src/application.rs:406
 msgid "NUMBER"
 msgstr "نومۇر"
 
-#: shell/src/application.rs:384
+#: shell/src/application.rs:414
 msgid "Named destination to display."
 msgstr "كۆرسىتىدىغان ئاتالغان نىشان."
 
-#: shell/src/application.rs:385
+#: shell/src/application.rs:415
 msgid "DEST"
 msgstr "نىشان"
 
-#: shell/src/application.rs:393
+#: shell/src/application.rs:423
 msgid "Run papers in fullscreen mode."
 msgstr "papers نى پۈتۈن ئېكران ھالەتتە ئىجرا قىلىدۇ."
 
-#: shell/src/application.rs:402
+#: shell/src/application.rs:432
 msgid "Run papers in presentation mode."
 msgstr "papers نى كۆرسەتمە ھالىتىدە ئىجرا قىلىدۇ."
 
-#: shell/src/application.rs:411
+#: shell/src/application.rs:441
 msgid "Show the version of the program."
 msgstr "پىروگراممىنىڭ نەشرىنى كۆرسىتىدۇ."
 
-#: shell/src/application.rs:421
+#: shell/src/application.rs:451
 msgid "[FILE…]"
 msgstr "[ھۆججەت…]"
 
-#: shell/src/document_view.rs:354
+#: shell/src/document_view.rs:372
 msgid "View Details"
 msgstr "تەپسىلاتىنى كۆرسەت"
 
-#: shell/src/document_view.rs:773
-msgid "Document contains new or modified annotations and form fields that have been filled out."
+#: shell/src/document_view.rs:809
+msgid ""
+"Document contains new or modified annotations and form fields that have been filled "
+"out."
 msgstr "پۈتۈكتە يېڭى ياكى ئۆزگەرتىلگەن ئىزاھات ھەمدە تولدۇرۇلغان جەدۋەل بۆلىكى بار."
 
-#: shell/src/document_view.rs:774
+#: shell/src/document_view.rs:812
 msgid "Document contains form fields that have been filled out."
 msgstr "پۈتۈكتە تولدۇرۇلغان جەدۋەل بۆلىكى بار."
 
-#: shell/src/document_view.rs:775
+#: shell/src/document_view.rs:814
 msgid "Document contains new or modified annotations."
 msgstr "پۈتۈكتە يېڭى ياكى ئۆزگەرتىلگەن ئىزاھات بار."
 
-#: shell/src/document_view.rs:783
+#: shell/src/document_view.rs:822
 msgid "If you don’t save a copy, changes will be permanently lost."
-msgstr "ئەگەر كۆپەيتىلمىسىنى ساقلىمىسىڭىز، ئۆزگەرتىشلەرنىڭ ھەممىسى مەڭگۈلۈككە يوقىلىدۇ."
+msgstr ""
+"ئەگەر كۆپەيتىلمىسىنى ساقلىمىسىڭىز، ئۆزگەرتىشلەرنىڭ ھەممىسى مەڭگۈلۈككە يوقىلىدۇ."
 
-#: shell/src/document_view.rs:784
+#: shell/src/document_view.rs:823
 msgid "Save Changes to a Copy?"
 msgstr "ئۆزگەرتىشنى كۆپەيتىلمىگە ساقلامدۇ؟"
 
-#: shell/src/document_view.rs:793
+#: shell/src/document_view.rs:832
 msgid "Close _Without Saving"
 msgstr "ساقلىماي ياپ(_W)"
 
-#: shell/src/document_view.rs:795
+#: shell/src/document_view.rs:834
 msgid "_Save a Copy"
 msgstr "كۆچۈرۈلمىسىنى ساقلا(_S)"
 
-#: shell/src/document_view/actions.rs:1008
+#: shell/src/document_view/actions.rs:1033
 msgid "Save Image"
 msgstr "سۈرەت ساقلا"
 
-#: shell/src/document_view/actions.rs:1133
+#: shell/src/document_view/actions.rs:1165
 msgid "Caret navigation mode is now enabled, press F7 to disable."
 msgstr "قىستۇرۇش بەلگە يولباشچى ھالىتى قوزغىتىلغان، ‪F‏‬‎7‎‏ بېسىلسا چەكلەيدۇ."
 
-#: shell/src/document_view/actions.rs:1135
+#: shell/src/document_view/actions.rs:1167
 msgid "Caret navigation mode is now disabled, press F7 to enable."
 msgstr "قىستۇرۇش بەلگە يولباشچى ھالىتى چەكلەنگەن، ‪F‏‬‎7‎‏ بېسىلسا قوزغىتىدۇ."
 
-#: shell/src/document_view/actions.rs:1193
+#: shell/src/document_view/actions.rs:1255
+msgid "Add _Visual Signature"
+msgstr "كۆرۈنۈشچان ئىمزا قوش(_V)"
+
+#: shell/src/document_view/actions.rs:1348
 msgid "Close Menu"
 msgstr "تىزىملىكنى ياپ"
 
-#: shell/src/document_view/actions.rs:1270
+#: shell/src/document_view/actions.rs:1444
 msgid "Unable to Open Attachment"
 msgstr "قوشۇلما ھۆججەتنى ئاچالمىدى"
 
-#: shell/src/document_view/actions.rs:1286
+#: shell/src/document_view/actions.rs:1459
 msgctxt "This is an action"
 msgid "Save Attachment"
 msgstr "قوشۇلمىنى ساقلا"
 
-#: shell/src/document_view/io.rs:284
+#: shell/src/document_view/io.rs:291
 msgid "The Document Contains No Pages"
 msgstr "بۇ پۈتۈكتە ھېچقانداق بەت يوق"
 
-#: shell/src/document_view/io.rs:286
+#: shell/src/document_view/io.rs:293
 msgid "The Document Contains Only Empty Pages"
 msgstr "بۇ پۈتۈكتە بوش بەتلا بار"
 
-#: shell/src/document_view/io.rs:412
+#: shell/src/document_view/io.rs:369
 msgid "Save As…"
 msgstr "باشقا ئاتتا ساقلا…"
 
-#: shell/src/document_view/io.rs:489
+#: shell/src/document_view/io.rs:446
 msgid "Draw a rectangle to insert a signature field"
 msgstr "ئىمزا بۆلىكى قىستۇرۇش ئۈچۈن تۆت چاسا سىزىلىدۇ"
 
-#: shell/src/document_view/io.rs:512
+#: shell/src/document_view/io.rs:469
 #, rust-format
 msgid ""
 "Digitally signed by {}\n"
@@ -1812,32 +2105,32 @@ msgstr ""
 "رەقەملىك ئىمزا قويغۇچى {}\n"
 "چېسلا: {}"
 
-#: shell/src/document_view/io.rs:531
+#: shell/src/document_view/io.rs:488
 msgid "Certificate Required"
 msgstr "گۇۋاھنامە زۆرۈر"
 
-#: shell/src/document_view/io.rs:534
+#: shell/src/document_view/io.rs:491
 msgid "Select signing certificate"
 msgstr "ئىمزا گۇۋاھنامىسى تاللىنىدۇ"
 
-#: shell/src/document_view/io.rs:535
+#: shell/src/document_view/io.rs:492
 msgid "Select"
 msgstr "تاللا"
 
-#: shell/src/document_view/io.rs:615
+#: shell/src/document_view/io.rs:572
 msgid "A certificate is required to sign this document"
 msgstr "بۇ پۈتۈككە ئىمزا قويۇش ئۈچۈن گۇۋاھنامە تەلەپ قىلىنىدۇ"
 
-#: shell/src/document_view/io.rs:684
+#: shell/src/document_view/io.rs:826
 msgid "Save Signed File"
 msgstr "ئىمزا قويۇلغان ھۆججەتنى ساقلايدۇ"
 
-#: shell/src/document_view/io.rs:714
+#: shell/src/document_view/io.rs:856
 #, rust-format
 msgid "Please enter password for {}"
 msgstr "{} ئۈچۈن ئىم كىرگۈزۈڭ"
 
-#: shell/src/document_view/io.rs:731
+#: shell/src/document_view/io.rs:873
 msgid "_Login"
 msgstr "تىزىمغا كىر(_L)"
 
@@ -1857,12 +2150,13 @@ msgid "{} pending job in queue"
 msgid_plural "{} pending jobs in queue"
 msgstr[0] "ئۆچرەتتىكى كۈتۈۋاتقان ۋەزىپە {}"
 
-#: shell/src/document_view/signals.rs:257
+#: shell/src/document_view/signals.rs:266
 #, rust-format
 msgid "Security alert: this document has been prevented from opening the file “{}”"
 msgstr "بىخەتەرلىك ئاگاھلاندۇرۇشى: بۇ پۈتۈك «{}» ھۆججەتنى ئېچىشنىڭ ئالدىنى ئالدى"
 
-#: shell/src/document_view/signals.rs:439 shell/src/page_selector.rs:89 shell/src/sidebar_annotations_row.rs:82
+#: shell/src/document_view/signals.rs:452 shell/src/page_selector.rs:91
+#: shell/src/sidebar_annotations_row.rs:83
 #, rust-format
 msgid "Page {}"
 msgstr "{}-بەت"
@@ -1870,13 +2164,13 @@ msgstr "{}-بەت"
 #. Translators: Do NOT translate the content between
 #. '{' and '}' they are variable names. Changing their
 #. order is possible
-#: shell/src/page_selector.rs:242 shell/src/page_selector.rs:269
+#: shell/src/page_selector.rs:244 shell/src/page_selector.rs:271
 #, rust-format
 msgid "({pagenum} of {totalpages})"
 msgstr "({pagenum} / {totalpages})"
 
 #. Translators: the placeholder is the total amount of pages
-#: shell/src/page_selector.rs:249 shell/src/page_selector.rs:278
+#: shell/src/page_selector.rs:251 shell/src/page_selector.rs:280
 #, rust-format
 msgid "of {}"
 msgstr "{}"
@@ -1918,9 +2212,20 @@ msgstr "مەزمۇن"
 msgid "Date &amp; Time"
 msgstr "چېسلا ۋە ۋاقىت"
 
-#: shell/src/properties_signatures.rs:403
-msgid "Hide Details…"
-msgstr "تەپسىلاتىنى يوشۇر…"
+#~ msgid "Producer"
+#~ msgstr "ئىشلىگۈچى"
+
+#~ msgid "Creator"
+#~ msgstr "قۇرغۇچى"
+
+#~ msgid "Signature Information"
+#~ msgstr "ئىمزا ئۇچۇرى"
+
+#~ msgid "View Details…"
+#~ msgstr "تەپسىلاتىنى كۆرسەت…"
+
+#~ msgid "Hide Details…"
+#~ msgstr "تەپسىلاتىنى يوشۇر…"
 
 #~ msgid "Couldn’t find appropriate format to save image"
 #~ msgstr "سۈرەتنى ساقلايدىغان مۇۋاپىق پىچىم تېپىلمىدى"
@@ -2217,9 +2522,6 @@ msgstr "تەپسىلاتىنى يوشۇر…"
 #~ msgid "_Rename Bookmark"
 #~ msgstr "خەتكۈش ئاتى ئۆزگەرت(_R)"
 
-#~ msgid "Bookmarks"
-#~ msgstr "خەتكۈشلەر"
-
 #~ msgid "Print…"
 #~ msgstr "باس…"
 
@@ -2287,7 +2589,8 @@ msgstr "تەپسىلاتىنى يوشۇر…"
 
 #, c-format
 #~ msgid "There is %d print job active. Wait until print finishes before closing?"
-#~ msgid_plural "There are %d print jobs active. Wait until print finishes before closing?"
+#~ msgid_plural ""
+#~ "There are %d print jobs active. Wait until print finishes before closing?"
 #~ msgstr[0] "%d بېسىش مەشغۇلاتى بار،تاقاشتىن بۇرۇن بېسىشنىڭ تاماملىنىشنى كۈتەمسىز؟"
 
 #, c-format
@@ -2298,14 +2601,35 @@ msgstr "تەپسىلاتىنى يوشۇر…"
 #~ "پۈتۈك كۆرگۈ \n"
 #~ "ئىشلىتىلىۋاتىدۇ %s(%s))"
 
-#~ msgid "Evince is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n"
-#~ msgstr "Evince ئەركىن يۇمشاق دېتال؛ سىز ئەركىن يۇمشاق دېتال فوندى تارقاتقان GNU ئادەتتىكى ئاممىۋى ئىجازەتنامىسىنىڭ ماددىلىرىغا ئاساسەن ئۇنى ئەركىن تارقىتىپ ياكى ئۆزگەرتسىڭىز بولىدۇ؛  ئىجازەتنامىنىڭ ئىككىنچى نەشرى ياكى ئۇنىڭدىن كېيىنكى نەشرىنى ئىشلىتىڭ.\n"
+#~ msgid ""
+#~ "Evince is free software; you can redistribute it and/or modify it under the terms "
+#~ "of the GNU General Public License as published by the Free Software Foundation; "
+#~ "either version 2 of the License, or (at your option) any later version.\n"
+#~ msgstr ""
+#~ "Evince ئەركىن يۇمشاق دېتال؛ سىز ئەركىن يۇمشاق دېتال فوندى تارقاتقان GNU ئادەتتىكى "
+#~ "ئاممىۋى ئىجازەتنامىسىنىڭ ماددىلىرىغا ئاساسەن ئۇنى ئەركىن تارقىتىپ ياكى "
+#~ "ئۆزگەرتسىڭىز بولىدۇ؛  ئىجازەتنامىنىڭ ئىككىنچى نەشرى ياكى ئۇنىڭدىن كېيىنكى نەشرىنى "
+#~ "ئىشلىتىڭ.\n"
 
-#~ msgid "Evince is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
-#~ msgstr "Evince نى تارقىتىشنىڭ مەقسىتى ئۇنىڭ سىزگە كېرەكلىك بولۇشى ئۈچۈن، ئەمما ئۇنىڭ ھېچقانداق كاپالىتى يوق؛ ئۇنى ئىشلىتىپ كېلىپ چىققان ھەر قانداق بىۋاسىتە ياكى ۋاسىتىلىك ئاقىۋەتكە ھېچقانداق مەسئۇلىيەتنى ئۈستىگە ئالمايمىز. GNU ئادەتتىكى ئاممىۋى ئىجازەت كېلىشىمىدىكى تەپسىلاتنى كۆرۈڭ.\n"
+#~ msgid ""
+#~ "Evince is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A "
+#~ "PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n"
+#~ msgstr ""
+#~ "Evince نى تارقىتىشنىڭ مەقسىتى ئۇنىڭ سىزگە كېرەكلىك بولۇشى ئۈچۈن، ئەمما ئۇنىڭ "
+#~ "ھېچقانداق كاپالىتى يوق؛ ئۇنى ئىشلىتىپ كېلىپ چىققان ھەر قانداق بىۋاسىتە ياكى "
+#~ "ۋاسىتىلىك ئاقىۋەتكە ھېچقانداق مەسئۇلىيەتنى ئۈستىگە ئالمايمىز. GNU ئادەتتىكى "
+#~ "ئاممىۋى ئىجازەت كېلىشىمىدىكى تەپسىلاتنى كۆرۈڭ.\n"
 
-#~ msgid "You should have received a copy of the GNU General Public License along with Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
-#~ msgstr "سىز Evince نى تاپشۇرۇۋېلىش بىلەن بىللە GNU ئادەتتىكى ئاممىۋى ئىجازەت كېلىشىمىدىن بىر نۇسخا تاپشۇرۇۋالىسىز؛ ئەگەر تاپشۇرۇۋالمىغان بولسىڭىز، ئەركىن يۇمشاق دېتال فوندىغا خەت يېزىڭ، مەنزىل: 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\n"
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along with "
+#~ "Evince; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
+#~ "Fifth Floor, Boston, MA 02110-1301  USA\n"
+#~ msgstr ""
+#~ "سىز Evince نى تاپشۇرۇۋېلىش بىلەن بىللە GNU ئادەتتىكى ئاممىۋى ئىجازەت كېلىشىمىدىن "
+#~ "بىر نۇسخا تاپشۇرۇۋالىسىز؛ ئەگەر تاپشۇرۇۋالمىغان بولسىڭىز، ئەركىن يۇمشاق دېتال "
+#~ "فوندىغا خەت يېزىڭ، مەنزىل: 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+#~ "USA\n"
 
 #~ msgid "Evince"
 #~ msgstr "Evince"
@@ -2557,8 +2881,11 @@ msgstr "تەپسىلاتىنى يوشۇر…"
 #~ msgid "Show or hide the toolbar"
 #~ msgstr "قورال ئىستونىنى كۆرسەت ياكى يوشۇر"
 
-#~ msgid "Boolean options available: true enables thumbnailing and false disables the creation of new thumbnails"
-#~ msgstr "Boolean تاللانمىلىرى: true كىچىك سۈرەت ياساش ئىناۋەتلىك، false بولسا ئىناۋەتسىز"
+#~ msgid ""
+#~ "Boolean options available: true enables thumbnailing and false disables the "
+#~ "creation of new thumbnails"
+#~ msgstr ""
+#~ "Boolean تاللانمىلىرى: true كىچىك سۈرەت ياساش ئىناۋەتلىك، false بولسا ئىناۋەتسىز"
 
 #~ msgid "Enable thumbnailing of PDF Documents"
 #~ msgstr "PDF پۈتۈكلىرىنىڭ كىچىك سۈرىتىنى ئىناۋەتلىك قىلىش"
@@ -2566,5 +2893,9 @@ msgstr "تەپسىلاتىنى يوشۇر…"
 #~ msgid "Thumbnail command for PDF Documents"
 #~ msgstr "PDF پۈتۈكلىرىنىڭ كىچىك سۈرەت بۇيرۇقى"
 
-#~ msgid "Valid command plus arguments for the PDF Document thumbnailer. See Nautilus thumbnailer documentation for more information."
-#~ msgstr "ئىناۋەتلىك PDF پۈتۈكنىڭ كىچىك سۈرەت بۇيرۇقى ۋە پارامېتىرى. nautilus نىڭ thumbnailer پۈتۈكىدىن تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىڭ."
+#~ msgid ""
+#~ "Valid command plus arguments for the PDF Document thumbnailer. See Nautilus "
+#~ "thumbnailer documentation for more information."
+#~ msgstr ""
+#~ "ئىناۋەتلىك PDF پۈتۈكنىڭ كىچىك سۈرەت بۇيرۇقى ۋە پارامېتىرى. nautilus نىڭ "
+#~ "thumbnailer پۈتۈكىدىن تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىڭ."
