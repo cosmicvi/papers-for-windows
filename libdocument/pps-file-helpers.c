@@ -16,6 +16,13 @@
 #ifndef O_CLOEXEC
 #define O_CLOEXEC 0
 #endif
+#ifndef O_BINARY
+#define O_BINARY 0
+#endif
+#else
+#ifndef O_BINARY
+#define O_BINARY 0
+#endif
 #endif
 
 #include <glib.h>
@@ -128,7 +135,7 @@ pps_mkstemp (const char *tmpl,
 		return -1;
 
 	name = g_build_filename (tmp, tmpl, NULL);
-	fd = g_mkstemp_full (name, O_RDWR | O_CLOEXEC, 0600);
+	fd = g_mkstemp_full (name, O_RDWR | O_CLOEXEC | O_BINARY, 0600);
 
 	if (fd == -1) {
 		int errsv = errno;

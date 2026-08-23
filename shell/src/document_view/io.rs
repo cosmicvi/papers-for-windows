@@ -417,14 +417,15 @@ impl imp::PpsDocumentView {
                                 match job.is_succeeded() {
                                     Err(e) => {
                                         obj.close_after_save.set(false);
-                                        obj.error_message(
-                                            Some(&e),
-                                            &formatx!(
-                                                gettext("The file could not be saved as “{}”."),
-                                                job.uri().unwrap_or_default(),
-                                            )
-                                            .expect("Wrong format in translated string"),
-                                        );
+                                        let target = job.uri().unwrap_or_default();
+                                        let msg = formatx!(
+                                            gettext("The file could not be saved as “{}”."),
+                                            &target
+                                        )
+                                        .unwrap_or_else(|_| {
+                                            format!("The file could not be saved as \"{target}\".")
+                                        });
+                                        obj.error_message(Some(&e), &msg);
                                     }
                                     Ok(_) => {
                                         if let Some(uri) = job.uri() {

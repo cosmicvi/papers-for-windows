@@ -1118,9 +1118,9 @@ mod imp {
             let settings = self.settings.get();
             let key = Self::settings_key_for_directory(dir);
 
-            settings
-                .set(&key, path)
-                .expect("Failed to save folder path");
+            if let Err(e) = settings.set(&key, path) {
+                glib::g_warning!("", "Failed to save folder path: {e}");
+            }
         }
 
         fn cmd_file_open(&self) {

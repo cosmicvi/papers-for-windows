@@ -34,16 +34,35 @@ static PpsBackendInfo *
 get_backend_info_for_mime_type (const gchar *mime_type)
 {
 	GList *l;
-	g_autofree gchar *content_type = g_content_type_from_mime_type (mime_type);
+	g_autofree gchar *content_type = NULL;
 
+	if (!mime_type)
+		return NULL;
+
+	/* Direct string comparison */
 	for (l = pps_backends_list; l; l = l->next) {
 		PpsBackendInfo *info = (PpsBackendInfo *) l->data;
 		char **mime_types = info->mime_types;
 		guint i;
 
-		for (i = 0; mime_types[i] != NULL; ++i)
-			if (g_content_type_is_mime_type (content_type, mime_types[i]))
+		for (i = 0; mime_types[i] != NULL; ++i) {
+			if (g_ascii_strcasecmp (mime_types[i], mime_type) == 0)
 				return info;
+		}
+	}
+
+	content_type = g_content_type_from_mime_type (mime_type);
+	if (content_type) {
+		for (l = pps_backends_list; l; l = l->next) {
+			PpsBackendInfo *info = (PpsBackendInfo *) l->data;
+			char **mime_types = info->mime_types;
+			guint i;
+
+			for (i = 0; mime_types[i] != NULL; ++i) {
+				if (g_content_type_is_mime_type (content_type, mime_types[i]))
+					return info;
+			}
+		}
 	}
 
 	return NULL;
@@ -54,9 +73,25 @@ get_backend_info_for_document (PpsDocument *document)
 {
 	PpsBackendInfo *info;
 
-	info = g_object_get_data (G_OBJECT (document), BACKEND_DATA_KEY);
+	if (!document)
+		return NULL;
 
-	g_warn_if_fail (info != NULL);
+	info = g_object_get_data (G_OBJECT (document), BACKEND_DATA_KEY);
+	if (!info) {
+		/* Fallback by document type name if backend info key was not attached */
+		const gchar *type_name = G_OBJECT_TYPE_NAME (document);
+		GList *l;
+
+		for (l = pps_backends_list; l; l = l->next) {
+			PpsBackendInfo *binfo = (PpsBackendInfo *) l->data;
+			if (type_name && binfo->module_name &&
+			    g_ascii_strncasecmp (type_name, binfo->module_name, 3) == 0) {
+				info = binfo;
+				break;
+			}
+		}
+	}
+
 	return info;
 }
 
@@ -407,11 +442,12 @@ pps_document_factory_add_filters (GtkFileDialog *dialog, PpsDocument *document)
 		PpsBackendInfo *info;
 
 		info = get_backend_info_for_document (document);
-		g_assert (info != NULL);
-		default_filter = gtk_file_filter_new ();
-		gtk_file_filter_set_name (default_filter, info->type_desc);
-		file_filter_add_mime_types (info, default_filter);
-		g_list_store_append (filters, default_filter);
+		if (info != NULL) {
+			default_filter = gtk_file_filter_new ();
+			gtk_file_filter_set_name (default_filter, info->type_desc);
+			file_filter_add_mime_types (info, default_filter);
+			g_list_store_append (filters, default_filter);
+		}
 	} else {
 		GList *l;
 
