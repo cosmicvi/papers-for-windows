@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: evince\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/papers/issues/\n"
 "POT-Creation-Date: 2026-08-02 11:32+0000\n"
-"PO-Revision-Date: 2026-08-09 15:09+0000\n"
+"PO-Revision-Date: 2026-08-14 17:05+0000\n"
 "Last-Translator: Xavi Ivars <xavi.ivars@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
@@ -122,7 +122,6 @@ msgid "Last placed signature scale"
 msgstr "Escala de la signatura de l'última col·locació"
 
 #: data/org.gnome.Papers.gschema.xml:122
-#| msgid "Preview before printing"
 msgid "Previewer window height"
 msgstr "Alçada de la finestra del previsualitzador"
 
@@ -187,28 +186,22 @@ msgid "forms"
 msgstr "formes"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:26
-#| msgid "Annotations"
 msgid "annotate"
 msgstr "annota"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:27
-#| msgid "Annotations"
 msgid "annotations"
 msgstr "anotacions"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:28
-#| msgid "Annotations"
 msgid "annotating"
 msgstr "anotació"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:29
-#| msgctxt "shortcut window"
-#| msgid "Digital Signing"
 msgid "digital signing"
 msgstr "signatura digital"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:30
-#| msgid "_Signatures"
 msgid "digital signatures"
 msgstr "signatures digitals"
 
@@ -233,7 +226,6 @@ msgid "drawing"
 msgstr "dibuix"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:36
-#| msgid "Paragraph"
 msgid "calligraphy"
 msgstr "cal·ligrafia"
 
@@ -242,33 +234,26 @@ msgid "notes"
 msgstr "notes"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:38
-#| msgid "Highlight"
 msgid "highlighting"
 msgstr "ressaltat"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:39
-#| msgid "Underline"
 msgid "underline"
 msgstr "subratllat"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:40
-#| msgid "Underline"
 msgid "underlining"
 msgstr "subratllat"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:41
-#| msgid "Strikethrough (k)"
 msgid "strikethrough"
 msgstr "ratllat"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:42
-#| msgid "Print"
 msgid "printing"
 msgstr "impressió"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:43
-#| msgctxt "shortcut window"
-#| msgid "Night Mode"
 msgid "night mode"
 msgstr "mode nocturn"
 
@@ -278,25 +263,19 @@ msgstr "mode fosc"
 
 # FIXME
 #: data/org.gnome.Papers.metainfo.xml.in.in:45
-#| msgctxt "shortcut window"
-#| msgid "Presentation Mode"
 msgid "presentation mode"
 msgstr "mode de presentació"
 
 # FIXME
 #: data/org.gnome.Papers.metainfo.xml.in.in:46
-#| msgctxt "shortcut window"
-#| msgid "Presentation Mode"
 msgid "presenter mode"
 msgstr "mode presentador"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:47
-#| msgid "Present as Slideshow"
 msgid "slideshows"
 msgstr "presentacions"
 
 #: data/org.gnome.Papers.metainfo.xml.in.in:48
-#| msgid "Bookmarks"
 msgid "bookmarks"
 msgstr "adreces d'interès"
 
@@ -660,7 +639,6 @@ msgid "%s %s: %s"
 msgstr "%s %s: %s"
 
 #: libdocument/pps-document-info.c:397
-#| msgid "Page %s"
 msgid "Page"
 msgid_plural "Pages"
 msgstr[0] "Pàgina"
@@ -1030,7 +1008,6 @@ msgid "Keywords"
 msgstr "Paraules clau"
 
 #: nautilus/pps-nautilus-extension.h:50 shell/src/properties_general.rs:304
-#| msgid "Document Properties"
 msgid "Document produced with"
 msgstr "Document produït amb"
 
@@ -1221,8 +1198,6 @@ msgid "Font Settings"
 msgstr "Paràmetres del tipus de lletra"
 
 #: shell/resources/pps-document-view.blp:399
-#| msgctxt "shortcut window"
-#| msgid "Highlight text"
 msgid "Highlight Stroke Size"
 msgstr "Mida del traç del ressaltat"
 
@@ -1231,7 +1206,6 @@ msgid "Pencil Size"
 msgstr "Mida del llapis"
 
 #: shell/resources/pps-document-view.blp:444
-#| msgid "Erase Annotations"
 msgid "Eraser Settings"
 msgstr "Configuració de l'esborrador"
 
@@ -1341,7 +1315,6 @@ msgid "Sign D_igitally…"
 msgstr "Signa D_igitalment…"
 
 #: shell/resources/pps-document-view.blp:853
-#| msgid "View Signature…"
 msgid "_Manage Signatures…"
 msgstr "Gestiona les signatures..."
 
@@ -1455,17 +1428,14 @@ msgid "Erase Whole Strokes"
 msgstr "Esborra els traços sencers"
 
 #: shell/resources/pps-document-view.blp:1432
-#| msgid "View Signature…"
 msgid "Manage Signatures…"
 msgstr "Gestiona les signatures..."
 
 #: shell/resources/pps-document-view.blp:1451
-#| msgid "_Signatures"
 msgid "No Signatures Yet"
 msgstr "Encara no hi ha signatures"
 
 #: shell/resources/pps-document-view.blp:1461
-#| msgid "_Signatures"
 msgid "Add Signature"
 msgstr "Afegeix signatura"
 
@@ -1963,7 +1933,7 @@ msgstr "Menú"
 #: shell/resources/pps-shortcuts-dialog.blp:293
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr "Dreceres del teclat"
+msgstr "Dreceres de teclat"
 
 #: shell/resources/pps-shortcuts-dialog.blp:298
 msgctxt "shortcut window"
@@ -2036,7 +2006,6 @@ msgid "_Open…"
 msgstr "_Obre…"
 
 #: shell/resources/pps-window.blp:51
-#| msgid "Open a Document"
 msgctxt "tooltip"
 msgid "Open a Document"
 msgstr "Obre un document"
@@ -2155,7 +2124,6 @@ msgstr ""
 "activar-lo."
 
 #: shell/src/document_view/actions.rs:1255
-#| msgid "View Signature…"
 msgid "Add _Visual Signature"
 msgstr "Afegeix una signatura _visual"
 
