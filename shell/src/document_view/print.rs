@@ -126,7 +126,9 @@ impl imp::PpsDocumentView {
                 #[weak(rename_to = obj)]
                 self,
                 move || {
-                    obj.parent_window().destroy();
+                    if let Some(win) = obj.parent_window() {
+                        win.destroy();
+                    }
                 }
             ));
         }
@@ -189,7 +191,10 @@ impl imp::PpsDocumentView {
             .to_string();
         print_settings.set(gtk::PRINT_SETTINGS_OUTPUT_BASENAME, Some(&output_basename));
 
-        operation.set_job_name(&self.parent_window().title().unwrap_or_default());
+        let window = self.parent_window();
+        if let Some(ref win) = window {
+            operation.set_job_name(&win.title().unwrap_or_default());
+        }
         operation.set_current_page(current_page);
         operation.set_print_settings(&print_settings);
         operation.set_default_page_setup(&page_setup);
@@ -204,7 +209,9 @@ impl imp::PpsDocumentView {
 
         self.print_queue.borrow_mut().push_back(operation.clone());
 
-        operation.run(&self.parent_window());
+        if let Some(ref win) = window {
+            operation.run(win);
+        }
     }
 
     fn print_settings_filename(&self, create: bool) -> PathBuf {

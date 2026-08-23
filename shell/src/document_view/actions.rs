@@ -759,8 +759,9 @@ impl imp::PpsDocumentView {
 
                             launcher.set_always_ask(true);
 
+                            let parent = obj.parent_window();
                             launcher.launch(
-                                Some(&obj.parent_window()),
+                                parent.as_ref(),
                                 gio::Cancellable::NONE,
                                 |_| {},
                             );
@@ -909,11 +910,12 @@ impl imp::PpsDocumentView {
             && self.find_sidebar.focus_child().is_some()
         {
             WidgetExt::activate_action(self.obj().as_ref(), "doc.toggle-find", None).unwrap();
-        } else if self.parent_window().is_fullscreen() {
-            self.parent_window()
-                .dynamic_cast::<gio::ActionGroup>()
-                .unwrap()
-                .change_action_state("fullscreen", &false.into());
+        } else if self.parent_window().is_some_and(|w| w.is_fullscreen()) {
+            if let Some(win) = self.parent_window() {
+                if let Ok(ag) = win.dynamic_cast::<gio::ActionGroup>() {
+                    ag.change_action_state("fullscreen", &false.into());
+                }
+            }
         } else if self.split_view.is_collapsed() && self.split_view.shows_sidebar() {
             self.split_view.set_show_sidebar(false);
         } else if self.model.annotation_editing_state() != papers_view::AnnotationEditingState::NONE
@@ -1041,7 +1043,8 @@ impl imp::PpsDocumentView {
             #[weak(rename_to = obj)]
             self,
             async move {
-                let Ok(file) = dialog.save_future(Some(&obj.parent_window())).await else {
+                let parent = obj.parent_window();
+                let Ok(file) = dialog.save_future(parent.as_ref()).await else {
                     return;
                 };
 
@@ -1470,7 +1473,7 @@ impl imp::PpsDocumentView {
             async move {
                 if let Err(e) = obj
                     .attachment_context
-                    .save_attachments_future(attachments, Some(&window))
+                    .save_attachments_future(attachments, window.as_ref())
                     .await
                 {
                     obj.error_message(Some(&e), &gettext("The attachment could not be saved."));

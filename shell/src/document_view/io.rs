@@ -93,15 +93,16 @@ impl imp::PpsDocumentView {
     }
 
     pub(super) fn open_copy_at_dest(&self, dest: Option<&LinkDest>) {
-        self.parent_window()
-            .downcast::<PpsWindow>()
-            .unwrap()
-            .open_copy(
-                self.metadata().as_ref(),
-                dest,
-                self.display_name.borrow().as_str(),
-                self.edit_name.borrow().as_str(),
-            );
+        if let Some(parent) = self.parent_window() {
+            if let Ok(window) = parent.downcast::<PpsWindow>() {
+                window.open_copy(
+                    self.metadata().as_ref(),
+                    dest,
+                    self.display_name.borrow().as_str(),
+                    self.edit_name.borrow().as_str(),
+                );
+            }
+        }
     }
 
     pub(super) fn document_modified(&self) {
@@ -188,8 +189,11 @@ impl imp::PpsDocumentView {
         let title_widget = self
             .header_bar
             .title_widget()
-            .and_downcast::<adw::WindowTitle>()
-            .unwrap();
+            .and_downcast::<adw::WindowTitle>();
+
+        let Some(title_widget) = title_widget else {
+            return;
+        };
 
         if !display_name.is_empty() {
             if let Some(doc_title) = doc_title.filter(|title| !title.is_empty()) {
@@ -201,15 +205,21 @@ impl imp::PpsDocumentView {
 
                 let title = title.replace('\n', " ");
 
-                window.set_title(Some(&title));
+                if let Some(ref win) = window {
+                    win.set_title(Some(&title));
+                }
                 title_widget.set_title(&doc_title);
                 title_widget.set_subtitle(&display_name);
             } else {
-                window.set_title(Some(&display_name));
+                if let Some(ref win) = window {
+                    win.set_title(Some(&display_name));
+                }
                 title_widget.set_title(&display_name);
             }
         } else {
-            window.set_title(Some(&gettext("Papers")));
+            if let Some(ref win) = window {
+                win.set_title(Some(&gettext("Papers")));
+            }
             title_widget.set_title(&gettext("Papers"));
         }
     }
@@ -360,12 +370,11 @@ impl imp::PpsDocumentView {
             .unwrap_or(default_dir)
     }
 
-    pub(super) fn parent_window(&self) -> gtk::Window {
+    pub(super) fn parent_window(&self) -> Option<gtk::Window> {
         self.obj()
             .root()
             .and_downcast::<gtk::Window>()
             .or_else(|| self.obj().native().and_downcast::<gtk::Window>())
-            .expect("Document view must be attached to a Window")
     }
 
     pub(super) fn save_as(&self) {
@@ -441,7 +450,9 @@ impl imp::PpsDocumentView {
                                         #[weak]
                                         obj,
                                         move || {
-                                            obj.parent_window().destroy();
+                                            if let Some(win) = obj.parent_window() {
+                                                win.destroy();
+                                            }
                                         }
                                     ));
                                 }
@@ -927,7 +938,8 @@ impl imp::PpsDocumentView {
             ),
         );
 
-        dialog.present(Some(&self.parent_window()));
+        let parent = self.parent_window();
+        dialog.present(parent.as_ref());
         entry.grab_focus();
         lp.run();
 

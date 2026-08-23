@@ -582,10 +582,11 @@ mod imp {
 
             // Fullscreen
             if let Some(fullscreen) = metadata.boolean("fullscreen") {
-                self.parent_window()
-                    .dynamic_cast::<gio::ActionGroup>()
-                    .unwrap()
-                    .change_action_state("fullscreen", &fullscreen.into());
+                if let Some(win) = self.parent_window() {
+                    if let Ok(ag) = win.dynamic_cast::<gio::ActionGroup>() {
+                        ag.change_action_state("fullscreen", &fullscreen.into());
+                    }
+                }
             }
 
             // Dual page
@@ -848,7 +849,11 @@ mod imp {
                                 obj.close_after_save.set(true);
                                 obj.save_as();
                             }
-                            "no" => obj.parent_window().destroy(),
+                            "no" => {
+                                if let Some(win) = obj.parent_window() {
+                                    win.destroy();
+                                }
+                            }
                             "cancel" => obj.close_after_save.set(false),
                             _ => (),
                         };
