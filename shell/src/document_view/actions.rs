@@ -679,10 +679,11 @@ impl imp::PpsDocumentView {
                     #[weak(rename_to = obj)]
                     self,
                     move |_, action, state| {
-                        let annotation_model = obj.model.annotation_model().unwrap();
-                        let obj = state.unwrap().get::<String>().unwrap() == "true";
-                        annotation_model.set_property("eraser-objects", obj);
-                        action.set_state(state.unwrap());
+                        if let Some(annotation_model) = obj.model.annotation_model() {
+                            let obj = state.unwrap().get::<String>().unwrap() == "true";
+                            annotation_model.set_property("eraser-objects", obj);
+                            action.set_state(state.unwrap());
+                        }
                     }
                 ))
                 .build(),
@@ -1369,7 +1370,13 @@ impl imp::PpsDocumentView {
         if editing_state == papers_view::AnnotationEditingState::NONE
             || editing_state == papers_view::AnnotationEditingState::STAMP
         {
-            if self.model.annotation_model().unwrap().tool() == AnnotationTool::Text {
+            let is_text = self
+                .model
+                .annotation_model()
+                .map(|m| m.tool() == AnnotationTool::Text)
+                .unwrap_or(false);
+
+            if is_text {
                 self.model.set_annotation_editing_state(
                     papers_view::AnnotationEditingState::INSERT_TEXT
                         .union(papers_view::AnnotationEditingState::TEXT),
@@ -1385,14 +1392,16 @@ impl imp::PpsDocumentView {
     }
 
     pub fn cmd_radius_state(&self, action: &gio::SimpleAction, state: &glib::Variant) {
-        let annotation_model = self.model.annotation_model().unwrap();
+        let Some(annotation_model) = self.model.annotation_model() else {
+            return;
+        };
         let radius = state.get::<f64>().unwrap();
 
         match annotation_model.tool() {
             AnnotationTool::Pencil => annotation_model.set_pen_radius(radius),
             AnnotationTool::Highlight => annotation_model.set_highlight_radius(radius),
             AnnotationTool::Eraser => annotation_model.set_eraser_radius(radius),
-            _ => panic!("Unexpected tool"),
+            _ => (),
         }
 
         action.set_state(state);
@@ -1404,7 +1413,9 @@ impl imp::PpsDocumentView {
         tool: AnnotationTool,
         state: &glib::Variant,
     ) {
-        let annotation_model = self.model.annotation_model().unwrap();
+        let Some(annotation_model) = self.model.annotation_model() else {
+            return;
+        };
         let color = state.get::<String>().unwrap();
         let mut rgba = match color.as_str() {
             "yellow" => gdk::RGBA::parse("#f5c211").unwrap(),

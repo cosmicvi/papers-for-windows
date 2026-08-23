@@ -405,8 +405,35 @@ file_filter_add_mime_types (PpsBackendInfo *info, GtkFileFilter *filter)
 	if (mime_types == NULL)
 		return;
 
-	for (i = 0; mime_types[i] != NULL; ++i)
+	for (i = 0; mime_types[i] != NULL; ++i) {
 		gtk_file_filter_add_mime_type (filter, mime_types[i]);
+#ifdef G_OS_WIN32
+		if (g_ascii_strcasecmp (mime_types[i], "application/pdf") == 0 ||
+		    g_ascii_strcasecmp (mime_types[i], "application/x-bzpdf") == 0 ||
+		    g_ascii_strcasecmp (mime_types[i], "application/x-gzpdf") == 0 ||
+		    g_ascii_strcasecmp (mime_types[i], "application/x-xzpdf") == 0) {
+			gtk_file_filter_add_pattern (filter, "*.pdf");
+		} else if (g_ascii_strcasecmp (mime_types[i], "application/postscript") == 0) {
+			gtk_file_filter_add_pattern (filter, "*.ps");
+			gtk_file_filter_add_pattern (filter, "*.eps");
+		} else if (g_ascii_strcasecmp (mime_types[i], "image/vnd.djvu") == 0 ||
+		           g_ascii_strcasecmp (mime_types[i], "image/x.djvu") == 0) {
+			gtk_file_filter_add_pattern (filter, "*.djvu");
+			gtk_file_filter_add_pattern (filter, "*.djv");
+		} else if (g_ascii_strcasecmp (mime_types[i], "image/tiff") == 0) {
+			gtk_file_filter_add_pattern (filter, "*.tiff");
+			gtk_file_filter_add_pattern (filter, "*.tif");
+		} else if (g_ascii_strcasecmp (mime_types[i], "application/x-cbr") == 0 ||
+		           g_ascii_strcasecmp (mime_types[i], "application/x-cbz") == 0 ||
+		           g_ascii_strcasecmp (mime_types[i], "application/x-cb7") == 0 ||
+		           g_ascii_strcasecmp (mime_types[i], "application/x-cbt") == 0) {
+			gtk_file_filter_add_pattern (filter, "*.cbr");
+			gtk_file_filter_add_pattern (filter, "*.cbz");
+			gtk_file_filter_add_pattern (filter, "*.cb7");
+			gtk_file_filter_add_pattern (filter, "*.cbt");
+		}
+#endif
+	}
 }
 
 /**
