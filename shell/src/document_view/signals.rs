@@ -330,7 +330,11 @@ impl imp::PpsDocumentView {
                 let _ = WidgetExt::activate_action(obj.as_ref(), "doc.find", None);
             }
             _ if name.eq_ignore_ascii_case("Close") => {
-                obj.native().and_downcast::<gtk::Window>().unwrap().close()
+                if let Some(win) = obj.root().and_downcast::<gtk::Window>() {
+                    win.close();
+                } else if let Some(win) = obj.native().and_downcast::<gtk::Window>() {
+                    win.close();
+                }
             }
             _ if name.eq_ignore_ascii_case("Print") => {
                 self.document_action_group.activate_action("print", None)

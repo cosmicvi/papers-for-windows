@@ -361,7 +361,11 @@ impl imp::PpsDocumentView {
     }
 
     pub(super) fn parent_window(&self) -> gtk::Window {
-        self.obj().native().and_downcast::<gtk::Window>().unwrap()
+        self.obj()
+            .root()
+            .and_downcast::<gtk::Window>()
+            .or_else(|| self.obj().native().and_downcast::<gtk::Window>())
+            .expect("Document view must be attached to a Window")
     }
 
     pub(super) fn save_as(&self) {
@@ -374,11 +378,17 @@ impl imp::PpsDocumentView {
 
         Document::factory_add_filters(&dialog, self.document().as_ref());
 
+        let parent_window = self
+            .obj()
+            .root()
+            .and_downcast::<gtk::Window>()
+            .or_else(|| self.obj().native().and_downcast::<gtk::Window>());
+
         glib::spawn_future_local(glib::clone!(
             #[weak(rename_to = obj)]
             self,
             async move {
-                let result = dialog.save_future(Some(&obj.parent_window())).await;
+                let result = dialog.save_future(parent_window.as_ref()).await;
 
                 match result {
                     Err(_) => obj.close_after_save.set(false),
@@ -387,9 +397,16 @@ impl imp::PpsDocumentView {
 
                         obj.clear_save_job();
 
-                        let document = obj.document().unwrap();
+                        let Some(document) = obj.document() else {
+                            return;
+                        };
                         let uri = file.uri();
-                        let document_uri = obj.file.borrow().as_ref().unwrap().uri();
+                        let document_uri = obj
+                            .file
+                            .borrow()
+                            .as_ref()
+                            .map(|f| f.uri())
+                            .unwrap_or_else(|| uri.clone());
 
                         let save_job = papers_view::JobSave::new(&document, &uri, &document_uri);
 
@@ -828,14 +845,24 @@ impl imp::PpsDocumentView {
             .initial_folder(&gio::File::for_path(self.default_save_directory()))
             .build();
 
+        let parent_window = self
+            .obj()
+            .root()
+            .and_downcast::<gtk::Window>()
+            .or_else(|| self.obj().native().and_downcast::<gtk::Window>());
+
         glib::spawn_future_local(glib::clone!(
             #[weak(rename_to = obj)]
             self,
             async move {
-                let result = dialog.save_future(Some(&obj.parent_window())).await;
+                let result = dialog.save_future(parent_window.as_ref()).await;
 
                 match result {
-                    Ok(file) => obj.certificate_save_file(file.path().unwrap()),
+                    Ok(file) => {
+                        if let Some(path) = file.path() {
+                            obj.certificate_save_file(path);
+                        }
+                    }
                     Err(e) => {
                         if !e.matches(gio::IOErrorEnum::Cancelled) {
                             glib::g_warning!("", "Could not save signed file: {}", e.message());
