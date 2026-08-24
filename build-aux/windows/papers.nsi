@@ -4,7 +4,7 @@
 !define APP_NAME "Papers"
 !define PUBLISHER "GNOME Project"
 !ifndef APP_VERSION
-  !define APP_VERSION "51.beta"
+  !define APP_VERSION "51.beta.1"
 !endif
 
 Name "${APP_NAME}"

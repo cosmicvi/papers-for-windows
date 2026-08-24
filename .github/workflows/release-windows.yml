@@ -132,7 +132,9 @@ jobs:
       - name: Compile NSIS Installer
         shell: msys2 {0}
         run: |
-          makensis build-aux/windows/papers.nsi
+          SLUG="${GITHUB_REF_NAME#v}"
+          [ -z "$SLUG" ] && SLUG="51.beta.1"
+          makensis -DAPP_VERSION="$SLUG" build-aux/windows/papers.nsi
 
       - name: Sign Setup Installer (Optional)
         shell: pwsh
@@ -180,14 +182,14 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          name: GNOME Papers for Windows 51.beta
+          name: GNOME Papers for Windows ${{ github.ref_name }}
           files: |
             papers-*-portable-x64.zip
             papers-*-installer-x64.exe
           draft: false
           prerelease: false
           body: |
-            ## GNOME Papers for Windows 51.beta
+            ## GNOME Papers for Windows ${{ github.ref_name }}
 
             ### 📦 Downloads & Installation
             - **Setup Installer (`.exe`)**: Automatic installation with Start Menu shortcuts and file associations (`.pdf`, `.djvu`, `.cbr`).
