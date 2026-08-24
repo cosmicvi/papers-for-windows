@@ -377,6 +377,81 @@ impl imp::PpsDocumentView {
             .or_else(|| self.obj().native().and_downcast::<gtk::Window>())
     }
 
+    pub(crate) fn save(&self) {
+        if let Some(file) = self.file.borrow().clone() {
+            self.execute_save(&file);
+        } else {
+            self.save_as();
+        }
+    }
+
+    fn execute_save(&self, target_file: &gio::File) {
+        self.file_dialog_save_folder(Some(target_file), UserDirectory::Documents);
+
+        self.clear_save_job();
+
+        let Some(document) = self.document() else {
+            return;
+        };
+        let uri = target_file.uri();
+        let document_uri = self
+            .file
+            .borrow()
+            .as_ref()
+            .map(|f| f.uri())
+            .unwrap_or_else(|| uri.clone());
+
+        let save_job = papers_view::JobSave::new(&document, &uri, &document_uri);
+
+        let id = save_job.connect_finished(glib::clone!(
+            #[weak(rename_to = obj)]
+            self,
+            move |job| {
+                match job.is_succeeded() {
+                    Err(e) => {
+                        obj.close_after_save.set(false);
+                        let target = job.uri().unwrap_or_default();
+                        let msg = formatx!(
+                            gettext("The file could not be saved as “{}”."),
+                            &target
+                        )
+                        .unwrap_or_else(|_| {
+                            format!("The file could not be saved as \"{target}\".")
+                        });
+                        obj.error_message(Some(&e), &msg);
+                    }
+                    Ok(_) => {
+                        obj.modified.set(false);
+                        obj.update_title();
+                        if let Some(uri) = job.uri() {
+                            gtk::RecentManager::default().add_item(&uri);
+                        }
+                    }
+                }
+
+                obj.clear_save_job();
+
+                if obj.close_after_save.get() {
+                    glib::idle_add_local_once(glib::clone!(
+                        #[weak]
+                        obj,
+                        move || {
+                            if let Some(win) = obj.parent_window() {
+                                win.destroy();
+                            }
+                        }
+                    ));
+                }
+            }
+        ));
+
+        self.save_job.replace(Some(save_job.clone()));
+        self.save_job_handler.replace(Some(id));
+
+        // The priority doesn't matter for this job
+        save_job.scheduler_push_job(JobPriority::PriorityNone);
+    }
+
     pub(crate) fn save_as(&self) {
         let dialog = gtk::FileDialog::builder()
             .title(gettext("Save As…"))
@@ -402,68 +477,7 @@ impl imp::PpsDocumentView {
                 match result {
                     Err(_) => obj.close_after_save.set(false),
                     Ok(file) => {
-                        obj.file_dialog_save_folder(Some(&file), UserDirectory::Documents);
-
-                        obj.clear_save_job();
-
-                        let Some(document) = obj.document() else {
-                            return;
-                        };
-                        let uri = file.uri();
-                        let document_uri = obj
-                            .file
-                            .borrow()
-                            .as_ref()
-                            .map(|f| f.uri())
-                            .unwrap_or_else(|| uri.clone());
-
-                        let save_job = papers_view::JobSave::new(&document, &uri, &document_uri);
-
-                        let id = save_job.connect_finished(glib::clone!(
-                            #[weak]
-                            obj,
-                            move |job| {
-                                match job.is_succeeded() {
-                                    Err(e) => {
-                                        obj.close_after_save.set(false);
-                                        let target = job.uri().unwrap_or_default();
-                                        let msg = formatx!(
-                                            gettext("The file could not be saved as “{}”."),
-                                            &target
-                                        )
-                                        .unwrap_or_else(|_| {
-                                            format!("The file could not be saved as \"{target}\".")
-                                        });
-                                        obj.error_message(Some(&e), &msg);
-                                    }
-                                    Ok(_) => {
-                                        if let Some(uri) = job.uri() {
-                                            gtk::RecentManager::default().add_item(&uri);
-                                        }
-                                    }
-                                }
-
-                                obj.clear_save_job();
-
-                                if obj.close_after_save.get() {
-                                    glib::idle_add_local_once(glib::clone!(
-                                        #[weak]
-                                        obj,
-                                        move || {
-                                            if let Some(win) = obj.parent_window() {
-                                                win.destroy();
-                                            }
-                                        }
-                                    ));
-                                }
-                            }
-                        ));
-
-                        obj.save_job.replace(Some(save_job.clone()));
-                        obj.save_job_handler.replace(Some(id));
-
-                        // The priority doesn't matter for this job
-                        save_job.scheduler_push_job(JobPriority::PriorityNone);
+                        obj.execute_save(&file);
                     }
                 }
             }

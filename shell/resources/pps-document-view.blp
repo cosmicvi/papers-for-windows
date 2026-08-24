@@ -616,7 +616,12 @@ template $PpsDocumentView: Adw.BreakpointBin {
       }
 
       Shortcut {
-        trigger: "<Ctrl>S|<Ctrl><Shift>S";
+        trigger: "<Ctrl>S";
+        action: "action(doc.save)";
+      }
+
+      Shortcut {
+        trigger: "<Ctrl><Shift>S";
         action: "action(doc.save-as)";
       }
 
@@ -867,7 +872,12 @@ menu document_menu {
     }
 
     item {
-      label: _("_Save As…");
+      label: _("_Save");
+      action: "doc.save";
+    }
+
+    item {
+      label: _("Save _As…");
       action: "doc.save-as";
     }
   }

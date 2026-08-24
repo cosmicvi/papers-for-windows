@@ -157,6 +157,15 @@ impl imp::PpsDocumentView {
                 ))
                 .build(),
             // Document related actions
+            gio::ActionEntryBuilder::new("save")
+                .activate(glib::clone!(
+                    #[weak(rename_to = obj)]
+                    self,
+                    move |_, _, _| {
+                        obj.cmd_save();
+                    }
+                ))
+                .build(),
             gio::ActionEntryBuilder::new("save-as")
                 .activate(glib::clone!(
                     #[weak(rename_to = obj)]
@@ -1013,6 +1022,10 @@ impl imp::PpsDocumentView {
 
     fn cmd_rotate_right(&self) {
         self.rotate(90);
+    }
+
+    fn cmd_save(&self) {
+        self.save();
     }
 
     fn cmd_save_as(&self) {

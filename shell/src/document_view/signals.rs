@@ -11,6 +11,7 @@ impl imp::PpsDocumentView {
     #[template_callback]
     pub(crate) fn doc_restrictions_changed(&self) {
         let Some(document) = self.document() else {
+            self.set_action_enabled("save", false);
             self.set_action_enabled("save-as", false);
             self.set_action_enabled("print", false);
             return;
@@ -43,6 +44,7 @@ impl imp::PpsDocumentView {
             }
         }
 
+        self.set_action_enabled("save", ok_to_copy);
         self.set_action_enabled("save-as", ok_to_copy);
         self.set_action_enabled("print", ok_to_print);
     }
@@ -340,6 +342,9 @@ impl imp::PpsDocumentView {
             }
             _ if name.eq_ignore_ascii_case("Print") => {
                 self.document_action_group.activate_action("print", None)
+            }
+            _ if name.eq_ignore_ascii_case("Save") => {
+                self.document_action_group.activate_action("save", None)
             }
             _ if name.eq_ignore_ascii_case("SaveAs") => {
                 self.document_action_group.activate_action("save-as", None)
