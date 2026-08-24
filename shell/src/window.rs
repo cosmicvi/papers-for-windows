@@ -918,7 +918,7 @@ mod imp {
                                     obj.set_mode(pending_mode);
                                 }
                                 _ => obj.set_mode(pending_mode),
-                            }
+                            };
 
                             gtk::RecentManager::default().add_item(&uri);
 

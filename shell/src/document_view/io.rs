@@ -377,7 +377,7 @@ impl imp::PpsDocumentView {
             .or_else(|| self.obj().native().and_downcast::<gtk::Window>())
     }
 
-    pub(super) fn save_as(&self) {
+    pub(crate) fn save_as(&self) {
         let dialog = gtk::FileDialog::builder()
             .title(gettext("Save As…"))
             .modal(true)

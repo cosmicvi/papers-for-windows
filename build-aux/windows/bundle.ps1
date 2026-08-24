@@ -70,10 +70,19 @@ Copy-Item "build\libdocument\backend\*.papers-backend" $backendsDir -Force
 Copy-Item "$ucrtBin\libstdc++-6.dll" $binDir -Force -ErrorAction SilentlyContinue
 Copy-Item "$ucrtBin\libgcc_s_seh-1.dll" $binDir -Force -ErrorAction SilentlyContinue
 Copy-Item "$ucrtBin\libwinpthread-1.dll" $binDir -Force -ErrorAction SilentlyContinue
-Copy-Item "$ucrtBin\libstdc++-6.dll" $backendsDir -Force -ErrorAction SilentlyContinue
-Copy-Item "$ucrtBin\libgcc_s_seh-1.dll" $backendsDir -Force -ErrorAction SilentlyContinue
-Copy-Item "$ucrtBin\libwinpthread-1.dll" $backendsDir -Force -ErrorAction SilentlyContinue
-Copy-Item "build\data\gschemas.compiled" $schemasDir -Force
+Write-Host "Copying and compiling GSettings schemas..." -ForegroundColor Cyan
+if (Test-Path (Join-Path $ucrtShare "glib-2.0\schemas")) {
+    Copy-Item (Join-Path $ucrtShare "glib-2.0\schemas\*.xml") $schemasDir -Force -ErrorAction SilentlyContinue
+}
+if (Test-Path "data\org.gnome.Papers.gschema.xml") {
+    Copy-Item "data\org.gnome.Papers.gschema.xml" $schemasDir -Force
+}
+$glibCompileSchemas = Join-Path $ucrtBin "glib-compile-schemas.exe"
+if (Test-Path $glibCompileSchemas) {
+    & $glibCompileSchemas $schemasDir
+} else {
+    Copy-Item "build\data\gschemas.compiled" $schemasDir -Force
+}
 
 Write-Host "Resolving and copying DLL dependencies via ldd..." -ForegroundColor Cyan
 $env:CHERE_INVOKING = "1"

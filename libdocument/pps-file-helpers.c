@@ -308,6 +308,11 @@ pps_file_copy_metadata (const char *from,
                         const char *to,
                         GError **error)
 {
+#ifdef G_OS_WIN32
+	/* Extended metadata (xattrs, POSIX ownership, SELinux) is not
+	 * supported on Windows NTFS. Skip safely. */
+	return TRUE;
+#else
 	g_autoptr (GFile) source_file = NULL;
 	g_autoptr (GFile) target_file = NULL;
 	gboolean result;
@@ -324,6 +329,7 @@ pps_file_copy_metadata (const char *from,
 	                                 NULL, error);
 
 	return result;
+#endif
 }
 
 static gchar *
@@ -565,9 +571,17 @@ compression_run (const gchar *uri,
 		GIOStatus read_st, write_st;
 		gsize bytes_read, bytes_written;
 
+#ifdef G_OS_WIN32
+		in = g_io_channel_win32_new_fd (pout);
+#else
 		in = g_io_channel_unix_new (pout);
+#endif
 		g_io_channel_set_encoding (in, NULL, NULL);
+#ifdef G_OS_WIN32
+		out = g_io_channel_win32_new_fd (fd);
+#else
 		out = g_io_channel_unix_new (fd);
+#endif
 		g_io_channel_set_encoding (out, NULL, NULL);
 
 		do {

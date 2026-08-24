@@ -454,7 +454,7 @@ void
 pps_document_factory_add_filters (GtkFileDialog *dialog, PpsDocument *document)
 {
 	GtkFileFilter *all_documents_filter, *default_filter, *all_files_filter;
-	GListStore *filters = g_list_store_new (GTK_TYPE_FILTER);
+	GListStore *filters = g_list_store_new (GTK_TYPE_FILE_FILTER);
 
 	g_return_if_fail (GTK_IS_FILE_DIALOG (dialog));
 	g_return_if_fail (document == NULL || PPS_IS_DOCUMENT (document));
